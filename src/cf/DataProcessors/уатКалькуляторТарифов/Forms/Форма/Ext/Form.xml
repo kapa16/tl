@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗакрыть" id="39">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="40"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="НадписьДопИнфо" id="50">
+			<DataPath>НадписьДопИнфо</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прейскурант</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Price list</v8:content>
+				</v8:item>
+			</Title>
+			<Hiperlink>true</Hiperlink>
+			<Font bold="true" kind="AutoFont"/>
+			<ContextMenu name="НадписьДопИнфоКонтекстноеМеню" id="51"/>
+			<ExtendedTooltip name="НадписьДопИнфоРасширеннаяПодсказка" id="52"/>
+			<Events>
+				<Event name="Click">НадписьДопИнфоНажатие</Event>
+			</Events>
+		</LabelField>
+		<UsualGroup name="Группа1" id="44">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<CheckBoxField name="УчитыватьНДС" id="4">
+					<DataPath>Объект.УчитыватьНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчитыватьНДСКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="УчитыватьНДСРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">УчитыватьНДСПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="СуммаВключаетНДС" id="1">
+					<DataPath>Объект.СуммаВключаетНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">СуммаВключаетНДСПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<Page name="ГруппаСтраницаУслуги" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Услуги</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Services</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страница услуги</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>group services page</v8:content>
+						</v8:item>
+					</ToolTip>
+					<TitleDataPath>Объект.Услуги.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаСтраницаУслугиРасширеннаяПодсказка" id="49"/>
+					<ChildItems>
+						<Table name="Услуги" id="7">
+							<Representation>List</Representation>
+							<Footer>true</Footer>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Услуги</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УслугиКонтекстноеМеню" id="8"/>
+							<AutoCommandBar name="УслугиКоманднаяПанель" id="9">
+								<ChildItems>
+									<Button name="УслугиЗагрузитьИзПрейскуранта" id="35">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗагрузитьИзПрейскуранта</CommandName>
+										<ExtendedTooltip name="УслугиЗагрузитьИзПрейскурантаРасширеннаяПодсказка" id="36"/>
+									</Button>
+									<Button name="УслугиПодбор" id="37">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.Подбор</CommandName>
+										<ExtendedTooltip name="УслугиПодборРасширеннаяПодсказка" id="38"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="УслугиРасширеннаяПодсказка" id="10"/>
+							<SearchStringAddition name="УслугиСтрокаПоиска" id="56">
+								<AdditionSource>
+									<Item>Услуги</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УслугиСтрокаПоискаКонтекстноеМеню" id="57"/>
+								<ExtendedTooltip name="УслугиСтрокаПоискаРасширеннаяПодсказка" id="58"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УслугиСостояниеПросмотра" id="59">
+								<AdditionSource>
+									<Item>Услуги</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УслугиСостояниеПросмотраКонтекстноеМеню" id="60"/>
+								<ExtendedTooltip name="УслугиСостояниеПросмотраРасширеннаяПодсказка" id="61"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УслугиУправлениеПоиском" id="62">
+								<AdditionSource>
+									<Item>Услуги</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УслугиУправлениеПоискомКонтекстноеМеню" id="63"/>
+								<ExtendedTooltip name="УслугиУправлениеПоискомРасширеннаяПодсказка" id="64"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="УслугиНомерСтроки" id="11">
+									<DataPath>Объект.Услуги.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиНомерСтрокиКонтекстноеМеню" id="12"/>
+									<ExtendedTooltip name="УслугиНомерСтрокиРасширеннаяПодсказка" id="13"/>
+								</LabelField>
+								<InputField name="УслугиТариф" id="14">
+									<DataPath>Объект.Услуги.Тариф</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиТарифКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="УслугиТарифРасширеннаяПодсказка" id="16"/>
+									<Events>
+										<Event name="OnChange">УслугиТарифПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="УслугиКоличество" id="17">
+									<DataPath>Объект.Услуги.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="УслугиКоличествоКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="УслугиКоличествоРасширеннаяПодсказка" id="19"/>
+									<Events>
+										<Event name="OnChange">УслугиКоличествоПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="УслугиЦена" id="20">
+									<DataPath>Объект.Услуги.Цена</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="УслугиЦенаКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="УслугиЦенаРасширеннаяПодсказка" id="22"/>
+									<Events>
+										<Event name="OnChange">УслугиЦенаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="УслугиПроцентСкидкиНаценки" id="23">
+									<DataPath>Объект.Услуги.ПроцентСкидкиНаценки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Скидка, %</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Discount %</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиПроцентСкидкиНаценкиКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="УслугиПроцентСкидкиНаценкиРасширеннаяПодсказка" id="25"/>
+									<Events>
+										<Event name="OnChange">УслугиПроцентСкидкиНаценкиПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="УслугиСумма" id="26">
+									<DataPath>Объект.Услуги.Сумма</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterDataPath>Объект.Услуги.TotalСумма</FooterDataPath>
+									<FooterFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="УслугиСуммаКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="УслугиСуммаРасширеннаяПодсказка" id="28"/>
+									<Events>
+										<Event name="OnChange">УслугиСуммаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="УслугиСтавкаНДС" id="29">
+									<DataPath>Объект.Услуги.СтавкаНДС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>НДС</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>VAT</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="УслугиСтавкаНДСКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="УслугиСтавкаНДСРасширеннаяПодсказка" id="31"/>
+									<Events>
+										<Event name="OnChange">УслугиСтавкаНДСПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="УслугиСуммаНДС" id="32">
+									<DataPath>Объект.Услуги.СуммаНДС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterDataPath>Объект.Услуги.TotalСуммаНДС</FooterDataPath>
+									<FooterFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<Width>10</Width>
+									<ContextMenu name="УслугиСуммаНДСКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="УслугиСуммаНДСРасширеннаяПодсказка" id="34"/>
+								</InputField>
+								<InputField name="УслугиВсего" id="53">
+									<DataPath>Объект.Услуги.Всего</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterDataPath>Объект.Услуги.TotalВсего</FooterDataPath>
+									<FooterFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="УслугиВсегоКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="УслугиВсегоРасширеннаяПодсказка" id="55"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатКалькуляторТарифов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="НадписьДопИнфо" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись доп инфо</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Label additional info</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекПользователь" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек пользователь</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cur user</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации при открытии формы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗагрузитьИзПрейскуранта" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить из прейскуранта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Download from price list</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить из прейскуранта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Download from price list</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьИзПрейскуранта</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Подбор" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатПодбор</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Подбор</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

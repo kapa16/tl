@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<CommandBar name="ГруппаКоманднаяПанельМаршрутизация" id="38">
+			<Visible>false</Visible>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельМаршрутизацияРасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<Button name="ФормаОК" id="40">
+					<Type>CommandBarButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.Command.ОК</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="41"/>
+				</Button>
+				<Button name="ИзменитьФорму" id="42">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+					<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="43"/>
+				</Button>
+				<Button name="Справка" id="44">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.StandardCommand.Help</CommandName>
+					<ExtendedTooltip name="СправкаРасширеннаяПодсказка" id="45"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+		<UsualGroup name="ГруппаНаименованиеИКод" id="22">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеИКодExtendedTooltip" id="23"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">НаименованиеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">РодительПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ВариантНастроек" id="13">
+			<DataPath>Объект.ВариантНастроек</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВариантНастроекКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ВариантНастроекРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<UsualGroup name="ДатаВремя" id="81">
+			<Group>AlwaysHorizontal</Group>
+			<HorizontalSpacing>OneAndHalf</HorizontalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ДатаВремяРасширеннаяПодсказка" id="82"/>
+			<ChildItems>
+				<InputField name="ДатаМаршрутизации" id="10">
+					<DataPath>Объект.ДатаМаршрутизации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаМаршрутизацииКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ДатаМаршрутизацииРасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ДатаМаршрутизацииПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВремяВыполненияМаршрутизации" id="83">
+					<DataPath>ВремяВыполненияМаршрутизацииДата</DataPath>
+					<Width>6</Width>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=HH:mm:ss; ДП=00:00:00</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>DF=HH:mm:ss; DP=00:00:00</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="ВремяВыполненияМаршрутизацииКонтекстноеМеню" id="84"/>
+					<ExtendedTooltip name="ВремяВыполненияМаршрутизацииРасширеннаяПодсказка" id="85"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="НастройкаУказыватьНаименованиеЭтапаВручную" id="123">
+			<DataPath>НастройкаУказыватьНаименованиеЭтапаВручную</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Если в результате маршрутизации были сформированы маршрутные листы, создается и автоматически заполняется новый элемент справочника "Этапы маршрутизации", устанавливается связь между маршрутным листом и этапом.
+Если флаг "Указывать наименование этапа вручную" не установлен, форма для указания наименования этапа не открывается и наименование этапа заполняется по умолчанию.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>If route sheets are generated as a result of routing, a new "Routing Stages" directory element is created and automatically populated, establishing a link between the route sheet and the stage.
+If the "Specify stage name manually" checkbox is not selected, the form for specifying the stage name does not open, and the stage name is populated by default.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="НастройкаУказыватьНаименованиеЭтапаВручнуюКонтекстноеМеню" id="124"/>
+			<ExtendedTooltip name="НастройкаУказыватьНаименованиеЭтапаВручнуюРасширеннаяПодсказка" id="125"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаАлгоритм" id="98">
+			<Group>Vertical</Group>
+			<HorizontalSpacing>OneAndHalf</HorizontalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаАлгоритмРасширеннаяПодсказка" id="99"/>
+			<ChildItems>
+				<RadioButtonField name="АлгоритмМаршрутизации" id="92">
+					<DataPath>Объект.АлгоритмМаршрутизации</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Algorithm</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Алгоритм</v8:content>
+						</v8:item>
+					</Title>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Queues</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Очередей</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Clarke-Wright</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Кларка-Райта</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Yandex</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Яндекс</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">3</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Rarus VRP</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Rarus VRP</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">4</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Фикс. маршруты</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Fixed routes</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">5</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="АлгоритмМаршрутизацииКонтекстноеМеню" id="93"/>
+					<ExtendedTooltip name="АлгоритмМаршрутизацииРасширеннаяПодсказка" id="94"/>
+				</RadioButtonField>
+				<UsualGroup name="ГруппаИдентификаторЗадачи" id="121">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа идентификатор задачи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Task ID group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа идентификатор задачи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Task ID group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<VerticalSpacing>None</VerticalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИдентификаторЗадачиРасширеннаяПодсказка" id="122"/>
+					<ChildItems>
+						<InputField name="ИдентификаторЗадачи" id="108">
+							<DataPath>Объект.ИдентификаторЗадачи</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Width>38</Width>
+							<ContextMenu name="ИдентификаторЗадачиКонтекстноеМеню" id="109"/>
+							<ExtendedTooltip name="ИдентификаторЗадачиРасширеннаяПодсказка" id="110"/>
+						</InputField>
+						<UsualGroup name="ГруппаИдентификаторЗадачиКоманды" id="111">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа идентификатор задачи команды</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group Task ID of the command</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalSpacing>Half</HorizontalSpacing>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИдентификаторЗадачиКомандыРасширеннаяПодсказка" id="112"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияИдентификаторЗадачи" id="113">
+									<Width>13</Width>
+									<ContextMenu name="ДекорацияИдентификаторЗадачиКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="ДекорацияИдентификаторЗадачиРасширеннаяПодсказка" id="115"/>
+								</LabelDecoration>
+								<LabelDecoration name="ДекорацияИдентификаторЗадачиОткрытьВБраузере" id="118">
+									<Title formatted="true">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>&lt;link Открыть в браузере&gt;Открыть в браузере&lt;/&gt;</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Open in browser</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияИдентификаторЗадачиОткрытьВБраузереКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="ДекорацияИдентификаторЗадачиОткрытьВБраузереРасширеннаяПодсказка" id="120"/>
+								</LabelDecoration>
+								<Button name="ПоказатьЗапрос" id="134">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ПоказатьЗапрос</CommandName>
+									<ExtendedTooltip name="ПоказатьЗапросРасширеннаяПодсказка" id="135"/>
+								</Button>
+								<Button name="ПоказатьРешение" id="136">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ПоказатьРешение</CommandName>
+									<ExtendedTooltip name="ПоказатьРешениеРасширеннаяПодсказка" id="137"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаРезультаты" id="30">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаРезультатыРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<Page name="СтраницаСтатистика" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статистика</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Statistics</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статистика</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Statistics</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСтатистикаРасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<HTMLDocumentField name="СводнаяИнформацияHTML" id="48">
+							<DataPath>СводнаяИнформацияHTML</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="СводнаяИнформацияHTMLКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="СводнаяИнформацияHTMLРасширеннаяПодсказка" id="50"/>
+						</HTMLDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаМетрики" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Метрики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Metrics</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница метрики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Metrics page</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаМетрикиРасширеннаяПодсказка" id="52"/>
+					<ChildItems>
+						<Table name="Метрики" id="53">
+							<ReadOnly>true</ReadOnly>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Метрики</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МетрикиКонтекстноеМеню" id="54"/>
+							<AutoCommandBar name="МетрикиКоманднаяПанель" id="55">
+								<ChildItems>
+									<Button name="МетрикиОбновитьМетрики" id="103">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьМетрики</CommandName>
+										<ExtendedTooltip name="МетрикиОбновитьМетрикиРасширеннаяПодсказка" id="104"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="МетрикиРасширеннаяПодсказка" id="56"/>
+							<SearchStringAddition name="МетрикиСтрокаПоиска" id="57">
+								<AdditionSource>
+									<Item>Метрики</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МетрикиСтрокаПоискаКонтекстноеМеню" id="58"/>
+								<ExtendedTooltip name="МетрикиСтрокаПоискаРасширеннаяПодсказка" id="59"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МетрикиСостояниеПросмотра" id="60">
+								<AdditionSource>
+									<Item>Метрики</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МетрикиСостояниеПросмотраКонтекстноеМеню" id="61"/>
+								<ExtendedTooltip name="МетрикиСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МетрикиУправлениеПоиском" id="63">
+								<AdditionSource>
+									<Item>Метрики</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МетрикиУправлениеПоискомКонтекстноеМеню" id="64"/>
+								<ExtendedTooltip name="МетрикиУправлениеПоискомРасширеннаяПодсказка" id="65"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="МетрикиТС" id="69">
+									<DataPath>Объект.Метрики.ТС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МетрикиТСКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="МетрикиТСРасширеннаяПодсказка" id="71"/>
+								</InputField>
+								<InputField name="МетрикиМаршрутныйЛист" id="86">
+									<DataPath>Объект.Метрики.МаршрутныйЛист</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МетрикиМаршрутныйЛистКонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="МетрикиМаршрутныйЛистРасширеннаяПодсказка" id="88"/>
+								</InputField>
+								<InputField name="МетрикиСвойство" id="72">
+									<DataPath>Объект.Метрики.Свойство</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МетрикиСвойствоКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="МетрикиСвойствоРасширеннаяПодсказка" id="74"/>
+								</InputField>
+								<InputField name="МетрикиЗначение" id="75">
+									<DataPath>Объект.Метрики.Значение</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Значение (исходное)</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Value (original)</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МетрикиЗначениеКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="МетрикиЗначениеРасширеннаяПодсказка" id="77"/>
+								</InputField>
+								<InputField name="МетрикиЗначениеТекущее" id="105">
+									<DataPath>Объект.Метрики.ЗначениеТекущее</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МетрикиЗначениеТекущееКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="МетрикиЗначениеТекущееРасширеннаяПодсказка" id="107"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНастройкиМаршрутизации" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Routing Settings</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки маршрутизации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Routing Settings</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки маршрутизации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНастройкиМаршрутизацииРасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<TextDocumentField name="НастройкиМаршрутизации" id="24">
+							<DataPath>Объект.НастройкиМаршрутизации</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="НастройкиМаршрутизацииКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="НастройкиМаршрутизацииРасширеннаяПодсказка" id="26"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОтвет" id="126">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Result</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница ответ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Answer page</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаОтветРасширеннаяПодсказка" id="127"/>
+					<ChildItems>
+						<TextDocumentField name="HTTPОтвет" id="131">
+							<DataPath>Объект.HTTPОтвет</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="HTTPОтветКонтекстноеМеню" id="132"/>
+							<ExtendedTooltip name="HTTPОтветРасширеннаяПодсказка" id="133"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатЭтапыМаршрутизации</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЭтоМаршрутизация" id="3">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СводнаяИнформацияHTML" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сводная информация HTML</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Summary information HTML</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяВыполненияМаршрутизацииДата" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время выполнения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Execution time</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Time</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресХранилищаДО" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес хранилища длит. операции</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Address storage duration. operation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаУказыватьНаименованиеЭтапаВручную" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Указывать наименование этапа вручную</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Specify the stage name manually</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>МетрикиТС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Метрики.ТС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.уатТС.ПустаяСсылка</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Total</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьМетрики" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить метрики</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update metrics</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьМетрики</Action>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ПоказатьЗапрос" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать запрос</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check connection</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Test the connection to tracking software</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьЗапрос</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьРешение" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать решение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check connection</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Test the connection to tracking software</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать решение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьРешение</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

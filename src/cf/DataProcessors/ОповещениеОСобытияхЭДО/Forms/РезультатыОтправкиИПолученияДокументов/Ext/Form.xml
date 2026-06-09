@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Результаты отправки и получения документов</v8:content>
+		</v8:item>
+	</Title>
+	<Width>70</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Button name="ПровестиДиагностику" id="80">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ПровестиДиагностику</CommandName>
+			<ExtendedTooltip name="ПровестиДиагностикуРасширеннаяПодсказка" id="81"/>
+		</Button>
+		<Pages name="ГруппаСтраницы" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<Page name="СтраницаДокументы" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаДокументыРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаШапкаТаблицыРезультатыОпераций" id="39">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор по операциям</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаШапкаТаблицыРезультатыОперацийРасширеннаяПодсказка" id="40"/>
+							<ChildItems>
+								<LabelDecoration name="ЗаголовокКнопокОтбора" id="36">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Операции:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ЗаголовокКнопокОтбораКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="ЗаголовокКнопокОтбораРасширеннаяПодсказка" id="38"/>
+								</LabelDecoration>
+								<CommandBar name="ГруппаПанельКнопокОтбора" id="26">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа панель кнопок отбора</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ГруппаПанельКнопокОтбораРасширеннаяПодсказка" id="27"/>
+									<ChildItems>
+										<ButtonGroup name="ГруппаКнопкиОтбора" id="34">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа кнопки отбора</v8:content>
+												</v8:item>
+											</Title>
+											<Representation>Compact</Representation>
+											<ExtendedTooltip name="ГруппаКнопкиОтбораРасширеннаяПодсказка" id="35"/>
+											<ChildItems>
+												<Button name="Успешные" id="28">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.Успешные</CommandName>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Успешные</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="УспешныеРасширеннаяПодсказка" id="29"/>
+												</Button>
+												<Button name="Неудачные" id="30">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command.Неудачные</CommandName>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Неудачные</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="НеудачныеРасширеннаяПодсказка" id="31"/>
+												</Button>
+											</ChildItems>
+										</ButtonGroup>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="РезультатыОпераций" id="1">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РезультатыОпераций</DataPath>
+							<RowPictureDataPath>РезультатыОпераций.Картинка</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.КоллекцияШаровБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РезультатыОперацийКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="РезультатыОперацийКоманднаяПанель" id="3">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="РезультатыОперацийРасширеннаяПодсказка" id="4"/>
+							<SearchStringAddition name="РезультатыОперацийСтрокаПоиска" id="5">
+								<AdditionSource>
+									<Item>РезультатыОпераций</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РезультатыОперацийСтрокаПоискаКонтекстноеМеню" id="6"/>
+								<ExtendedTooltip name="РезультатыОперацийСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РезультатыОперацийСостояниеПросмотра" id="8">
+								<AdditionSource>
+									<Item>РезультатыОпераций</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="РезультатыОперацийСостояниеПросмотраКонтекстноеМеню" id="9"/>
+								<ExtendedTooltip name="РезультатыОперацийСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РезультатыОперацийУправлениеПоиском" id="11">
+								<AdditionSource>
+									<Item>РезультатыОпераций</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РезультатыОперацийУправлениеПоискомКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="РезультатыОперацийУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">РезультатыОперацийВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="РезультатыОперацийПредставлениеДокумента" id="77">
+									<DataPath>РезультатыОпераций.ПредставлениеДокумента</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Документ / Контейнер</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РезультатыОперацийПредставлениеДокументаКонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="РезультатыОперацийПредставлениеДокументаРасширеннаяПодсказка" id="79"/>
+								</InputField>
+								<InputField name="РезультатыОперацийДокументыУчета" id="74">
+									<DataPath>РезультатыОпераций.ОтражениеВУчете</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Документы учета</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="РезультатыОперацийДокументыУчетаКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="РезультатыОперацийДокументыУчетаРасширеннаяПодсказка" id="76"/>
+								</InputField>
+								<InputField name="РезультатыОперацийСостояниеЭДО" id="17">
+									<DataPath>РезультатыОпераций.ПредставлениеСостояния</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Состояние</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РезультатыОперацийСостояниеЭДОКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="РезультатыОперацийСостояниеЭДОРасширеннаяПодсказка" id="19"/>
+								</InputField>
+								<InputField name="РезультатыОперацийОшибка" id="20">
+									<DataPath>РезультатыОпераций.Ошибка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="РезультатыОперацийОшибкаКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="РезультатыОперацийОшибкаРасширеннаяПодсказка" id="22"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаУчетныеЗаписи" id="69">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учетные записи</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаУчетныеЗаписиРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<Table name="УчетныеЗаписи" id="43">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>УчетныеЗаписи</DataPath>
+							<RowPictureDataPath>УчетныеЗаписи.Картинка</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.КоллекцияШаровБЭД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УчетныеЗаписиКонтекстноеМеню" id="44"/>
+							<AutoCommandBar name="УчетныеЗаписиКоманднаяПанель" id="45">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="УчетныеЗаписиРасширеннаяПодсказка" id="46"/>
+							<SearchStringAddition name="УчетныеЗаписиСтрокаПоиска" id="47">
+								<AdditionSource>
+									<Item>УчетныеЗаписи</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УчетныеЗаписиСтрокаПоискаКонтекстноеМеню" id="48"/>
+								<ExtendedTooltip name="УчетныеЗаписиСтрокаПоискаРасширеннаяПодсказка" id="49"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УчетныеЗаписиСостояниеПросмотра" id="50">
+								<AdditionSource>
+									<Item>УчетныеЗаписи</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="УчетныеЗаписиСостояниеПросмотраКонтекстноеМеню" id="51"/>
+								<ExtendedTooltip name="УчетныеЗаписиСостояниеПросмотраРасширеннаяПодсказка" id="52"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УчетныеЗаписиУправлениеПоиском" id="53">
+								<AdditionSource>
+									<Item>УчетныеЗаписи</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УчетныеЗаписиУправлениеПоискомКонтекстноеМеню" id="54"/>
+								<ExtendedTooltip name="УчетныеЗаписиУправлениеПоискомРасширеннаяПодсказка" id="55"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">УчетныеЗаписиВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="УчетныеЗаписиНаименование" id="59">
+									<DataPath>УчетныеЗаписи.Наименование</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УчетныеЗаписиНаименованиеКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="УчетныеЗаписиНаименованиеРасширеннаяПодсказка" id="61"/>
+								</InputField>
+								<InputField name="УчетныеЗаписиСостояниеСинхронизации" id="71">
+									<DataPath>УчетныеЗаписи.СостояниеСинхронизации</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<ContextMenu name="УчетныеЗаписиСостояниеСинхронизацииКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="УчетныеЗаписиСостояниеСинхронизацииРасширеннаяПодсказка" id="73"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РезультатыОпераций" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результаты операций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Документ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ЭлектронныйДокументВходящийЭДО</v8:Type>
+						<v8:Type>cfg:DocumentRef.ЭлектронныйДокументИсходящийЭДО</v8:Type>
+						<v8:Type>cfg:DocumentRef.СообщениеЭДО</v8:Type>
+						<v8:Type>cfg:DocumentRef.ТранспортныйКонтейнерЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПредставлениеСостояния" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление состояния</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ошибка" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЕстьОшибки" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть ошибки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОтражениеВУчете" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражение в учете</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПредставлениеДокумента" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СсылкиНаДокументыУчета" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылки на документы учета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="УчетныеЗаписи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетные записи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Идентификатор" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОтправкаПолучениеВыполнялись" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправка получение выполнялись</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Комментарий" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СостояниеСинхронизации" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние синхронизации</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПодробноеПредставлениеОшибки" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подробное представление ошибки</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="КлючЗаписи" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ключ записи</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="ВидОшибки" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид ошибки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Порядок" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядок</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КонтекстДиагностики" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контекст диагностики</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Успешные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Успешные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Успешные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗеленыйШарБЭД</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Успешные</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Неудачные" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неудачные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неудачные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.КрасныйШарБЭД</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Неудачные</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ПровестиДиагностику" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести диагностику</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести диагностику</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПровестиДиагностику</Action>
+		</Command>
+	</Commands>
+</Form>

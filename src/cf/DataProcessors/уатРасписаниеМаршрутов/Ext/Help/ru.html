@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.18057"></meta></head><body>
+<h1><font color="#000080">Обработка "Расписание рейсов"</font></h1>
+<h3>Назначение</h3>
+<p class="Usual">Обработка предназначена для удобного ввода и просмотра расписания движения пассажирских ТС по маршрутам.</p>
+<p class="Usual">Относится к подсистеме <a href="Subsystem.уатБилетыИВыручка/Help">"Билеты и выручка"</a>.</p>
+<h3>Использование</h3>
+<p class="Usual">В верхней части окна обработки показаны два списка: <a href="Catalog.уатМаршруты/Help">маршруты</a> и <a href="Catalog.уатВыходыМаршрутов/Help">выходы на маршруты</a>, при активизации строки маршрута отображается набор выходов на этот маршрут. Под выходом на маршрут понимается выпуск автобуса на линию. Каждый выход может состоять из одного или нескольких <a href="Catalog.уатРейсыМаршрутов/Help">рейсов</a>. В нижней части окна отображается информация о всех рейсах и расписании каждого рейса для выбранного выхода. Расписание вводится в разрезе <a href="Catalog.уатПунктыНазначения/Help">пунктов следования по маршруту</a>, которые заполняются из табличной части карточки маршрута «Пункты следования».</p>
+<p class="Usual">Например, на городском маршруте №2 каждый день работают 10 автобусов, каждый из них делает по 4 рейса в день. Это означает, что для маршрута №2 в справочнике выходов должны быть внесены 10 выходов, а в справочнике рейсов - 4 рейса. </p>
+<p class="Usual">Для каждого выхода можно составить расписание движения:<font size="3" face="Times New Roman"></font></p>
+<p class="Usual"></p>
+<table style="OVERFLOW: visible; FONT-SIZE: 8pt; FONT-FAMILY: Arial; VERTICAL-ALIGN: bottom; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 2px; PADDING-RIGHT: 0px" cellspacing="0"><tbody style="FONT-SIZE: 8pt; FONT-FAMILY: Arial; BACKGROUND: #ffffff; FONT-STYLE: normal; MARGIN: 0px"><tr style="DISPLAY: none"><td width="44"></td>
+<td width="233"></td>
+<td width="56"></td>
+<td width="56"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="56"></td>
+<td width="56"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="56"></td>
+<td width="56"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td>
+<td width="21"></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 2px solid; BORDER-RIGHT: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd" colspan="2"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пункт</span></td>
+<td style="BORDER-TOP: #000000 2px solid; BORDER-RIGHT: #000000 2px solid; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd" colspan="9"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Рейс 1          </span></td>
+<td style="BORDER-TOP: #000000 2px solid; BORDER-RIGHT: #000000 2px solid; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd" colspan="9"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Рейс 2          </span></td>
+<td style="BORDER-TOP: #000000 2px solid; BORDER-RIGHT: #000000 2px solid; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd" colspan="9"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Рейс 3          </span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">№</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Наименование</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Прибытие</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 1px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Убытие</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пн</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Вт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Ср</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Чт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Сб</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Вс</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Прибытие</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 1px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Убытие</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пн</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Вт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Ср</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Чт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Сб</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Вс</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Прибытие</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; TEXT-ALIGN: center; BORDER-LEFT: #000000 1px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Убытие</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пн</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Вт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Ср</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Чт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Пт</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Сб</span></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 2px solid; BACKGROUND-COLOR: #f5f2dd"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Вс</span></td>
+<td></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: right; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">1</span></div></td>
+<td style="BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: whitesmoke 1px; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">ст. Химки</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">08:10</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">08:10</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">11:10</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">11:10</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td>
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"></div></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: right; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">2</span></div></td>
+<td style="BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: whitesmoke 1px; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">ул. Победы</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">08:15</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">08:15</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">11:15</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">11:15</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td>
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"></div></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: right; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">3</span></div></td>
+<td style="BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: whitesmoke 1px; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Салон новобрачных </span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">08:45</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">08:45</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">11:45</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">11:45</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td>
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"></div></td></tr><tr style="HEIGHT: 15px"><td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: right; BORDER-LEFT: #000000 2px solid; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">4</span></div></td>
+<td style="BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: whitesmoke 1px; BACKGROUND-COLOR: whitesmoke">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">Химкимежрайгаз</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">09:00</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">09:10</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">12:00</span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: aliceblue 1px; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">12:10</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: aliceblue">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: beige 1px; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"><span style="MAX-WIDTH: 0px; WHITE-SPACE: nowrap">+</span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td style="BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 2px solid; BORDER-BOTTOM: #000000 1px solid; TEXT-ALIGN: center; BACKGROUND-COLOR: beige">
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%; POSITION: relative"><span></span></div></td>
+<td>
+<div style="OVERFLOW: hidden; HEIGHT: 15px; WIDTH: 100%"></div></td></tr></tbody></table><p class="Usual">Символ "+" означает, что пассажирское ТС будет находиться в указанном пункте в указанное время и день недели, совершая указанный рейс.</p>
+<p class="Usual">Редактирование таблицы рейсов гибкое и выполняется как двойным кликом мыши, так и по клавишам "Пробел" или "Enter". Возможны установка/снятие как по одной ячейке, так и по любому выделенному фрагменту таблицы. Также при выборе ячейки с названием дня недели изменяется сразу весь столбец.</p>
+<p class="Usual">Также для расписания каждого рейса можно настроить период, на котором оно действует. Возможно создание нескольких расписаний для одного рейса с разными периодами действия, например летнего и зимнего. Если на какой-то день для рейса действуют одновременно 2 расписания, то приоритет отдается тому из них, которое было создано позже. Если начало периода и/или конец периода не заполнены, то они не ограничиваются.</p>
+<h3 style="font-size: 13.4399995803833px;">Особенности использования в варианте поставки КОРП</h3><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+<li>Разрешено создание расписаний не только для маршрутов, но и для пар пунктов.</li>
+<li>Расписания, созданные для маршрутов с представлениями одиночными пунктами, или для пар пунктов, могут быть использованы при заполнении дат и времени прибытия и убытия по Заказам на ТС и по Потребностям в перевозке.</li>
+<li>Возможно использование обработки из подсистемы "Логистика" при отключенной подсистеме "Билеты и выручка". В этом случае выходы на маршруты не используются.</li></blockquote>
+<h3>Способ вызова</h3>
+<p class="Usual">Вызывается из раздела <font color="#800000">"Билеты и выручка" -&gt; "Сервис -&gt; Расписание рейсов"</font>.</p></body></html>

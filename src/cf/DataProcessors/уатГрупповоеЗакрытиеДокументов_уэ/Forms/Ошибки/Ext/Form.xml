@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Ошибки при закрытии документов</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Error when closing documents</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОК" id="35">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОК</CommandName>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="36"/>
+			</Button>
+			<Button name="ФормаПродолжить" id="31">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаПродолжить</CommandName>
+				<ExtendedTooltip name="ФормаПродолжитьРасширеннаяПодсказка" id="32"/>
+			</Button>
+			<Button name="ФормаОтмена" id="33">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="34"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="Пояснение" id="28">
+			<DataPath>Пояснение</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalStretch>true</HorizontalStretch>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ПояснениеКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="ПояснениеРасширеннаяПодсказка" id="30"/>
+		</LabelField>
+		<Table name="ТаблицаОшибок" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<AutoAddIncomplete>false</AutoAddIncomplete>
+			<AutoMarkIncomplete>false</AutoMarkIncomplete>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ТаблицаОшибок</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаОшибокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ТаблицаОшибокКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="ТаблицаОшибокНайти" id="20">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаОшибок.StandardCommand.Find</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаОшибокНайтиРасширеннаяПодсказка" id="21"/>
+					</Button>
+					<Button name="ТаблицаОшибокОтменитьПоиск" id="22">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаОшибок.StandardCommand.CancelSearch</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаОшибокОтменитьПоискРасширеннаяПодсказка" id="23"/>
+					</Button>
+					<Button name="ТаблицаОшибокВывестиСписок" id="24">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаОшибок.StandardCommand.OutputList</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаОшибокВывестиСписокРасширеннаяПодсказка" id="25"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ТаблицаОшибокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ТаблицаОшибокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ТаблицаОшибок</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаОшибокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ТаблицаОшибокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаОшибокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ТаблицаОшибок</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаОшибокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ТаблицаОшибокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаОшибокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ТаблицаОшибок</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаОшибокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТаблицаОшибокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ТаблицаОшибокНомерОшибки" id="14">
+					<DataPath>ТаблицаОшибок.НомерОшибки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>No.</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>5</Width>
+					<ContextMenu name="ТаблицаОшибокНомерОшибкиКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ТаблицаОшибокНомерОшибкиРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="ТаблицаОшибокОписаниеОшибки" id="17">
+					<DataPath>ТаблицаОшибок.ОписаниеОшибки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<MultiLine>true</MultiLine>
+					<ContextMenu name="ТаблицаОшибокОписаниеОшибкиКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ТаблицаОшибокОписаниеОшибкиРасширеннаяПодсказка" id="19"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаОшибок" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица ошибок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Error table</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="НомерОшибки" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер ошибки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>error number</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОписаниеОшибки" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание ошибки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Error details</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Пояснение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пояснение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Explanation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть форму</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Close the form</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаПродолжить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продолжить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Continue</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продолжить маршрутизацию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Continue routing</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаПродолжить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОтмена" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказ от маршрутизации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel from routing</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

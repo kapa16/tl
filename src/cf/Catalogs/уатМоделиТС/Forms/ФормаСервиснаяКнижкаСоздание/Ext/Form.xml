@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПредупреждение" id="66">
+			<Width>1</Width>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="67"/>
+			<ChildItems>
+				<PictureDecoration name="ДекорацияИнформация" id="68">
+					<Width>2</Width>
+					<Height>1</Height>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Decoration информация1</v8:content>
+						</v8:item>
+					</Title>
+					<PictureSize>AutoSize</PictureSize>
+					<Picture>
+						<xr:Ref>CommonPicture.Информация32</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="70"/>
+				</PictureDecoration>
+				<LabelDecoration name="ДекорацияОписание" id="71">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервисная книжка будет перезаполнена.
+Информация для ранее загруженных видов обслуживания будет обновлена.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The service record will be refilled.
+Information for previously uploaded service types will be updated.</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<ContextMenu name="ДекорацияОписаниеКонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="ДекорацияОписаниеРасширеннаяПодсказка" id="73"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПланированиеТО" id="1">
+			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПланированиеТОРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<RadioButtonField name="ПланированиеТО" id="3">
+					<DataPath>ПланированиеТО</DataPath>
+					<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+					<TitleLocation>Top</TitleLocation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<EqualColumnsWidth>true</EqualColumnsWidth>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>On time period</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По периоду времени</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатПериодичностьТО.EnumValue.ПоВремени</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>On vehicle output</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По выработке ТС</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатПериодичностьТО.EnumValue.ПоВыработке</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Что наступит раньше</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Which comes first?</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатПериодичностьТО.EnumValue.ЧтоНаступитРаньше</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ПланированиеТОКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ПланированиеТОРасширеннаяПодсказка" id="5"/>
+					<Events>
+						<Event name="OnChange">ПланированиеТОПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<Pages name="Страницы" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Pages</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Pages</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="7"/>
+					<ChildItems>
+						<Page name="СтраницаПоВремени" id="8">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница по времени</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Page2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаПоВремениРасширеннаяПодсказка" id="9"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПериодичностьОсновная" id="10">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПериодичностьОсновнаяРасширеннаяПодсказка" id="11"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаПериодичность" id="12">
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПериодичностьРасширеннаяПодсказка" id="13"/>
+											<ChildItems>
+												<InputField name="ПериодичностьОбслуживания" id="14">
+													<DataPath>ПериодичностьОбслуживания</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Periodicity</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Периодичность</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<Width>2</Width>
+													<ContextMenu name="ПериодичностьОбслуживанияКонтекстноеМеню" id="15"/>
+													<ExtendedTooltip name="ПериодичностьОбслуживанияРасширеннаяПодсказка" id="16"/>
+												</InputField>
+												<InputField name="КоличествоПериодов" id="17">
+													<DataPath>КоличествоПериодов</DataPath>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<ContextMenu name="КоличествоПериодовКонтекстноеМеню" id="18"/>
+													<ExtendedTooltip name="КоличествоПериодовРасширеннаяПодсказка" id="19"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<InputField name="ДопускПериодичностьОбслуживания" id="20">
+											<DataPath>ДопускПерОбслуживания</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Access (number of days)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Допуск (дней)</v8:content>
+												</v8:item>
+											</Title>
+											<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+											<TitleLocation>Top</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество дней до наступления планового срока ТО, начиная с которых в списке ТС и прочих формах будет выводится значок, предупреждающий о приближении ТО.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Number of days before the scheduled maintenance period, from which, in list of vehicles and other forms, an icon indicating the approach of maintenance.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ContextMenu name="ДопускПериодичностьОбслуживанияКонтекстноеМеню" id="21"/>
+											<ExtendedTooltip name="ДопускПериодичностьОбслуживанияРасширеннаяПодсказка" id="22"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаПоВыработке" id="23">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Page2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаПоВыработкеРасширеннаяПодсказка" id="24"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПараметрВыработкиОсновная" id="25">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПараметрВыработкиОсновнаяРасширеннаяПодсказка" id="26"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаПараметрВыработки" id="27">
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПараметрВыработкиРасширеннаяПодсказка" id="28"/>
+											<ChildItems>
+												<InputField name="ПараметрВыработки" id="29">
+													<DataPath>ПараметрВыработки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Output parameters</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Параметр выработки</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<Width>1</Width>
+													<ContextMenu name="ПараметрВыработкиКонтекстноеМеню" id="30"/>
+													<ExtendedTooltip name="ПараметрВыработкиРасширеннаяПодсказка" id="31"/>
+													<Events>
+														<Event name="OnChange">ПараметрВыработкиПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="СервисныйИнтервал" id="32">
+													<DataPath>СервисныйИнтервал</DataPath>
+													<TitleLocation>Top</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Значение по параметру выработки для планирования обслуживания</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Value on output parameter for maintenance planning</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ContextMenu name="СервисныйИнтервалКонтекстноеМеню" id="33"/>
+													<ExtendedTooltip name="СервисныйИнтервалРасширеннаяПодсказка" id="34"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<InputField name="ДопускПараметрВыработки" id="35">
+											<DataPath>Допуск</DataPath>
+											<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+											<TitleLocation>Top</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Number of days before the scheduled maintenance period, from which, in list of vehicles and other forms, an icon indicating the approach of maintenance.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Значение выработки до наступления планового срока ТО, начиная с которых в списке ТС и прочих формах будет выводится значок, предупреждающий о приближении ТО.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ContextMenu name="ДопускПараметрВыработкиКонтекстноеМеню" id="36"/>
+											<ExtendedTooltip name="ДопускПараметрВыработкиРасширеннаяПодсказка" id="37"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаЧтоНаступитРаньше" id="38">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Page2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<ExtendedTooltip name="СтраницаЧтоНаступитРаньшеРасширеннаяПодсказка" id="39"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаЧтоНаступитРаньшеПараметрВыработкиОсновная" id="40">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЧтоНаступитРаньшеПараметрВыработкиОсновнаяРасширеннаяПодсказка" id="41"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаЧтоНаступитРаньшеПараметрВыработки" id="42">
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаЧтоНаступитРаньшеПараметрВыработкиРасширеннаяПодсказка" id="43"/>
+											<ChildItems>
+												<InputField name="ЧтоНаступитРаньше_ПараметрВыработки" id="44">
+													<DataPath>ПараметрВыработки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Output parameters</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Параметры выработки</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<Width>20</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ЧтоНаступитРаньше_ПараметрВыработкиКонтекстноеМеню" id="45"/>
+													<ExtendedTooltip name="ЧтоНаступитРаньше_ПараметрВыработкиРасширеннаяПодсказка" id="46"/>
+													<Events>
+														<Event name="OnChange">ПараметрВыработкиПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ЧтоНаступитРаньше_ЗначениеПараметраВыработки" id="47">
+													<DataPath>СервисныйИнтервал</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Parameter value</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<Width>13</Width>
+													<ContextMenu name="ЧтоНаступитРаньше_ЗначениеПараметраВыработкиКонтекстноеМеню" id="48"/>
+													<ExtendedTooltip name="ЧтоНаступитРаньше_ЗначениеПараметраВыработкиРасширеннаяПодсказка" id="49"/>
+												</InputField>
+												<InputField name="ЧтоНаступитРаньше_ДопускПараметрВыработки" id="50">
+													<DataPath>Допуск</DataPath>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Number of days before the scheduled maintenance period, from which, in list of vehicles and other forms, an icon indicating the approach of maintenance.</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Значение выработки до наступления планового срока ТО, начиная с которых в списке ТС и прочих формах будет выводится значок, предупреждающий о приближении ТО.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<Width>11</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ЧтоНаступитРаньше_ДопускПараметрВыработкиКонтекстноеМеню" id="51"/>
+													<ExtendedTooltip name="ЧтоНаступитРаньше_ДопускПараметрВыработкиРасширеннаяПодсказка" id="52"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаЧтоНаступитРаньшеПериодичностьОсновная" id="53">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЧтоНаступитРаньшеПериодичностьОсновнаяРасширеннаяПодсказка" id="54"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаЧтоНаступитРаньшеПериодичность" id="55">
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаЧтоНаступитРаньшеПериодичностьРасширеннаяПодсказка" id="56"/>
+											<ChildItems>
+												<InputField name="ЧтоНаступитРаньше_ПериодичностьОбслуживания" id="57">
+													<DataPath>ПериодичностьОбслуживания</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Periodicity</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Периодичность</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<Width>21</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ЧтоНаступитРаньше_ПериодичностьОбслуживанияКонтекстноеМеню" id="58"/>
+													<ExtendedTooltip name="ЧтоНаступитРаньше_ПериодичностьОбслуживанияРасширеннаяПодсказка" id="59"/>
+												</InputField>
+												<InputField name="ЧтоНаступитРаньше_КоличествоПериодов" id="60">
+													<DataPath>КоличествоПериодов</DataPath>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<Width>13</Width>
+													<ContextMenu name="ЧтоНаступитРаньше_КоличествоПериодовКонтекстноеМеню" id="61"/>
+													<ExtendedTooltip name="ЧтоНаступитРаньше_КоличествоПериодовРасширеннаяПодсказка" id="62"/>
+												</InputField>
+												<InputField name="ЧтоНаступитРаньше_ДопускПериодичностьОбслуживания" id="63">
+													<DataPath>ДопускПерОбслуживания</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Access (number of days)</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Допуск (дней)</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="style:NormalTextFont" kind="StyleItem"/>
+													<TitleLocation>Top</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Количество дней до наступления планового срока ТО, начиная с которых в списке ТС и прочих формах будет выводится значок, предупреждающий о приближении ТО.</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Number of days before the scheduled maintenance period, from which, in list of vehicles and other forms, an icon indicating the approach of maintenance.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<Width>11</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ЧтоНаступитРаньше_ДопускПериодичностьОбслуживанияКонтекстноеМеню" id="64"/>
+													<ExtendedTooltip name="ЧтоНаступитРаньше_ДопускПериодичностьОбслуживанияРасширеннаяПодсказка" id="65"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКоманды" id="74">
+			<HorizontalStretch>true</HorizontalStretch>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="75"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаДалееОтмена" id="76">
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДалееОтменаРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<Button name="Готово" id="78">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.Готово</CommandName>
+							<BackColor>#FFD718</BackColor>
+							<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Готово</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Next &gt;</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ГотовоРасширеннаяПодсказка" id="79"/>
+						</Button>
+						<Button name="Отмена" id="80">
+							<Type>UsualButton</Type>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<CommandName>Form.Command.Отмена</CommandName>
+							<BackColor>web:White</BackColor>
+							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="81"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПланированиеТО" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning of maintenance</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Планирование ТО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.уатПериодичностьТО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредВидОбслуживания" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Maintenance type</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид обслуживания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатВидыОбслуживанияТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПериодичностьОбслуживания" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Maintenance periodicity</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Периодичность обслуживания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Периодичность</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПараметрВыработки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр выработки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Output parameter</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПараметрыВыработки</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоПериодов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of periods</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество периодов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопускПерОбслуживания" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Допуск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Access</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Допуск" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Допуск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Access</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СервисныйИнтервал" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервисный интервал</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parameter value</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Готово" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Готово</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Готово</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Готово</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

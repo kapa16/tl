@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Перенос остатков партий товаров на организации</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Transfer of remaining batches of goods to organizations</v8:content>
+		</v8:item>
+	</Title>
+	<Width>80</Width>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыполнитьПеренос" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыполнитьПеренос</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выполнить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Execute</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаВыполнитьПереносРасширеннаяПодсказка" id="5"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Страницы" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<Page name="СтраницаНастройки" id="69">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Settings</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаНастройкиРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияПояснение" id="6">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Будут созданы документы по указанной организации и отмеченным складам:
+1) "Списание товаров" по всем остаткам партий номенклатуры на конец дня перед указанной датой;
+2) "Ввод остатков (партии товаров)" с номенклатурой, заполненной по созданному документу "Списание товаров", на начало дня указанной даты, с записью значения организации в регистр "Партии товаров на складах".
+Для остатков номенклатуры без партий (при способе оценки МПЗ "Среднее") для переноса выбираются все остатки по указанным складам. Рекомендуется переносить по очереди для каждого склада отдельно.
+Также эта форма переноса остатков может использоваться при изменении способа оценки МПЗ. Алгоритм действий аналогичен описанному выше.</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>The following documents will be created for the specified organization and the selected warehouses:
+1) "Write-off of Goods" for all batch balances of items at the end of the day before the specified date;
+2) "Enter Balances (Batches of Goods)" with the items filled in according to the created "Write-off of Goods" document, at the beginning of the day on the specified date, with the organization value recorded in the "Batches of Goods in Warehouses" register.
+For item balances without batches (with the "Average" inventory valuation method), all balances for the specified warehouses are selected for transfer. It is recommended to transfer each warehouse separately.
+This form of balance transfer can also be used when changing the inventory valuation method. The procedure is similar to that described above.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="8"/>
+						</LabelDecoration>
+						<InputField name="Организация" id="98">
+							<DataPath>Организация</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="99"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="100"/>
+						</InputField>
+						<UsualGroup name="Группа1" id="101">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="102"/>
+							<ChildItems>
+								<InputField name="ДатаОбработки" id="56">
+									<DataPath>ДатаОбработки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата переноса</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Reschedule date</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ДатаОбработкиКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="ДатаОбработкиРасширеннаяПодсказка" id="58"/>
+									<Events>
+										<Event name="OnChange">ДатаОбработкиПриИзменении</Event>
+									</Events>
+								</InputField>
+								<Button name="ПодобратьДатуПереносаПоУчетнойПолитике" id="103">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ПодобратьДатуПереносаПоУчетнойПолитике</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Подобрать дату переноса по учетной политике</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Select the transfer date according to the accounting policy</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ПодобратьДатуПереносаПоУчетнойПолитикеРасширеннаяПодсказка" id="104"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаШапка" id="28">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="29"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСклады" id="54">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Склады</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Warehouses</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<ExtendedTooltip name="ГруппаСкладыРасширеннаяПодсказка" id="55"/>
+									<ChildItems>
+										<Table name="Склады" id="30">
+											<Representation>List</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<HeightInTableRows>5</HeightInTableRows>
+											<Header>false</Header>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<DataPath>Склады</DataPath>
+											<RowPictureDataPath>Склады.Picture</RowPictureDataPath>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="СкладыКонтекстноеМеню" id="31"/>
+											<AutoCommandBar name="СкладыКоманднаяПанель" id="32">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<ButtonGroup name="СкладыГруппа1" id="105">
+														<Representation>Compact</Representation>
+														<ExtendedTooltip name="СкладыГруппа1РасширеннаяПодсказка" id="106"/>
+														<ChildItems>
+															<Button name="СкладыУстановитьФлажки" id="65">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.Склады.StandardCommand.CheckAll</CommandName>
+																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																<ExtendedTooltip name="СкладыУстановитьФлажкиРасширеннаяПодсказка" id="66"/>
+															</Button>
+															<Button name="СкладыСнятьФлажки" id="63">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.Склады.StandardCommand.UncheckAll</CommandName>
+																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+																<ExtendedTooltip name="СкладыСнятьФлажкиРасширеннаяПодсказка" id="64"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="СкладыРасширеннаяПодсказка" id="33"/>
+											<SearchStringAddition name="СкладыСтрокаПоиска" id="34">
+												<AdditionSource>
+													<Item>Склады</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СкладыСтрокаПоискаКонтекстноеМеню" id="35"/>
+												<ExtendedTooltip name="СкладыСтрокаПоискаРасширеннаяПодсказка" id="36"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="СкладыСостояниеПросмотра" id="37">
+												<AdditionSource>
+													<Item>Склады</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СкладыСостояниеПросмотраКонтекстноеМеню" id="38"/>
+												<ExtendedTooltip name="СкладыСостояниеПросмотраРасширеннаяПодсказка" id="39"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="СкладыУправлениеПоиском" id="40">
+												<AdditionSource>
+													<Item>Склады</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="СкладыУправлениеПоискомКонтекстноеМеню" id="41"/>
+												<ExtendedTooltip name="СкладыУправлениеПоискомРасширеннаяПодсказка" id="42"/>
+											</SearchControlAddition>
+											<ChildItems>
+												<CheckBoxField name="СкладыПометка" id="51">
+													<DataPath>Склады.Check</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="СкладыПометкаКонтекстноеМеню" id="52"/>
+													<ExtendedTooltip name="СкладыПометкаРасширеннаяПодсказка" id="53"/>
+												</CheckBoxField>
+												<InputField name="СкладыЗначение" id="43">
+													<DataPath>Склады.Value</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="СкладыЗначениеКонтекстноеМеню" id="44"/>
+													<ExtendedTooltip name="СкладыЗначениеРасширеннаяПодсказка" id="45"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДокументы" id="71">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Созданные документы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Processed documents</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>КоличествоДокументов</TitleDataPath>
+					<ExtendedTooltip name="СтраницаДокументыРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<Table name="СозданныеДокументы" id="73">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<DataPath>СозданныеДокументы</DataPath>
+							<RowPictureDataPath>СозданныеДокументы.СписаниеТоваров</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СозданныеДокументыКонтекстноеМеню" id="74"/>
+							<AutoCommandBar name="СозданныеДокументыКоманднаяПанель" id="75"/>
+							<ExtendedTooltip name="СозданныеДокументыРасширеннаяПодсказка" id="76"/>
+							<SearchStringAddition name="СозданныеДокументыСтрокаПоиска" id="77">
+								<AdditionSource>
+									<Item>СозданныеДокументы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СозданныеДокументыСтрокаПоискаКонтекстноеМеню" id="78"/>
+								<ExtendedTooltip name="СозданныеДокументыСтрокаПоискаРасширеннаяПодсказка" id="79"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СозданныеДокументыСостояниеПросмотра" id="80">
+								<AdditionSource>
+									<Item>СозданныеДокументы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СозданныеДокументыСостояниеПросмотраКонтекстноеМеню" id="81"/>
+								<ExtendedTooltip name="СозданныеДокументыСостояниеПросмотраРасширеннаяПодсказка" id="82"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СозданныеДокументыУправлениеПоиском" id="83">
+								<AdditionSource>
+									<Item>СозданныеДокументы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СозданныеДокументыУправлениеПоискомКонтекстноеМеню" id="84"/>
+								<ExtendedTooltip name="СозданныеДокументыУправлениеПоискомРасширеннаяПодсказка" id="85"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СозданныеДокументыВыбор</Event>
+								<Event name="BeforeRowChange">СозданныеДокументыПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СозданныеДокументыОрганизация" id="86">
+									<DataPath>СозданныеДокументы.Организация</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СозданныеДокументыОрганизацияКонтекстноеМеню" id="87"/>
+									<ExtendedTooltip name="СозданныеДокументыОрганизацияРасширеннаяПодсказка" id="88"/>
+								</InputField>
+								<InputField name="СозданныеДокументыСклад" id="89">
+									<DataPath>СозданныеДокументы.Склад</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СозданныеДокументыСкладКонтекстноеМеню" id="90"/>
+									<ExtendedTooltip name="СозданныеДокументыСкладРасширеннаяПодсказка" id="91"/>
+								</InputField>
+								<InputField name="СозданныеДокументыСписаниеТоваров" id="92">
+									<DataPath>СозданныеДокументы.СписаниеТоваров</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СозданныеДокументыСписаниеТоваровКонтекстноеМеню" id="93"/>
+									<ExtendedTooltip name="СозданныеДокументыСписаниеТоваровРасширеннаяПодсказка" id="94"/>
+								</InputField>
+								<InputField name="СозданныеДокументыВводОстатков" id="95">
+									<DataPath>СозданныеДокументы.ВводОстатков</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СозданныеДокументыВводОстатковКонтекстноеМеню" id="96"/>
+									<ExtendedTooltip name="СозданныеДокументыВводОстатковРасширеннаяПодсказка" id="97"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Склады" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склады</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Warehouses</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДатаОбработки" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата обработки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date processed</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СозданныеДокументы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Созданные документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Processed documents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Организация" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Organization</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Склад" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Warehouse</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СписаниеТоваров" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Списание товаров</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Goods write-off</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатСписаниеТоваров</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВводОстатков" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ввод остатков</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Enter remain quantity</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатВводОстатков</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="КоличествоДокументов" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of documents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Organization</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьПеренос" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить перенос</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Transfer</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить перенос</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Transfer</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьПеренос</Action>
+		</Command>
+		<Command name="ПодобратьДатуПереносаПоУчетнойПолитике" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать дату переноса по учетной политике</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select the transfer date according to the accounting policy</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать дату переноса по учетной политике</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select the transfer date according to the accounting policy</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодобратьДатуПереносаПоУчетнойПолитике</Action>
+		</Command>
+	</Commands>
+</Form>

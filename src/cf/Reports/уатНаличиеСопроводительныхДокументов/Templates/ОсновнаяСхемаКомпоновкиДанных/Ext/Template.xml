@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СопроводительныйДокумент</dataPath>
+			<field>СопроводительныйДокумент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Основание</dataPath>
+			<field>Основание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Base</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС, Маршрутный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle order, Route sheet</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Всего</dataPath>
+			<field>Всего</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создано</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Created</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обработано</dataPath>
+			<field>Обработано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обработано</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Processed</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументуатЗаказГрузоотправителя.Ссылка КАК Ссылка,
+	ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) КАК Всего,
+	ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) КАК Обработано
+ИЗ
+	Документ.уатЗаказГрузоотправителя КАК ДокументуатЗаказГрузоотправителя
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			уатСтатусыСопроводительныхДокументовСрезПоследних.СопроводительныйДокумент.Основание КАК Основание,
+			КОЛИЧЕСТВО(уатСтатусыСопроводительныхДокументовСрезПоследних.СопроводительныйДокумент) КАК Всего,
+			СУММА(ВЫБОР
+					КОГДА уатСтатусыСопроводительныхДокументовСрезПоследних.Статус = ЗНАЧЕНИЕ(Справочник.уатСтатусы_уэ.ОбработкаЗавершена)
+						ТОГДА 1
+					ИНАЧЕ 0
+				КОНЕЦ) КАК Обработано
+		ИЗ
+			РегистрСведений.уатСтатусыСопроводительныхДокументов.СрезПоследних КАК уатСтатусыСопроводительныхДокументовСрезПоследних
+		
+		СГРУППИРОВАТЬ ПО
+			уатСтатусыСопроводительныхДокументовСрезПоследних.СопроводительныйДокумент.Основание) КАК уатСтатусыСопроводительныхДокументовСрезПоследних
+		ПО ДокументуатЗаказГрузоотправителя.Ссылка = уатСтатусыСопроводительныхДокументовСрезПоследних.Основание
+ГДЕ
+	&amp;ОтображатьДокументы &lt;&gt; "Маршрутные листы"
+	И НЕ ДокументуатЗаказГрузоотправителя.ПометкаУдаления
+	И ДокументуатЗаказГрузоотправителя.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+{ГДЕ
+	(&amp;СтатусСД = "Не созданы"
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) = 0
+			ИЛИ &amp;СтатусСД = "Не обработаны"
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) &lt; ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0)
+			ИЛИ &amp;СтатусСД = "Не созданы или не обработаны"
+				И (ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) = 0
+					ИЛИ ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) &lt; ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0))
+			ИЛИ &amp;СтатусСД = "Созданы и обработаны"
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) &lt;&gt; 0
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) = ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0))}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументуатМаршрутныйЛист.Ссылка,
+	ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0),
+	ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0)
+ИЗ
+	Документ.уатМаршрутныйЛист КАК ДокументуатМаршрутныйЛист
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			уатСтатусыСопроводительныхДокументовСрезПоследних.СопроводительныйДокумент.Основание КАК Основание,
+			КОЛИЧЕСТВО(уатСтатусыСопроводительныхДокументовСрезПоследних.СопроводительныйДокумент) КАК Всего,
+			СУММА(ВЫБОР
+					КОГДА уатСтатусыСопроводительныхДокументовСрезПоследних.Статус = ЗНАЧЕНИЕ(Справочник.уатСтатусы_уэ.ОбработкаЗавершена)
+						ТОГДА 1
+					ИНАЧЕ 0
+				КОНЕЦ) КАК Обработано
+		ИЗ
+			РегистрСведений.уатСтатусыСопроводительныхДокументов.СрезПоследних КАК уатСтатусыСопроводительныхДокументовСрезПоследних
+		
+		СГРУППИРОВАТЬ ПО
+			уатСтатусыСопроводительныхДокументовСрезПоследних.СопроводительныйДокумент.Основание) КАК уатСтатусыСопроводительныхДокументовСрезПоследних
+		ПО ДокументуатМаршрутныйЛист.Ссылка = уатСтатусыСопроводительныхДокументовСрезПоследних.Основание
+ГДЕ
+	&amp;ОтображатьДокументы &lt;&gt; "Заказы на ТС"
+	И НЕ ДокументуатМаршрутныйЛист.ПометкаУдаления
+	И ДокументуатМаршрутныйЛист.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+{ГДЕ
+	(&amp;СтатусСД = "Не созданы"
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) = 0
+			ИЛИ &amp;СтатусСД = "Не обработаны"
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) &lt; ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0)
+			ИЛИ &amp;СтатусСД = "Не созданы или не обработаны"
+				И (ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) = 0
+					ИЛИ ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) &lt; ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0))
+			ИЛИ &amp;СтатусСД = "Созданы и обработаны"
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0) &lt;&gt; 0
+				И ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Обработано, 0) = ЕСТЬNULL(уатСтатусыСопроводительныхДокументовСрезПоследних.Всего, 0))}</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Всего</dataPath>
+		<expression>Сумма(Всего)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Обработано</dataPath>
+		<expression>Сумма(Обработано)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ОтображатьДокументы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Show</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:string">Заказы на ТС</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Маршрутные листы</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Заказы на ТС и Маршрутные листы</value>
+		</availableValue>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>СтатусСД</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статус</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Status</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:string">Не созданы</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Не обработаны</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Не созданы или не обработаны</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Созданы и обработаны</value>
+		</availableValue>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Start date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаКонца</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата конца</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Наличие сопроводительных документов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Наличие сопроводительных документов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Всего</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Обработано</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c78904ca-0707-4be8-86a2-f9372f9a3760</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Month</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>d3349056-7245-4236-88e3-5ac45a932c9d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ОтображатьДокументы</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Заказы на ТС и Маршрутные листы</dcscor:value>
+					<dcsset:userSettingID>1c8d37c5-dc0f-4765-a926-aede0b0dc662</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СтатусСД</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Не созданы или не обработаны</dcscor:value>
+					<dcsset:userSettingID>6c1a042e-7cab-44c1-a515-712d8036ad37</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Ссылка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

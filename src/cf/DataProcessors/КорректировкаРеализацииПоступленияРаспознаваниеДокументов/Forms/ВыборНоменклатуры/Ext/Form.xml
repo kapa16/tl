@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выбор номенклатуры документа-основания</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Selecting the nomenclature of the supporting document</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="17">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="18"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ВариантыДляВыбора" id="1">
+			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<Header>false</Header>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<DataPath>ВариантыДляВыбора</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВариантыДляВыбораКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ВариантыДляВыбораКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВариантыДляВыбораРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ВариантыДляВыбораСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ВариантыДляВыбора</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВариантыДляВыбораСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ВариантыДляВыбораСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВариантыДляВыбораСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ВариантыДляВыбора</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВариантыДляВыбораСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ВариантыДляВыбораСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВариантыДляВыбораУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ВариантыДляВыбора</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВариантыДляВыбораУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ВариантыДляВыбораУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ВариантыДляВыбораВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ВариантыДляВыбораВариант" id="14">
+					<DataPath>ВариантыДляВыбора.Вариант</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ВариантыДляВыбораВариантКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ВариантыДляВыбораВариантРасширеннаяПодсказка" id="16"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.КорректировкаРеализацииПоступленияРаспознаваниеДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ВариантыДляВыбора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Варианты для выбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Options to choose from</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Вариант" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Option</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Варианты">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

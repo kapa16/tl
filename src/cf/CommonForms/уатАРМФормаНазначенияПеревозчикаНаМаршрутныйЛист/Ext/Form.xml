@@ -1,0 +1,1210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбратьПеревозчика" id="60">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыбратьПеревозчика</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьПеревозчикаРасширеннаяПодсказка" id="61"/>
+			</Button>
+			<Button name="ФормаЗаписать" id="116">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Записать</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="117"/>
+			</Button>
+			<Button name="ФормаОбновитьТаблицуПеревозчиков" id="58">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОбновитьТаблицуПеревозчиков</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьТаблицуПеревозчиковРасширеннаяПодсказка" id="59"/>
+			</Button>
+			<Button name="ФормаАлгортимОптимизацииЖадныйАлгоритм" id="122">
+				<Type>CommandBarButton</Type>
+				<Check>true</Check>
+				<CommandName>Form.Command.АлгортимОптимизацииЖадныйАлгоритм</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаАлгортимОптимизацииЖадныйАлгоритмРасширеннаяПодсказка" id="123"/>
+			</Button>
+			<Button name="ФормаАлгоритмОптимизацииПолныйПеребор" id="120">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.АлгоритмОптимизацииПолныйПеребор</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаАлгоритмОптимизацииПолныйПереборРасширеннаяПодсказка" id="121"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="ПланированиеРаботыТС" id="64">
+			<DataPath>ПланированиеРаботыТС</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Действующий план</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Current plan</v8:content>
+				</v8:item>
+			</Title>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="ПланированиеРаботыТСКонтекстноеМеню" id="65"/>
+			<ExtendedTooltip name="ПланированиеРаботыТСРасширеннаяПодсказка" id="66"/>
+		</LabelField>
+		<UsualGroup name="ГруппаОтбор" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор:</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter:</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияОтбор" id="133">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filter:</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияОтборКонтекстноеМеню" id="134"/>
+					<ExtendedTooltip name="ДекорацияОтборРасширеннаяПодсказка" id="135"/>
+				</LabelDecoration>
+				<CheckBoxField name="ОтборПоВидуПеревозки" id="3">
+					<DataPath>ОтборПоВидуПеревозки</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоВидуПеревозкиКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ОтборПоВидуПеревозкиРасширеннаяПодсказка" id="5"/>
+					<Events>
+						<Event name="OnChange">ОтборПоВидуПеревозкиПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоМаршруту" id="6">
+					<DataPath>ОтборПоМаршруту</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоМаршрутуКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ОтборПоМаршрутуРасширеннаяПодсказка" id="8"/>
+					<Events>
+						<Event name="OnChange">ОтборПоМаршрутуПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоПунктуОтправления" id="19">
+					<DataPath>ОтборПоПунктуОтправления</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоПунктуОтправленияКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ОтборПоПунктуОтправленияРасширеннаяПодсказка" id="21"/>
+					<Events>
+						<Event name="OnChange">ОтборПоПунктуОтправленияПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоПунктуНазначения" id="22">
+					<DataPath>ОтборПоПунктуНазначения</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоПунктуНазначенияКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ОтборПоПунктуНазначенияРасширеннаяПодсказка" id="24"/>
+					<Events>
+						<Event name="OnChange">ОтборПоПунктуНазначенияПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоТипуТС" id="16">
+					<DataPath>ОтборПоТипуТС</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоТипуТСКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ОтборПоТипуТСРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="OnChange">ОтборПоТипуТСПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоНаправлениюПеревозки" id="25">
+					<DataPath>ОтборПоНаправлениюПеревозки</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоНаправлениюПеревозкиКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ОтборПоНаправлениюПеревозкиРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">ОтборПоНаправлениюПеревозкиПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоОбъектуСтроительства" id="28">
+					<DataPath>ОтборПоОбъектуСтроительства</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоОбъектуСтроительстваКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ОтборПоОбъектуСтроительстваРасширеннаяПодсказка" id="30"/>
+					<Events>
+						<Event name="OnChange">ОтборПоОбъектуСтроительстваПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ОтборПоМоделиТС" id="13">
+					<DataPath>ОтборПоМоделиТС</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтборПоМоделиТСКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ОтборПоМоделиТСРасширеннаяПодсказка" id="15"/>
+					<Events>
+						<Event name="OnChange">ОтборПоМоделиТСПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Button name="НазначитьПеревозчика" id="139">
+			<Type>UsualButton</Type>
+			<Visible>false</Visible>
+			<CommandName>Form.Command.НазначитьПеревозчиков</CommandName>
+			<ExtendedTooltip name="НазначитьПеревозчикаРасширеннаяПодсказка" id="140"/>
+		</Button>
+		<UsualGroup name="ГруппаКолонки" id="114">
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКолонкиРасширеннаяПодсказка" id="115"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаКолонкаЛевая" id="88">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКолонкаЛеваяРасширеннаяПодсказка" id="89"/>
+					<ChildItems>
+						<Table name="НазначенныеПеревозчики" id="92">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>НазначенныеПеревозчики</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НазначенныеПеревозчикиКонтекстноеМеню" id="93"/>
+							<AutoCommandBar name="НазначенныеПеревозчикиКоманднаяПанель" id="94">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ФормаНазначитьПеревозчиков" id="62">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.НазначитьПеревозчиков</CommandName>
+										<ExtendedTooltip name="ФормаНазначитьПеревозчиковРасширеннаяПодсказка" id="63"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НазначенныеПеревозчикиРасширеннаяПодсказка" id="95"/>
+							<SearchStringAddition name="НазначенныеПеревозчикиСтрокаПоиска" id="96">
+								<AdditionSource>
+									<Item>НазначенныеПеревозчики</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НазначенныеПеревозчикиСтрокаПоискаКонтекстноеМеню" id="97"/>
+								<ExtendedTooltip name="НазначенныеПеревозчикиСтрокаПоискаРасширеннаяПодсказка" id="98"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НазначенныеПеревозчикиСостояниеПросмотра" id="99">
+								<AdditionSource>
+									<Item>НазначенныеПеревозчики</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НазначенныеПеревозчикиСостояниеПросмотраКонтекстноеМеню" id="100"/>
+								<ExtendedTooltip name="НазначенныеПеревозчикиСостояниеПросмотраРасширеннаяПодсказка" id="101"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НазначенныеПеревозчикиУправлениеПоиском" id="102">
+								<AdditionSource>
+									<Item>НазначенныеПеревозчики</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НазначенныеПеревозчикиУправлениеПоискомКонтекстноеМеню" id="103"/>
+								<ExtendedTooltip name="НазначенныеПеревозчикиУправлениеПоискомРасширеннаяПодсказка" id="104"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnActivateRow">НазначенныеПеревозчикиПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="НазначенныеПеревозчикиМаршрутныйЛист" id="108">
+									<DataPath>НазначенныеПеревозчики.МаршрутныйЛист</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="НазначенныеПеревозчикиМаршрутныйЛистКонтекстноеМеню" id="109"/>
+									<ExtendedTooltip name="НазначенныеПеревозчикиМаршрутныйЛистРасширеннаяПодсказка" id="110"/>
+								</InputField>
+								<InputField name="НазначенныеПеревозчикиПеревозчик" id="105">
+									<DataPath>НазначенныеПеревозчики.Перевозчик</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="НазначенныеПеревозчикиПеревозчикКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="НазначенныеПеревозчикиПеревозчикРасширеннаяПодсказка" id="107"/>
+								</InputField>
+								<InputField name="НазначенныеПеревозчикиДоговор" id="111">
+									<DataPath>НазначенныеПеревозчики.Договор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="НазначенныеПеревозчикиДоговорКонтекстноеМеню" id="112"/>
+									<ExtendedTooltip name="НазначенныеПеревозчикиДоговорРасширеннаяПодсказка" id="113"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКолонкаПравая" id="90">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКолонкаПраваяРасширеннаяПодсказка" id="91"/>
+					<ChildItems>
+						<Table name="ТаблицаПеревозчиков" id="31">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ТаблицаПеревозчиков</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаПеревозчиковКонтекстноеМеню" id="32"/>
+							<AutoCommandBar name="ТаблицаПеревозчиковКоманднаяПанель" id="33">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ВыбратьПеревозчикаДляМаршрутногоЛиста" id="118">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВыбратьПеревозчикаДляМаршрутногоЛиста</CommandName>
+										<ExtendedTooltip name="ВыбратьПеревозчикаДляМаршрутногоЛистаРасширеннаяПодсказка" id="119"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТаблицаПеревозчиковРасширеннаяПодсказка" id="34"/>
+							<SearchStringAddition name="ТаблицаПеревозчиковСтрокаПоиска" id="35">
+								<AdditionSource>
+									<Item>ТаблицаПеревозчиков</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПеревозчиковСтрокаПоискаКонтекстноеМеню" id="36"/>
+								<ExtendedTooltip name="ТаблицаПеревозчиковСтрокаПоискаРасширеннаяПодсказка" id="37"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаПеревозчиковСостояниеПросмотра" id="38">
+								<AdditionSource>
+									<Item>ТаблицаПеревозчиков</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПеревозчиковСостояниеПросмотраКонтекстноеМеню" id="39"/>
+								<ExtendedTooltip name="ТаблицаПеревозчиковСостояниеПросмотраРасширеннаяПодсказка" id="40"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаПеревозчиковУправлениеПоиском" id="41">
+								<AdditionSource>
+									<Item>ТаблицаПеревозчиков</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПеревозчиковУправлениеПоискомКонтекстноеМеню" id="42"/>
+								<ExtendedTooltip name="ТаблицаПеревозчиковУправлениеПоискомРасширеннаяПодсказка" id="43"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<PictureField name="ТаблицаПеревозчиковВыбран" id="136">
+									<DataPath>ТаблицаПеревозчиков.Выбран</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатФлагНеВыбран</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатФлагиВыбора</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<ContextMenu name="ТаблицаПеревозчиковВыбранКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковВыбранРасширеннаяПодсказка" id="138"/>
+								</PictureField>
+								<InputField name="ТаблицаПеревозчиковПеревозчик" id="44">
+									<DataPath>ТаблицаПеревозчиков.Перевозчик</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковПеревозчикКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковПеревозчикРасширеннаяПодсказка" id="46"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковДоговор" id="85">
+									<DataPath>ТаблицаПеревозчиков.Договор</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковДоговорКонтекстноеМеню" id="86"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковДоговорРасширеннаяПодсказка" id="87"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковТС" id="53">
+									<DataPath>ТаблицаПеревозчиков.ТС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковТСКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковТСРасширеннаяПодсказка" id="55"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковВидПеревозки" id="47">
+									<DataPath>ТаблицаПеревозчиков.ВидПеревозки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковВидПеревозкиКонтекстноеМеню" id="48"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковВидПеревозкиРасширеннаяПодсказка" id="49"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковМаршрут" id="50">
+									<DataPath>ТаблицаПеревозчиков.Маршрут</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковМаршрутКонтекстноеМеню" id="51"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковМаршрутРасширеннаяПодсказка" id="52"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковПунктОтправления" id="67">
+									<DataPath>ТаблицаПеревозчиков.ПунктОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковПунктОтправленияКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковПунктОтправленияРасширеннаяПодсказка" id="69"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковПунктНазначения" id="79">
+									<DataPath>ТаблицаПеревозчиков.ПунктНазначения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковПунктНазначенияКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковПунктНазначенияРасширеннаяПодсказка" id="81"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковМодельТС" id="70">
+									<DataPath>ТаблицаПеревозчиков.МодельТС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковМодельТСКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковМодельТСРасширеннаяПодсказка" id="72"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковТипТС" id="73">
+									<DataPath>ТаблицаПеревозчиков.ТипТС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковТипТСКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковТипТСРасширеннаяПодсказка" id="75"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковОбъектСтроительства" id="76">
+									<DataPath>ТаблицаПеревозчиков.ОбъектСтроительства</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковОбъектСтроительстваКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковОбъектСтроительстваРасширеннаяПодсказка" id="78"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковНаправлениеПеревозки" id="82">
+									<DataPath>ТаблицаПеревозчиков.НаправлениеПеревозки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковНаправлениеПеревозкиКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковНаправлениеПеревозкиРасширеннаяПодсказка" id="84"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковКоличествоПоПлану" id="124">
+									<DataPath>ТаблицаПеревозчиков.КоличествоПоПлану</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По плану</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>According to plan</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковКоличествоПоПлануКонтекстноеМеню" id="125"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковКоличествоПоПлануРасширеннаяПодсказка" id="126"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковКоличествоПоПлануПроцент" id="141">
+									<DataPath>ТаблицаПеревозчиков.КоличествоПоПлануПроцент</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковКоличествоПоПлануПроцентКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковКоличествоПоПлануПроцентРасширеннаяПодсказка" id="143"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковКоличествоПоФакту" id="127">
+									<DataPath>ТаблицаПеревозчиков.КоличествоПоФакту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По факту</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>By fact</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковКоличествоПоФактуКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковКоличествоПоФактуРасширеннаяПодсказка" id="129"/>
+								</InputField>
+								<InputField name="ТаблицаПеревозчиковКоличествоПоМЛ" id="130">
+									<DataPath>ТаблицаПеревозчиков.КоличествоПоМЛ</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По Маршрутному листу</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>By routing list</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТаблицаПеревозчиковКоличествоПоМЛКонтекстноеМеню" id="131"/>
+									<ExtendedTooltip name="ТаблицаПеревозчиковКоличествоПоМЛРасширеннаяПодсказка" id="132"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ОтборПоМаршруту" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По маршруту</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By route
+</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоНаправлениюПеревозки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По направлению перевозки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By direction of transportation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоПунктуОтправления" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По пункту отправления</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By point of departure</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоПунктуНазначения" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По пункту назначения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By destination</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоМоделиТС" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По модели ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By vehicle model</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоТипуТС" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По типу ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By vehicle type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоВидуПеревозки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По виду перевозки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By type of transportation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПоОбъектуСтроительства" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По объекту строительства</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>By construction site</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаПеревозчиков" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица перевозчиков</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table of carriers</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Перевозчик" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перевозчик</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Carrier</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидПеревозки" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид перевозки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Transportation type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатВидыПеревозок</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Маршрут" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маршрут</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Route</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатМаршруты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТС" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Vehicle</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПунктОтправления" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункт отправления</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Point of departure</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПунктНазначения" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункт назначения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Destination</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="МодельТС" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Модель ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Vehicle model</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатМоделиТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипТС" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Vehicle type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатТипыТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОбъектСтроительства" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект строительства</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Construction object</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатОбъектыСтроительства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НаправлениеПеревозки" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление перевозки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Transportation direction</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатНаправленияПеревозок</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Договор" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Agreement</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КоличествоПоФакту" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество по факту</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Actual quantity</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПоПлану" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество по плану</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Quantity according to plan</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПоМЛ" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество по МЛ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Quantity by ML</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Выбран" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбран</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Selected</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПоПлануПроцент" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По плану, %</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>According to plan, %</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>4</v8:Digits>
+							<v8:FractionDigits>1</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="МаршрутныеЛисты" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрутные листы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Route sheets</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:DocumentRef.уатМаршрутныйЛист</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВыбиратьТС" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбирать ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select a vehicle</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПланированиеРаботыТС" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Планирование работы ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning of vehicle work</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатПланированиеРаботыТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НазначитьПеревозчикаВОдинМЛ" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить перевозчика в один МЛ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Assign a carrier to one ML</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НазначенныеПеревозчики" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначенные перевозчики</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Designated carriers</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Перевозчик" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перевозчик</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Carrier</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="МаршрутныйЛист" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маршрутный лист</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Route sheet</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатМаршрутныйЛист</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Договор" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Agreement</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекстОшибки" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст ошибки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Error text</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапрещатьПревышениеОбъемовПеревозок" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запрещать превышение объемов перевозок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Prohibit exceeding transportation volumes</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыбратьПеревозчика" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбор указанного ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select specified vehicle</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатФлагВыбран</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьПеревозчика</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьТаблицуПеревозчиков" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьТаблицуПеревозчиков</Action>
+		</Command>
+		<Command name="НазначитьПеревозчиков" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить автоматически</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Assign automatically</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить перевозчиков автоматически</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Assign carriers automatically</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Сформировать</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НазначитьПеревозчиков</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Записать" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать Маршрутные листы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write down the route sheets</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Записать</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ВыбратьПеревозчикаДляМаршрутногоЛиста" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать перевозчика и договор из текущей строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select a carrier and contract from the current line</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатФлагВыбран</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьПеревозчикаДляМаршрутногоЛиста</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="АлгоритмОптимизацииПолныйПеребор" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полный перебор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Complete enumeration</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм оптимизации полный перебор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Brute-force optimization algorithm</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>АлгоритмОптимизацииПолныйПеребор</Action>
+		</Command>
+		<Command name="АлгортимОптимизацииЖадныйАлгоритм" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Жадный алгоритм</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Greedy algorithm</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгортим оптимизации жадный алгоритм</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Greedy optimization algorithm</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>АлгортимОптимизацииЖадныйАлгоритм</Action>
+		</Command>
+	</Commands>
+</Form>

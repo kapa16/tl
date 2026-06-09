@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолучательУслуг</dataPath>
+			<field>ПолучательУслуг</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sum</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>VAT amount</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъектСтроительства</dataPath>
+			<field>ОбъектСтроительства</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект строительства</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Construction object</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Order</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Маршрут</dataPath>
+			<field>Маршрут</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПеревозки</dataPath>
+			<field>ВидПеревозки</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПараметрВыработки</dataPath>
+			<field>ПараметрВыработки</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПутевойЛист</dataPath>
+			<field>ПутевойЛист</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказПеревозчику</dataPath>
+			<field>ЗаказПеревозчику</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаТС</dataPath>
+			<field>ЗаказНаТС</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МодельТС</dataPath>
+			<field>МодельТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle model</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПунктПрибытия</dataPath>
+			<field>ПунктПрибытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт прибытия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Point of arrival</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПунктОтправления</dataPath>
+			<field>ПунктОтправления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт отправления</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Point of departure</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаправлениеПеревозки</dataPath>
+			<field>НаправлениеПеревозки</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокСортировка</dataPath>
+			<field>ДокСортировка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Док сортировка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Doc sorting</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаДоставки</dataPath>
+			<field>ДатаДоставки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата доставки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Time</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭтоВыставленныеУслуги</dataPath>
+			<field>ЭтоВыставленныеУслуги</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это выставленные услуги</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>These are the services on display</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерСтроки</dataPath>
+			<field>НомерСтроки</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПунктОтправленияСсылка</dataPath>
+			<field>ПунктОтправленияСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт отправления</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Point of departure</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПунктПрибытияСсылка</dataPath>
+			<field>ПунктПрибытияСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт прибытия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Destination</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПунктОтправленияНаименование</dataPath>
+			<field>ПунктОтправленияНаименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт отправления (наименование)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure point (name)</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПунктПрибытияНаименование</dataPath>
+			<field>ПунктПрибытияНаименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт прибытия (наименование)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival point (name)</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Услуга</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Service</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Содержание</dataPath>
+			<field>Содержание</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатПредоставленныеУслугиОбороты.ПутевойЛист КАК ПутевойЛист,
+	уатПредоставленныеУслугиОбороты.ТС КАК ТС,
+	ЕСТЬNULL(уатПредоставленныеУслугиОбороты.ТС.Модель, ЗНАЧЕНИЕ(Справочник.уатМоделиТС.ПустаяСсылка)) КАК МодельТС,
+	ВЫБОР
+		КОГДА уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА уатПредоставленныеУслугиОбороты.Регистратор.Водитель1
+		КОГДА уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатЗаказПеревозчику_уэ
+			ТОГДА уатПредоставленныеУслугиОбороты.Регистратор.Водитель
+		ИНАЧЕ ВЫБОР
+				КОГДА уатПредоставленныеУслугиОбороты.ПутевойЛист = ЗНАЧЕНИЕ(Документ.уатПутевойЛист.ПустаяСсылка)
+					ТОГДА ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+				ИНАЧЕ уатПредоставленныеУслугиОбороты.ПутевойЛист.Водитель1
+			КОНЕЦ
+	КОНЕЦ КАК Водитель,
+	уатПредоставленныеУслугиОбороты.Номенклатура КАК Услуга,
+	уатПредоставленныеУслугиОбороты.Маршрут КАК Маршрут,
+	уатПредоставленныеУслугиОбороты.ОбъектСтроительства КАК ОбъектСтроительства,
+	уатПредоставленныеУслугиОбороты.ПараметрВыработки КАК ПараметрВыработки,
+	уатПредоставленныеУслугиОбороты.КоличествоОборот КАК Количество,
+	уатПредоставленныеУслугиОбороты.СуммаОборот КАК Сумма,
+	уатПредоставленныеУслугиОбороты.СуммаНДСОборот КАК СуммаНДС,
+	уатПредоставленныеУслугиОбороты.ЗаказНаТС КАК Заказ,
+	ЕСТЬNULL(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления, ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)) КАК ПунктОтправления,
+	ЕСТЬNULL(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения, ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)) КАК ПунктПрибытия,
+	ВЫБОР
+		КОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления ЕСТЬ NULL
+			ТОГДА ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления КАК Справочник.уатПунктыНазначения)
+	КОНЕЦ КАК ПунктОтправленияСсылка,
+	ВЫБОР
+		КОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения ЕСТЬ NULL
+			ТОГДА ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения КАК Справочник.уатПунктыНазначения)
+	КОНЕЦ КАК ПунктПрибытияСсылка,
+	ВЫБОР
+		КОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления ССЫЛКА Справочник.уатПунктыНазначения
+			ТОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления.Наименование
+		КОГДА ТИПЗНАЧЕНИЯ(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления) = ТИП(СТРОКА)
+			ТОГДА ВЫРАЗИТЬ(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления КАК СТРОКА(500))
+		ИНАЧЕ ""
+	КОНЕЦ КАК ПунктОтправленияНаименование,
+	ВЫБОР
+		КОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения ССЫЛКА Справочник.уатПунктыНазначения
+			ТОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения.Наименование
+		КОГДА ТИПЗНАЧЕНИЯ(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения) = ТИП(СТРОКА)
+			ТОГДА ВЫРАЗИТЬ(уатПредоставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения КАК СТРОКА(500))
+		ИНАЧЕ ""
+	КОНЕЦ КАК ПунктПрибытияНаименование,
+	уатПредоставленныеУслугиОбороты.ЗаказПеревозчику КАК ЗаказПеревозчику,
+	уатПредоставленныеУслугиОбороты.СтавкаНДС КАК СтавкаНДС,
+	уатПредоставленныеУслугиОбороты.Регистратор КАК Регистратор,
+	уатПредоставленныеУслугиОбороты.НомерСтроки КАК НомерСтроки,
+	ВЫБОР
+		КОГДА &amp;ВидСортировки = 1
+			ТОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.ОтправлениеС
+		КОГДА &amp;ВидСортировки = 2
+			ТОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС.ДоставкаС
+		ИНАЧЕ уатПредоставленныеУслугиОбороты.Регистратор.Дата
+	КОНЕЦ КАК ДатаДоставки,
+	ВЫБОР
+		КОГДА &amp;ВидСортировки = 1
+				ИЛИ &amp;ВидСортировки = 2
+			ТОГДА уатПредоставленныеУслугиОбороты.ЗаказНаТС
+		ИНАЧЕ уатПредоставленныеУслугиОбороты.Регистратор
+	КОНЕЦ КАК ДокСортировка,
+	ЛОЖЬ КАК ЭтоВыставленныеУслуги,
+	ВЫБОР
+		КОГДА уатПредоставленныеУслугиОбороты.Валюта = ЗНАЧЕНИЕ(Справочник.Валюты.ПустаяСсылка)
+			ТОГДА уатПредоставленныеУслугиОбороты.ДоговорКонтрагента.ВалютаВзаиморасчетов
+		ИНАЧЕ уатПредоставленныеУслугиОбороты.Валюта
+	КОНЕЦ КАК Валюта,
+	уатПредоставленныеУслугиОбороты.Содержание КАК Содержание
+ИЗ
+	РегистрНакопления.уатПредоставленныеУслуги.Обороты(
+			ДАТАВРЕМЯ(1, 1, 1),
+			&amp;КонПериода,
+			Запись,
+			ДоговорКонтрагента = &amp;ДоговорКонтрагента
+				И Организация = &amp;Организация
+				И ПолучательУслуг = &amp;ПолучательУслуг) КАК уатПредоставленныеУслугиОбороты		
+ГДЕ
+	(&amp;ПоТТД
+				И уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатТТД
+			ИЛИ &amp;ПоЗаказамГрузоотправителей
+				И уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатЗаказГрузоотправителя
+			ИЛИ &amp;ПоКорректировке
+				И уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатКорректировкаЗаписейРегистров
+			ИЛИ &amp;ПоМаршрутнымЛистам
+				И уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатМаршрутныйЛист
+			ИЛИ &amp;ПоЗаказамПеревозчику
+				И уатПредоставленныеУслугиОбороты.Регистратор ССЫЛКА Документ.уатЗаказПеревозчику_уэ)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	уатВыставленныеУслугиОбороты.Номенклатура,
+	НЕОПРЕДЕЛЕНО,
+	уатВыставленныеУслугиОбороты.ОбъектСтроительства,
+	НЕОПРЕДЕЛЕНО,
+	уатВыставленныеУслугиОбороты.КоличествоОборот,
+	уатВыставленныеУслугиОбороты.СуммаОборот,
+	уатВыставленныеУслугиОбороты.СуммаНДСОборот,
+	уатВыставленныеУслугиОбороты.ЗаказНаТС,
+	ЕСТЬNULL(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления, ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)),
+	ЕСТЬNULL(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения, ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)),
+	ВЫБОР
+		КОГДА уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления ЕСТЬ NULL
+			ТОГДА ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления КАК Справочник.уатПунктыНазначения)
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения ЕСТЬ NULL
+			ТОГДА ЗНАЧЕНИЕ(Справочник.уатПунктыНазначения.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения КАК Справочник.уатПунктыНазначения)
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления ССЫЛКА Справочник.уатПунктыНазначения
+			ТОГДА уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления.Наименование
+		КОГДА ТИПЗНАЧЕНИЯ(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления) = ТИП(СТРОКА)
+			ТОГДА ВЫРАЗИТЬ(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресОтправления КАК СТРОКА(500))
+		ИНАЧЕ ""
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения ССЫЛКА Справочник.уатПунктыНазначения
+			ТОГДА уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения.Наименование
+		КОГДА ТИПЗНАЧЕНИЯ(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения) = ТИП(СТРОКА)
+			ТОГДА ВЫРАЗИТЬ(уатВыставленныеУслугиОбороты.ЗаказНаТС.АдресНазначения КАК СТРОКА(500))
+		ИНАЧЕ ""
+	КОНЕЦ,
+	уатВыставленныеУслугиОбороты.ЗаказПеревозчику,
+	уатВыставленныеУслугиОбороты.СтавкаНДС,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	ДАТАВРЕМЯ(1, 1, 1),
+	НЕОПРЕДЕЛЕНО,
+	ИСТИНА,
+	ВЫБОР
+		КОГДА уатВыставленныеУслугиОбороты.Валюта = ЗНАЧЕНИЕ(Справочник.Валюты.ПустаяСсылка)
+			ТОГДА уатВыставленныеУслугиОбороты.ДоговорКонтрагента.ВалютаВзаиморасчетов
+		ИНАЧЕ уатВыставленныеУслугиОбороты.Валюта
+	КОНЕЦ,
+	NULL
+ИЗ
+	РегистрНакопления.уатВыставленныеУслуги.Обороты(
+			ДАТАВРЕМЯ(1, 1, 1),
+			&amp;КонПериода,
+			,
+			Организация = &amp;Организация
+				И ДоговорКонтрагента = &amp;ДоговорКонтрагента
+				И ПолучательУслуг = &amp;ПолучательУслуг) КАК уатВыставленныеУслугиОбороты
+
+УПОРЯДОЧИТЬ ПО
+	ДатаДоставки,
+	ДокСортировка,
+	уатПредоставленныеУслугиОбороты.Номенклатура</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДоговорКонтрагента</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Договор контрагента</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Counterparty contract</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Company</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Кон периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВидСортировки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид сортировки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Sorting type</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПолучательУслуг</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Получатель услуг</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Recipient of service</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.уатПолучателиУслуг</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПоЗаказамГрузоотправителей</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По заказам грузоотправителей</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>By consignors orders</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПоЗаказамПеревозчику</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По заказам перевозчику</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>On order to carrier</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПоКорректировке</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По корректировке</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>By adjustment</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПоМаршрутнымЛистам</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По маршрутным листам</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>By routing lists</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПоТТД</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По ТТД</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>By goods shipping documents</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерСтроки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказПеревозчику</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Маршрут</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МодельТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Услуга</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъектСтроительства</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПараметрВыработки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПунктОтправления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПунктПрибытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПутевойЛист</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтавкаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЭтоВыставленныеУслуги</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаДоставки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокСортировка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Валюта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Содержание</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ОбъектСтроительства</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

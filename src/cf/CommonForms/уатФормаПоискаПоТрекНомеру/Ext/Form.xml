@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Поиск объекта по трек-номеру</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Search for an item by tracking number</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<Group>AlwaysHorizontal</Group>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ВведеннаяСтрокаПоиска" id="1">
+			<DataPath>ВведеннаяСтрокаПоиска</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MaxWidth>50</MaxWidth>
+			<ContextMenu name="ВведеннаяСтрокаПоискаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ВведеннаяСтрокаПоискаРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<Button name="ФормаВыполнитьПоиск" id="4">
+			<Type>UsualButton</Type>
+			<DefaultButton>true</DefaultButton>
+			<CommandName>Form.Command.ВыполнитьПоиск</CommandName>
+			<ExtendedTooltip name="ФормаВыполнитьПоискРасширеннаяПодсказка" id="5"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ВведеннаяСтрокаПоиска" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Трек-номер</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Tracking number</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьПоиск" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить поиск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Perform a search</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатQRКод</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыполнитьПоиск</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

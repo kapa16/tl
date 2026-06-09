@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СобытиеОписание</dataPath>
+			<field>СобытиеОписание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Description</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выполнено</dataPath>
+			<field>Выполнено</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Событие</dataPath>
+			<field>Событие</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаФакт</dataPath>
+			<field>ДатаФакт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СобытиеТема</dataPath>
+			<field>СобытиеТема</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тема</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subject</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПлан</dataPath>
+			<field>ДатаПлан</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипСобытия</dataPath>
+			<field>ТипСобытия</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СобытиеРезультатВыполнения</dataPath>
+			<field>СобытиеРезультатВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Result</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отклонение</dataPath>
+			<field>Отклонение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Variance</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Counterparty</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Organization</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатСобытияПоПеревозке_уэ.ДокументПеревозки.Организация КАК Организация,
+	уатСобытияПоПеревозке_уэ.ДокументПеревозки.Контрагент КАК Контрагент,
+	уатСобытияПоПеревозке_уэ.ДокументПеревозки КАК Документ,
+	уатСобытияПоПеревозке_уэ.Выполнено КАК Выполнено,
+	уатСобытияПоПеревозке_уэ.ДатаПлан КАК ДатаПлан,
+	уатСобытияПоПеревозке_уэ.ДатаФакт КАК ДатаФакт,
+	уатСобытияПоПеревозке_уэ.ТипСобытия КАК ТипСобытия,
+	уатСобытияПоПеревозке_уэ.Событие КАК Событие,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.Встреча)
+			ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.Встреча).Тема
+		ИНАЧЕ ВЫБОР
+				КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.ЗапланированноеВзаимодействие)
+					ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.ЗапланированноеВзаимодействие).Тема
+				ИНАЧЕ ВЫБОР
+						КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.СообщениеSMS)
+							ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.СообщениеSMS).Тема
+						ИНАЧЕ ВЫБОР
+								КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.ТелефонныйЗвонок)
+									ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.ТелефонныйЗвонок).Тема
+								ИНАЧЕ ВЫБОР
+										КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.ЭлектронноеПисьмоИсходящее)
+											ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.ЭлектронноеПисьмоИсходящее).Тема
+										ИНАЧЕ уатСобытияПоПеревозке_уэ.Тема
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК СобытиеТема,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.Встреча)
+			ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.Встреча).Описание
+		ИНАЧЕ ВЫБОР
+				КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.ЗапланированноеВзаимодействие)
+					ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.ЗапланированноеВзаимодействие).Описание
+				ИНАЧЕ ВЫБОР
+						КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(БизнесПроцесс.Задание)
+							ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК БизнесПроцесс.Задание).Содержание
+						ИНАЧЕ ВЫБОР
+								КОГДА ТИПЗНАЧЕНИЯ(уатСобытияПоПеревозке_уэ.Событие) = ТИП(Документ.ТелефонныйЗвонок)
+									ТОГДА ВЫРАЗИТЬ(уатСобытияПоПеревозке_уэ.Событие КАК Документ.ТелефонныйЗвонок).Описание
+								ИНАЧЕ уатСобытияПоПеревозке_уэ.Описание
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК СобытиеОписание,
+	уатСобытияПоПеревозке_уэ.Событие.РезультатВыполнения КАК СобытиеРезультатВыполнения,
+	ВЫБОР
+		КОГДА уатСобытияПоПеревозке_уэ.ДатаПлан = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА 0
+		ИНАЧЕ РАЗНОСТЬДАТ(НАЧАЛОПЕРИОДА(уатСобытияПоПеревозке_уэ.ДатаФакт, ДЕНЬ), НАЧАЛОПЕРИОДА(уатСобытияПоПеревозке_уэ.ДатаПлан, ДЕНЬ), ДЕНЬ)
+	КОНЕЦ КАК Отклонение
+ИЗ
+	РегистрСведений.уатСобытияПоПеревозке_уэ КАК уатСобытияПоПеревозке_уэ
+ГДЕ
+	уатСобытияПоПеревозке_уэ.ДатаПлан МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца</query>
+	</dataSet>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>На начало дня</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>On day beginning</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаКонца</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата конца</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Start date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>События по перевозкам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>События по перевозкам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>46adde6b-c698-46da-b781-5d66e072d339</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Выполнено</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					<dcsset:userSettingID>4e493c27-7aa1-4295-a6c8-5c3cea51c20b</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>4ef25278-2cbb-4e6c-a330-504f1ec36417</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДатаПлан</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Контрагент</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Документ</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Выполнено</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ДатаПлан</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ДатаФакт</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Отклонение</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ТипСобытия</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Событие</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>СобытиеТема</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>СобытиеОписание</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>СобытиеРезультатВыполнения</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

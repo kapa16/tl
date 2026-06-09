@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Подбор сопроводительных документов в пакет</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Selection of accompanying documents into a package</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПеренестиПодобранныеВДокумент" id="61">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПеренестиПодобранныеВДокумент</CommandName>
+				<ExtendedTooltip name="ФормаПеренестиПодобранныеВДокументРасширеннаяПодсказка" id="62"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтбор" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selection</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="54"/>
+			<ChildItems>
+				<Table name="КомпоновщикНастроекНастройкиОтбор" id="1">
+					<Representation>Tree</Representation>
+					<Autofill>true</Autofill>
+					<Width>60</Width>
+					<InitialTreeView>ExpandAllLevels</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>КомпоновщикНастроекОтбора.Settings.Filter</DataPath>
+					<ViewMode>All</ViewMode>
+					<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+					<ContextMenu name="КомпоновщикНастроекНастройкиОтборКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="КомпоновщикНастроекНастройкиОтборКоманднаяПанель" id="3">
+						<ChildItems>
+							<ButtonGroup name="КомпоновщикНастроекНастройкиОтборГруппа1" id="59">
+								<Visible>false</Visible>
+								<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборГруппа1РасширеннаяПодсказка" id="60"/>
+								<ChildItems>
+									<Button name="КомпоновщикНастроекНастройкиОтборИзменитьФорму" id="55">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборИзменитьФормуРасширеннаяПодсказка" id="56"/>
+									</Button>
+									<Button name="КомпоновщикНастроекНастройкиОтборСправка" id="57">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборСправкаРасширеннаяПодсказка" id="58"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="КомпоновщикНастроекНастройкиОтборСтрокаПоиска" id="5">
+						<AdditionSource>
+							<Item>КомпоновщикНастроекНастройкиОтбор</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="КомпоновщикНастроекНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="6"/>
+						<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="КомпоновщикНастроекНастройкиОтборСостояниеПросмотра" id="8">
+						<AdditionSource>
+							<Item>КомпоновщикНастроекНастройкиОтбор</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="КомпоновщикНастроекНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="9"/>
+						<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="КомпоновщикНастроекНастройкиОтборУправлениеПоиском" id="11">
+						<AdditionSource>
+							<Item>КомпоновщикНастроекНастройкиОтбор</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="КомпоновщикНастроекНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="12"/>
+						<ExtendedTooltip name="КомпоновщикНастроекНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+					</SearchControlAddition>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСопрДокументы" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопроводительные документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supporting documents</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа сопр документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group of support documents</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаСопрДокументыРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<Table name="СопроводительныеДокументы" id="14">
+					<Representation>List</Representation>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>СопроводительныеДокументы</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СопроводительныеДокументыКонтекстноеМеню" id="15"/>
+					<AutoCommandBar name="СопроводительныеДокументыКоманднаяПанель" id="16">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="СопроводительныеДокументыПодобратьСД" id="63">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПодобратьСД</CommandName>
+								<ExtendedTooltip name="СопроводительныеДокументыПодобратьСДРасширеннаяПодсказка" id="64"/>
+							</Button>
+							<ButtonGroup name="ГруппаКнопкиФлажки" id="65">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа кнопки флажки</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Checkbox button group</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа кнопки флажки</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Checkbox button group</v8:content>
+									</v8:item>
+								</ToolTip>
+								<Representation>Compact</Representation>
+								<ExtendedTooltip name="ГруппаКнопкиФлажкиРасширеннаяПодсказка" id="66"/>
+								<ChildItems>
+									<Button name="УстановитьВсе" id="67">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<Width>3</Width>
+										<CommandName>Form.Command.УстановитьВсе</CommandName>
+										<ExtendedTooltip name="УстановитьВсеРасширеннаяПодсказка" id="68"/>
+									</Button>
+									<Button name="СнятьВсе" id="69">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<Width>3</Width>
+										<CommandName>Form.Command.СнятьВсе</CommandName>
+										<ExtendedTooltip name="СнятьВсеРасширеннаяПодсказка" id="70"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СопроводительныеДокументыРасширеннаяПодсказка" id="17"/>
+					<SearchStringAddition name="СопроводительныеДокументыСтрокаПоиска" id="18">
+						<AdditionSource>
+							<Item>СопроводительныеДокументы</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СопроводительныеДокументыСтрокаПоискаКонтекстноеМеню" id="19"/>
+						<ExtendedTooltip name="СопроводительныеДокументыСтрокаПоискаРасширеннаяПодсказка" id="20"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СопроводительныеДокументыСостояниеПросмотра" id="21">
+						<AdditionSource>
+							<Item>СопроводительныеДокументы</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СопроводительныеДокументыСостояниеПросмотраКонтекстноеМеню" id="22"/>
+						<ExtendedTooltip name="СопроводительныеДокументыСостояниеПросмотраРасширеннаяПодсказка" id="23"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СопроводительныеДокументыУправлениеПоиском" id="24">
+						<AdditionSource>
+							<Item>СопроводительныеДокументы</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СопроводительныеДокументыУправлениеПоискомКонтекстноеМеню" id="25"/>
+						<ExtendedTooltip name="СопроводительныеДокументыУправлениеПоискомРасширеннаяПодсказка" id="26"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<CheckBoxField name="СопроводительныеДокументыПометка" id="48">
+							<DataPath>СопроводительныеДокументы.Пометка</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СопроводительныеДокументыПометкаКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="СопроводительныеДокументыПометкаРасширеннаяПодсказка" id="50"/>
+						</CheckBoxField>
+						<InputField name="СопроводительныеДокументыСопроводительныйДокумент" id="27">
+							<DataPath>СопроводительныеДокументы.СопроводительныйДокумент</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыСопроводительныйДокументКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="СопроводительныеДокументыСопроводительныйДокументРасширеннаяПодсказка" id="29"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыВладелецДокумента" id="45">
+							<DataPath>СопроводительныеДокументы.ВладелецДокумента</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыВладелецДокументаКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="СопроводительныеДокументыВладелецДокументаРасширеннаяПодсказка" id="47"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыОрганизация" id="30">
+							<DataPath>СопроводительныеДокументы.Организация</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыОрганизацияКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="СопроводительныеДокументыОрганизацияРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыМестоположение" id="71">
+							<DataPath>СопроводительныеДокументы.Местоположение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыМестоположениеКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="СопроводительныеДокументыМестоположениеРасширеннаяПодсказка" id="73"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыОтправитель" id="33">
+							<DataPath>СопроводительныеДокументы.Отправитель</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыОтправительКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="СопроводительныеДокументыОтправительРасширеннаяПодсказка" id="35"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыПунктОтправления" id="39">
+							<DataPath>СопроводительныеДокументы.ПунктОтправления</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыПунктОтправленияКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="СопроводительныеДокументыПунктОтправленияРасширеннаяПодсказка" id="41"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыПолучатель" id="36">
+							<DataPath>СопроводительныеДокументы.Получатель</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыПолучательКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="СопроводительныеДокументыПолучательРасширеннаяПодсказка" id="38"/>
+						</InputField>
+						<InputField name="СопроводительныеДокументыПунктПрибытия" id="42">
+							<DataPath>СопроводительныеДокументы.ПунктПрибытия</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СопроводительныеДокументыПунктПрибытияКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="СопроводительныеДокументыПунктПрибытияРасширеннаяПодсказка" id="44"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатПодборПакетовСопроводительныхДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="КомпоновщикНастроекОтбора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Компоновщик настроек отбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Linker settings selection</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СопроводительныеДокументы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопроводительные документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supporting documents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="СопроводительныйДокумент" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сопроводительный документ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Supporting document</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатСопроводительныеДокументы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Организация" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Organization</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отправитель" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправитель</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Sender</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Получатель" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Recipient</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПунктОтправления" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункт отправления</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Point of departure</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПунктПрибытия" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункт прибытия</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Destination</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВладелецДокумента" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Владелец документа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Owner</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mark</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Местоположение" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Местоположение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Location</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="АдресСхемыКомпоновкиДанных" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес схемы компоновки данных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Address of data composition schema</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПеренестиПодобранныеВДокумент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенести в документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Move document</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенести подобранные заказы в документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Move selected orders to document</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПеренестиПодобранныеВДокумент</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодобратьСД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Personal settings</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать СД</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select SD</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодобратьСД</Action>
+		</Command>
+		<Command name="СнятьВсе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear all</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear all</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсе</Action>
+		</Command>
+		<Command name="УстановитьВсе" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select all</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select all</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьВсе</Action>
+		</Command>
+	</Commands>
+</Form>

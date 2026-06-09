@@ -1,0 +1,559 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="ON_DOVBB_1_928_00_01_02_01" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="ON_DOVBB_1_928_00_01_02_01" name="Доверенность" type="d2p1:Доверенность"/>
+	<valueType name="CCРФТип" base="xs:string" variety="Atomic" length="2">
+		<pattern>[0-9]{2}</pattern>
+	</valueType>
+	<valueType name="ИННФЛТип" base="xs:string" variety="Atomic" length="12">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{10}</pattern>
+	</valueType>
+	<valueType name="ИННЮЛТип" base="xs:string" variety="Atomic" length="10">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{8}</pattern>
+	</valueType>
+	<valueType name="КНДТип" base="xs:string" variety="Atomic" length="7">
+		<pattern>[0-9]{7}</pattern>
+	</valueType>
+	<valueType name="КППТип" base="xs:string" variety="Atomic" length="9">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})([0-9]{2})([0-9A-Z]{2})([0-9]{3})</pattern>
+	</valueType>
+	<valueType name="ОГРНИПТип" base="xs:string" variety="Atomic" length="15">
+		<pattern>[0-9]{15}</pattern>
+	</valueType>
+	<valueType name="ОГРНТип" base="xs:string" variety="Atomic" length="13">
+		<pattern>[0-9]{13}</pattern>
+	</valueType>
+	<valueType name="ОКВТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="ОКСМТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="СНИЛСТип" base="xs:string" variety="Atomic" length="14">
+		<pattern>[0-9]{3}\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}</pattern>
+		<pattern>[0-9]{3}\-[0-9]{3}\-[0-9]{3} [0-9]{2}</pattern>
+	</valueType>
+	<valueType name="СПДУЛТип" base="xs:string" variety="Atomic" length="2">
+		<pattern>[0-9]{2}</pattern>
+	</valueType>
+	<valueType name="СПДУЛШТип" base="xs:string" variety="Atomic" minLength="1" maxLength="25"/>
+	<objectType name="АдрТип">
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="Регион" type="d3p1:CCРФТип" lowerBound="1" form="Attribute"/>
+		<property name="АдрРФ" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="БезотзывТип">
+		<property name="ПрБезотзыв" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрПерБезДов" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="УслОтзыва" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ОписУслОт" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="РеквДокПдтвТип">
+		<property name="ДатаВыд" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="КемВыд" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="СвУдДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="4000"/>
+		</property>
+	</objectType>
+	<objectType name="СвДовТип">
+		<property name="НомДовер" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36"/>
+		</property>
+		<property name="ВнНомДовер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="ДатаВнРегДовер" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="ДатаВыдДовер" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаКонДовер" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ПрПередов" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрУтрПолн" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрСовмПолн" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="Безотзыв" type="d3p1:БезотзывТип"/>
+		<property name="СведСистОтм">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="СвЗакПредТип">
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СвОрг" type="d3p1:СвОргТип" lowerBound="0"/>
+		<property name="СвПоФЛ">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d5p1:ИННФЛТип" lowerBound="1" form="Attribute"/>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d5p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+				<property name="ДокНедеесп" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d5p1:СведФЛТип"/>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="РеквДокПдтв" type="d5p1:РеквДокПдтвТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СвИПТип">
+		<property name="НаимИП" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ОГРНИП" type="d3p1:ОГРНИПТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d3p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ФИО" type="d3p1:ФИОТип"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d3p1:СведФЛТип"/>
+	</objectType>
+	<objectType name="СвИнОргТип">
+		<property name="НаимИО" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННЮЛ" type="d3p1:ИННЮЛТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="КПП" type="d3p1:КППТип" lowerBound="0" form="Attribute"/>
+		<property name="НЗА" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="11"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СтрРег" type="d3p1:ОКСМТип" lowerBound="1" form="Attribute"/>
+		<property name="НаимРегОрг" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="РегНомер" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+		</property>
+		<property name="АдрСтрРег" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="АдрМНФакт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="КонтактТлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+	</objectType>
+	<objectType name="СвНотУдТип">
+		<property name="РстрНомДовер" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="27">
+				<pattern>[0-9]{2}/[0-9]{1,4}\-н/[0-9]{2}\-[0-9]{4}\-[0-9]{1,3}\-[0-9]{1,5}</pattern>
+			</typeDef>
+		</property>
+		<property name="МестоДовер" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="СвНотДейств">
+			<typeDef xsi:type="ObjectType">
+				<property name="Должность" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="РегНомНот" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+				</property>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="ФИОНотДейств" type="d5p1:ФИОТип"/>
+			</typeDef>
+		</property>
+		<property name="ВриоНот" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Должность" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="РегНомНот" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+				</property>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="ФИОВриоНот" type="d5p1:ФИОТип"/>
+			</typeDef>
+		</property>
+		<property name="ОплатНотДейст">
+			<typeDef xsi:type="ObjectType">
+				<property name="УплНотДейст" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+				</property>
+				<property name="ЛьготаСум" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ПодпРукопис" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ХешPDFДок">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="16000"/>
+				</property>
+				<property name="ПодпИзобр">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="16000"/>
+				</property>
+				<property name="ХешПодп">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="16000"/>
+				</property>
+				<property name="ДатаВремПодп" type="xs:string"/>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="ФИООтв" type="d5p1:ФИОТип"/>
+			</typeDef>
+		</property>
+		<property name="СпПрдЭНотДок" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="НапрДокДовЕПГУ" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>0</enumeration>
+						<enumeration>1</enumeration>
+					</typeDef>
+				</property>
+				<property name="НапрДокПовЕПГУ" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>0</enumeration>
+						<enumeration>1</enumeration>
+					</typeDef>
+				</property>
+				<property name="НапрДокЗвлФНП" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>0</enumeration>
+						<enumeration>1</enumeration>
+					</typeDef>
+				</property>
+				<property name="НапрДокПовФНП" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>0</enumeration>
+						<enumeration>1</enumeration>
+					</typeDef>
+				</property>
+				<property name="ДрИнфСист" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="ДрСпосВыд" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИнСвУдНадпис" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="4000"/>
+		</property>
+	</objectType>
+	<objectType name="СвОргТип">
+		<property name="НаимОрг" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННЮЛ" type="d3p1:ИННЮЛТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="КПП" type="d3p1:КППТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ОГРН" type="d3p1:ОГРНТип" lowerBound="0" form="Attribute"/>
+		<property name="НаимУчрДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="КонтактТлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="РегНомер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="АдрРег" type="d3p1:АдрТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="АдрМНФакт" type="d3p1:АдрТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="СвПолнТип" ordered="false" sequenced="true">
+		<property name="КодПолн" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ТекстПолн" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="СодержПолн" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="ДопТекстПолн" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="СвРосОргТип">
+		<property name="НаимОрг" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ОГРН" type="d3p1:ОГРНТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННЮЛ" type="d3p1:ИННЮЛТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="КПП" type="d3p1:КППТип" lowerBound="1" form="Attribute"/>
+		<property name="АдрРФ" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="АдрМНФакт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="НаимУчрДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="Тлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+	</objectType>
+	<objectType name="СвУпПредТип" ordered="false" sequenced="true">
+		<property name="ТипПред" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+				<enumeration>ЮЛ</enumeration>
+				<enumeration>ИП</enumeration>
+				<enumeration>ФЛ</enumeration>
+			</typeDef>
+		</property>
+		<property name="СвОрг" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="СвОрг" type="d5p1:СвОргТип"/>
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="СвФЛ" type="d5p1:СведФизЛТип" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СведИП" type="d3p1:СвИПТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СведФизЛ" type="d3p1:СведФизЛТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="СведИПТип">
+		<property name="НаимИП" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ОГРНИП" type="d3p1:ОГРНИПТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d3p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d3p1:СведФЛТип"/>
+	</objectType>
+	<objectType name="СведФЛТип">
+		<property name="ДатаРожд" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="МестоРожд" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="КонтактТлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Пол" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрГражд" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="Гражданство" type="d3p1:ОКСМТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="АдрМЖ" type="d3p1:АдрТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="УдЛичнФЛ" type="d3p1:УдЛичнФЛТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="СведФизЛТип">
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d3p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ФИО" type="d3p1:ФИОТип"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d3p1:СведФЛТип"/>
+	</objectType>
+	<objectType name="УдЛичнФЛТип">
+		<property name="КодВидДок" lowerBound="1" form="Attribute">
+			<typeDef xmlns:d4p1="ON_DOVBB_1_928_00_01_02_01" xsi:type="ValueType" base="d4p1:СПДУЛТип" variety="Atomic">
+				<enumeration>03</enumeration>
+				<enumeration>07</enumeration>
+				<enumeration>10</enumeration>
+				<enumeration>11</enumeration>
+				<enumeration>12</enumeration>
+				<enumeration>13</enumeration>
+				<enumeration>15</enumeration>
+				<enumeration>19</enumeration>
+				<enumeration>21</enumeration>
+				<enumeration>24</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СерНомДок" type="d3p1:СПДУЛШТип" lowerBound="1" form="Attribute"/>
+		<property name="ДатаДок" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ВыдДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="КодВыдДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="7"/>
+		</property>
+	</objectType>
+	<objectType name="ФИОТип">
+		<property name="Фамилия" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+		<property name="Имя" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+		<property name="Отчество" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+	</objectType>
+	<objectType name="ФЛДоверТип">
+		<property name="ПрДеесп" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d3p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+		<property name="ДокНедеесп" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ФИО" type="d3p1:ФИОТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d3p1:СведФЛТип"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="СвЗакПред" type="d3p1:СвЗакПредТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="Доверенность">
+		<property name="ИдФайл" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ВерсФорм" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5">
+				<enumeration>002</enumeration>
+			</typeDef>
+		</property>
+		<property name="Документ">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="ОКУД" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="7">
+						<enumeration>0251222</enumeration>
+					</typeDef>
+				</property>
+				<property name="Довер" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвДов" type="d7p1:СвДовТип"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвДоверит" type="d7p1:СвДоверит" upperBound="-1"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвУпПред" type="d7p1:СвУпПредТип" upperBound="-1"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвПолн" type="d7p1:СвПолнТип" upperBound="-1"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвНотУд" type="d7p1:СвНотУдТип" lowerBound="0"/>
+					</typeDef>
+				</property>
+				<property name="Передов" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="СвДовПер">
+							<typeDef xsi:type="ObjectType">
+								<property name="СвОснДовер">
+									<typeDef xsi:type="ObjectType">
+										<property name="НомДовер0" lowerBound="1" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36"/>
+										</property>
+										<property name="СвДовер0" upperBound="-1">
+											<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+												<property name="ТипДовер" lowerBound="1" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+														<enumeration>ЮЛ</enumeration>
+														<enumeration>ИО</enumeration>
+														<enumeration>ИП</enumeration>
+														<enumeration>ФЛ</enumeration>
+													</typeDef>
+												</property>
+												<property xmlns:d13p1="ON_DOVBB_1_928_00_01_02_01" name="РосОргДовер" type="d13p1:СвРосОргТип" lowerBound="0"/>
+												<property xmlns:d13p1="ON_DOVBB_1_928_00_01_02_01" name="ИнОргДовер" type="d13p1:СвИнОргТип" lowerBound="0"/>
+												<property xmlns:d13p1="ON_DOVBB_1_928_00_01_02_01" name="ИПДовер" type="d13p1:СвИПТип" lowerBound="0"/>
+												<property xmlns:d13p1="ON_DOVBB_1_928_00_01_02_01" name="ФЛДовер" type="d13p1:ФЛДоверТип" lowerBound="0"/>
+											</typeDef>
+										</property>
+									</typeDef>
+								</property>
+								<property name="НомДоверN">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36"/>
+								</property>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="СвПереДовер" type="d9p1:СвДовТип"/>
+							</typeDef>
+						</property>
+						<property name="СвЛицПередПолн" upperBound="-1">
+							<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+								<property name="ТипЛицПрдПолн" lowerBound="1" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+										<enumeration>ЮЛ</enumeration>
+										<enumeration>ИП</enumeration>
+										<enumeration>ФЛ</enumeration>
+									</typeDef>
+								</property>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="РосОргПрдПолн" type="d9p1:СвОргТип" lowerBound="0"/>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="ИППрдПолн" type="d9p1:СведИПТип" lowerBound="0"/>
+								<property name="ФЛПрдПолн" lowerBound="0">
+									<typeDef xsi:type="ObjectType">
+										<property xmlns:d11p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d11p1:ИННФЛТип" lowerBound="1" form="Attribute"/>
+										<property xmlns:d11p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d11p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+										<property xmlns:d11p1="ON_DOVBB_1_928_00_01_02_01" name="ФИО" type="d11p1:ФИОТип" lowerBound="0"/>
+										<property xmlns:d11p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d11p1:СведФЛТип"/>
+										<property xmlns:d11p1="ON_DOVBB_1_928_00_01_02_01" name="СвЗакПред" type="d11p1:СвЗакПредТип" lowerBound="0"/>
+									</typeDef>
+								</property>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="Подписант" type="d9p1:ФИОТип"/>
+							</typeDef>
+						</property>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвЛицПолучПолн" type="d7p1:СвУпПредТип" upperBound="-1"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвПолн" type="d7p1:СвПолнТип" upperBound="-1"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвНотУд" type="d7p1:СвНотУдТип" lowerBound="0"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИнСвед" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="СвДоверит">
+		<property name="ТипДовер" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+				<enumeration>ЮЛ</enumeration>
+				<enumeration>ИО</enumeration>
+				<enumeration>ИП</enumeration>
+				<enumeration>ФЛ</enumeration>
+			</typeDef>
+		</property>
+		<property name="РосОргДовер" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="СвРосОрг" type="d5p1:СвРосОргТип"/>
+				<property name="ЛицоБезДов">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СвОрг" type="d7p1:СвОргТип" lowerBound="0"/>
+						<property name="СвФЛ">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d9p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="СНИЛС" type="d9p1:СНИЛСТип" lowerBound="1" form="Attribute"/>
+								<property name="Должность" lowerBound="1" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+								</property>
+								<property name="НаимДокПолн" lowerBound="1" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+								</property>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="РеквДокПдтв" type="d9p1:РеквДокПдтвТип" lowerBound="0"/>
+								<property xmlns:d9p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d9p1:СведФЛТип"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИнОргДовер" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="ON_DOVBB_1_928_00_01_02_01" name="СвИнОрг" type="d5p1:СвИнОргТип"/>
+				<property name="СвРукОП">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="ИННФЛ" type="d7p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+						<property name="НаимДокПолн" lowerBound="1" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+						</property>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="РеквДокПдтв" type="d7p1:РеквДокПдтвТип" lowerBound="0"/>
+						<property xmlns:d7p1="ON_DOVBB_1_928_00_01_02_01" name="СведФЛ" type="d7p1:СведФЛТип"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ИПДовер" type="d3p1:СведИПТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="ФЛДовер" type="d3p1:ФЛДоверТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_DOVBB_1_928_00_01_02_01" name="Подписант" type="d3p1:ФИОТип"/>
+	</objectType>
+</package>

@@ -1,0 +1,1642 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<ButtonGroup name="ГруппаОрганайзерОтправить" id="294">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Органайзер отправить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Send organizer</v8:content>
+					</v8:item>
+				</Title>
+				<Representation>Compact</Representation>
+				<ExtendedTooltip name="ГруппаОрганайзерОтправитьРасширеннаяПодсказка" id="295"/>
+				<ChildItems>
+					<Popup name="ПодменюОрганайзер" id="296">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Органайзер</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Organizer</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>CommonPicture.Напоминание</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОрганайзерРасширеннаяПодсказка" id="297"/>
+					</Popup>
+					<Popup name="ПодменюОтправить" id="298">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправить</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Send</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>StdPicture.SendMessage</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОтправитьРасширеннаяПодсказка" id="299"/>
+					</Popup>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="ФормаЗаполнитьВремяРасстояние" id="135">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗаполнитьВремяРасстояние</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьВремяРасстояниеРасширеннаяПодсказка" id="136"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаСтатус" id="155">
+			<Height>2</Height>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#ECECEC</BackColor>
+			<ExtendedTooltip name="ГруппаСтатусРасширеннаяПодсказка" id="156"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаСтутусПредупреждение" id="169">
+					<HorizontalSpacing>None</HorizontalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСтутусПредупреждениеРасширеннаяПодсказка" id="170"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация" id="171">
+							<TextColor>#ECECEC</TextColor>
+							<Font ref="style:NormalTextFont" height="3" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>у</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>at</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияКонтекстноеМеню" id="172"/>
+							<ExtendedTooltip name="ДекорацияРасширеннаяПодсказка" id="173"/>
+						</LabelDecoration>
+						<PictureDecoration name="СтутусПредупреждение" id="174">
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Ref>CommonPicture.уатСтатусНеДействует</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СтутусПредупреждениеКонтекстноеМеню" id="175"/>
+							<ExtendedTooltip name="СтутусПредупреждениеРасширеннаяПодсказка" id="176"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="СтатусНадпись" id="163">
+					<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маршрут не действует!</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The route is not valid!</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<ContextMenu name="СтатусНадписьКонтекстноеМеню" id="164"/>
+					<ExtendedTooltip name="СтатусНадписьРасширеннаяПодсказка" id="165"/>
+				</LabelDecoration>
+				<PictureDecoration name="Декорация1" id="166">
+					<Height>1</Height>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Decoration</v8:content>
+						</v8:item>
+					</Title>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="167"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="168"/>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Шапка" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ШапкаРасширеннаяПодсказка" id="12"/>
+			<ChildItems>
+				<UsualGroup name="Реквизиты" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attributes</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attributes</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="2"/>
+					<ChildItems>
+						<RadioButtonField name="Статус" id="152">
+							<DataPath>Объект.Статус</DataPath>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Действует</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Valid</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.уатСтатусыДействия.EnumValue.Действует</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Не действует</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Not valid</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.уатСтатусыДействия.EnumValue.НеДействует</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="СтатусКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="154"/>
+							<Events>
+								<Event name="OnChange">СтатусПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<InputField name="Наименование" id="13">
+							<DataPath>Объект.Description</DataPath>
+							<DropListButton>false</DropListButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<UsualGroup name="КодНомер" id="3">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код номер</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Code number</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код номер</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Code number</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КодНомерРасширеннаяПодсказка" id="4"/>
+							<ChildItems>
+								<InputField name="НомерМаршрута" id="8">
+									<DataPath>Объект.НомерМаршрута</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Route number</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>№ маршрута</v8:content>
+										</v8:item>
+									</Title>
+									<Width>11</Width>
+									<ContextMenu name="НомерМаршрутаКонтекстноеМеню" id="9"/>
+									<ExtendedTooltip name="НомерМаршрутаРасширеннаяПодсказка" id="10"/>
+								</InputField>
+								<InputField name="Код" id="5">
+									<DataPath>Объект.Code</DataPath>
+									<ContextMenu name="КодКонтекстноеМеню" id="6"/>
+									<ExtendedTooltip name="КодРасширеннаяПодсказка" id="7"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Родитель" id="16">
+							<DataPath>Объект.Parent</DataPath>
+							<DropListButton>false</DropListButton>
+							<ChoiceButton>true</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<ContextMenu name="РодительКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<UsualGroup name="РасстояниеПробег" id="19">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расстояние пробег</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Distance mileage</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расстояние пробег</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Distance mileage</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="РасстояниеПробегРасширеннаяПодсказка" id="20"/>
+							<ChildItems>
+								<InputField name="Расстояние" id="21">
+									<DataPath>Объект.Расстояние</DataPath>
+									<Width>7</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ChoiceButton>false</ChoiceButton>
+									<ContextMenu name="РасстояниеКонтекстноеМеню" id="22"/>
+									<ExtendedTooltip name="РасстояниеРасширеннаяПодсказка" id="23"/>
+								</InputField>
+								<InputField name="ВремяВПути" id="27">
+									<DataPath>Объект.ВремяВПути</DataPath>
+									<Width>4</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ChoiceButton>false</ChoiceButton>
+									<ContextMenu name="ВремяВПутиКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ВремяВПутиРасширеннаяПодсказка" id="29"/>
+									<Events>
+										<Event name="OnChange">ВремяВПутиПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ВремяОтправления" id="186">
+									<DataPath>Объект.ВремяОтправления</DataPath>
+									<Width>3</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<ContextMenu name="ВремяОтправленияКонтекстноеМеню" id="187"/>
+									<ExtendedTooltip name="ВремяОтправленияРасширеннаяПодсказка" id="188"/>
+									<Events>
+										<Event name="OnChange">ВремяОтправленияПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="УсловиеРаботы" id="147">
+							<DataPath>Объект.УсловиеРаботы</DataPath>
+							<ContextMenu name="УсловиеРаботыКонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="УсловиеРаботыРасширеннаяПодсказка" id="149"/>
+						</InputField>
+						<InputField name="ЦветНаКарте" id="213">
+							<DataPath>Объект.ЦветНаКарте</DataPath>
+							<Width>18</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ЦветНаКартеКонтекстноеМеню" id="214"/>
+							<ExtendedTooltip name="ЦветНаКартеРасширеннаяПодсказка" id="215"/>
+						</InputField>
+						<CheckBoxField name="ИспользоватьДляПланированияВАРМЛогиста" id="141">
+							<DataPath>Объект.ИспользоватьДляПланированияВАРМЛогиста</DataPath>
+							<Visible>false</Visible>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьДляПланированияВАРМЛогистаКонтекстноеМеню" id="142"/>
+							<ExtendedTooltip name="ИспользоватьДляПланированияВАРМЛогистаРасширеннаяПодсказка" id="143"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьДляПланированияВАРМЛогистаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="НочнойМаршрут" id="289">
+							<DataPath>Объект.НочнойМаршрут</DataPath>
+							<Visible>false</Visible>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НочнойМаршрутКонтекстноеМеню" id="290"/>
+							<ExtendedTooltip name="НочнойМаршрутРасширеннаяПодсказка" id="291"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="137">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="138"/>
+			<ChildItems>
+				<Page name="СтраницаПунктыСледования" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункты следования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Route points</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница пункты следования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page the follow points</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПунктыСледованияРасширеннаяПодсказка" id="46"/>
+					<ChildItems>
+						<UsualGroup name="КомандыПунктыСледования" id="95">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды пункты следования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Team the follow points</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды пункты следования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Team the follow points</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КомандыПунктыСледованияРасширеннаяПодсказка" id="96"/>
+							<ChildItems>
+								<CommandBar name="Группа2" id="97">
+									<Width>18</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="98"/>
+									<ChildItems>
+										<Button name="Добавить" id="99">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.Add</CommandName>
+											<ExtendedTooltip name="ДобавитьРасширеннаяПодсказка" id="100"/>
+										</Button>
+										<ButtonGroup name="Группа3" id="105">
+											<Representation>Compact</Representation>
+											<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="106"/>
+											<ChildItems>
+												<Button name="ПереместитьВверх" id="101">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Item.ПунктыСледования.StandardCommand.MoveUp</CommandName>
+													<ExtendedTooltip name="ПереместитьВверхРасширеннаяПодсказка" id="102"/>
+												</Button>
+												<Button name="ПереместитьВниз" id="103">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Item.ПунктыСледования.StandardCommand.MoveDown</CommandName>
+													<ExtendedTooltip name="ПереместитьВнизРасширеннаяПодсказка" id="104"/>
+												</Button>
+											</ChildItems>
+										</ButtonGroup>
+									</ChildItems>
+								</CommandBar>
+								<RadioButtonField name="ПредставлениеМаршрута" id="69">
+									<DataPath>ПредставлениеМаршрута</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Представление маршрута</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Route representation</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Представление маршрута</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Route representation</v8:content>
+										</v8:item>
+									</ToolTip>
+									<RadioButtonType>Tumbler</RadioButtonType>
+									<EqualColumnsWidth>true</EqualColumnsWidth>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Парные</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Paired</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">2</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Одиночные</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Single</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ПредставлениеМаршрутаКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="ПредставлениеМаршрутаРасширеннаяПодсказка" id="71"/>
+									<Events>
+										<Event name="OnChange">ПредставлениеМаршрутаПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+								<Button name="ОптимальноеПерестроениеМаршрута" id="292">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ОптимальноеПерестроениеМаршрута</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Оптимизация</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Optimal rebuilding of the orders</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ОптимальноеПерестроениеМаршрутаРасширеннаяПодсказка" id="293"/>
+								</Button>
+								<CommandBar name="Группа4" id="107">
+									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="108"/>
+									<ChildItems>
+										<Button name="Добавить1" id="109">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.Add</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="Добавить1РасширеннаяПодсказка" id="110"/>
+										</Button>
+										<Button name="Скопировать" id="111">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.Copy</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="112"/>
+										</Button>
+										<Button name="Изменить" id="113">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.Change</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ИзменитьРасширеннаяПодсказка" id="114"/>
+										</Button>
+										<Button name="Удалить" id="115">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.Delete</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="116"/>
+										</Button>
+										<Button name="ЗакончитьРедактирование" id="117">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.EndEdit</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ЗакончитьРедактированиеРасширеннаяПодсказка" id="118"/>
+										</Button>
+										<Button name="Найти" id="119">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.Find</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="НайтиРасширеннаяПодсказка" id="120"/>
+										</Button>
+										<Button name="ОтменитьПоиск" id="121">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.CancelSearch</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ОтменитьПоискРасширеннаяПодсказка" id="122"/>
+										</Button>
+										<Button name="ПереместитьВверх1" id="123">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.MoveUp</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ПереместитьВверх1РасширеннаяПодсказка" id="124"/>
+										</Button>
+										<Button name="ПереместитьВниз1" id="125">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.MoveDown</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ПереместитьВниз1РасширеннаяПодсказка" id="126"/>
+										</Button>
+										<Button name="СортироватьСписокПоВозрастанию" id="127">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.SortListAsc</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="СортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="128"/>
+										</Button>
+										<Button name="СортироватьСписокПоУбыванию" id="129">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.SortListDesc</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="СортироватьСписокПоУбываниюРасширеннаяПодсказка" id="130"/>
+										</Button>
+										<Button name="ВывестиСписок" id="131">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.OutputList</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ВывестиСписокРасширеннаяПодсказка" id="132"/>
+										</Button>
+										<Button name="КопироватьВБуферОбмена" id="133">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ПунктыСледования.StandardCommand.CopyToClipboard</CommandName>
+											<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="КопироватьВБуферОбменаРасширеннаяПодсказка" id="134"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="ПунктыСледования" id="47">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Этапы</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПунктыСледованияКонтекстноеМеню" id="48"/>
+							<AutoCommandBar name="ПунктыСледованияКоманднаяПанель" id="49">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПунктыСледованияРасширеннаяПодсказка" id="50"/>
+							<SearchStringAddition name="ПунктыСледованияSearchString" id="86">
+								<AdditionSource>
+									<Item>ПунктыСледования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПунктыСледованияSearchStringContextMenu" id="87"/>
+								<ExtendedTooltip name="ПунктыСледованияSearchStringExtendedTooltip" id="88"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПунктыСледованияViewStatus" id="89">
+								<AdditionSource>
+									<Item>ПунктыСледования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПунктыСледованияViewStatusContextMenu" id="90"/>
+								<ExtendedTooltip name="ПунктыСледованияViewStatusExtendedTooltip" id="91"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПунктыСледованияSearchControl" id="92">
+								<AdditionSource>
+									<Item>ПунктыСледования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПунктыСледованияSearchControlContextMenu" id="93"/>
+								<ExtendedTooltip name="ПунктыСледованияSearchControlExtendedTooltip" id="94"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">ПунктыСледованияПриОкончанииРедактирования</Event>
+								<Event name="BeforeDeleteRow">ПунктыСледованияПередУдалением</Event>
+								<Event name="OnStartEdit">ПунктыСледованияПриНачалеРедактирования</Event>
+								<Event name="AfterDeleteRow">ПунктыСледованияПослеУдаления</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ЭтапыНомерСтроки" id="51">
+									<DataPath>Объект.Этапы.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЭтапыНомерСтрокиКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ЭтапыНомерСтрокиРасширеннаяПодсказка" id="53"/>
+								</LabelField>
+								<InputField name="ЭтапыПунктОтправления" id="54">
+									<DataPath>Объект.Этапы.ПунктОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+									<ContextMenu name="ЭтапыПунктОтправленияКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ЭтапыПунктОтправленияРасширеннаяПодсказка" id="56"/>
+									<Events>
+										<Event name="OnChange">ЭтапыПунктОтправленияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ЭтапыПунктПрибытия" id="57">
+									<DataPath>Объект.Этапы.ПунктПрибытия</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+									<ContextMenu name="ЭтапыПунктПрибытияКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ЭтапыПунктПрибытияРасширеннаяПодсказка" id="59"/>
+									<Events>
+										<Event name="OnChange">ЭтапыПунктПрибытияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ЭтапыОперация" id="177">
+									<DataPath>Объект.Этапы.ТипТочкиМаршрута</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЭтапыОперацияКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="ЭтапыОперацияРасширеннаяПодсказка" id="179"/>
+								</InputField>
+								<InputField name="ПунктыСледованияКонтрагент" id="210">
+									<DataPath>Объект.Этапы.Грузополучатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Действует для всех</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Valid for everyone</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ПунктыСледованияКонтрагентКонтекстноеМеню" id="211"/>
+									<ExtendedTooltip name="ПунктыСледованияКонтрагентРасширеннаяПодсказка" id="212"/>
+								</InputField>
+								<InputField name="ЭтапыРасстояние" id="60">
+									<DataPath>Объект.Этапы.Расстояние</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЭтапыРасстояниеКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="ЭтапыРасстояниеРасширеннаяПодсказка" id="62"/>
+								</InputField>
+								<InputField name="ЭтапыВремяВПути" id="63">
+									<DataPath>Объект.Этапы.ВремяВПути</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЭтапыВремяВПутиКонтекстноеМеню" id="64"/>
+									<ExtendedTooltip name="ЭтапыВремяВПутиРасширеннаяПодсказка" id="65"/>
+									<Events>
+										<Event name="OnChange">ЭтапыВремяВПутиПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаТС" id="189">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортные средства</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Vehicles</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Vehicle page</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаТСРасширеннаяПодсказка" id="190"/>
+					<ChildItems>
+						<Table name="ТранспортныеСредства" id="191">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТранспортныеСредства</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТранспортныеСредстваКонтекстноеМеню" id="192"/>
+							<AutoCommandBar name="ТранспортныеСредстваКоманднаяПанель" id="193"/>
+							<ExtendedTooltip name="ТранспортныеСредстваРасширеннаяПодсказка" id="194"/>
+							<SearchStringAddition name="ТранспортныеСредстваСтрокаПоиска" id="195">
+								<AdditionSource>
+									<Item>ТранспортныеСредства</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТранспортныеСредстваСтрокаПоискаКонтекстноеМеню" id="196"/>
+								<ExtendedTooltip name="ТранспортныеСредстваСтрокаПоискаРасширеннаяПодсказка" id="197"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТранспортныеСредстваСостояниеПросмотра" id="198">
+								<AdditionSource>
+									<Item>ТранспортныеСредства</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТранспортныеСредстваСостояниеПросмотраКонтекстноеМеню" id="199"/>
+								<ExtendedTooltip name="ТранспортныеСредстваСостояниеПросмотраРасширеннаяПодсказка" id="200"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТранспортныеСредстваУправлениеПоиском" id="201">
+								<AdditionSource>
+									<Item>ТранспортныеСредства</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТранспортныеСредстваУправлениеПоискомКонтекстноеМеню" id="202"/>
+								<ExtendedTooltip name="ТранспортныеСредстваУправлениеПоискомРасширеннаяПодсказка" id="203"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ТранспортныеСредстваТС" id="207">
+									<DataPath>Объект.ТранспортныеСредства.ТС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТранспортныеСредстваТСКонтекстноеМеню" id="208"/>
+									<ExtendedTooltip name="ТранспортныеСредстваТСРасширеннаяПодсказка" id="209"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаРасписаниеРейсов" id="216">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расписание рейсов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Flight schedule</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расписание рейсов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Flight schedule</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаРасписаниеРейсовРасширеннаяПодсказка" id="217"/>
+					<ChildItems>
+						<Table name="РасписаниеРейсов" id="218">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>РасписаниеРейсов</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РасписаниеРейсовКонтекстноеМеню" id="219"/>
+							<AutoCommandBar name="РасписаниеРейсовКоманднаяПанель" id="220">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="РасписаниеРейсовРасписаниеРейсовНастроить" id="279">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РасписаниеРейсовНастроить</CommandName>
+										<ExtendedTooltip name="РасписаниеРейсовРасписаниеРейсовНастроитьРасширеннаяПодсказка" id="280"/>
+									</Button>
+									<Button name="РасписаниеРейсовРасписаниеРейсовОбновить" id="281">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РасписаниеРейсовОбновить</CommandName>
+										<ExtendedTooltip name="РасписаниеРейсовРасписаниеРейсовОбновитьРасширеннаяПодсказка" id="282"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="РасписаниеРейсовРасширеннаяПодсказка" id="221"/>
+							<SearchStringAddition name="РасписаниеРейсовСтрокаПоиска" id="222">
+								<AdditionSource>
+									<Item>РасписаниеРейсов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РасписаниеРейсовСтрокаПоискаКонтекстноеМеню" id="223"/>
+								<ExtendedTooltip name="РасписаниеРейсовСтрокаПоискаРасширеннаяПодсказка" id="224"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РасписаниеРейсовСостояниеПросмотра" id="225">
+								<AdditionSource>
+									<Item>РасписаниеРейсов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РасписаниеРейсовСостояниеПросмотраКонтекстноеМеню" id="226"/>
+								<ExtendedTooltip name="РасписаниеРейсовСостояниеПросмотраРасширеннаяПодсказка" id="227"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РасписаниеРейсовУправлениеПоиском" id="228">
+								<AdditionSource>
+									<Item>РасписаниеРейсов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РасписаниеРейсовУправлениеПоискомКонтекстноеМеню" id="229"/>
+								<ExtendedTooltip name="РасписаниеРейсовУправлениеПоискомРасширеннаяПодсказка" id="230"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="РасписаниеРейсовРейс" id="231">
+									<DataPath>РасписаниеРейсов.Рейс</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовРейсКонтекстноеМеню" id="232"/>
+									<ExtendedTooltip name="РасписаниеРейсовРейсРасширеннаяПодсказка" id="233"/>
+								</InputField>
+								<InputField name="РасписаниеРейсовВыход" id="234">
+									<DataPath>РасписаниеРейсов.Выход</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовВыходКонтекстноеМеню" id="235"/>
+									<ExtendedTooltip name="РасписаниеРейсовВыходРасширеннаяПодсказка" id="236"/>
+								</InputField>
+								<InputField name="РасписаниеРейсовПункт" id="286">
+									<DataPath>РасписаниеРейсов.Пункт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовПунктКонтекстноеМеню" id="287"/>
+									<ExtendedTooltip name="РасписаниеРейсовПунктРасширеннаяПодсказка" id="288"/>
+								</InputField>
+								<InputField name="РасписаниеРейсовВремяПрибытия" id="276">
+									<DataPath>РасписаниеРейсов.ВремяПрибытия</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовВремяПрибытияКонтекстноеМеню" id="277"/>
+									<ExtendedTooltip name="РасписаниеРейсовВремяПрибытияРасширеннаяПодсказка" id="278"/>
+								</InputField>
+								<InputField name="РасписаниеРейсовВремяОтправления" id="273">
+									<DataPath>РасписаниеРейсов.ВремяОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовВремяОтправленияКонтекстноеМеню" id="274"/>
+									<ExtendedTooltip name="РасписаниеРейсовВремяОтправленияРасширеннаяПодсказка" id="275"/>
+								</InputField>
+								<InputField name="РасписаниеРейсовДействуетС" id="237">
+									<DataPath>РасписаниеРейсов.ДействуетС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовДействуетСКонтекстноеМеню" id="238"/>
+									<ExtendedTooltip name="РасписаниеРейсовДействуетСРасширеннаяПодсказка" id="239"/>
+								</InputField>
+								<InputField name="РасписаниеРейсовДействуетПо" id="240">
+									<DataPath>РасписаниеРейсов.ДействуетПо</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовДействуетПоКонтекстноеМеню" id="241"/>
+									<ExtendedTooltip name="РасписаниеРейсовДействуетПоРасширеннаяПодсказка" id="242"/>
+								</InputField>
+								<CheckBoxField name="РасписаниеРейсовПн" id="243">
+									<DataPath>РасписаниеРейсов.Пн</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовПнКонтекстноеМеню" id="244"/>
+									<ExtendedTooltip name="РасписаниеРейсовПнРасширеннаяПодсказка" id="245"/>
+								</CheckBoxField>
+								<CheckBoxField name="РасписаниеРейсовВт" id="246">
+									<DataPath>РасписаниеРейсов.Вт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовВтКонтекстноеМеню" id="247"/>
+									<ExtendedTooltip name="РасписаниеРейсовВтРасширеннаяПодсказка" id="248"/>
+								</CheckBoxField>
+								<CheckBoxField name="РасписаниеРейсовСр" id="249">
+									<DataPath>РасписаниеРейсов.Ср</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовСрКонтекстноеМеню" id="250"/>
+									<ExtendedTooltip name="РасписаниеРейсовСрРасширеннаяПодсказка" id="251"/>
+								</CheckBoxField>
+								<CheckBoxField name="РасписаниеРейсовЧт" id="252">
+									<DataPath>РасписаниеРейсов.Чт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовЧтКонтекстноеМеню" id="253"/>
+									<ExtendedTooltip name="РасписаниеРейсовЧтРасширеннаяПодсказка" id="254"/>
+								</CheckBoxField>
+								<CheckBoxField name="РасписаниеРейсовПт" id="255">
+									<DataPath>РасписаниеРейсов.Пт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовПтКонтекстноеМеню" id="256"/>
+									<ExtendedTooltip name="РасписаниеРейсовПтРасширеннаяПодсказка" id="257"/>
+								</CheckBoxField>
+								<CheckBoxField name="РасписаниеРейсовСб" id="258">
+									<DataPath>РасписаниеРейсов.Сб</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовСбКонтекстноеМеню" id="259"/>
+									<ExtendedTooltip name="РасписаниеРейсовСбРасширеннаяПодсказка" id="260"/>
+								</CheckBoxField>
+								<CheckBoxField name="РасписаниеРейсовВс" id="261">
+									<DataPath>РасписаниеРейсов.Вс</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовВсКонтекстноеМеню" id="262"/>
+									<ExtendedTooltip name="РасписаниеРейсовВсРасширеннаяПодсказка" id="263"/>
+								</CheckBoxField>
+								<InputField name="РасписаниеРейсовДнейДоОтправления" id="264">
+									<DataPath>РасписаниеРейсов.ДнейДоОтправления</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РасписаниеРейсовДнейДоОтправленияКонтекстноеМеню" id="265"/>
+									<ExtendedTooltip name="РасписаниеРейсовДнейДоОтправленияРасширеннаяПодсказка" id="266"/>
+								</InputField>
+								<CheckBoxField name="РасписаниеРейсовFTL" id="270">
+									<DataPath>РасписаниеРейсов.FTL</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РасписаниеРейсовFTLКонтекстноеМеню" id="271"/>
+									<ExtendedTooltip name="РасписаниеРейсовFTLРасширеннаяПодсказка" id="272"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+						<CheckBoxField name="РасписаниеРейсовТолькоДействующие" id="283">
+							<DataPath>РасписаниеРейсовТолькоДействующие</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РасписаниеРейсовТолькоДействующиеКонтекстноеМеню" id="284"/>
+							<ExtendedTooltip name="РасписаниеРейсовТолькоДействующиеРасширеннаяПодсказка" id="285"/>
+							<Events>
+								<Event name="OnChange">РасписаниеРейсовТолькоДействующиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительныеРеквизиты" id="139">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительные реквизиты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Additional details</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительные реквизиты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Additional details</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительныеРеквизитыРасширеннаяПодсказка" id="140"/>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатМаршруты</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.Этапы"/>
+			</Columns>
+		</Attribute>
+		<Attribute name="Расписания" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписания</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыПеревозок" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды перевозок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Transportation types</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ВидыПеревозок.Picture</Field>
+				<Field>ВидыПеревозок.Presentation</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ПредставлениеМаршрута" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление маршрута</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Route representation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="РасписаниеРейсов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание рейсов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Flight schedule</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Рейс" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рейс</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Trip</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатРейсыМаршрутов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Выход" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выход</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Exit</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатВыходыМаршрутов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДействуетС" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действует с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Valid from</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДействуетПо" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действует по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Valid until</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пн" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пн</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mo</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Вт" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Tue</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Ср" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ср</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>We</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Чт" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Чт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Th</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Пт" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fr</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сб" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сб</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Sa</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Вс" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вс</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Su</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДнейДоОтправления" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дней до отправления</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Days before receipt</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.уатИспользоватьОбъектыКОРП</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="ДнейВПути" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дней в пути</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Travel days</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="FTL" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>FTL</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>FTL</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+					<FunctionalOptions>
+						<Item>FunctionalOption.уатИспользоватьОбъектыКОРП</Item>
+					</FunctionalOptions>
+				</Column>
+				<Column name="ВремяОтправления" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время отправления</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Departure time</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Time</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяПрибытия" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время прибытия</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Time of arrival</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Time</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пункт" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Paragraph</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РасписаниеРейсовТолькоДействующие" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только действующие сейчас</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Only those currently active</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресХранилищаДО" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес хранилища длительной операции</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Address storage duration. operation</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="флRarusVRP" id="9">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьВремяРасстояние" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время и расстояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Time and distance</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить время и расстояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Time and distance</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатВремяРасстояние</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьВремяРасстояние</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РасписаниеРейсовНастроить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к обработке Расписание рейсов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Go to data proccesor Trip timetable</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataProcessor</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РасписаниеРейсовНастроить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РасписаниеРейсовОбновить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить расписание рейсов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update flight schedule</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РасписаниеРейсовОбновить</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОптимальноеПерестроениеМаршрута" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оптимальное перестроение маршрута</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Optimal rebuilding of the orders</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оптимальное перестроение маршрута</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Optimal rebuilding of the orders</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатОптимизацияМаршрута</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОптимальноеПерестроениеМаршрута</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.уатИспользоватьОбъектыКОРП</Item>
+			</FunctionalOptions>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.уатРасписаниеРейсов.StandardCommand.OpenByValue.Маршрут</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

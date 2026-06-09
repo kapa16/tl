@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<CommandSet>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+	</CommandSet>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормамкОтменаРегистрацииНаСВМУ" id="35">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.мкОтменаРегистрацииНаСВМУ</CommandName>
+				<ExtendedTooltip name="ФормамкОтменаРегистрацииНаСВМУРасширеннаяПодсказка" id="36"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="22"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНомерДата" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа номер дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group number date</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа номер дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group number date</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="20"/>
+					<ChildItems>
+						<InputField name="Номер" id="1">
+							<DataPath>Объект.Number</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<InputField name="Дата" id="4">
+							<DataPath>Объект.Date</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>13</Width>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="СтатусРегистрации" id="16">
+					<DataPath>Объект.Статус</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="СтатусРегистрацииКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СтатусРегистрацииРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<RadioButtonField name="ВидТерминала" id="32">
+					<DataPath>Объект.ВидТерминала</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Мобильный клиент</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Mobile client</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Терминал</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Terminal</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВидТерминалаКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ВидТерминалаРасширеннаяПодсказка" id="34"/>
+					<Events>
+						<Event name="OnChange">ВидТерминалаПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<InputField name="ОбъектПривязки" id="10">
+					<DataPath>Объект.ОбъектПривязки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект привязки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Binding object</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбъектПривязкиКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ОбъектПривязкиРасширеннаяПодсказка" id="12"/>
+				</InputField>
+				<InputField name="Терминал" id="13">
+					<DataPath>Объект.Терминал</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+					<ContextMenu name="ТерминалКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ТерминалРасширеннаяПодсказка" id="15"/>
+					<Events>
+						<Event name="StartChoice">ТерминалНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<LabelField name="ОписаниеОшибки" id="27">
+					<DataPath>Объект.ОписаниеОшибки</DataPath>
+					<Visible>false</Visible>
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<TextColor>web:OrangeRed</TextColor>
+					<ContextMenu name="ОписаниеОшибкиКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="29"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.ItobПоступлениеМобильныхУстройств</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+			<Save>
+				<Field>Объект.ВидТерминала</Field>
+			</Save>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СтатусРегистрации</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Статус</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.мкСтатусыРегистрацииМобильныхУстройств.Новый</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:DarkSalmon</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СтатусРегистрации</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Статус</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.мкСтатусыРегистрацииМобильныхУстройств.ЗапросОтправлен</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:DarkCyan</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СтатусРегистрации</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Статус</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.мкСтатусыРегистрацииМобильныхУстройств.Успешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СтатусРегистрации</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Статус</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.мкСтатусыРегистрацииМобильныхУстройств.Отказ</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:IndianRed</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СтатусРегистрации</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Статус</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.мкСтатусыРегистрацииМобильныхУстройств.Отмена</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:DarkSlateGray</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="мкОтменаРегистрацииНаСВМУ" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена регистрации на СВМУ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancellation of registration at SVMU</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мк отмена регистрации на СВМУ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>MK cancellation of registration at SVMU</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>мкОтменаРегистрацииНаСВМУ</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.ItobПривязкиТрекеров.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

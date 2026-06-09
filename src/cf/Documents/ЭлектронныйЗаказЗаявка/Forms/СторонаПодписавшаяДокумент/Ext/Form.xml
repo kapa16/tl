@@ -1,0 +1,867 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСохранить" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="11">
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="96"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизиты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитаРФИлиНет" id="97">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизита РФИли нет</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Behavior>Usual</Behavior>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаРФИлиНетРасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокРФИлиНет" id="99">
+							<Width>27</Width>
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид подписанта:</v8:content>
+								</v8:item>
+							</Title>
+							<BackColor>style:TableHeaderBackColor</BackColor>
+							<ContextMenu name="ЗаголовокРФИлиНетКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="ЗаголовокРФИлиНетРасширеннаяПодсказка" id="101"/>
+						</LabelDecoration>
+						<RadioButtonField name="РФИлиНет" id="102">
+							<DataPath>РФИлиНет</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Лицо РФ</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Иностранное лицо</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Госорган</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="РФИлиНетКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="РФИлиНетРасширеннаяПодсказка" id="104"/>
+							<Events>
+								<Event name="OnChange">РФИлиНетПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаОбщееПолеВводаИНН" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа реквизита общее поле ввода ИНН</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаОбщееПолеВводаИННРасширеннаяПодсказка" id="15"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокОбщееПолеВводаИНН" id="16">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ИНН:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокОбщееПолеВводаИННКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ЗаголовокОбщееПолеВводаИННРасширеннаяПодсказка" id="18"/>
+						</LabelDecoration>
+						<InputField name="ОбщееПолеВводаИНН" id="19">
+							<DataPath>ОбщееПолеВводаИНН</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>12</Width>
+							<ChoiceButton>true</ChoiceButton>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ОбщееПолеВводаИННКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ОбщееПолеВводаИННРасширеннаяПодсказка" id="21"/>
+							<Events>
+								<Event name="OnChange">ОбщееПолеВводаИННПриИзменении</Event>
+								<Event name="StartChoice">ОбщееПолеВводаИНННачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПоясненияНекорректногоИНН" id="105">
+					<Visible>false</Visible>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПоясненияНекорректногоИННРасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<LabelDecoration name="Отступ" id="107">
+							<ContextMenu name="ОтступКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="ОтступРасширеннаяПодсказка" id="109"/>
+						</LabelDecoration>
+						<LabelField name="НадписьПоясненияНекорректногоИНН" id="110">
+							<DataPath>НадписьПоясненияНекорректногоИНН</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>23</Width>
+							<Height>2</Height>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<MaxHeight>3</MaxHeight>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>true</VerticalStretch>
+							<ContextMenu name="НадписьПоясненияНекорректногоИННКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="НадписьПоясненияНекорректногоИННРасширеннаяПодсказка" id="112"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаСтатусИО_ИГ" id="78">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификация статуса</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаСтатусИО_ИГРасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаСтатусИО_ИГ" id="80">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификация статуса:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаСтатусИО_ИГКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаСтатусИО_ИГРасширеннаяПодсказка" id="82"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаСтатусИО_ИГ" id="83">
+							<DataPath>ИнострЛицоБезУчетаСтатусИО_ИГ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификация статуса</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>20</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Иностранная организация</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ИО</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Иностранный гражданин</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ИГ</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ИнострЛицоБезУчетаСтатусИО_ИГКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаСтатусИО_ИГРасширеннаяПодсказка" id="85"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаДатаВыдачиУдостоверения" id="22">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата выдачи документа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаДатаВыдачиУдостоверенияРасширеннаяПодсказка" id="23"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаДатаВыдачиУдостоверения" id="24">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата выдачи документа:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаДатаВыдачиУдостоверенияКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаДатаВыдачиУдостоверенияРасширеннаяПодсказка" id="26"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаДатаВыдачиУдостоверения" id="27">
+							<DataPath>ИнострЛицоБезУчетаДатаВыдачиУдостоверения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата выдачи документа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаДатаВыдачиУдостоверенияКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаДатаВыдачиУдостоверенияРасширеннаяПодсказка" id="29"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаНомерУдостоверения" id="30">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер документа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаНомерУдостоверенияРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаНомерУдостоверения" id="32">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер документа:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаНомерУдостоверенияКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаНомерУдостоверенияРасширеннаяПодсказка" id="34"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаНомерУдостоверения" id="35">
+							<DataPath>ИнострЛицоБезУчетаНомерУдостоверения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер документа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаНомерУдостоверенияКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаНомерУдостоверенияРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаВидУдостоверения" id="38">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид документа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаВидУдостоверенияРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаВидУдостоверения" id="40">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид документа:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаВидУдостоверенияКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаВидУдостоверенияРасширеннаяПодсказка" id="42"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаВидУдостоверения" id="43">
+							<DataPath>ИнострЛицоБезУчетаВидУдостоверения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид документа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаВидУдостоверенияКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаВидУдостоверенияРасширеннаяПодсказка" id="45"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаИныеСведения" id="46">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Иные сведения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаИныеСведенияРасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаИныеСведения" id="48">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Иные сведения:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаИныеСведенияКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаИныеСведенияРасширеннаяПодсказка" id="50"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаИныеСведения" id="51">
+							<DataPath>ИнострЛицоБезУчетаИныеСведения</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Иные сведения, идентифицирующие иностранную организацию (иностранного гражданина)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаИныеСведенияКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаИныеСведенияРасширеннаяПодсказка" id="53"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаИдентификатор" id="54">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор иностранной лица</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаИдентификаторРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаИдентификатор" id="56">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификатор иностранной лица:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаИдентификаторКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаИдентификаторРасширеннаяПодсказка" id="58"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаИдентификатор" id="59">
+							<DataPath>ИнострЛицоБезУчетаИдентификатор</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификатор иностранной организации (иностранного гражданина)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаИдентификаторКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаИдентификаторРасширеннаяПодсказка" id="61"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаНаименование" id="62">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование (ФИО)</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаНаименованиеРасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаНаименование" id="64">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование (ФИО):</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаНаименованиеКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаНаименованиеРасширеннаяПодсказка" id="66"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаНаименование" id="67">
+							<DataPath>ИнострЛицоБезУчетаНаименование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование иностранной организации полное / Фамилия, имя, отчество (при наличии) иностранного гражданина</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаНаименованиеКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаНаименованиеРасширеннаяПодсказка" id="69"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИнострЛицоБезУчетаСтрана" id="70">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страна</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИнострЛицоБезУчетаСтранаРасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИнострЛицоБезУчетаСтрана" id="72">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страна:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИнострЛицоБезУчетаСтранаКонтекстноеМеню" id="73"/>
+							<ExtendedTooltip name="ЗаголовокИнострЛицоБезУчетаСтранаРасширеннаяПодсказка" id="74"/>
+						</LabelDecoration>
+						<InputField name="ИнострЛицоБезУчетаСтрана" id="75">
+							<DataPath>ИнострЛицоБезУчетаСтрана</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страна</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИнострЛицоБезУчетаСтранаКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ИнострЛицоБезУчетаСтранаРасширеннаяПодсказка" id="77"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаОрганВластиВыдавшийДокумент" id="86">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование госоргана</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаОрганВластиВыдавшийДокументРасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокОрганВластиВыдавшийДокумент" id="88">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование госоргана:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокОрганВластиВыдавшийДокументКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="ЗаголовокОрганВластиВыдавшийДокументРасширеннаяПодсказка" id="90"/>
+						</LabelDecoration>
+						<InputField name="ОрганВластиВыдавшийДокумент" id="91">
+							<DataPath>ОрганВластиВыдавшийДокумент</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Краткое наименование органа исполнительной власти (специализированной уполномоченной организации), выдавшего документ</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ОрганВластиВыдавшийДокументКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ОрганВластиВыдавшийДокументРасширеннаяПодсказка" id="93"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТаблицы" id="94">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТаблицыРасширеннаяПодсказка" id="95"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ОбщееПолеВводаИНН" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>12</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФЛ_ИНН" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН физического лица, в том числе индивидуального предпринимателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>12</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЮЛ_ИНН" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН организации, состоящей на учете в налоговом органе</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>10</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаДатаВыдачиУдостоверения" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата выдачи документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаНомерУдостоверения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаВидУдостоверения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаИныеСведения" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Иные сведения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаИдентификатор" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор иностранной лица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаНаименование" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование (ФИО)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаСтрана" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнострЛицоБезУчетаСтатусИО_ИГ" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификация статуса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>25</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОрганВластиВыдавшийДокумент" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование госоргана</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РФИлиНет" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>РФИли нет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьПоясненияНекорректногоИНН" id="14">
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сохранить</Action>
+		</Command>
+	</Commands>
+</Form>

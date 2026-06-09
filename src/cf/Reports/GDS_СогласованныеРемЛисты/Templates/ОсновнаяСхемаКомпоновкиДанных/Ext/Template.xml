@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Установил</dataPath>
+			<field>Установил</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУстановки</dataPath>
+			<field>ДатаУстановки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ОбъектыИнтегрированныеС1СДокументооборотом.ИдентификаторОбъектаДО КАК ИдентификаторОбъектаДО,
+	ОбъектыИнтегрированныеС1СДокументооборотом.Объект КАК Объект
+ПОМЕСТИТЬ ВТ_РемонтныеЛистыДО
+ИЗ
+	РегистрСведений.ОбъектыИнтегрированныеС1СДокументооборотом КАК ОбъектыИнтегрированныеС1СДокументооборотом
+ГДЕ
+	ТИПЗНАЧЕНИЯ(ОбъектыИнтегрированныеС1СДокументооборотом.Объект) = ТИП(Документ.уатРемонтныйЛист)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СостоянияСогласованияВДокументообороте.Состояние КАК Состояние,
+	СостоянияСогласованияВДокументообороте.Установил КАК Установил,
+	СостоянияСогласованияВДокументообороте.ДатаУстановки КАК ДатаУстановки,
+	ВТ_РемонтныеЛистыДО.Объект КАК Объект
+ИЗ
+	РегистрСведений.СостоянияСогласованияВДокументообороте КАК СостоянияСогласованияВДокументообороте
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_РемонтныеЛистыДО КАК ВТ_РемонтныеЛистыДО
+		ПО (ВТ_РемонтныеЛистыДО.ИдентификаторОбъектаДО = СостоянияСогласованияВДокументообороте.ИдентификаторОбъектаДО)
+ГДЕ
+	СостоянияСогласованияВДокументообороте.ДатаУстановки &gt;= &amp;ДатаНачала
+	И СостоянияСогласованияВДокументообороте.ДатаУстановки &lt;= &amp;ДатаОкончания</query>
+	</dataSet>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>НачалоПериода(&amp;ПериодОтчета.ДатаНачала,"День")</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КонецПериода(&amp;ПериодОтчета.ДатаОкончания,"День")</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Объект</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Согласуемый документ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Состояние</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат согласования</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаУстановки</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата выполнения</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Установил</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнитель</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Установил</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>e3fbe1ed-6793-47c1-a55c-019e7ae85a4b</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнитель</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияСогласованияВДокументообороте.НеСогласован</dcsset:right>
+					<dcsset:userSettingID>7ae0ec57-7fc4-4a25-8f5c-7e192a74c617</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат согласования</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>b1f15eb9-c748-4d47-bbed-e0be7a15b0a7</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Объект</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Состояние</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ДатаУстановки</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ДатаУстановки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Объект</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Состояние</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Установил</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Установил</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

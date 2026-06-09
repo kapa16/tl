@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заправка ГСМ</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество1</dataPath>
+			<field>Количество1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество поставщика</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор1</dataPath>
+			<field>Регистратор1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет поставщика</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС1</dataPath>
+			<field>ТС1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата заправки ГСМ</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>3</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период1</dataPath>
+			<field>Период1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата в отчете поставщика</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>4</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	НАЧАЛОПЕРИОДА(уатОборотыПоЗаправкамГСМ.Период, ДЕНЬ) КАК Период,
+	уатОборотыПоЗаправкамГСМ.ГСМ КАК ГСМ,
+	уатОборотыПоЗаправкамГСМ.ТС КАК ТС,
+	уатОборотыПоЗаправкамГСМ.Количество КАК Количество,
+	уатОборотыПоЗаправкамГСМ.Регистратор КАК Регистратор,
+	уатОборотыПоЗаправкамГСМ.АЗС КАК АЗС
+ПОМЕСТИТЬ ВТ_Заправки
+ИЗ
+	РегистрНакопления.уатОборотыПоЗаправкамГСМ КАК уатОборотыПоЗаправкамГСМ
+ГДЕ
+	уатОборотыПоЗаправкамГСМ.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+{ГДЕ
+	(уатОборотыПоЗаправкамГСМ.ТС = &amp;ТС)}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	уатОборотыПоОтчетамПоставщиковПЦ.ТС КАК ТС,
+	уатОборотыПоОтчетамПоставщиковПЦ.Количество КАК Количество,
+	уатОборотыПоОтчетамПоставщиковПЦ.Регистратор КАК Регистратор,
+	уатОборотыПоОтчетамПоставщиковПЦ.АЗС КАК АЗС,
+	НАЧАЛОПЕРИОДА(уатОборотыПоОтчетамПоставщиковПЦ.Период, ДЕНЬ) КАК Период,
+	уатОборотыПоОтчетамПоставщиковПЦ.Номенклатура КАК Номенклатура
+ПОМЕСТИТЬ ВТ_Поставщик
+ИЗ
+	РегистрНакопления.уатОборотыПоОтчетамПоставщиковПЦ КАК уатОборотыПоОтчетамПоставщиковПЦ
+ГДЕ
+	уатОборотыПоОтчетамПоставщиковПЦ.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+{ГДЕ
+	(уатОборотыПоОтчетамПоставщиковПЦ.ТС = &amp;ТС)}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Заправки.Период КАК Период,
+	ВТ_Заправки.Регистратор КАК Регистратор,
+	ВТ_Заправки.ТС КАК ТС,
+	ВТ_Заправки.Количество КАК Количество,
+	ВТ_Поставщик.Период КАК Период1,
+	ВТ_Поставщик.Регистратор КАК Регистратор1,
+	ВТ_Поставщик.ТС КАК ТС1,
+	ВТ_Поставщик.Количество КАК Количество1
+ИЗ
+	ВТ_Заправки КАК ВТ_Заправки
+		ПОЛНОЕ СОЕДИНЕНИЕ ВТ_Поставщик КАК ВТ_Поставщик
+		ПО ВТ_Заправки.ТС = ВТ_Поставщик.ТС
+			И ВТ_Заправки.Период = ВТ_Поставщик.Период
+			И ВТ_Заправки.Количество = ВТ_Поставщик.Количество
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Заправки.Период,
+	ВТ_Заправки.Регистратор,
+	ВТ_Заправки.ТС,
+	ВТ_Заправки.Количество,
+	ВТ_Поставщик.Период,
+	ВТ_Поставщик.Регистратор,
+	ВТ_Поставщик.ТС,
+	ВТ_Поставщик.Количество</query>
+	</dataSet>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ТС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.уатТС</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата заправки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период1</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата поставщика</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество1</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemGroup">
+					<dcsset:groupType>OrGroup</dcsset:groupType>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Количество</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Количество1</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только расхождения</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>e938a021-b9c0-40cd-994a-b3ea329df87e</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>e4669d26-4e4e-4923-96e6-5afe4842d217</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТС</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>7b09cbe6-4734-4cb7-822e-56a03d46b047</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Количество</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:Field">Количество1</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Количество1</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Количество</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:ImportantColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					<dcsset:useInResourceFieldsHeader>DontUse</dcsset:useInResourceFieldsHeader>
+					<dcsset:useInOverallHeader>DontUse</dcsset:useInOverallHeader>
+					<dcsset:useInOverallResourceFieldsHeader>DontUse</dcsset:useInOverallResourceFieldsHeader>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

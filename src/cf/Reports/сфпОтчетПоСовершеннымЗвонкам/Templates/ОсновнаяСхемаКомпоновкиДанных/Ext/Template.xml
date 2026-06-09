@@ -1,0 +1,1286 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсторияЗвонков</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборОтчетПоСовершеннымЗвонкам</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтактноеЛицо</dataPath>
+			<field>КонтактноеЛицо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контакт</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерТелефона</dataPath>
+			<field>НомерТелефона</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер телефона</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлительностьЗвонка</dataPath>
+			<field>ДлительностьЗвонка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность (сек)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=; ЧН=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаЗвонка</dataPath>
+			<field>ДатаЗвонка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяЗвонка</dataPath>
+			<field>ВремяЗвонка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Time</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=HH:mm:ss</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<availableValue>
+				<value xsi:type="xs:string">Пропущенный</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пропущенный</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:string">Дозвонились</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дозвонились</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:string">Не дозвонились</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Не дозвонились</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:string">Отвеченный</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отвеченный</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЗвонка</dataPath>
+			<field>ВидЗвонка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направление</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<availableValue>
+				<value xsi:type="xs:string">Входящий</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Входящий</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:string">Исходящий</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Исходяший</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактЗвонков</dataPath>
+			<field>ФактЗвонков</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Звонков</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СсылкаНаЗвонок</dataPath>
+			<field>СсылкаНаЗвонок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка на звонок</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ТелефонныйЗвонок</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВнутреннийНомер</dataPath>
+			<field>ВнутреннийНомер</field>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+		</field>
+		<dataSource>ИсторияЗвонков</dataSource>
+		<query>ВЫБРАТЬ Звонок, Входящий, МИНИМУМ(ДатаНачала) КАК ДатаНачала, МИНИМУМ(ДатаОкончания) КАК ДатаОкончания, МИНИМУМ(ДатаОтвета) КАК ДатаОтвета, МАКСИМУМ(ВнутреннийНомер) КАК ВнутреннийНомер
+ПОМЕСТИТЬ сфпИсторияЗвонков
+ИЗ РегистрСведений.сфпИсторияЗвонков
+ГДЕ ВЫБОР КОГДА &amp;НачалоПериода &lt;&gt; ДАТАВРЕМЯ(1,1,1) И &amp;КонецПериода &lt;&gt; ДАТАВРЕМЯ(1,1,1) ТОГДА
+		Звонок.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	КОГДА &amp;НачалоПериода &lt;&gt; ДАТАВРЕМЯ(1,1,1) ТОГДА
+		Звонок.Дата &gt;= &amp;НачалоПериода
+	КОГДА &amp;КонецПериода &lt;&gt; ДАТАВРЕМЯ(1,1,1) ТОГДА
+		Звонок.Дата &lt;= &amp;КонецПериода
+	ИНАЧЕ
+		ИСТИНА	
+	КОНЕЦ
+
+{ГДЕ
+	(Звонок.Ответственный В (&amp;Сотрудники))}
+
+СГРУППИРОВАТЬ ПО Звонок, Входящий
+ИНДЕКСИРОВАТЬ ПО Звонок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Звонок.Дата КАК ДатаЗвонка,
+	Звонок.сфпДлительностьЗвонка КАК ДлительностьЗвонка,
+	Звонок.АбонентКакСвязаться КАК НомерТелефона,
+	Звонок.сфпКлиент КАК Организация,
+	Звонок.АбонентКонтакт КАК КонтактноеЛицо,
+	Звонок.Ответственный КАК Сотрудник,
+	Звонок.Ссылка КАК СсылкаНаЗвонок,
+	ВЫБОР КОГДА Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Пропущенный) ТОГДА "Пропущенный"
+		  КОГДА НЕ Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Пропущенный) ТОГДА "Не дозвонились"
+		  КОГДА НЕ Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Отвеченный) ТОГДА "Дозвонились"
+		  КОГДА Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Отвеченный) ТОГДА "Отвеченный"
+	КОНЕЦ КАК Состояние,
+	ВЫБОР КОГДА Звонок.Входящий ТОГДА "Входящий" ИНАЧЕ "Исходящий" КОНЕЦ КАК ВидЗвонка,
+	Звонок.Дата КАК ВремяЗвонка,
+	СУММА(1) КАК ФактЗвонков,
+	МАКСИМУМ(ВнутреннийНомер) КАК ВнутреннийНомер
+ИЗ
+	сфпИсторияЗвонков
+
+ГДЕ
+	(&amp;Направление = "Все" ИЛИ ВЫБОР КОГДА Звонок.Входящий ТОГДА "Входящий" ИНАЧЕ "Исходящий" КОНЕЦ = &amp;Направление)
+	И
+	(&amp;Состояние = "Все" ИЛИ
+		ВЫБОР КОГДА Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Пропущенный) ТОГДА "Пропущенный"
+			  КОГДА НЕ Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Пропущенный) ТОГДА "Не дозвонились"
+		  	  КОГДА НЕ Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Отвеченный) ТОГДА "Дозвонились"
+		  	  КОГДА Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Отвеченный) ТОГДА "Отвеченный"
+		КОНЕЦ = &amp;Состояние)
+
+СГРУППИРОВАТЬ ПО
+	Звонок.Дата,
+	Звонок.сфпДлительностьЗвонка,
+	Звонок.АбонентКакСвязаться,
+	Звонок.сфпКлиент,
+	Звонок.АбонентКонтакт,
+	Звонок.Ответственный,
+	Звонок.Ссылка,
+	ВЫБОР КОГДА Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Пропущенный) ТОГДА "Пропущенный"
+		  КОГДА НЕ Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Пропущенный) ТОГДА "Не дозвонились"
+		  КОГДА НЕ Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Отвеченный) ТОГДА "Дозвонились"
+		  КОГДА Звонок.Входящий И Звонок.сфпСостояниеЗвонка = ЗНАЧЕНИЕ(Перечисление.сфпСостоянияЗвонков.Отвеченный) ТОГДА "Отвеченный"
+	КОНЕЦ,
+	ВЫБОР КОГДА Звонок.Входящий ТОГДА "Входящий" ИНАЧЕ "Исходящий" КОНЕЦ,
+	Звонок.Дата
+
+УПОРЯДОЧИТЬ ПО
+	Сотрудник</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПустаяКолонка</dataPath>
+		<expression>""</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Телефонный звонок</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<totalField>
+		<dataPath>ФактЗвонков</dataPath>
+		<expression>Сумма(ФактЗвонков)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">ThisWeek</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>НачалоПериода(&amp;Период.ДатаНачала,"День")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КонецПериода(&amp;Период.ДатаОкончания,"День")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Сотрудники</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сотрудники</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>БыстрыйВыбор</dcscor:parameter>
+				<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+			</dcscor:item>
+			<dcscor:item>
+				<dcscor:parameter>ВыборГруппИЭлементов</dcscor:parameter>
+				<dcscor:value xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d5p1:FoldersAndItemsUse">Items</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+	</parameter>
+	<parameter>
+		<name>ПартнерыПустаяСсылка</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Партнеры пустая ссылка</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Состояние</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Состояние</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>14</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">Все</value>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:string">Все</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Пропущенный</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пропущенные</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Не дозвонились</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не дозвонились</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Дозвонились</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дозвонились</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Отвеченный</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отвеченный</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Направление</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Направление</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>9</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">Все</value>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:string">Все</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Входящий</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящие</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Исходящий</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходящие</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ВнутреннийНомер</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ВнутреннийНомер</dcsat:name>
+			<dcsat:expression>ВнутреннийНомер</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ВидЗвонка</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ВидЗвонка</dcsat:name>
+			<dcsat:expression>ВидЗвонка</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет3</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ВремяЗвонка</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=HH:mm:ss</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ВремяЗвонка</dcsat:name>
+			<dcsat:expression>ВремяЗвонка</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет4</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ДатаЗвонка</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ДатаЗвонка</dcsat:name>
+			<dcsat:expression>ДатаЗвонка</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет5</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ДлительностьЗвонка</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ДлительностьЗвонка</dcsat:name>
+			<dcsat:expression>ДлительностьЗвонка</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет6</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">НомерТелефона</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>НомерТелефона</dcsat:name>
+			<dcsat:expression>НомерТелефона</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет7</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Состояние</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Состояние</dcsat:name>
+			<dcsat:expression>Состояние</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет8</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">КонтактноеЛицо</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">СсылкаНаЗвонок</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>КонтактноеЛицо</dcsat:name>
+			<dcsat:expression>Представление(КонтактноеЛицо)</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>СсылкаНаЗвонок</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>СсылкаНаЗвонок</dcsat:field>
+				<dcsat:expression>СсылкаНаЗвонок</dcsat:expression>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<fieldTemplate>
+		<field>ВнутреннийНомер</field>
+		<template>Макет1</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ВидЗвонка</field>
+		<template>Макет2</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ВремяЗвонка</field>
+		<template>Макет3</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ДатаЗвонка</field>
+		<template>Макет4</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ДлительностьЗвонка</field>
+		<template>Макет5</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>НомерТелефона</field>
+		<template>Макет6</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>Состояние</field>
+		<template>Макет7</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>КонтактноеЛицо</field>
+		<template>Макет8</template>
+	</fieldTemplate>
+	<settingsVariant>
+		<dcsset:name>ОтчетПоСовершеннымЗвонкам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по совершенным звонкам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Организация</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КонтактноеЛицо</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НомерТелефона</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВидЗвонка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаЗвонка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВремяЗвонка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДлительностьЗвонка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВнутреннийНомер</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Состояние</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактЗвонков</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>c3100375-7694-416f-8298-463858b2e757</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">КонтактноеЛицо</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>5db28120-b4b5-4428-ac0e-a6282cc6b490</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контактное лицо</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НомерТелефона</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>2400090e-a3bb-4362-be2d-90f66aa6e69f</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер телефона</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Сотрудник</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>d36e85fb-b083-4735-9f32-be9af22de520</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудник</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВнутреннийНомер</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>5a7f5e0b-d956-4fd0-9fce-216c310a70f8</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisWeek</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>1b1854b2-768b-42b6-b3a0-76efda8c5d6f</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>d98cec60-337c-4daa-86f6-e68c5fe5a069</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сотрудники</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					<dcsset:userSettingID>816fddae-81ae-49e4-a193-b349df3e6598</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Состояние</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Все</dcscor:value>
+					<dcsset:userSettingID>39fb39a4-ba80-4d7b-b946-d3dfc127a0c7</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Направление</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Все</dcscor:value>
+					<dcsset:userSettingID>e8f5d90c-2463-4356-a22b-e72dd3daa114</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДатаЗвонка</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ФиксацияСлева</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionFixation">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ФиксацияСверху</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionFixation">Auto</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Сотрудник</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Сотрудник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФактЗвонков</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные звонка</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Организация</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>КонтактноеЛицо</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>НомерТелефона</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВидЗвонка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ДатаЗвонка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВремяЗвонка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ДлительностьЗвонка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВнутреннийНомер</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Состояние</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ФактЗвонков</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetObject">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаршрутныйЛист</dataPath>
+			<field>МаршрутныйЛист</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрутный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Routing list</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатМаршрутныйЛист</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатТС</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Сотрудники</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ФизическиеЛица</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевозчик</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Carrier</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пункт</dataPath>
+			<field>Пункт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Paragraph</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатПунктыНазначения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибытиеПлан</dataPath>
+			<field>ПрибытиеПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибытие план</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival plan</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выполнен</dataPath>
+			<field>Выполнен</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнен</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Completed</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибытиеПрогноз</dataPath>
+			<field>ПрибытиеПрогноз</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибытие прогноз</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival forecast</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Organization</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subdivision</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОпозданиеМинут</dataPath>
+			<field>ОпозданиеМинут</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Опоздание (мин.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delay (min.)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоСтрок</dataPath>
+			<field>КоличествоСтрок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество строк</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Line quantity</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтклонениеОтВременногоОкнаМинут</dataPath>
+			<field>ОтклонениеОтВременногоОкнаМинут</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение от временного окна (мин.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deviation from time window (min.)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ДанныеПоОпозданиям</objectName>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ОпозданиеЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Опоздание (прогноз)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Delay (forecast)</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеОтВременногоОкнаЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени прибытия от временного окна (прогноз)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Deviation of arrival time from the time window (forecast)</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>Выполнен</dataPath>
+		<expression>Сумма(Выполнен)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоСтрок</dataPath>
+		<expression>Сумма(КоличествоСтрок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОпозданиеЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОпозданиеМинут</dataPath>
+		<expression>Сумма(ОпозданиеМинут)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеОтВременногоОкнаМинут</dataPath>
+		<expression>Сумма(ОтклонениеОтВременногоОкнаМинут)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеОтВременногоОкнаЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Прибытие (план)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Arrival (plan)</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтображатьМаршрутныеЛистыБезОпозданий</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать маршрутные листы без опозданий</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Display route sheets without delays</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВыводитьВремяВФорматеЧЧММ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить время в формате ЧЧ:ММ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Display the time in the format HH:MM</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Выполнен</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> of </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> из </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">КоличествоСтрок</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Выполнен</dcsat:name>
+			<dcsat:expression>Выполнен</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>КоличествоСтрок</dcsat:name>
+			<dcsat:expression>КоличествоСтрок</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОпозданиеЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОпозданиеЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда
+Цел(ОпозданиеМинут/60) + (ОпозданиеМинут - Цел(ОпозданиеМинут/60)*60)/100
+Иначе
+ОпозданиеМинут/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет3</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеОтВременногоОкнаЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеОтВременногоОкнаЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда
+Цел(ОтклонениеОтВременногоОкнаМинут/60) + (ОтклонениеОтВременногоОкнаМинут - Цел(ОтклонениеОтВременногоОкнаМинут/60)*60)/100
+Иначе
+ОтклонениеОтВременногоОкнаМинут/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<fieldTemplate>
+		<field>Выполнен</field>
+		<template>Макет1</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОпозданиеЧЧММ</field>
+		<template>Макет2</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеОтВременногоОкнаЧЧММ</field>
+		<template>Макет3</template>
+	</fieldTemplate>
+	<settingsVariant>
+		<dcsset:name>Текущие опоздания</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущие опоздания</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Перевозчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаршрутныйЛист</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пункт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеПрогноз</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОпозданиеЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выполнен</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>fe4bbea6-9e32-4e9d-9a43-f19090775dec</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ОтображатьМаршрутныеЛистыБезОпозданий</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>b38b4a96-104c-4501-a4f4-0ccb8bac6878</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

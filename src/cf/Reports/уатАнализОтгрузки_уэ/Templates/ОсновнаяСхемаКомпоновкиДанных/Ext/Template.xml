@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.Статус</dataPath>
+			<field>Грузы.Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Status</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.КоличествоПлан</dataPath>
+			<field>Грузы.КоличествоПлан</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.КоличествоМестПлан</dataPath>
+			<field>Грузы.КоличествоМестПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество мест (план)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of seats (plan)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.ОбъемПлан</dataPath>
+			<field>Грузы.ОбъемПлан</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.Состояние</dataPath>
+			<field>Грузы.Состояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>State</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.ГрузовоеМесто</dataPath>
+			<field>Грузы.ГрузовоеМесто</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузовое место / Номенклатура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cargo space / Products and services</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldNestedDataSet">
+			<dataPath>Грузы</dataPath>
+			<field>Грузы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.ВесФакт</dataPath>
+			<field>Грузы.ВесФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вес (факт)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Weight</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.ВесПлан</dataPath>
+			<field>Грузы.ВесПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вес (план)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Weight</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.КоличествоФакт</dataPath>
+			<field>Грузы.КоличествоФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество (факт)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.ОбъемФакт</dataPath>
+			<field>Грузы.ОбъемФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем (факт)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Volume</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.КоличествоМестФакт</dataPath>
+			<field>Грузы.КоличествоМестФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество мест (факт)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of seats (actual)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузы.ЗаказГрузоотправителя</dataPath>
+			<field>Грузы.ЗаказГрузоотправителя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Order for trucking</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АктОтгрузки</dataPath>
+			<field>АктОтгрузки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акт отгрузки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Shipment certificate</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоОтгрузки</dataPath>
+			<field>НачалоОтгрузки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОкончаниеОтгрузки</dataPath>
+			<field>ОкончаниеОтгрузки</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатАктОтгрузки_уэ.Дата КАК Дата,
+	уатАктОтгрузки_уэ.Склад КАК Склад,
+	уатАктОтгрузки_уэ.НачалоОперации КАК НачалоОтгрузки,
+	уатАктОтгрузки_уэ.ОкончаниеОперации КАК ОкончаниеОтгрузки,
+	уатАктОтгрузки_уэ.Ссылка КАК АктОтгрузки,
+	уатАктОтгрузки_уэ.Грузы.(
+		КоличествоПлан КАК КоличествоПлан,
+		Количество КАК КоличествоФакт,
+		ВесБруттоПлан КАК ВесПлан,
+		ВесБрутто КАК ВесФакт,
+		ОбъемПлан КАК ОбъемПлан,
+		Объем КАК ОбъемФакт,
+		КоличествоМестПлан КАК КоличествоМестПлан,
+		КоличествоМест КАК КоличествоМестФакт,
+		Статус КАК Статус,
+		Состояние КАК Состояние,
+		Заказ КАК ЗаказГрузоотправителя,
+		ГрузовоеМесто КАК ГрузовоеМесто
+	) КАК Грузы
+ИЗ
+	Документ.уатАктОтгрузки_уэ КАК уатАктОтгрузки_уэ
+ГДЕ
+	уатАктОтгрузки_уэ.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И уатАктОтгрузки_уэ.Проведен = ИСТИНА</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>КоличествоОтклонение</dataPath>
+		<expression>Грузы.КоличествоПлан-Грузы.КоличествоФакт</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество отклонение</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Quantity variance</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВесОтклонение</dataPath>
+		<expression>Грузы.ВесПлан-Грузы.ВесФакт</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вес отклонение</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Weight deviation</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОбъемОтклонение</dataPath>
+		<expression>Грузы.ОбъемПлан-Грузы.ОбъемФакт</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Объем отклонение</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Volume deviation</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВремяОтгрузки</dataPath>
+		<expression>РазностьДат(НачалоОтгрузки, ОкончаниеОтгрузки, "Минута")</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Время отгрузки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Shipment time</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ВремяОтгрузки</dataPath>
+		<expression>Максимум(ВремяОтгрузки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НачалоОтгрузки</dataPath>
+		<expression>Максимум(НачалоОтгрузки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОкончаниеОтгрузки</dataPath>
+		<expression>Максимум(ОкончаниеОтгрузки)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Анализ отгрузки</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Анализ отгрузки со складов комплектации</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АктОтгрузки</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Акт отгрузки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Shipment certificate</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время приемки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Acceptance time</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>НачалоОтгрузки</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Start</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>ОкончаниеОтгрузки</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Окончание</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>End</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>ВремяОтгрузки</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Длительность (мин)</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Duration (min)</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Грузы.ЗаказГрузоотправителя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Грузы.ГрузовоеМесто</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Quantity</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Грузы.КоличествоПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>План</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Plan</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Грузы.КоличествоФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Факт</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Fact</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоОтклонение</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отклонение</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Variance</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вес</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Weight</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Грузы.ВесПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>План</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Plan</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Грузы.ВесФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Факт</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Fact</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВесОтклонение</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отклонение</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Variance</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объем</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Volume</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Грузы.ОбъемПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>План</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Plan</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Грузы.ОбъемФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Факт</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Fact</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОбъемОтклонение</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отклонение</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Variance</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Грузы.Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Грузы.Состояние</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fdba6b9a-47d5-48a6-97a0-18482f1d1ab6</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Грузы.ЗаказГрузоотправителя</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>07dd0d58-92a0-40ea-8f14-f7958c0bf105</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>f295aedf-0a9a-4e8d-98ae-d23bf47c926d</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ВесОтклонение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоОтклонение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОбъемОтклонение</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Склад</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>АктОтгрузки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>НачалоОтгрузки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ОкончаниеОтгрузки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ВремяОтгрузки</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Грузы.ЗаказГрузоотправителя</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:field>ВремяОтгрузки</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:field>НачалоОтгрузки</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:field>ОкончаниеОтгрузки</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:use>false</dcsset:use>
+									<dcsset:field>ВремяОтгрузки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:use>false</dcsset:use>
+									<dcsset:field>НачалоОтгрузки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:use>false</dcsset:use>
+									<dcsset:field>ОкончаниеОтгрузки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

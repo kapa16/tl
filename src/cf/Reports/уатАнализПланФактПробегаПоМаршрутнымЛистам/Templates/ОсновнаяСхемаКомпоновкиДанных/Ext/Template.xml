@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetObject">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатТС</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаршрутныйЛист</dataPath>
+			<field>МаршрутныйЛист</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрутный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Routing list</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатМаршрутныйЛист</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаТС</dataPath>
+			<field>ЗаказНаТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Order for trucking</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтправлениеПлан</dataPath>
+			<field>ОтправлениеПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure plan</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправление План</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибытиеПлан</dataPath>
+			<field>ПрибытиеПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival plan</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибытие План</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегПланМЛ</dataPath>
+			<field>ПробегПланМЛ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег (Маршрутный лист)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mileage (Routing list)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтправлениеФакт</dataPath>
+			<field>ОтправлениеФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure fact</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправление Факт</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибытиеФакт</dataPath>
+			<field>ПрибытиеФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival fact</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибытие Факт</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегФакт</dataPath>
+			<field>ПробегФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mileage fact</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег Факт</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегПланЗаказ</dataPath>
+			<field>ПробегПланЗаказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег (Заказ на ТС)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mileage (Order for trucking)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ТабДанныхПоМЛ</objectName>
+	</dataSet>
+	<totalField>
+		<dataPath>ПробегПланМЛ</dataPath>
+		<expression>Сумма(ПробегПланМЛ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПробегФакт</dataPath>
+		<expression>Сумма(ПробегФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтправлениеПлан</dataPath>
+		<expression>Максимум(ОтправлениеПлан)</expression>
+		<group>ЗаказНаТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>ОтправлениеФакт</dataPath>
+		<expression>Максимум(ОтправлениеФакт)</expression>
+		<group>ЗаказНаТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПрибытиеПлан</dataPath>
+		<expression>Максимум(ПрибытиеПлан)</expression>
+		<group>ЗаказНаТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПрибытиеФакт</dataPath>
+		<expression>Максимум(ПрибытиеФакт)</expression>
+		<group>ЗаказНаТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПробегПланЗаказ</dataPath>
+		<expression>Сумма(ПробегПланЗаказ)</expression>
+	</totalField>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Анализ план-факт пробега по Маршрутным листам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Analysis of plan / fact mileage by routing lists</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Анализ план-факт пробега по Маршрутным листам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>План</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Plan</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОтправлениеПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправление</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Departure</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПрибытиеПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Arrival</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегПланЗаказ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегПланМЛ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Факт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fact</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОтправлениеФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправление</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Departure</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПрибытиеФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Arrival</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пробег</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Mileage</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>694c2ad2-3481-4f10-b190-383bc1b5ed29</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ план-факт пробега по маршрутным листам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Analysis of plan / fact mileage by routing lists</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>МаршрутныйЛист</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ЗаказНаТС</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Анализ план-факт пробега по Заказам на ТС</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Анализ план-факт пробега по Заказам на ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Analysis of plan-fact mileage by orders for trucking</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>План</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Plan</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОтправлениеПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправление</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Departure</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПрибытиеПлан</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Arrival</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегПланЗаказ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегПланМЛ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Факт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fact</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОтправлениеФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправление</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Departure</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПрибытиеФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прибытие</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Arrival</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегФакт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пробег</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Mileage</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>8d4ced2d-1eb3-4dbc-af74-d54d02869d92</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ план-факт пробега по Заказам на ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Analysis of plan-fact mileage by orders for trucking</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ЗаказНаТС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

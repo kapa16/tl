@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Токен</title>
+	<style>
+	html { overflow:  hidden; }
+	</style>
+</head>
+<body>
+
+<button id="login" style="display: none">Получить токен</button>
+<script>
+	// Куда будем записывать token для 1С
+    document.wialonToken = "";
+    // Путь авториация oAuth2.0 по умолчанию из документации
+	document.wialonPath = "https://hosting.wln-hst.com/login.html?client_id=App&access_type=256&activation_time=0&duration=604800&flags=1&redirect_uri=https://hosting.wln-hst.com/login.html";
+
+	// Метод для получения token
+    function getTokenWialon(path) {
+        // Создаем обработчик для сообщений с разных доменов
+        window.addEventListener("message", function (e) {
+            if (typeof e.data == "string" && e.data.indexOf("access_token=") >= 0) {
+                // Обновляем значение в
+                document.wialonToken = e.data.replace("access_token=", "");
+                document.getElementById("login").click();
+                console.log(document.wialonToken);
+            }
+        });
+        // Проходим авторизацию по другому пути + параметры или путь по умолчанию
+        window.open(path || document.wialonPath);
+    }
+;
+</script>
+</body>
+</html>

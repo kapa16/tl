@@ -1,0 +1,895 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаОтображениеДополнительныхЭлементовТрека" id="81">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображение дополнительных элементов трека</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Displaying additional track elements</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтображениеДополнительныхЭлементовТрекаРасширеннаяПодсказка" id="82"/>
+			<ChildItems>
+				<CheckBoxField name="СкрыватьПодписиСкорости" id="78">
+					<DataPath>Объект.СкрыватьПодписиСкорости</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображение отметок скорости</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Displaying speed marks</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ=Отображать; БИ=Скрывать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>BL=Show; BI=Hide</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="СкрыватьПодписиСкоростиКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="СкрыватьПодписиСкоростиРасширеннаяПодсказка" id="80"/>
+				</CheckBoxField>
+				<CheckBoxField name="СкрыватьСтоянки" id="75">
+					<DataPath>Объект.СкрыватьСтоянки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображение стоянок</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Display of parking lots</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ=Отображать; БИ=Скрывать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>BL=Show; BI=Hide</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="СкрыватьСтоянкиКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="СкрыватьСтоянкиРасширеннаяПодсказка" id="77"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДинамическийЦветТрека" id="4">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамический цвет трека</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Dynamic track color</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДинамическийЦветТрекаРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<CheckBoxField name="ИспользоватьДинамическоеОтображениеТрека" id="72">
+					<DataPath>Объект.ИспользоватьДинамическоеОтображениеТрека</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьДинамическоеОтображениеТрекаКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ИспользоватьДинамическоеОтображениеТрекаРасширеннаяПодсказка" id="74">
+						<Title formatted="true">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Если флажок взведен, то становится доступна поинтервальная настройка оформления цвета трека в зависимости от скорости объекта мониторинга.
+Например, при скорости от 50 до 100 км/ч можно сделать трек желтым, а при скоростях &gt;&gt; 100 км/ч - красным
+
+Максимум можно задать 4 условия (более детальное разбиение недоступно)
+
+Если интервалы заданы с общей точкой пересечения (например, для интервалов "&lt;i&gt;от 50 до 60 - красный; от 60 до 70 - синий&lt;/&gt;" такой точкой будет 60) то цвет общей точки берется из "старшего" интервала (в рассмотренном примере будет синий).
+
+Все значения задаются в километрах в час
+
+Данная настройка не работает на стрелки направления движения (для удобства идентификации объекта)</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>If the checkbox is checked, interval-based track color settings become available based on the speed of the monitored object. For example, at speeds between 50 and 100 km/h, the track can be made yellow, and at speeds above 100 km/h, it can be made red.  A maximum of four conditions can be set (more detailed breakdowns are not available).  If intervals are defined with a common intersection point (for example, for intervals "50 to 60 - red; 60 to 70 - blue," this point is 60), the color of the common point is taken from the "highest" interval (in this example, it will be blue).  All values ​​are specified in kilometers per hour.  This setting does not apply to direction arrows (for easier identification of the object).</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+					<Events>
+						<Event name="OnChange">ИспользоватьДинамическоеОтображениеТрекаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<UsualGroup name="ГруппаДинамическийЦветТрека_Горизонтальная" id="85">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Динамический цвет трека горизонтальная</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Dynamic color track horizontal</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа динамический цвет трека горизонтальная</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Dynamic Color Track Group Horizontal</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДинамическийЦветТрека_ГоризонтальнаяРасширеннаяПодсказка" id="86"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияДляОтступа" id="87">
+							<Width>1</Width>
+							<ContextMenu name="ДекорацияДляОтступаКонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="ДекорацияДляОтступаРасширеннаяПодсказка" id="89"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаДинамическийЦветТрека_НастройкаИнтервалов" id="83">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Зависимость цвета от скорости (км/ч)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Color dependence on speed (km/h)</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="ГруппаДинамическийЦветТрека_НастройкаИнтерваловРасширеннаяПодсказка" id="84"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПолзунок1" id="9">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group slider 1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group slider 1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПолзунок1РасширеннаяПодсказка" id="10"/>
+									<ChildItems>
+										<Button name="УстановитьЦветДляИнтервала1" id="56">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.УстановитьЦветДляИнтервала1</CommandName>
+											<ExtendedTooltip name="УстановитьЦветДляИнтервала1РасширеннаяПодсказка" id="57"/>
+										</Button>
+										<UsualGroup name="ГруппаДекорацииКПолзунку1" id="64">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>12</Width>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДекорацииКПолзунку1РасширеннаяПодсказка" id="65"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация_Ползунок1_С" id="17">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>от 0</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>from 0</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок1_СКонтекстноеМеню" id="18"/>
+													<ExtendedTooltip name="Декорация_Ползунок1_СРасширеннаяПодсказка" id="19"/>
+												</LabelDecoration>
+												<LabelDecoration name="Декорация_Ползунок1_По" id="20">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до 200</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>up to 200</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок1_ПоКонтекстноеМеню" id="21"/>
+													<ExtendedTooltip name="Декорация_Ползунок1_ПоРасширеннаяПодсказка" id="22"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<TrackBarField name="Ползунок1" id="6">
+											<DataPath>Ползунок1</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Height>1</Height>
+											<MaxValue>200</MaxValue>
+											<LargeStep>50</LargeStep>
+											<MarkingAppearance>DontShow</MarkingAppearance>
+											<ContextMenu name="Ползунок1КонтекстноеМеню" id="7"/>
+											<ExtendedTooltip name="Ползунок1РасширеннаяПодсказка" id="8"/>
+											<Events>
+												<Event name="OnChange">Ползунок1ПриИзменении</Event>
+											</Events>
+										</TrackBarField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПолзунок2" id="23">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок2</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group slider2</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group slider 1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПолзунок2РасширеннаяПодсказка" id="24"/>
+									<ChildItems>
+										<Button name="УстановитьЦветДляИнтервала2" id="58">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.УстановитьЦветДляИнтервала2</CommandName>
+											<ExtendedTooltip name="УстановитьЦветДляИнтервала2РасширеннаяПодсказка" id="59"/>
+										</Button>
+										<UsualGroup name="ГруппаДекорацииКПолзунку2" id="66">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>12</Width>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДекорацииКПолзунку2РасширеннаяПодсказка" id="67"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация_Ползунок2_С" id="25">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>от 0</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>from 0</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок2_СКонтекстноеМеню" id="26"/>
+													<ExtendedTooltip name="Декорация_Ползунок2_СРасширеннаяПодсказка" id="27"/>
+												</LabelDecoration>
+												<LabelDecoration name="Декорация_Ползунок2_По" id="31">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до 200</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>up to 200</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок2_ПоКонтекстноеМеню" id="32"/>
+													<ExtendedTooltip name="Декорация_Ползунок2_ПоРасширеннаяПодсказка" id="33"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<TrackBarField name="Ползунок2" id="28">
+											<DataPath>Ползунок2</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Height>1</Height>
+											<MaxValue>200</MaxValue>
+											<LargeStep>50</LargeStep>
+											<MarkingAppearance>DontShow</MarkingAppearance>
+											<ContextMenu name="Ползунок2КонтекстноеМеню" id="29"/>
+											<ExtendedTooltip name="Ползунок2РасширеннаяПодсказка" id="30"/>
+											<Events>
+												<Event name="OnChange">Ползунок2ПриИзменении</Event>
+											</Events>
+										</TrackBarField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПолзунок3" id="34">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок3</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Slider group 3</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group slider 1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПолзунок3РасширеннаяПодсказка" id="35"/>
+									<ChildItems>
+										<Button name="УстановитьЦветДляИнтервала3" id="60">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.УстановитьЦветДляИнтервала3</CommandName>
+											<ExtendedTooltip name="УстановитьЦветДляИнтервала3РасширеннаяПодсказка" id="61"/>
+										</Button>
+										<UsualGroup name="ГруппаДекорацииКПолзунку3" id="68">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>12</Width>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДекорацииКПолзунку3РасширеннаяПодсказка" id="69"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация_Ползунок3_С" id="36">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>от 0</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>from 0</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок3_СКонтекстноеМеню" id="37"/>
+													<ExtendedTooltip name="Декорация_Ползунок3_СРасширеннаяПодсказка" id="38"/>
+												</LabelDecoration>
+												<LabelDecoration name="Декорация_Ползунок3_По" id="42">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до 200</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>up to 200</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок3_ПоКонтекстноеМеню" id="43"/>
+													<ExtendedTooltip name="Декорация_Ползунок3_ПоРасширеннаяПодсказка" id="44"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<TrackBarField name="Ползунок3" id="39">
+											<DataPath>Ползунок3</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Height>1</Height>
+											<MaxValue>200</MaxValue>
+											<LargeStep>50</LargeStep>
+											<MarkingAppearance>DontShow</MarkingAppearance>
+											<ContextMenu name="Ползунок3КонтекстноеМеню" id="40"/>
+											<ExtendedTooltip name="Ползунок3РасширеннаяПодсказка" id="41"/>
+											<Events>
+												<Event name="OnChange">Ползунок3ПриИзменении</Event>
+											</Events>
+										</TrackBarField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПолзунок4" id="45">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок4</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Slider group 4</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ползунок1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group slider 1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПолзунок4РасширеннаяПодсказка" id="46"/>
+									<ChildItems>
+										<Button name="УстановитьЦветДляИнтервала4" id="62">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.УстановитьЦветДляИнтервала4</CommandName>
+											<ExtendedTooltip name="УстановитьЦветДляИнтервала4РасширеннаяПодсказка" id="63"/>
+										</Button>
+										<UsualGroup name="ГруппаДекорацииКПолзунку4" id="70">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа декорации к ползунку1</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration group for slider 1</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>12</Width>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДекорацииКПолзунку4РасширеннаяПодсказка" id="71"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация_Ползунок4_С" id="47">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>от 0</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>from 0</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок4_СКонтекстноеМеню" id="48"/>
+													<ExtendedTooltip name="Декорация_Ползунок4_СРасширеннаяПодсказка" id="49"/>
+												</LabelDecoration>
+												<LabelDecoration name="Декорация_Ползунок4_По" id="53">
+													<Font ref="style:NormalTextFont" faceName="Arial" height="12" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до 200</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>up to 200</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация_Ползунок4_ПоКонтекстноеМеню" id="54"/>
+													<ExtendedTooltip name="Декорация_Ползунок4_ПоРасширеннаяПодсказка" id="55"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<TrackBarField name="Ползунок4" id="50">
+											<DataPath>Ползунок4</DataPath>
+											<Enabled>false</Enabled>
+											<TitleLocation>None</TitleLocation>
+											<Height>1</Height>
+											<MaxValue>200</MaxValue>
+											<LargeStep>50</LargeStep>
+											<MarkingAppearance>DontShow</MarkingAppearance>
+											<ContextMenu name="Ползунок4КонтекстноеМеню" id="51"/>
+											<ExtendedTooltip name="Ползунок4РасширеннаяПодсказка" id="52"/>
+										</TrackBarField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ItobВариантыОтображенияТрека</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Ползунок1" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ползунок1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Slider 1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Ползунок2" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ползунок2</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Slider 2</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Ползунок3" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ползунок3</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Slider 3</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Ползунок4" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ползунок4</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Slider 4</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЦветДляИнтервала1" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет для интервала1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color for interval 1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветДляИнтервала2" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет для интервала2</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color for interval 2</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветДляИнтервала3" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет для интервала3</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color for interval 3</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветДляИнтервала4" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет для интервала4</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color for interval 4</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="УстановитьЦветДляИнтервала1" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>  
+</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить цвет для интервала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set color for interval</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьЦветДляИнтервала1</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="УстановитьЦветДляИнтервала2" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>  
+</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить цвет для интервала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set color for interval</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьЦветДляИнтервала2</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="УстановитьЦветДляИнтервала3" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>  
+</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить цвет для интервала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set color for interval</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьЦветДляИнтервала3</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="УстановитьЦветДляИнтервала4" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>  
+</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить цвет для интервала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set color for interval</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьЦветДляИнтервала4</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

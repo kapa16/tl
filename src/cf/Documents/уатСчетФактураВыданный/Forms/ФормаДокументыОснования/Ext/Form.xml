@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ОК</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>OK</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьExtendedTooltip" id="10"/>
+			</Button>
+			<Button name="ФормаКнопкаОтмена" id="9">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<ExtendedTooltip name="ФормаКнопкаОтменаExtendedTooltip" id="11"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ДокументыОснования" id="2">
+			<Representation>List</Representation>
+			<Header>false</Header>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДокументыОснования</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДокументыОснованияКонтекстноеМеню" id="3"/>
+			<AutoCommandBar name="ДокументыОснованияКоманднаяПанель" id="4">
+				<ChildItems>
+					<Button name="ФормаЗаполнить" id="24">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Заполнить</CommandName>
+						<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="25"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДокументыОснованияExtendedTooltip" id="12"/>
+			<SearchStringAddition name="ДокументыОснованияСтрокаПоиска" id="15">
+				<AdditionSource>
+					<Item>ДокументыОснования</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДокументыОснованияСтрокаПоискаКонтекстноеМеню" id="16"/>
+				<ExtendedTooltip name="ДокументыОснованияСтрокаПоискаРасширеннаяПодсказка" id="17"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДокументыОснованияСостояниеПросмотра" id="18">
+				<AdditionSource>
+					<Item>ДокументыОснования</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДокументыОснованияСостояниеПросмотраКонтекстноеМеню" id="19"/>
+				<ExtendedTooltip name="ДокументыОснованияСостояниеПросмотраРасширеннаяПодсказка" id="20"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДокументыОснованияУправлениеПоиском" id="21">
+				<AdditionSource>
+					<Item>ДокументыОснования</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДокументыОснованияУправлениеПоискомКонтекстноеМеню" id="22"/>
+				<ExtendedTooltip name="ДокументыОснованияУправлениеПоискомРасширеннаяПодсказка" id="23"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnStartEdit">ДокументыОснованияПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ДокументыОснованияДокументОснование" id="5">
+					<DataPath>ДокументыОснования.ДокументОснование</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CreateButton>false</CreateButton>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ChooseType>false</ChooseType>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.ДоговорКонтрагента</xr:Name>
+							<xr:DataPath xsi:type="xs:string">ДоговорКонтрагента</xr:DataPath>
+							<xr:ValueChange>DontChange</xr:ValueChange>
+						</xr:Link>
+						<xr:Link>
+							<xr:Name>Отбор.Контрагент</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Контрагент</xr:DataPath>
+							<xr:ValueChange>DontChange</xr:ValueChange>
+						</xr:Link>
+						<xr:Link>
+							<xr:Name>Отбор.Организация</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
+							<xr:ValueChange>DontChange</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ChoiceParameters>
+						<app:item name="Отбор.Проведен">
+							<app:value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xs:boolean">true</Value>
+							</app:value>
+						</app:item>
+					</ChoiceParameters>
+					<ContextMenu name="ДокументыОснованияДокументОснованиеКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ДокументыОснованияДокументОснованиеExtendedTooltip" id="13"/>
+					<Events>
+						<Event name="OnChange">ДокументыОснованияДокументОснованиеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДокументыОснованияПодразделение" id="7">
+					<DataPath>ДокументыОснования.Подразделение</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДокументыОснованияПодразделениеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ДокументыОснованияПодразделениеExtendedTooltip" id="14"/>
+				</InputField>
+				<InputField name="ДокументыОснованияСклад" id="26">
+					<DataPath>ДокументыОснования.Склад</DataPath>
+					<Visible>false</Visible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДокументыОснованияСкладКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ДокументыОснованияСкладРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ДокументыОснованияСуммаДокумента" id="29">
+					<DataPath>ДокументыОснования.СуммаДокумента</DataPath>
+					<Visible>false</Visible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДокументыОснованияСуммаДокументаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ДокументыОснованияСуммаДокументаРасширеннаяПодсказка" id="31"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДокументыОснования" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы основания</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Founding documents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="ДокументОснование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ основание</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Founding document</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатРеализацияУслуг</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Подразделение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Subdivision</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Договор" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Agreement</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Валюта" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Currency</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СуммаДокумента" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма документа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Document amount</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Склад" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Торговая точка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Point of sale</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Организация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Organization</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Counterparty</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СчетФактура" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет-фактура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Invoice</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Исправление" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исправление</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Correction</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидСчетаФактуры" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид счета фактуры</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Type of invoice</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВидСчетаФактурыВыставленного</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоСводнаяСправка" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это сводная справка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This is a summary report</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресХранилища" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес хранилища</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Storage address</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаСчетаФактуры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата счета-фактуры</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Invoice date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоКорректировочнаяСправка" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это корректировочная справка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This is a correction certificate</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсправляемыйСчетФактура" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исправляемый счет-фактура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Corrected tax invoice</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоКорректировочный" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это корректировочный счет-фактура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This is a correction invoice.</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоговорКонтрагента" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор контрагента</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Counterparty agreement</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаписатьИЗакрыть" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write and close</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write and close</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаписатьИЗакрыть</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОтмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel command</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Заполнить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

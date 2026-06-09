@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<ButtonGroup name="ГруппаОрганайзерОтправить" id="61">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Органайзер отправить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Send organizer</v8:content>
+					</v8:item>
+				</Title>
+				<Representation>Compact</Representation>
+				<ExtendedTooltip name="ГруппаОрганайзерОтправитьРасширеннаяПодсказка" id="62"/>
+				<ChildItems>
+					<Popup name="ПодменюОрганайзер" id="63">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Органайзер</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Organizer</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>CommonPicture.Напоминание</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОрганайзерРасширеннаяПодсказка" id="64"/>
+					</Popup>
+					<Popup name="ПодменюОтправить" id="65">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправить</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Send</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>StdPicture.SendMessage</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОтправитьРасширеннаяПодсказка" id="66"/>
+					</Popup>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="ФормаПечатьЖурнала" id="54">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПечатьЖурнала</CommandName>
+				<ExtendedTooltip name="ФормаПечатьЖурналаРасширеннаяПодсказка" id="55"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Name code group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="58">
+			<DataPath>Объект.Parent</DataPath>
+			<ContextMenu name="РодительКонтекстноеМеню" id="59"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="60"/>
+		</InputField>
+		<InputField name="ВидЖурнала" id="7">
+			<DataPath>Объект.ВидЖурнала</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВидЖурналаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВидЖурналаРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ВидЖурналаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаПериод" id="24">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодРасширеннаяПодсказка" id="25"/>
+			<ChildItems>
+				<InputField name="ДатаНачала" id="16">
+					<DataPath>Объект.ДатаНачала</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период действия с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Valid from</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="ДатаОкончания" id="19">
+					<DataPath>Объект.ДатаОкончания</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>By</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="21"/>
+				</InputField>
+				<Button name="НастройкаПериода" id="26">
+					<Type>UsualButton</Type>
+					<UserVisible>
+						<xr:Common>true</xr:Common>
+						<xr:Value name="99a39102-8dfb-4af3-b773-b0e0f5741bb8">false</xr:Value>
+						<xr:Value name="3e2ec882-f528-4931-9620-464f70c8fad0">false</xr:Value>
+						<xr:Value name="Role.ДобавлениеИзменениеДополнительныхОтчетовИОбработок">false</xr:Value>
+						<xr:Value name="Role.ИзменениеДополнительныхСведений">false</xr:Value>
+						<xr:Value name="Role.ИзменениеМакетовПечатныхФорм">false</xr:Value>
+						<xr:Value name="Role.ЧтениеДополнительныхОтчетовИОбработок">false</xr:Value>
+						<xr:Value name="db82191f-77bd-44da-8b33-86f01018e25a">false</xr:Value>
+						<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+						<xr:Value name="1a1de318-8260-40f3-89e2-12d9f2ebea1f">false</xr:Value>
+						<xr:Value name="a5a01ca9-0841-472b-94dd-0c4039dc6b96">false</xr:Value>
+						<xr:Value name="Role.ДобавлениеИзменениеПапокИФайлов">false</xr:Value>
+						<xr:Value name="Role.РедактированиеРеквизитовОбъектов">false</xr:Value>
+						<xr:Value name="737ead15-5393-4de4-9335-67d1839433b5">false</xr:Value>
+						<xr:Value name="e7048e4e-20d6-4086-b74f-54589c713501">true</xr:Value>
+						<xr:Value name="Role.уатПрикладнаяРольГСМ">false</xr:Value>
+						<xr:Value name="Role.уатПрикладнаяРольДиспетчер">false</xr:Value>
+						<xr:Value name="3d18df4a-3c11-4cd8-bab0-f329ea5b9e9d">false</xr:Value>
+						<xr:Value name="Role.уатПрикладнаяРольКадровик">false</xr:Value>
+						<xr:Value name="Role.уатПрикладнаяРольКладовщик">false</xr:Value>
+						<xr:Value name="947e5674-8e17-4ab8-bed7-679a1416d359">false</xr:Value>
+						<xr:Value name="efcb8a2e-825b-4fd0-ab6a-7faae18fbbee">false</xr:Value>
+						<xr:Value name="Role.уатПрикладнаяРольМеханик">false</xr:Value>
+						<xr:Value name="Role.уатТиповаяКонфигурация">false</xr:Value>
+						<xr:Value name="d5a20409-bfac-45ef-895a-9b92954c048c">false</xr:Value>
+						<xr:Value name="Role.уатПрикладнаяРольЭкономист">true</xr:Value>
+						<xr:Value name="5007b794-3666-4917-88bd-fdefe73d3dfc">false</xr:Value>
+						<xr:Value name="94373072-7855-42db-a3f3-cb06b455d4a4">false</xr:Value>
+						<xr:Value name="Role.ЧтениеДополнительныхСведений">false</xr:Value>
+					</UserVisible>
+					<CommandName>Form.Command.НастройкаПериода</CommandName>
+					<ExtendedTooltip name="НастройкаПериодаExtendedTooltip" id="27"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="10">
+			<DataPath>Объект.Организация</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Подразделение" id="13">
+			<DataPath>Объект.Подразделение</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПодразделениеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ШаблонРезультатовОсмотра" id="51">
+			<DataPath>Объект.ШаблонРезультатовОсмотра</DataPath>
+			<ContextMenu name="ШаблонРезультатовОсмотраКонтекстноеМеню" id="52"/>
+			<ExtendedTooltip name="ШаблонРезультатовОсмотраРасширеннаяПодсказка" id="53"/>
+		</InputField>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="56">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дополнительные реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional attributes group</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="57"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатЖурналыТранспортныхДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="НастройкаПериода" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Setting the period</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Setting the period</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НастройкаПериода</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьЖурнала" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Magazine</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать журнала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Printing the magazine</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьЖурнала</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

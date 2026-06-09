@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Geocoding settings</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Пункты назначения: Настройки геокодирования</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОК" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="3">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<Width>9</Width>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отменить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Cancel</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="ВыбиратьПунктИзСписка" id="5">
+			<DataPath>ВыбиратьРезультатГеокодированияИзСписка</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Depending on the setting, you'll have to manually choose one of several possible geocoding results, or the choice will be automatic.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При использовании сервиса подсказок пользователю будет предложен выбор из нескольких вариантов. 
+При использовании сервиса геокодирования наиболее подходящий вариант будет выбран автоматически</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Manual</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Геокодирование</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Automatic</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подсказки при вводе адресов</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ВыбиратьПунктИзСпискаКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ВыбиратьПунктИзСпискаРасширеннаяПодсказка" id="7"/>
+		</RadioButtonField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ВыбиратьРезультатГеокодированияИзСписка" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбирать результат геокодирования по сервису</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select geocoding result by service</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить и закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

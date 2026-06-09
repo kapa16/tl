@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСохранить" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="11">
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="119"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизиты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитаИмеетУчетВГИС" id="65">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет в ГИС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИмеетУчетВГИСРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИмеетУчетВГИС" id="67">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Учет в ГИС:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИмеетУчетВГИСКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ЗаголовокИмеетУчетВГИСРасширеннаяПодсказка" id="69"/>
+						</LabelDecoration>
+						<CheckBoxField name="ИмеетУчетВГИС" id="70">
+							<DataPath>ИмеетУчетВГИС</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отметка о перевозке в составе груза товара, перевозка которого подлежит учету в государственной информационной системе</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИмеетУчетВГИСКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="ИмеетУчетВГИСРасширеннаяПодсказка" id="72"/>
+							<Events>
+								<Event name="OnChange">ИмеетУчетВГИСПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаСведенияГИСНаименование" id="89">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование ГИС</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаСведенияГИСНаименованиеРасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокСведенияГИСНаименование" id="91">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование ГИС:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокСведенияГИСНаименованиеКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ЗаголовокСведенияГИСНаименованиеРасширеннаяПодсказка" id="93"/>
+						</LabelDecoration>
+						<InputField name="СведенияГИСНаименование" id="94">
+							<DataPath>СведенияГИСНаименование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование государственной системы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="СведенияГИСНаименованиеКонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="СведенияГИСНаименованиеРасширеннаяПодсказка" id="96"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаСведенияГИСУчетнаяЕдиница" id="81">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учетная единица в государственной системе</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаСведенияГИСУчетнаяЕдиницаРасширеннаяПодсказка" id="82"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокСведенияГИСУчетнаяЕдиница" id="83">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Учетная единица в ГИС:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокСведенияГИСУчетнаяЕдиницаКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ЗаголовокСведенияГИСУчетнаяЕдиницаРасширеннаяПодсказка" id="85"/>
+						</LabelDecoration>
+						<InputField name="СведенияГИСУчетнаяЕдиница" id="86">
+							<DataPath>СведенияГИСУчетнаяЕдиница</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Учетная единица в государственной системе</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="СведенияГИСУчетнаяЕдиницаКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="СведенияГИСУчетнаяЕдиницаРасширеннаяПодсказка" id="88"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаСведенияГИСИнаяИнформацияОТоваре" id="73">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Иная информация о товаре</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаСведенияГИСИнаяИнформацияОТовареРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокСведенияГИСИнаяИнформацияОТоваре" id="75">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Иная информация о товаре:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокСведенияГИСИнаяИнформацияОТовареКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ЗаголовокСведенияГИСИнаяИнформацияОТовареРасширеннаяПодсказка" id="77"/>
+						</LabelDecoration>
+						<InputField name="СведенияГИСИнаяИнформацияОТоваре" id="78">
+							<DataPath>СведенияГИСИнаяИнформацияОТоваре</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Иная информация о товаре, подлежащем учету в государственной системе</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="СведенияГИСИнаяИнформацияОТовареКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="СведенияГИСИнаяИнформацияОТовареРасширеннаяПодсказка" id="80"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТаблицы" id="97">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТаблицыРасширеннаяПодсказка" id="98"/>
+			<ChildItems>
+				<Pages name="СтраницыТаблиц" id="99">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблицы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблицы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыТаблицРасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<Page name="СтраницаИдентификационныеНомераУчетныхЕдиниц" id="101">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификационный номер учетной единицы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификационный номер учетной единицы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаИдентификационныеНомераУчетныхЕдиницРасширеннаяПодсказка" id="102"/>
+							<ChildItems>
+								<Table name="ИдентификационныеНомераУчетныхЕдиниц" id="103">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ИдентификационныеНомераУчетныхЕдиниц</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ИдентификационныеНомераУчетныхЕдиницКонтекстноеМеню" id="104"/>
+									<AutoCommandBar name="ИдентификационныеНомераУчетныхЕдиницКоманднаяПанель" id="105"/>
+									<ExtendedTooltip name="ИдентификационныеНомераУчетныхЕдиницРасширеннаяПодсказка" id="106"/>
+									<SearchStringAddition name="ИдентификационныеНомераУчетныхЕдиницСтрокаПоиска" id="107">
+										<AdditionSource>
+											<Item>ИдентификационныеНомераУчетныхЕдиниц</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ИдентификационныеНомераУчетныхЕдиницСтрокаПоискаКонтекстноеМеню" id="108"/>
+										<ExtendedTooltip name="ИдентификационныеНомераУчетныхЕдиницСтрокаПоискаРасширеннаяПодсказка" id="109"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ИдентификационныеНомераУчетныхЕдиницСостояниеПросмотра" id="110">
+										<AdditionSource>
+											<Item>ИдентификационныеНомераУчетныхЕдиниц</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ИдентификационныеНомераУчетныхЕдиницСостояниеПросмотраКонтекстноеМеню" id="111"/>
+										<ExtendedTooltip name="ИдентификационныеНомераУчетныхЕдиницСостояниеПросмотраРасширеннаяПодсказка" id="112"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ИдентификационныеНомераУчетныхЕдиницУправлениеПоиском" id="113">
+										<AdditionSource>
+											<Item>ИдентификационныеНомераУчетныхЕдиниц</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ИдентификационныеНомераУчетныхЕдиницУправлениеПоискомКонтекстноеМеню" id="114"/>
+										<ExtendedTooltip name="ИдентификационныеНомераУчетныхЕдиницУправлениеПоискомРасширеннаяПодсказка" id="115"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeDeleteRow">ТитулГрузоотправителяИдентификационныеНомераУчетныхЕдиницПередУдалением</Event>
+										<Event name="OnStartEdit">ТитулГрузоотправителяИдентификационныеНомераУчетныхЕдиницПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ИдентификационныйНомерУчетнойЕдиницы" id="116">
+											<DataPath>ИдентификационныеНомераУчетныхЕдиниц.ИдентификационныйНомерУчетнойЕдиницы</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInFooter>false</ShowInFooter>
+											<Width>20</Width>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ИдентификационныйНомерУчетнойЕдиницыКонтекстноеМеню" id="117"/>
+											<ExtendedTooltip name="ИдентификационныйНомерУчетнойЕдиницыРасширеннаяПодсказка" id="118"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ИмеетУчетВГИС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет в ГИС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификационныеНомераУчетныхЕдиниц" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификационный номер учетной единицы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ИдентификаторСтрокиРодителя" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор строки родительской таблицы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>40</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификационныйНомерУчетнойЕдиницы" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификационный номер учетной единицы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СведенияГИСИнаяИнформацияОТоваре" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Иная информация о товаре</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СведенияГИСУчетнаяЕдиница" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная единица в государственной системе</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СведенияГИСНаименование" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование ГИС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сохранить</Action>
+		</Command>
+	</Commands>
+</Form>

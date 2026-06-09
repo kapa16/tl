@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Подписание регистрационных данных на подключение к сервису 1С-ЭДО</v8:content>
+		</v8:item>
+	</Title>
+	<Width>50</Width>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Подписать" id="21">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Подписать</CommandName>
+				<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="22"/>
+			</Button>
+			<Button name="Отмена" id="25">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="26"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаДанные" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа данные</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДанныеРасширеннаяПодсказка" id="7"/>
+			<ChildItems>
+				<Button name="ОткрытьПользовательскоеСоглашение" id="14">
+					<Type>Hyperlink</Type>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<CommandName>Form.Command.ОткрытьПользовательскоеСоглашение</CommandName>
+					<ExtendedTooltip name="ОткрытьПользовательскоеСоглашениеРасширеннаяПодсказка" id="15"/>
+				</Button>
+				<Button name="ОткрытьДанныеДляРегистрации" id="16">
+					<Type>Hyperlink</Type>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<CommandName>Form.Command.ОткрытьДанныеДляРегистрации</CommandName>
+					<ExtendedTooltip name="ОткрытьДанныеДляРегистрацииРасширеннаяПодсказка" id="17"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПодписание" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Введите пароль закрытого ключа сертификата</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаПодписаниеРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<InputField name="Сертификат" id="1">
+					<DataPath>Сертификат</DataPath>
+					<DropListButton>true</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<CreateButton>false</CreateButton>
+					<ContextMenu name="СертификатКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="СертификатРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Пароль" id="18">
+					<DataPath>Пароль</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>20</MaxWidth>
+					<PasswordMode>true</PasswordMode>
+					<ContextMenu name="ПарольКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="20"/>
+					<Events>
+						<Event name="OnChange">ПарольПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Сертификат" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сертификат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СертификатыКлючейЭлектроннойПодписиИШифрования</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Пароль" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеПакета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные пакета</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СертификатПрограмма" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сертификат программа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПрограммыЭлектроннойПодписиИШифрования</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СертификатДанные" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сертификат данные</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ДанныеНаПодпись" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные на подпись</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="РазрешитьЗакрытие" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить закрытие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыполняетсяПодписание" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполняется подписание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьСохраненныйПароль" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать сохраненный пароль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьПользовательскоеСоглашение" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользовательское соглашение на подключение к сервису 1С-ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОткрытьПользовательскоеСоглашение</Action>
+		</Command>
+		<Command name="ОткрытьДанныеДляРегистрации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные для регистрации учетной записи у оператора ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОткрытьДанныеДляРегистрации</Action>
+		</Command>
+		<Command name="Подписать" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Подписать</Action>
+		</Command>
+		<Command name="Отмена" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ДанныеПакета">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

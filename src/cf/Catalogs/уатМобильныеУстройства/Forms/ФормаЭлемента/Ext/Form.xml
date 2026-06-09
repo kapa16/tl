@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="НаименованиеКод" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Description code</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="НаименованиеКодРасширеннаяПодсказка" id="61"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="IDУстройства" id="10">
+			<DataPath>Объект.IDУстройства</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="IDУстройстваКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="IDУстройстваРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Модель" id="68">
+			<DataPath>Объект.Модель</DataPath>
+			<ContextMenu name="МодельКонтекстноеМеню" id="69"/>
+			<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="70"/>
+		</InputField>
+		<InputField name="ВерсияОС" id="71">
+			<DataPath>Объект.ВерсияОС</DataPath>
+			<ContextMenu name="ВерсияОСКонтекстноеМеню" id="72"/>
+			<ExtendedTooltip name="ВерсияОСРасширеннаяПодсказка" id="73"/>
+		</InputField>
+		<UsualGroup name="ГруппаИсторияПодключений" id="74">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История подключений</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allowed vehicle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешенные ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allowed vehicle</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<TitleDataPath>Объект.УдалитьРазрешенныеТС.RowsCount</TitleDataPath>
+			<ExtendedTooltip name="ГруппаИсторияПодключенийРасширеннаяПодсказка" id="75"/>
+			<ChildItems>
+				<Table name="ИсторияПодключений" id="76">
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ИсторияПодключений</DataPath>
+					<RowPictureDataPath>~ИсторияПодключений.DefaultPicture</RowPictureDataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ИсторияПодключенийКонтекстноеМеню" id="77"/>
+					<AutoCommandBar name="ИсторияПодключенийКоманднаяПанель" id="78">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ИсторияПодключенийРасширеннаяПодсказка" id="79"/>
+					<SearchStringAddition name="ИсторияПодключенийСтрокаПоиска" id="80">
+						<AdditionSource>
+							<Item>ИсторияПодключений</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсторияПодключенийСтрокаПоискаКонтекстноеМеню" id="81"/>
+						<ExtendedTooltip name="ИсторияПодключенийСтрокаПоискаРасширеннаяПодсказка" id="82"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ИсторияПодключенийСостояниеПросмотра" id="83">
+						<AdditionSource>
+							<Item>ИсторияПодключений</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсторияПодключенийСостояниеПросмотраКонтекстноеМеню" id="84"/>
+						<ExtendedTooltip name="ИсторияПодключенийСостояниеПросмотраРасширеннаяПодсказка" id="85"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ИсторияПодключенийУправлениеПоиском" id="86">
+						<AdditionSource>
+							<Item>ИсторияПодключений</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсторияПодключенийУправлениеПоискомКонтекстноеМеню" id="87"/>
+						<ExtendedTooltip name="ИсторияПодключенийУправлениеПоискомРасширеннаяПодсказка" id="88"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ИсторияПодключенийВодитель" id="89">
+							<DataPath>ИсторияПодключений.Водитель</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Водитель (по данным мобильного приложения)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Driver (according to mobile app data)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ContextMenu name="ИсторияПодключенийВодительКонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="ИсторияПодключенийВодительРасширеннаяПодсказка" id="91"/>
+						</LabelField>
+						<LabelField name="ИсторияПодключенийТС" id="95">
+							<DataPath>ИсторияПодключений.ТС</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Транспортное средство</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Vehicle</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ИсторияПодключенийТСКонтекстноеМеню" id="96"/>
+							<ExtendedTooltip name="ИсторияПодключенийТСРасширеннаяПодсказка" id="97"/>
+						</LabelField>
+						<LabelField name="ИсторияПодключенийДата" id="92">
+							<DataPath>ИсторияПодключений.Дата</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата выхода на линию</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Date of release on line</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата последнего выхода на линию этого водителя с этого устройства и с этим ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>The last time this driver logged on from this device and with this vehicle</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ContextMenu name="ИсторияПодключенийДатаКонтекстноеМеню" id="93"/>
+							<ExtendedTooltip name="ИсторияПодключенийДатаРасширеннаяПодсказка" id="94"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатМобильныеУстройства</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.УдалитьВодители">
+					<Column name="Логин" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Логин</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Login</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="ДатаПоследнегоСобытия" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дата последнего события</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Date of last event</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:dateTime</v8:Type>
+							<v8:DateQualifiers>
+								<v8:DateFractions>DateTime</v8:DateFractions>
+							</v8:DateQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИсторияПодключений" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История подключений</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allowed vehicle</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+    МАКСИМУМ(уатСтатусыМобильногоПриложения.Дата) КАК Дата,
+    уатСтатусыМобильногоПриложения.МобильноеУстройство КАК МобильноеУстройство,
+    уатСтатусыМобильногоПриложения.Водитель КАК Водитель,
+    уатСтатусыМобильногоПриложения.ТС КАК ТС
+ПОМЕСТИТЬ втДатаПоследнегоВыходаНаЛинию
+ИЗ
+    РегистрСведений.уатСтатусыМобильногоПриложения КАК уатСтатусыМобильногоПриложения
+ГДЕ
+    уатСтатусыМобильногоПриложения.МобильноеУстройство = &amp;МобильноеУстройство
+
+СГРУППИРОВАТЬ ПО
+    уатСтатусыМобильногоПриложения.МобильноеУстройство,
+    уатСтатусыМобильногоПриложения.Водитель,
+    уатСтатусыМобильногоПриложения.ТС
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    уатПользователиМобильногоПриложения_ТС.Пользователь КАК Пользователь,
+    КОЛИЧЕСТВО(РАЗЛИЧНЫЕ уатПользователиМобильногоПриложения_ТС.ТС) КАК ТСКоличество
+ПОМЕСТИТЬ втКолВоТС
+ИЗ
+    РегистрСведений.уатПользователиМобильногоПриложения_ТС КАК уатПользователиМобильногоПриложения_ТС
+
+СГРУППИРОВАТЬ ПО
+    уатПользователиМобильногоПриложения_ТС.Пользователь
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    уатПользователиМобильногоПриложения_ТС.Пользователь КАК Пользователь,
+    уатПользователиМобильногоПриложения_ТС.ТС КАК ТС
+ПОМЕСТИТЬ втТСПользователей
+ИЗ
+    втКолВоТС КАК втКолВоТС
+        ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.уатПользователиМобильногоПриложения_ТС КАК уатПользователиМобильногоПриложения_ТС
+        ПО втКолВоТС.Пользователь = уатПользователиМобильногоПриложения_ТС.Пользователь
+            И (ВЫБОР
+                КОГДА втКолВоТС.ТСКоличество = 1
+                    ТОГДА ИСТИНА
+                ИНАЧЕ ЛОЖЬ
+            КОНЕЦ)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+    втДатаПоследнегоВыходаНаЛинию.Водитель КАК Водитель,
+    втДатаПоследнегоВыходаНаЛинию.Дата КАК Дата,
+    ВЫБОР
+        КОГДА втДатаПоследнегоВыходаНаЛинию.ТС = ЗНАЧЕНИЕ(Справочник.уатТС.ПустаяСсылка)
+            ТОГДА ЕСТЬNULL(втТСПользователей.ТС, ЗНАЧЕНИЕ(Справочник.уатТС.ПустаяСсылка))
+        ИНАЧЕ втДатаПоследнегоВыходаНаЛинию.ТС
+    КОНЕЦ КАК ТС
+ПОМЕСТИТЬ втВодители
+ИЗ
+    втДатаПоследнегоВыходаНаЛинию КАК втДатаПоследнегоВыходаНаЛинию
+        ЛЕВОЕ СОЕДИНЕНИЕ втТСПользователей КАК втТСПользователей
+        ПО втДатаПоследнегоВыходаНаЛинию.Водитель = втТСПользователей.Пользователь
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    втВодители.Водитель КАК Водитель,
+    втВодители.Дата КАК Дата,
+    втВодители.ТС КАК ТС
+ИЗ
+    втВодители КАК втВодители</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

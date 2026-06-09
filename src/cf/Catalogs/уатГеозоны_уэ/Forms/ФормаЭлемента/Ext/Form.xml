@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="78">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Name code group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Name code group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="79"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">НаименованиеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРодитель" id="129">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРодительРасширеннаяПодсказка" id="130"/>
+			<ChildItems>
+				<InputField name="Родитель" id="7">
+					<DataPath>Объект.Parent</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<CheckBoxField name="Основная" id="126">
+					<DataPath>Объект.Основная</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основная геозона</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Main geofence</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Установить текущую геозону как основная. Нельзя устанавливать больше одной основной геозоны.
+Используется при расчете тарифов с параметром выработки "Пробег вне геозоны".</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Set the current geofence as the primary one. You cannot set more than one primary geofence.
+Used when calculating rates with the "Mileage outside geofence" output parameter.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОсновнаяКонтекстноеМеню" id="127"/>
+					<ExtendedTooltip name="ОсновнаяРасширеннаяПодсказка" id="128"/>
+					<Events>
+						<Event name="OnChange">ОсновнаяПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<Page name="ГруппаОсновное" id="117">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Main</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="118"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЗаливка" id="80">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Оформление</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Fill</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заливка</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Fill</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<ThroughAlign>Use</ThroughAlign>
+							<ExtendedTooltip name="ГруппаЗаливкаРасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<InputField name="ЦветЗоны" id="82">
+									<DataPath>ЦветЗоны</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Цвет</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Color</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ЦветЗоныКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ЦветЗоныРасширеннаяПодсказка" id="84"/>
+									<Events>
+										<Event name="StartChoice">ЦветЗоныНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаРасчетПоТарифам" id="115">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тарифы на транспортные услуги</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Tariff on transport services</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<ThroughAlign>Use</ThroughAlign>
+							<ExtendedTooltip name="ГруппаРасчетПоТарифамРасширеннаяПодсказка" id="116"/>
+							<ChildItems>
+								<InputField name="ПриоритетПриРасчетеПоТарифам" id="112">
+									<DataPath>Объект.ПриоритетПриРасчетеПоТарифам</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Приоритет</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Priority</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Определяет геозону пункта, которая будет использоваться при расчете по тарифам, если пункт входит в несколько геозон одновременно. Это могут быть пересекающиеся или вложенные геозоны.
+См. также инструкцию по вводу тарифов с геозонами в справочнике "Тарифы на транспортные услуги" на закладке "Область действия"</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Defines the geozone for a point that will be used when calculating rates if the point is included in multiple geozones simultaneously. These can be overlapping or nested geozones.
+See also the instructions for entering rates with geozones in the "Transport Rates" reference book on the "Scope" tab.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="ПриоритетПриРасчетеПоТарифамКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="ПриоритетПриРасчетеПоТарифамРасширеннаяПодсказка" id="114"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПунктыНазначения" id="119">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пункты назначения, входящие в геозону</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Destinations within the geofence</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<ThroughAlign>Use</ThroughAlign>
+							<ExtendedTooltip name="ГруппаПунктыНазначенияРасширеннаяПодсказка" id="120"/>
+							<ChildItems>
+								<InputField name="ПунктыНазначения" id="121">
+									<DataPath>КоличествоПунктовНазначения</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Quantity</v8:content>
+										</v8:item>
+									</Title>
+									<Width>4</Width>
+									<ContextMenu name="ПунктыНазначенияКонтекстноеМеню" id="122"/>
+									<ExtendedTooltip name="ПунктыНазначенияРасширеннаяПодсказка" id="123"/>
+								</InputField>
+								<Button name="ОпределитьПункты" id="124">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ОпределитьПункты</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автоопределение</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Auto-detect</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<ExtendedTooltip name="ОпределитьПунктыРасширеннаяПодсказка" id="125"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЯндекс" id="131">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Яндекс.Маршрутизация (авторизация через OAuth-токен)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Yandex.Routing (authorization via OAuth token)</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Доступно при авторизации через OAuth-токен. Для получения OAuth-токена перейдите в настройки подключения к Яндекс.</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Available when authenticated with an OAuth token. To obtain an OAuth token, go to your Yandex connection settings.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>50</Width>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаЯндексРасширеннаяПодсказка" id="132"/>
+							<ChildItems>
+								<InputField name="НомерЯндекс" id="140">
+									<DataPath>Объект.НомерЯндекс</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наименование</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Name</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер в Яндекс.Маршрутизации</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Yandex.Routing number</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>25</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="НомерЯндексКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="НомерЯндексРасширеннаяПодсказка" id="142"/>
+								</InputField>
+								<UsualGroup name="ГруппаЯндексВыгрузить" id="138">
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЯндексВыгрузитьРасширеннаяПодсказка" id="139"/>
+									<ChildItems>
+										<InputField name="ЦветЯндекс" id="143">
+											<DataPath>Объект.ЦветЯндекс</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Цвет</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Color</v8:content>
+												</v8:item>
+											</Title>
+											<Width>13</Width>
+											<MaxWidth>13</MaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ListChoiceMode>true</ListChoiceMode>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="ЦветЯндексКонтекстноеМеню" id="144"/>
+											<ExtendedTooltip name="ЦветЯндексРасширеннаяПодсказка" id="145"/>
+										</InputField>
+										<Button name="ВыгрузитьЯндекс" id="136">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ВыгрузитьЯндекс</CommandName>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ExtendedTooltip name="ВыгрузитьЯндексРасширеннаяПодсказка" id="137"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="ИдентификаторЯндекс" id="133">
+									<DataPath>Объект.ИдентификаторЯндекс</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Идентификатор</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Identifier</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Идентификатор в Яндекс.Маршрутизации</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Identifier in Yandex.Routing</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ИдентификаторЯндексКонтекстноеМеню" id="134"/>
+									<ExtendedTooltip name="ИдентификаторЯндексРасширеннаяПодсказка" id="135"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаКоординаты" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Координаты границы зоны</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Zone coordinates</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>Объект.Координаты.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаКоординатыРасширеннаяПодсказка" id="19"/>
+					<ChildItems>
+						<Table name="Координаты" id="20">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Координаты</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="КоординатыКонтекстноеМеню" id="21"/>
+							<AutoCommandBar name="КоординатыКоманднаяПанель" id="22"/>
+							<ExtendedTooltip name="КоординатыРасширеннаяПодсказка" id="23"/>
+							<SearchStringAddition name="КоординатыСтрокаПоиска" id="24">
+								<AdditionSource>
+									<Item>Координаты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КоординатыСтрокаПоискаКонтекстноеМеню" id="27"/>
+								<ExtendedTooltip name="КоординатыСтрокаПоискаРасширеннаяПодсказка" id="28"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="КоординатыСостояниеПросмотра" id="29">
+								<AdditionSource>
+									<Item>Координаты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КоординатыСостояниеПросмотраКонтекстноеМеню" id="32"/>
+								<ExtendedTooltip name="КоординатыСостояниеПросмотраРасширеннаяПодсказка" id="33"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="КоординатыУправлениеПоиском" id="34">
+								<AdditionSource>
+									<Item>Координаты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="КоординатыУправлениеПоискомКонтекстноеМеню" id="37"/>
+								<ExtendedTooltip name="КоординатыУправлениеПоискомРасширеннаяПодсказка" id="38"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnChange">КоординатыПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="КоординатыНомерСтроки" id="39">
+									<DataPath>Объект.Координаты.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КоординатыНомерСтрокиКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="КоординатыНомерСтрокиРасширеннаяПодсказка" id="41"/>
+								</LabelField>
+								<InputField name="КоординатыЛат" id="42">
+									<DataPath>Объект.Координаты.Лат</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КоординатыЛатКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="КоординатыЛатРасширеннаяПодсказка" id="44"/>
+								</InputField>
+								<InputField name="КоординатыЛон" id="45">
+									<DataPath>Объект.Координаты.Лон</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КоординатыЛонКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="КоординатыЛонРасширеннаяПодсказка" id="47"/>
+								</InputField>
+								<InputField name="КоординатыКомментарий" id="48">
+									<DataPath>Объект.Координаты.Комментарий</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КоординатыКомментарийКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="КоординатыКомментарийРасширеннаяПодсказка" id="50"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСотрудники" id="85">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Закрепленные пользователи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Assigned employees</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>Объект.Сотрудники.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаСотрудникиРасширеннаяПодсказка" id="86"/>
+					<ChildItems>
+						<Table name="Сотрудники" id="87">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Сотрудники</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СотрудникиКонтекстноеМеню" id="88"/>
+							<AutoCommandBar name="СотрудникиКоманднаяПанель" id="89"/>
+							<ExtendedTooltip name="СотрудникиРасширеннаяПодсказка" id="90"/>
+							<SearchStringAddition name="СотрудникиСтрокаПоиска" id="91">
+								<AdditionSource>
+									<Item>Сотрудники</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СотрудникиСтрокаПоискаКонтекстноеМеню" id="94"/>
+								<ExtendedTooltip name="СотрудникиСтрокаПоискаРасширеннаяПодсказка" id="95"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СотрудникиСостояниеПросмотра" id="96">
+								<AdditionSource>
+									<Item>Сотрудники</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СотрудникиСостояниеПросмотраКонтекстноеМеню" id="99"/>
+								<ExtendedTooltip name="СотрудникиСостояниеПросмотраРасширеннаяПодсказка" id="100"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СотрудникиУправлениеПоиском" id="101">
+								<AdditionSource>
+									<Item>Сотрудники</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СотрудникиУправлениеПоискомКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="СотрудникиУправлениеПоискомРасширеннаяПодсказка" id="105"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СотрудникиНомерСтроки" id="106">
+									<DataPath>Объект.Сотрудники.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>3</Width>
+									<ContextMenu name="СотрудникиНомерСтрокиКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="СотрудникиНомерСтрокиРасширеннаяПодсказка" id="108"/>
+								</LabelField>
+								<InputField name="СотрудникиСотрудник" id="109">
+									<DataPath>Объект.Сотрудники.Сотрудник</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пользователь</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>User</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СотрудникиСотрудникКонтекстноеМеню" id="110"/>
+									<ExtendedTooltip name="СотрудникиСотрудникРасширеннаяПодсказка" id="111"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Комментарий" id="10">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="12"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатГеозоны_уэ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЦветЗоны" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет зоны</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color of zone</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="КоличествоПунктовНазначения" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество пунктов назначения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of destinations</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбновлятьПривязкуПунктовПриЗаписи" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновлять привязку пунктов при записи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update item bindings when recording</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипАвторизацииЯндекс" id="6">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветЗоныЯндекс" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет зоны</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color of zone</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОпределитьПункты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Определить пункты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Define points</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить поиск вхождения всех пунктов в эту геозону и привязать входящие</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search for all points in this geozone and link the incoming ones</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОпределитьПункты</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ВыгрузитьЯндекс" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавляет геозону в Яндекс. Если зона уже существует обновляет ее данные.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Adds a geofence to Yandex. If the zone already exists, it updates its data.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыгрузитьЯндекс</Action>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>Catalog.ItobГеографическиеЗоны.Command.ОтобразитьЗонуНаКарте</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormCommandBarImportant</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

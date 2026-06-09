@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html;charset=utf-8" http-equiv="content-type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 9.00.8112.16457"></meta></head><body>
+<h1>Форма элемента</h1>
+<p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 5px"><a href="#b5599ebf-24e2-4524-a3e5-bcb940da0403">Как заполнить информацию о новой географической карте?</a></p>
+<h3><a name="b5599ebf-24e2-4524-a3e5-bcb940da0403">Как заполнить информацию о новой географической карте?</a></h3>
+<ul><li>Заполните имя географической карты в поле <strong>"Наименование"</strong>. 
+</li><li>В поле <strong>"Сортировка"</strong> задается порядок отображения карт в списке, рекомендуется делать шаг 10. 
+</li><li>В поле <strong>"Идентификатор"</strong> укажите произвольный идентификатор карты, допустимы латинские символы, подчеркивание и дефис. Например osm_mapnik, osm_mapquest, ve_sat. Данный идентификатор слоя используется при кэшировании карты. 
+</li><li>В поле <strong>"Сервер WMS"</strong> указывается ссылка на Web Map Server. Например, для карт Bing адрес такой: http://a.ortho.tiles.virtualearth.net/tiles/. 
+</li><li>Заполните название организации-правообладателя картографической информации в поле <strong>"Правообладатель"</strong>, и ссылку на сайт правообладателя в поле <strong>"Сайт"</strong>. 
+</li><li>Если данная географическая карта представлена в виде прозрачной основы (например слой с пробками, или слой с дорогами для гибридной карты), и требует подложку - укажите ее в поле <strong>"Подложка"</strong>. 
+</li><li>По умолчанию подключаемые слои должны быть представлены в проекции EPSG:900913 (Google Spherical Mercator). Если проекция географической карты другая, установите флажок <strong>"Нестандартная проекция"</strong>. 
+</li><li>В поле <strong>"Атрибуты"</strong> содержится код на языке JavaScript: 
+<ul><li>Если проекция карты стандартная (EPSG:900913) - указываются атрибуты слоя OpenLayers.Layer.TMS (смотрите подробнее в документации OpenLayers http://dev.openlayers.org/releases/OpenLayers-2.12/doc/apidocs/files/OpenLayers/Layer/TMS-js.html). В большинстве случаев необходимо задать функцию getTileAddress, в которой определяется адреса тайлов карты. Например: <br><font color="#ff4500">getTileAddress: function(bounds,x,y,z) { <br> var subs = [ 'a', 'b', 'c' ]; <br> return "http://" + subs[(x+y)%3] + ".tile.openstreetmap.org/" + z + "/" + x + "/" + y + .png"; <br>}</font> 
+</li><li>Если проекция нестандартная - то на языке JavaScript описывается полностью создание нового класса подключаемого слоя. </li></ul></li><li>В поле <strong>"Секция HEAD"</strong> можно указать произвольный код на языке JavaScript, он будет добавлен в секцию HEAD генерируемой страницы карты. </li></ul><p></p>
+<h3 style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 5px">Смотрите также</h3>
+<p style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 20px"><a href="Catalog.ItobГеографическиеКарты/Help">Географические карты</a></p></body></html>

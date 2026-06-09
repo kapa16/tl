@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЛогированиеЗапросов" id="76">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЛогированиеЗапросов</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаЛогированиеЗапросовРасширеннаяПодсказка" id="77"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаВнешняяСистема" id="46">
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Group>Vertical</Group>
+			<VerticalSpacing>None</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВнешняяСистемаРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<InputField name="СервисПарковок" id="36">
+					<DataPath>Объект.СервисПарковок</DataPath>
+					<ContextMenu name="СервисПарковокКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="СервисПарковокРасширеннаяПодсказка" id="38"/>
+					<Events>
+						<Event name="OnChange">СервисПарковокПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаПроверитьПодключение" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа проверить подключение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group check connection</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа проверить подключение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group check connection</v8:content>
+						</v8:item>
+					</ToolTip>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<HorizontalSpacing>Half</HorizontalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПроверитьПодключениеРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПроверитьПодключениеЛевая" id="80">
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<Group>AlwaysHorizontal</Group>
+							<HorizontalSpacing>None</HorizontalSpacing>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПроверитьПодключениеЛеваяРасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<Button name="ПроверитьПодключение" id="44">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+									<ExtendedTooltip name="ПроверитьПодключениеРасширеннаяПодсказка" id="45"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Button name="ПараметрыПроксиСервера" id="78">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ПараметрыПроксиСервера</CommandName>
+							<ExtendedTooltip name="ПараметрыПроксиСервераРасширеннаяПодсказка" id="79"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаАдресСервиса" id="10">
+			<Group>Vertical</Group>
+			<VerticalSpacing>None</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаАдресСервисаРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<InputField name="АдресСервиса" id="7">
+					<DataPath>Объект.АдресСервиса</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="АдресСервисаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="АдресСервисаРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<UsualGroup name="ГруппаЗаполнитьАдресПоУмолчанию" id="15">
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<HorizontalSpacing>None</HorizontalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЗаполнитьАдресПоУмолчаниюРасширеннаяПодсказка" id="16"/>
+					<ChildItems>
+						<Button name="ЗаполнитьАдресПоУмолчанию" id="20">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ЗаполнитьАдресПоУмолчанию</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заполнить адрес по умолчанию</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Fill in the default address</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ЗаполнитьАдресПоУмолчаниюРасширеннаяПодсказка" id="21"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="КлючАвторизации" id="33">
+			<DataPath>Объект.КлючАвторизации</DataPath>
+			<ContextMenu name="КлючАвторизацииКонтекстноеМеню" id="34"/>
+			<ExtendedTooltip name="КлючАвторизацииРасширеннаяПодсказка" id="35"/>
+		</InputField>
+		<UsualGroup name="ГруппаАвтопарк" id="51">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа автопарк</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group of vehicles</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<VerticalSpacing>None</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаАвтопаркРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<InputField name="Автопарк" id="48">
+					<DataPath>Объект.IDАвтопарка</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автопарк</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Vehicle fleet</v8:content>
+						</v8:item>
+					</Title>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ContextMenu name="АвтопаркКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="АвтопаркРасширеннаяПодсказка" id="50"/>
+					<Events>
+						<Event name="StartChoice">АвтопаркНачалоВыбора</Event>
+						<Event name="Clearing">АвтопаркОчистка</Event>
+						<Event name="ChoiceProcessing">АвтопаркОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="64">
+			<DataPath>Объект.Организация</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация, указанная в договоре с поставщиком сервиса. Также используется при создании документов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="65"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="66"/>
+		</InputField>
+		<InputField name="ДатаПоследнегоОбмена" id="73">
+			<DataPath>Объект.ДатаПоследнегоОбмена</DataPath>
+			<Width>12</Width>
+			<ContextMenu name="ДатаПоследнегоОбменаКонтекстноеМеню" id="74"/>
+			<ExtendedTooltip name="ДатаПоследнегоОбменаРасширеннаяПодсказка" id="75"/>
+		</InputField>
+		<UsualGroup name="ГруппРеквизитыЗаполнения" id="62">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки создания документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document creation settings</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>PopUp</Behavior>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<ExtendedTooltip name="ГруппРеквизитыЗаполненияРасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<InputField name="Подразделение" id="67">
+					<DataPath>Объект.Подразделение</DataPath>
+					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="69"/>
+				</InputField>
+				<InputField name="Ответственный" id="70">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="72"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатУчетныеЗаписиСервисовПарковок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьАдресПоУмолчанию" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить адрес по умолчанию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in the default address</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить адрес по умолчанию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in the default address</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьАдресПоУмолчанию</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ПроверитьПодключение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить подключение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check connection</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Test the connection to tracking software</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить подключение к сервису парковок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПроверитьПодключение</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЛогированиеЗапросов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логирование запросов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Logging queries</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логирование запросов позволяет получить подробную техническую информацию по взаимодействию с сервисом для расследования проблем и ошибок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Request logging allows you to obtain detailed technical information on interactions with the service to investigate problems and errors.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЛогированиеЗапросов</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ПараметрыПроксиСервера" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры прокси-сервера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Proxy server parameters</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки параметров прокси-сервера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Proxy server settings</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПараметрыПроксиСервера</Action>
+		</Command>
+	</Commands>
+</Form>

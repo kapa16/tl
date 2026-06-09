@@ -1,0 +1,104 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://topby.by/edi/blrdnr" elementFormQualified="true" attributeFormQualified="false">
+	<valueType name="ДатаВремяТип" base="xs:string" variety="Atomic" length="14">
+		<pattern>[0-9]{14}</pattern>
+	</valueType>
+	<valueType name="ДатаТип" base="xs:string" variety="Atomic" length="8">
+		<pattern>[0-9]{8}</pattern>
+	</valueType>
+	<objectType name="BLRDNR">
+		<property xmlns:d3p1="http://topby.by/edi/blrdnr" name="DeliveryNote" type="d3p1:DeliveryNote"/>
+	</objectType>
+	<objectType name="ТаблицаДопПоля" ordered="false" sequenced="true">
+		<property name="FieldName" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="FieldCode" lowerBound="0" nillable="true">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="6"/>
+		</property>
+		<property name="FieldValue" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2560"/>
+		</property>
+	</objectType>
+	<objectType name="DeliveryNote">
+		<property name="DeliveryNoteType">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3">
+				<enumeration>270</enumeration>
+				<enumeration>701</enumeration>
+			</typeDef>
+		</property>
+		<property name="DocumentID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+		</property>
+		<property xmlns:d3p1="http://topby.by/edi/blrdnr" name="CreationDateTime" type="d3p1:ДатаВремяТип"/>
+		<property name="FunctionCode">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3">
+				<enumeration>11</enumeration>
+				<enumeration>21</enumeration>
+				<enumeration>31</enumeration>
+			</typeDef>
+		</property>
+		<property name="ReferenceDocument">
+			<typeDef xsi:type="ObjectType">
+				<property name="ID">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+				</property>
+				<property xmlns:d5p1="http://topby.by/edi/blrdnr" name="Date" type="d5p1:ДатаВремяТип"/>
+			</typeDef>
+		</property>
+		<property name="DeliveryNoteID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="43"/>
+		</property>
+		<property xmlns:d3p1="http://topby.by/edi/blrdnr" name="DeliveryNoteDate" type="d3p1:ДатаТип"/>
+		<property name="Report" lowerBound="0" nillable="true">
+			<typeDef xsi:type="ObjectType">
+				<property name="ReportID">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+				</property>
+				<property xmlns:d5p1="http://topby.by/edi/blrdnr" name="ReportDate" type="d5p1:ДатаТип"/>
+				<property name="ReportName">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="512"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Shipper">
+			<typeDef xsi:type="ObjectType">
+				<property name="GLN">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+				</property>
+				<property name="Name">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="275"/>
+				</property>
+				<property name="Address">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+				</property>
+				<property name="VATRegistrationNumber">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Receiver">
+			<typeDef xsi:type="ObjectType">
+				<property name="GLN">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+				</property>
+				<property name="Name">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="275"/>
+				</property>
+				<property name="Address">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+				</property>
+				<property name="VATRegistrationNumber">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="19"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ShipTo">
+			<typeDef xsi:type="ObjectType">
+				<property name="Contact">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="150"/>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://topby.by/edi/blrdnr" name="ExtraField" type="d3p1:ТаблицаДопПоля" lowerBound="0" upperBound="500"/>
+	</objectType>
+</package>

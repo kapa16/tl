@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Width>70</Width>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="МодельБюджетирования" id="24">
+			<DataPath>МодельБюджетирования</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="МодельБюджетированияКонтекстноеМеню" id="25"/>
+			<ExtendedTooltip name="МодельБюджетированияРасширеннаяПодсказка" id="26"/>
+			<Events>
+				<Event name="OnChange">МодельБюджетированияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="Список" id="1">
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.НестандартнаяКартинка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.ПиктограммыВидовКомплектовФинансовойОтчетности</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</RowsPicture>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>МодельБюджетирования</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<ChildItems>
+					<ButtonGroup name="ГруппаДополнительныхКнопок" id="22">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа дополнительных кнопок</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Группа дополнительных кнопок</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа дополнительных кнопок</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Группа дополнительных кнопок</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ГруппаДополнительныхКнопокРасширеннаяПодсказка" id="23"/>
+						<ChildItems>
+							<Button name="ФормаПросмотретьВидОтчета" id="20">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.ПросмотретьВидОтчета</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.Report</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="ФормаПросмотретьВидОтчетаРасширеннаяПодсказка" id="21"/>
+							</Button>
+							<Button name="СписокСоздатьЭкземплярБюджета" id="29">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.СоздатьЭкземплярБюджета</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.Document</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="СписокСоздатьЭкземплярБюджетаРасширеннаяПодсказка" id="30"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="СписокСправка" id="27">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<ExtendedTooltip name="СписокСправкаРасширеннаяПодсказка" id="28"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="8"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="31">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="32"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="33"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="34">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="35"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="36"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="37">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="38"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="39"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Наименование" id="4">
+					<DataPath>Список.Description</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="9"/>
+				</LabelField>
+				<CheckBoxField name="ИспользоватьДляВводаПлана" id="17">
+					<DataPath>Список.ИспользоватьДляВводаПлана</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьДляВводаПланаКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ИспользоватьДляВводаПланаРасширеннаяПодсказка" id="19"/>
+				</CheckBoxField>
+				<LabelField name="Владелец" id="14">
+					<DataPath>Список.Owner</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ВладелецКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="Комментарий" id="6">
+					<DataPath>Список.Комментарий</DataPath>
+					<Height>1</Height>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="10"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.ИспользоватьДляВводаПлана</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ВидыБюджетов.Ссылка,
+	ВидыБюджетов.ВерсияДанных,
+	ВидыБюджетов.ПометкаУдаления,
+	ВидыБюджетов.Предопределенный,
+	ВидыБюджетов.Родитель,
+	ВидыБюджетов.ЭтоГруппа,
+	ВидыБюджетов.Наименование,
+	ВЫБОР
+		КОГДА ВидыБюджетов.ЭтоГруппа
+			ТОГДА 2
+		ИНАЧЕ 1
+	КОНЕЦ КАК НестандартнаяКартинка,
+	ВидыБюджетов.Комментарий,
+	ВидыБюджетов.Владелец,
+	ВидыБюджетов.ИспользоватьДляВводаПлана
+ИЗ
+	Справочник.ВидыБюджетов КАК ВидыБюджетов
+</QueryText>
+				<MainTable>Catalog.ВидыБюджетов</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПометкаУдаления</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Шрифт</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="false" underline="false" strikeout="true" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="МодельБюджетирования" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель бюджетирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Budgeting model</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.МоделиБюджетирования</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПросмотретьВидОтчета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотреть вид отчета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Просмотреть вид отчета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотреть вид отчета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Просмотреть вид отчета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				<xr:Value name="Role.ЧтениеДанныхБюджетирования">true</xr:Value>
+			</Use>
+			<Shortcut>F7</Shortcut>
+			<Action>ПросмотретьВидОтчета</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СоздатьЭкземплярБюджета" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать экземпляр бюджета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Создать экземпляр бюджета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать экземпляр бюджета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Создать экземпляр бюджета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F9</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Document</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьЭкземплярБюджета</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

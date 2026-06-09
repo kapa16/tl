@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеИКод" id="13">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеИКодExtendedTooltip" id="15"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="16"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="17"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВидСостояния" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид состояния</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group view status</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид состояния</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group view status</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидСостоянияРасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<InputField name="ВидСостояния" id="7">
+					<DataPath>Объект.ВидСостояния</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВидСостоянияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ВидСостоянияExtendedTooltip" id="18"/>
+					<Events>
+						<Event name="OnChange">ВидСостоянияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Цвет" id="24">
+					<DataPath>пЦветСостояния</DataPath>
+					<ContextMenu name="ЦветКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ЦветРасширеннаяПодсказка" id="26"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="КраткоеНаименование" id="40">
+			<DataPath>Объект.КраткоеНаименование</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется в обработке "Планирование работы ТС" для отображения в интервалах диаграммы Ганта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Used in the "TS Work Planning" processing for display in Gantt chart intervals</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КраткоеНаименованиеКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="КраткоеНаименованиеРасширеннаяПодсказка" id="42"/>
+		</InputField>
+		<CheckBoxField name="ОплатаВодителю" id="9">
+			<DataPath>Объект.ОплатаВодителю</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОплатаВодителюКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ОплатаВодителюExtendedTooltip" id="20"/>
+		</CheckBoxField>
+		<CheckBoxField name="ОплатаКлиента" id="11">
+			<DataPath>Объект.ОплатаКлиента</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОплатаКлиентаКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ОплатаКлиентаExtendedTooltip" id="21"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаПутевыеЛисты" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчет времени в Путевых листах</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Payment for down time</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Payment for down time</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаПутевыеЛистыРасширеннаяПодсказка" id="19"/>
+			<ChildItems>
+				<InputField name="ВидРабочегоВремениПростоя" id="34">
+					<DataPath>Объект.ВидРабочегоВремениПростоя</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ContextMenu name="ВидРабочегоВремениПростояКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ВидРабочегоВремениПростояРасширеннаяПодсказка" id="36"/>
+				</InputField>
+				<CheckBoxField name="УменьшатьПростойНаВремяОбеда" id="37">
+					<DataPath>Объект.УменьшатьПростойНаВремяОбеда</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УменьшатьПростойНаВремяОбедаКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="УменьшатьПростойНаВремяОбедаРасширеннаяПодсказка" id="39"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаФлаги" id="30">
+			<HorizontalStretch>false</HorizontalStretch>
+			<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+			<Group>Horizontal</Group>
+			<HorizontalAlign>Left</HorizontalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаФлагиРасширеннаяПодсказка" id="31"/>
+			<ChildItems>
+				<UsualGroup name="Разнарядка" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Daily vehicles plan</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разнарядка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Daily vehicles plan</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разнарядка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>false</HorizontalStretch>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="РазнарядкаРасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьПриЗаполненииРазнарядки" id="27">
+							<DataPath>Объект.РазрешитьВыпискуДокументов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>CheckBox</CheckBoxType>
+							<ContextMenu name="ИспользоватьПриЗаполненииРазнарядкиКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ИспользоватьПриЗаполненииРазнарядкиРасширеннаяПодсказка" id="29"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатСостояниеТС</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="пЦветСостояния" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

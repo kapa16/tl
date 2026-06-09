@@ -1,0 +1,450 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://topby.by/edi/blrdln/4" elementFormQualified="true" attributeFormQualified="false">
+	<objectType name="BLRDLN" ordered="false" sequenced="true">
+		<property name="MessageHeader" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="MessageID">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="14"/>
+				</property>
+				<property name="MsgDateTime">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000000000" totalDigits="14"/>
+				</property>
+				<property name="MessageType">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="6">
+						<enumeration>BLRDLN</enumeration>
+					</typeDef>
+				</property>
+				<property name="MsgSenderID">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+				</property>
+				<property name="MsgReceiverID">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+				</property>
+				<property name="TestIndicator" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1">
+						<enumeration>1</enumeration>
+					</typeDef>
+				</property>
+				<property name="FormType" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:int" variety="Atomic">
+						<enumeration>0</enumeration>
+						<enumeration>1</enumeration>
+						<enumeration>3</enumeration>
+						<enumeration>4</enumeration>
+					</typeDef>
+				</property>
+				<property name="UserID" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://topby.by/edi/blrdln/4" name="DeliveryNote" type="d3p1:DeliveryNote" lowerBound="0"/>
+		<property name="SpecialPart" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="CanonizationAlghorithm" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="Signature" upperBound="50">
+					<typeDef xsi:type="ObjectType">
+						<property name="SecurityID">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="2"/>
+						</property>
+						<property name="CertificateID" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="256"/>
+						</property>
+						<property name="CertificateSubject" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="150"/>
+						</property>
+						<property name="SecurityPartyID" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="512"/>
+						</property>
+						<property name="SecurityPartyName" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="175"/>
+						</property>
+						<property name="SigningTime" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000000000" totalDigits="14"/>
+						</property>
+						<property name="SignatureValue">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="DeliveryNote">
+		<property name="DeliveryNoteType">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3">
+				<enumeration>270</enumeration>
+				<enumeration>701</enumeration>
+			</typeDef>
+		</property>
+		<property name="DocumentID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+		</property>
+		<property name="CreationDateTime">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000000000" totalDigits="14"/>
+		</property>
+		<property name="FunctionCode">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3">
+				<enumeration>1</enumeration>
+				<enumeration>9</enumeration>
+				<enumeration>31</enumeration>
+			</typeDef>
+		</property>
+		<property name="DeliveryNoteID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="43"/>
+		</property>
+		<property name="DeliveryNoteDate">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+		</property>
+		<property name="ContractName">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+		</property>
+		<property name="ContractID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+		</property>
+		<property name="ContractDate" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+		</property>
+		<property name="Document" lowerBound="0" upperBound="100">
+			<typeDef xsi:type="ObjectType">
+				<property name="DocumentID" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="70"/>
+				</property>
+				<property name="DocumentDate" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+				</property>
+				<property name="DocumentName">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="512"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Shipper">
+			<typeDef xsi:type="ObjectType">
+				<property name="GLN">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+				</property>
+				<property name="Name">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="275"/>
+				</property>
+				<property name="Country" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="2"/>
+				</property>
+				<property name="NameCountry" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="175"/>
+				</property>
+				<property name="Address">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+				</property>
+				<property name="VATRegistrationNumber">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="19"/>
+				</property>
+				<property name="Contact">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="150"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Receiver">
+			<typeDef xsi:type="ObjectType">
+				<property name="GLN" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+				</property>
+				<property name="Name">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="275"/>
+				</property>
+				<property name="Address">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+				</property>
+				<property name="VATRegistrationNumber">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="19"/>
+				</property>
+				<property name="Country" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="2"/>
+				</property>
+				<property name="NameCountry" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="175"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ShipFrom">
+			<typeDef xsi:type="ObjectType">
+				<property name="GLN" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="13"/>
+				</property>
+				<property name="Address" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+				</property>
+				<property name="Contact">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="150"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ShipTo" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="GLN" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="13"/>
+				</property>
+				<property name="Address" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="140"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Carrier">
+			<typeDef xsi:type="ObjectType">
+				<property name="DeliveryContact">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="150"/>
+				</property>
+				<property name="ProxyID" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="70"/>
+				</property>
+				<property name="ProxyDate" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+				</property>
+				<property name="PartyIssuingProxyName" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="275"/>
+				</property>
+				<property name="BaseShippingDocumentName" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="175"/>
+				</property>
+				<property name="BaseShippingDocumentID" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="70"/>
+				</property>
+				<property name="BaseShippingDocumentDate" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="OrderID" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="35"/>
+		</property>
+		<property name="CancelDeliveryNoteID" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="70"/>
+		</property>
+		<property name="Currency">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3"/>
+		</property>
+		<property name="ExtraField" lowerBound="0" upperBound="500">
+			<typeDef xsi:type="ObjectType">
+				<property name="FieldName">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="FieldCode" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="6"/>
+				</property>
+				<property name="FieldValue">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2560"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="DespatchAdviceLogisticUnitLineItem">
+			<typeDef xsi:type="ObjectType">
+				<property name="LineItem" upperBound="5000">
+					<typeDef xsi:type="ObjectType">
+						<property name="LineItemNumber">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="6"/>
+						</property>
+						<property name="LineItemSign">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="4">
+								<enumeration>PROD</enumeration>
+								<enumeration>CONT</enumeration>
+							</typeDef>
+						</property>
+						<property name="LineItemID" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="2" maxLength="14"/>
+						</property>
+						<property name="ItemCustomCode" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="10"/>
+						</property>
+						<property name="ItemCustomCodeOther" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="4"/>
+						</property>
+						<property name="DeliveryTypePrev" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="2"/>
+						</property>
+						<property name="DeliveryNotePrev" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="70"/>
+						</property>
+						<property name="DeliveryNoteDatePrev" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+						</property>
+						<property name="DeliveryNotePrevLineID" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="6"/>
+						</property>
+						<property name="LineItemBuyerID" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="35"/>
+						</property>
+						<property name="LineItemSupplierID" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="35"/>
+						</property>
+						<property name="LineItemName">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="512"/>
+						</property>
+						<property name="QuantityDespatched">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="5"/>
+						</property>
+						<property name="LineItemQuantityUOM">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3"/>
+						</property>
+						<property name="QuantityDespatchedSPT" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="5"/>
+						</property>
+						<property name="LineItemQuantitySPT" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="3"/>
+						</property>
+						<property name="CountryOfOrigin" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="2"/>
+						</property>
+						<property name="BestBeforeDate" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="35"/>
+						</property>
+						<property name="TaxRate" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="512"/>
+						</property>
+						<property name="AdditionalInformation" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="512"/>
+						</property>
+						<property name="LineItemPartyNumber" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="50"/>
+						</property>
+						<property name="LineItemProductDate" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+						</property>
+						<property name="LineItemAmountWithoutCharges">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+						</property>
+						<property name="LineItemAmountCharges" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+						</property>
+						<property name="LineItemAmount">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+						</property>
+						<property name="LineItemPrice">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+						</property>
+						<property name="LineItemPriceSPT" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+						</property>
+						<property name="LineItemAmountExcise" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+						</property>
+						<property name="FieldCostControl" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="LineItemManufacturerOutputPrice">
+									<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+								</property>
+								<property name="TypeDiscount" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="512"/>
+								</property>
+								<property name="BulkDiscountRate" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="512"/>
+								</property>
+								<property name="OutputPriceIncludingShippingCoast">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+								</property>
+								<property name="OutputPriceShippingCoast" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+								</property>
+								<property name="OutputPricePackingCoast" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+								</property>
+								<property name="BulkMarginRate" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="70"/>
+								</property>
+								<property name="CutRate">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="512"/>
+								</property>
+								<property name="AdditionalInformationPrice">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="512"/>
+								</property>
+								<property name="AdditionalInformation" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="512"/>
+								</property>
+							</typeDef>
+						</property>
+						<property name="SGBY01" lowerBound="0" upperBound="50">
+							<typeDef xsi:type="ObjectType">
+								<property name="CertificateType">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+								</property>
+								<property name="CertificateID">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+								</property>
+								<property name="BeginCertifDate" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+								</property>
+								<property name="EndCertifDate" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+								</property>
+								<property name="CertifPartyNumber" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="50"/>
+								</property>
+								<property name="CertifProductDate" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+								</property>
+								<property name="Name" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="275"/>
+								</property>
+							</typeDef>
+						</property>
+						<property name="LineItemIdentification" lowerBound="0" upperBound="500">
+							<typeDef xsi:type="ObjectType">
+								<property name="GroupPackingHeader" lowerBound="0">
+									<typeDef xsi:type="ObjectType">
+										<property name="UpperLevelCodeMark">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="300"/>
+										</property>
+										<property name="GroupPackingCodeMark" lowerBound="0" upperBound="-1">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="300"/>
+										</property>
+									</typeDef>
+								</property>
+								<property name="FieldCodeMarkHeader" lowerBound="0">
+									<typeDef xsi:type="ObjectType">
+										<property name="FieldCodeMark" upperBound="-1">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="300"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="LineItemExtraField" lowerBound="0" upperBound="500">
+							<typeDef xsi:type="ObjectType">
+								<property name="FieldName">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+								</property>
+								<property name="FieldCode" lowerBound="0">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="6"/>
+								</property>
+								<property name="FieldValue">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2560"/>
+								</property>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Total">
+			<typeDef xsi:type="ObjectType">
+				<property name="TotalAmountWithoutCharges">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+				</property>
+				<property name="TotalAmountCharges" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+				</property>
+				<property name="TotalAmount">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+				</property>
+				<property name="TotalLineItem">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="18"/>
+				</property>
+				<property name="TotalLineItemQuantity" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="5"/>
+				</property>
+				<property name="TotalAmountExcise" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="35" fractionDigits="2"/>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

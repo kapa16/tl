@@ -1,0 +1,1834 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<ButtonGroup name="ГруппаКомандЕще" id="253">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа команд еще</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГруппаКомандЕщеРасширеннаяПодсказка" id="254"/>
+				<ChildItems>
+					<ButtonGroup name="ГруппаКомандОтправитьПовторно" id="277">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команд отправить повторно</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ГруппаКомандОтправитьПовторноРасширеннаяПодсказка" id="278"/>
+						<ChildItems>
+							<Button name="ОтправитьПовторно" id="255">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОтправитьПовторно</CommandName>
+								<ExtendedTooltip name="ОтправитьПовторноРасширеннаяПодсказка" id="256"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандТехнологические" id="257">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команд технологические</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ГруппаКомандТехнологическиеРасширеннаяПодсказка" id="258"/>
+					</ButtonGroup>
+					<Button name="ИзменитьФорму" id="243">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="244"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПредупреждений" id="493">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа предупреждений</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПредупрежденийРасширеннаяПодсказка" id="494"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСостояние" id="48">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСостояниеРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьСостояние" id="19">
+					<Width>8</Width>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние:</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьСостояниеКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НадписьСостояниеРасширеннаяПодсказка" id="21"/>
+				</LabelDecoration>
+				<LabelDecoration name="ПредставлениеСостояния" id="22">
+					<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На подписи (0 из 1)</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПредставлениеСостоянияКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ПредставлениеСостоянияРасширеннаяПодсказка" id="24"/>
+				</LabelDecoration>
+				<LabelField name="ПричинаОтклонения" id="50">
+					<DataPath>ПричинаОтклонения</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="ПричинаОтклоненияКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ПричинаОтклоненияРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<PictureDecoration name="КартинкаОбновить" id="16">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка обновить</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<Picture>
+						<xr:Ref>StdPicture.Refresh</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="КартинкаОбновитьКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="КартинкаОбновитьРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="Click">ВыполнитьОтправкуПолучениеЭД</Event>
+					</Events>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаШапкаДокумента" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка документа</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаДокументаРасширеннаяПодсказка" id="26"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДанныеДокументов" id="53">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДанныеДокументовРасширеннаяПодсказка" id="54"/>
+			<ChildItems>
+				<Pages name="ГруппаСтраницы" id="55">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="56"/>
+					<ChildItems>
+						<Page name="СтраницаДанныеДокумента" id="57">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные документа</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="СтраницаДанныеДокументаРасширеннаяПодсказка" id="58"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаШапка" id="29">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="30"/>
+									<ChildItems>
+										<InputField name="Организация" id="43">
+											<DataPath>Объект.Организация</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ОрганизацияКонтекстноеМеню" id="44"/>
+											<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="45"/>
+										</InputField>
+										<InputField name="Контрагент" id="34">
+											<DataPath>Объект.Контрагент</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="КонтрагентКонтекстноеМеню" id="35"/>
+											<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="36"/>
+										</InputField>
+										<InputField name="СуммаДокумента" id="458">
+											<DataPath>СуммаДокумента</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>14</MaxWidth>
+											<ChoiceButton>false</ChoiceButton>
+											<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="459"/>
+											<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="460"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<Button name="ПосмотретьЭДМК" id="495">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ПредставлениеЭД</CommandName>
+									<ExtendedTooltip name="ПосмотретьЭДМКРасширеннаяПодсказка" id="496"/>
+								</Button>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаПодписиИСтатусы" id="61">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подписи и статусы</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="СтраницаПодписиИСтатусыРасширеннаяПодсказка" id="62"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПодписи" id="317">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Установленные электронные подписи:</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ExtendedTooltip name="ГруппаПодписиРасширеннаяПодсказка" id="318"/>
+									<ChildItems>
+										<Table name="Подписи" id="319">
+											<Representation>List</Representation>
+											<CommandBarLocation>None</CommandBarLocation>
+											<ReadOnly>true</ReadOnly>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<Height>3</Height>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Подписи</DataPath>
+											<RowPictureDataPath>Подписи.ОтветнаяПодпись</RowPictureDataPath>
+											<RowsPicture>
+												<xr:Ref>CommonPicture.ВидыЭлектроннойПодписиБЭД</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</RowsPicture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Установленные подписи</v8:content>
+												</v8:item>
+											</Title>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>CancelSearch</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Find</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>OutputList</ExcludedCommand>
+												<ExcludedCommand>SelectAll</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+											</CommandSet>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ПодписиКонтекстноеМеню" id="320">
+												<ChildItems>
+													<Button name="ОткрытьСертификатКонтекст" id="323">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ОткрытьСертификат</CommandName>
+														<ExtendedTooltip name="ОткрытьСертификатКонтекстРасширеннаяПодсказка" id="324"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="ПодписиКоманднаяПанель" id="325"/>
+											<ExtendedTooltip name="ПодписиРасширеннаяПодсказка" id="326"/>
+											<SearchStringAddition name="ТаблицаЭПСтрокаПоиска" id="327">
+												<AdditionSource>
+													<Item>Подписи</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТаблицаЭПСтрокаПоискаКонтекстноеМеню" id="328"/>
+												<ExtendedTooltip name="ТаблицаЭПСтрокаПоискаРасширеннаяПодсказка" id="329"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТаблицаЭПСостояниеПросмотра" id="330">
+												<AdditionSource>
+													<Item>Подписи</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="ТаблицаЭПСостояниеПросмотраКонтекстноеМеню" id="331"/>
+												<ExtendedTooltip name="ТаблицаЭПСостояниеПросмотраРасширеннаяПодсказка" id="332"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТаблицаЭПУправлениеПоиском" id="333">
+												<AdditionSource>
+													<Item>Подписи</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ТаблицаЭПУправлениеПоискомКонтекстноеМеню" id="334"/>
+												<ExtendedTooltip name="ТаблицаЭПУправлениеПоискомРасширеннаяПодсказка" id="335"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">ПодписиВыбор</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ПодписиКомуВыданСертификат" id="353">
+													<DataPath>Подписи.Владелец</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Кому выдан сертификат</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ПодписиКомуВыданСертификатКонтекстноеМеню" id="354"/>
+													<ExtendedTooltip name="ПодписиКомуВыданСертификатРасширеннаяПодсказка" id="355"/>
+												</InputField>
+												<InputField name="ПодписиДатаПодписи" id="356">
+													<DataPath>Подписи.ДатаПодписи</DataPath>
+													<ContextMenu name="ПодписиДатаПодписиКонтекстноеМеню" id="357"/>
+													<ExtendedTooltip name="ПодписиДатаПодписиРасширеннаяПодсказка" id="358"/>
+												</InputField>
+												<ColumnGroup name="СписокПодписейГруппаСтатусИКартинка" id="342">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Статус и картинка статуса</v8:content>
+														</v8:item>
+													</Title>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="СписокПодписейГруппаСтатусИКартинкаРасширеннаяПодсказка" id="343"/>
+													<ChildItems>
+														<PictureField name="ПодписиВыводКартинки" id="365">
+															<DataPath>Подписи.ВыводКартинки</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<ValuesPicture>
+																<xr:Ref>CommonPicture.ЭлектронныйДокументОшибкаПодписи</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</ValuesPicture>
+															<ContextMenu name="ПодписиВыводКартинкиКонтекстноеМеню" id="366"/>
+															<ExtendedTooltip name="ПодписиВыводКартинкиРасширеннаяПодсказка" id="367"/>
+														</PictureField>
+														<InputField name="ПодписиПодписьВернаПредставление" id="368">
+															<DataPath>Подписи.ПодписьВернаПредставление</DataPath>
+															<ContextMenu name="ПодписиПодписьВернаПредставлениеКонтекстноеМеню" id="369"/>
+															<ExtendedTooltip name="ПодписиПодписьВернаПредставлениеРасширеннаяПодсказка" id="370"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ПодписиУстановившийПодпись" id="383">
+													<DataPath>Подписи.УстановившийПодпись</DataPath>
+													<ContextMenu name="ПодписиУстановившийПодписьКонтекстноеМеню" id="384"/>
+													<ExtendedTooltip name="ПодписиУстановившийПодписьРасширеннаяПодсказка" id="385"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаСопроводительнаяЗаписка" id="63">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сопроводительная записка</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Комментарий</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<Group>AlwaysHorizontal</Group>
+							<ExtendedTooltip name="СтраницаСопроводительнаяЗапискаРасширеннаяПодсказка" id="64"/>
+							<ChildItems>
+								<InputField name="СопроводительнаяЗаписка" id="428">
+									<DataPath>СопроводительнаяЗаписка</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="СопроводительнаяЗапискаКонтекстноеМеню" id="429"/>
+									<ExtendedTooltip name="СопроводительнаяЗапискаРасширеннаяПодсказка" id="430"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаМК" id="497">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа МК</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>true</VerticalStretch>
+			<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+			<Group>Vertical</Group>
+			<VerticalSpacing>Double</VerticalSpacing>
+			<VerticalAlign>Bottom</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<United>false</United>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаМКРасширеннаяПодсказка" id="498"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияВерхнийОтступ" id="499">
+					<VerticalStretch>true</VerticalStretch>
+					<ContextMenu name="ДекорацияВерхнийОтступКонтекстноеМеню" id="500"/>
+					<ExtendedTooltip name="ДекорацияВерхнийОтступРасширеннаяПодсказка" id="501"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияОтступ" id="502">
+					<Width>1</Width>
+					<Height>1</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="503"/>
+					<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="504"/>
+				</LabelDecoration>
+				<Button name="Утвердить" id="505">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.Утвердить</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="УтвердитьРасширеннаяПодсказка" id="506"/>
+				</Button>
+				<Button name="ПодписатьОтправить" id="283">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.ПодписатьОтправить</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ПодписатьОтправитьРасширеннаяПодсказка" id="284"/>
+				</Button>
+				<Button name="Подписать" id="285">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.Подписать</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="286"/>
+				</Button>
+				<Button name="Отправить" id="287">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.Отправить</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ОтправитьРасширеннаяПодсказка" id="288"/>
+				</Button>
+				<Button name="ПринятьАннулирование" id="291">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.ПринятьАннулирование</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ПринятьАннулированиеРасширеннаяПодсказка" id="292"/>
+				</Button>
+				<Button name="Аннулировать" id="299">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.Аннулировать</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="АннулироватьРасширеннаяПодсказка" id="300"/>
+				</Button>
+				<Button name="Отклонить" id="297">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.Отклонить</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ОтклонитьРасширеннаяПодсказка" id="298"/>
+				</Button>
+				<Button name="Завершить" id="301">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.Завершить</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Закрыть принудительно</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ЗавершитьРасширеннаяПодсказка" id="302"/>
+				</Button>
+				<Button name="ОтправитьВАрхив" id="461">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.ОтправитьВАрхив</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ОтправитьВАрхивРасширеннаяПодсказка" id="462"/>
+				</Button>
+				<Button name="ВернутьВРаботу" id="463">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.ВернутьВРаботу</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ВернутьВРаботуРасширеннаяПодсказка" id="464"/>
+				</Button>
+				<Button name="ОтклонитьАннулирование" id="293">
+					<Type>UsualButton</Type>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<CommandName>Form.Command.ОтклонитьАннулирование</CommandName>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ExtendedTooltip name="ОтклонитьАннулированиеРасширеннаяПодсказка" id="294"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПредставлениеОбъектаУчета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление объекта учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПричинаОтклонения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отклонения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Подписи" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Владелец" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Владелец</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПодписи" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата подписи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОтсутствуетВСписке" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отсутствует в списке</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отпечаток" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отпечаток</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВыводКартинки" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вывод картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>0</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПодписьВернаПредставление" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус подписи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПодписьВерна" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подпись верна</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сертификат" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификат</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="УстановившийПодпись" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Установивший подпись</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОтветнаяПодпись" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ответная подпись</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаПроверкиПодписи" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата проверки подписи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДоверенностьПредставление" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доверенность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПодписанныйОбъект" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подписанный объект</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СообщениеЭДОПрисоединенныеФайлы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РезультатПроверкиПоМЧД" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Результат проверки по МЧД</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="СвойстваДоверенности" id="61">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойства доверенности</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="СвойстваПодписи" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойства подписи</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="СообщениеЭДО" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сообщение ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.СообщениеЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЭтоПодписьПоДоверенности" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это подпись по доверенности</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СхемаМаршрутаПодписания" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Схема маршрута подписания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Требование" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Требование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТребованияКПодписаниюЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЭтоСтрокаУсловия" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это строка условия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинки" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Подписант" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подписант</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Идентификатор" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Сертификат" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СертификатыКлючейЭлектроннойПодписиИШифрования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОсновноеЗначение" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Организация" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Объект" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.ЭлектронныйДокументВходящийЭДО</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СхемаДокументооборота" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Схема документооборота</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ТипЭлементаРегламента" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип элемента регламента</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыЭлементовРегламентаЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Сообщение" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сообщение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.СообщениеЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидДокумента" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВидыДокументовЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Направление" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.НаправленияЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Статус" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.СтатусыСообщенийЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаИзмененияСтатуса" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата изменения статуса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Доступность" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИмяРеквизита" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя реквизита</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДополнительнаяИнформация" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительная информация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПредставлениеСформировано" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление сформировано</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПрисоединенныйФайл" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Присоединенный файл</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СообщениеЭДОПрисоединенныеФайлы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="АдресФайла" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяФайла" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="РасширениеФайла" id="50">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расширение файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="АдресДанныхДокумента" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес данных документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипДокумента" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыДокументовЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РаспознаниеВыполнено" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Распознание выполнено</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтключитьВыводСхемыДокументооборота" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить вывод схемы документооборота</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Save>
+				<Field>ОтключитьВыводСхемыДокументооборота</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтключитьВыводДопДанных" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить вывод информационного поля</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Save>
+				<Field>ОтключитьВыводДопДанных</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтключитьВыводКопияВерна" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Копия верна</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Save>
+				<Field>ОтключитьВыводКопияВерна</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтключитьТранслитерацию" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить транслитерацию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Save>
+				<Field>ОтключитьТранслитерацию</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВыводитьБанковскиеРеквизиты" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выводить банковские реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ВыводитьБанковскиеРеквизиты</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="СопроводительнаяЗаписка" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопроводительная записка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Протокол" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Протокол</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Комментарий" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="МаршрутПодписания" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут подписания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.МаршрутыПодписания</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипПроизвольногоДокумента" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип произвольного документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.УдалитьТипыПроизвольныхДокументовЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КартинкаФайла" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинка файла</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстРедактируетФайл" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст редактирует файл</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерДокументаОтправителя" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДокументаОтправителя" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>от</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СуммаДокумента" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипДокумента" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ТипыДокументовЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрикладнойТипДокумента" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прикладной тип документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ПрикладныеТипыЭлектронныхДокументовЭДО</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="СостояниеЭДО" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияДокументовЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторТекущегоЭлемента" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор текущего элемента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяФайла" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя файла</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьПравоВыполненияОбмена" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть право выполнения обмена</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуетсяОтложеннаяОтправка" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется отложенная отправка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормированиеПредставления" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование представления</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ФормированиеПредставленияОтменено" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование представления отменено</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Основания" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:TypeSet>cfg:DefinedType.ОснованияЭлектронныхДокументовЭДО</v8:TypeSet>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВидДокумента" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВидыДокументовЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументыУчетаДокументооборотаПредставление" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы учета документооборота представление</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОтправитьПовторно" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить повторно</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить повторно электронный документ контрагенту</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveRight</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтправитьПовторно</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодписатьОтправить" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписать и отправить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписать и отправить электронный документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЭлектронныйДокументИсходящий</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодписатьОтправить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Подписать" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписать электронный документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ПодписанЭП</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Подписать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Отправить" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить электронный документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЭлектронныйДокументИсходящий</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Отправить</Action>
+		</Command>
+		<Command name="ПринятьАннулирование" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласиться с аннулированием</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять предложение об аннулировании документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЭлектронныйДокументУтвержден</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПринятьАннулирование</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтклонитьАннулирование" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не согласиться</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонить предложение об аннулировании документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтклонитьАннулирование</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Отклонить" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонить электронный документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Отклонить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Аннулировать" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аннулировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аннулировать электронный документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Аннулировать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Завершить" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить по согласию сторон</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataProcessor</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Завершить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьСертификат" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть сертификат</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть сертификат</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьСертификат</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтправитьВАрхив" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить в архив</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтправитьВАрхив</Action>
+		</Command>
+		<Command name="ВернутьВРаботу" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть в работу</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ВернутьВРаботу</Action>
+		</Command>
+		<Command name="ПредставлениеЭД" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Посмотреть полностью</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление ЭД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьПредставлениеЭД</Action>
+		</Command>
+		<Command name="Утвердить" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Утвердить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Утвержден" у электронного документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЭлектронныйДокументСогласован</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Утвердить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ЭлектронныйДокумент">
+			<Type>
+				<v8:Type>cfg:DocumentRef.СообщениеЭДО</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>CommonCommand.ПрисоединенныеФайлы</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.СообщениеЭДО.Command.СообщенияДокумента</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>InformationRegister.ЖурналДействийПоЭДО.StandardCommand.OpenByValue.ЭлектронныйДокумент</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ТранспортныйКонтейнерЭДО.Command.ТранспортныеКонтейнерыДокумента</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

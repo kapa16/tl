@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСохранить" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="11">
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="76"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизиты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитаКодРазмеровИТипаКонтейнера" id="14">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код размеров и типа контейнера</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаКодРазмеровИТипаКонтейнераРасширеннаяПодсказка" id="15"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокКодРазмеровИТипаКонтейнера" id="16">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код размеров и типа контейнера:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокКодРазмеровИТипаКонтейнераКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ЗаголовокКодРазмеровИТипаКонтейнераРасширеннаяПодсказка" id="18"/>
+						</LabelDecoration>
+						<InputField name="КодРазмеровИТипаКонтейнера" id="19">
+							<DataPath>КодРазмеровИТипаКонтейнера</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код размеров и типа контейнера</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>4</Width>
+							<ContextMenu name="КодРазмеровИТипаКонтейнераКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="КодРазмеровИТипаКонтейнераРасширеннаяПодсказка" id="21"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаКодСтраны" id="22">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код страны</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаКодСтраныРасширеннаяПодсказка" id="23"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокКодСтраны" id="24">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код страны:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокКодСтраныКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ЗаголовокКодСтраныРасширеннаяПодсказка" id="26"/>
+						</LabelDecoration>
+						<InputField name="КодСтраны" id="27">
+							<DataPath>КодСтраны</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код страны</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>3</Width>
+							<ContextMenu name="КодСтраныКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="КодСтраныРасширеннаяПодсказка" id="29"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаГрузоподъемность" id="30">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грузоподъемность, т</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаГрузоподъемностьРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокГрузоподъемность" id="32">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грузоподъемность, т:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокГрузоподъемностьКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ЗаголовокГрузоподъемностьРасширеннаяПодсказка" id="34"/>
+						</LabelDecoration>
+						<InputField name="Грузоподъемность" id="35">
+							<DataPath>Грузоподъемность</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грузоподъемность, в тоннах</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ГрузоподъемностьКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ГрузоподъемностьРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаМассаКонтейнера" id="38">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Масса контейнера, кг</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаМассаКонтейнераРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокМассаКонтейнера" id="40">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Масса контейнера, кг:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокМассаКонтейнераКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ЗаголовокМассаКонтейнераРасширеннаяПодсказка" id="42"/>
+						</LabelDecoration>
+						<InputField name="МассаКонтейнера" id="43">
+							<DataPath>МассаКонтейнера</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Масса контейнера, в килограммах</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="МассаКонтейнераКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="МассаКонтейнераРасширеннаяПодсказка" id="45"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаНаличиеТабличкиВозможностьРаботыПодПломбами" id="46">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наличие таблички, подтверждающей возможность работы под пломбами в соответствии с Международной конвенцией по безопасным контейнерам (КБК)</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаНаличиеТабличкиВозможностьРаботыПодПломбамиРасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокНаличиеТабличкиВозможностьРаботыПодПломбами" id="48">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наличие таблички, подтверждающей возможность работы под пломбами в соответствии с Международной конвенцией по безопасным контейнерам (КБК):</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокНаличиеТабличкиВозможностьРаботыПодПломбамиКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ЗаголовокНаличиеТабличкиВозможностьРаботыПодПломбамиРасширеннаяПодсказка" id="50"/>
+						</LabelDecoration>
+						<CheckBoxField name="НаличиеТабличкиВозможностьРаботыПодПломбами" id="51">
+							<DataPath>НаличиеТабличкиВозможностьРаботыПодПломбами</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наличие таблички, подтверждающей возможность работы под пломбами в соответствии с Международной конвенцией по безопасным контейнерам (КБК)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НаличиеТабличкиВозможностьРаботыПодПломбамиКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="НаличиеТабличкиВозможностьРаботыПодПломбамиРасширеннаяПодсказка" id="53"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТаблицы" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТаблицыРасширеннаяПодсказка" id="55"/>
+			<ChildItems>
+				<Pages name="СтраницыТаблиц" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблицы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблицы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыТаблицРасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<Page name="СтраницаТитулПеревозчикаНомераКонтейнеров" id="58">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номера контейнера</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номера контейнера</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаТитулПеревозчикаНомераКонтейнеровРасширеннаяПодсказка" id="59"/>
+							<ChildItems>
+								<Table name="ТитулПеревозчикаНомераКонтейнеров" id="60">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ТитулПеревозчикаНомераКонтейнеров</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ТитулПеревозчикаНомераКонтейнеровКонтекстноеМеню" id="61"/>
+									<AutoCommandBar name="ТитулПеревозчикаНомераКонтейнеровКоманднаяПанель" id="62"/>
+									<ExtendedTooltip name="ТитулПеревозчикаНомераКонтейнеровРасширеннаяПодсказка" id="63"/>
+									<SearchStringAddition name="ТитулПеревозчикаНомераКонтейнеровСтрокаПоиска" id="64">
+										<AdditionSource>
+											<Item>ТитулПеревозчикаНомераКонтейнеров</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулПеревозчикаНомераКонтейнеровСтрокаПоискаКонтекстноеМеню" id="65"/>
+										<ExtendedTooltip name="ТитулПеревозчикаНомераКонтейнеровСтрокаПоискаРасширеннаяПодсказка" id="66"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ТитулПеревозчикаНомераКонтейнеровСостояниеПросмотра" id="67">
+										<AdditionSource>
+											<Item>ТитулПеревозчикаНомераКонтейнеров</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулПеревозчикаНомераКонтейнеровСостояниеПросмотраКонтекстноеМеню" id="68"/>
+										<ExtendedTooltip name="ТитулПеревозчикаНомераКонтейнеровСостояниеПросмотраРасширеннаяПодсказка" id="69"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ТитулПеревозчикаНомераКонтейнеровУправлениеПоиском" id="70">
+										<AdditionSource>
+											<Item>ТитулПеревозчикаНомераКонтейнеров</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулПеревозчикаНомераКонтейнеровУправлениеПоискомКонтекстноеМеню" id="71"/>
+										<ExtendedTooltip name="ТитулПеревозчикаНомераКонтейнеровУправлениеПоискомРасширеннаяПодсказка" id="72"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeDeleteRow">ТитулПеревозчикаНомераКонтейнеровПередУдалением</Event>
+										<Event name="OnStartEdit">ТитулПеревозчикаНомераКонтейнеровПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ТитулПеревозчикаНомераКонтейнеровНомКонтейн" id="73">
+											<DataPath>ТитулПеревозчикаНомераКонтейнеров.НомКонтейн</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInFooter>false</ShowInFooter>
+											<Width>20</Width>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ТитулПеревозчикаНомераКонтейнеровНомКонтейнКонтекстноеМеню" id="74"/>
+											<ExtendedTooltip name="ТитулПеревозчикаНомераКонтейнеровНомКонтейнРасширеннаяПодсказка" id="75"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="КодРазмеровИТипаКонтейнера" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код размеров и типа контейнера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КодСтраны" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код страны</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>3</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Грузоподъемность" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузоподъемность, т</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="МассаКонтейнера" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масса контейнера, кг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НаличиеТабличкиВозможностьРаботыПодПломбами" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наличие таблички, подтверждающей возможность работы под пломбами в соответствии с Международной конвенцией по безопасным контейнерам (КБК)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулПеревозчикаНомераКонтейнеров" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номера контейнера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ИдентификаторСтрокиРодителя" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор строки родительской таблицы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>40</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НомКонтейн" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номера контейнера</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сохранить</Action>
+		</Command>
+	</Commands>
+</Form>

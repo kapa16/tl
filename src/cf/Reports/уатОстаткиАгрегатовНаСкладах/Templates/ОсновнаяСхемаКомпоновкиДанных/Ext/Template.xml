@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агрегат</dataPath>
+			<field>Агрегат</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Car part</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Агрегат</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОстаток</dataPath>
+			<field>КоличествоОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипАгрегата</dataPath>
+			<field>ТипАгрегата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Type of car part</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип агрегата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияНоменклатуры</dataPath>
+			<field>СерияНоменклатуры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Агрегат</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Car part</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МОЛ</dataPath>
+			<field>МОЛ</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтепеньИзноса</dataPath>
+			<field>СтепеньИзноса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Степень износа, %</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Degree of wear, %</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтепеньИзносаРасчетная</dataPath>
+			<field>СтепеньИзносаРасчетная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Степень износа расчетная, %</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Estimated wear rate, %</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УдалитьМОЛ</dataPath>
+			<field>УдалитьМОЛ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПараметрВыработки</dataPath>
+			<field>ПараметрВыработки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр выработки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Production parameter</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыработкаОборот</dataPath>
+			<field>ВыработкаОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая выработка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Current production</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+    уатОстаткиАгрегатовОстатки.Склад КАК Склад,
+    уатОстаткиАгрегатовОстатки.СерияНоменклатуры КАК Агрегат,
+    уатОстаткиАгрегатовОстатки.КоличествоОстаток КАК КоличествоОстаток,
+    уатОстаткиАгрегатовОстатки.СерияНоменклатуры.ТипАгрегата КАК ТипАгрегата,
+    уатОстаткиАгрегатовОстатки.МОЛ КАК МОЛ,
+    уатИзносАгрегатовОбороты.ПробегОборот КАК ВыработкаОборот,
+    уатОстаткиАгрегатовОстатки.СерияНоменклатуры.Модель.ПараметрВыработки КАК ПараметрВыработки,
+    уатАгрегатыТССрезПоследних.СтепеньИзноса КАК СтепеньИзноса,
+	ВЫБОР
+        КОГДА уатАгрегатыТССрезПоследних.СерияНоменклатуры ССЫЛКА Справочник.уатСерииНоменклатуры
+        И уатАгрегатыТССрезПоследних.СерияНоменклатуры.Модель.НормаПробега &lt;&gt; 0
+        ТОГДА уатИзносАгрегатовОбороты.ПробегОборот / уатАгрегатыТССрезПоследних.СерияНоменклатуры.Модель.НормаПробега * 100
+        ИНАЧЕ 0
+    КОНЕЦ КАК СтепеньИзносаРасчетная    
+{ВЫБРАТЬ
+    Склад.*,
+    Агрегат.* КАК Агрегат,
+    КоличествоОстаток,
+    ТипАгрегата.*,
+    ВыработкаОборот,
+    ПараметрВыработки.*}
+ИЗ
+    РегистрНакопления.уатОстаткиАгрегатов.Остатки(, ) КАК уатОстаткиАгрегатовОстатки
+    ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.уатАгрегатыТС.СрезПоследних(&amp;Период) КАК уатАгрегатыТССрезПоследних
+    ПО уатОстаткиАгрегатовОстатки.СерияНоменклатуры = уатАгрегатыТССрезПоследних.СерияНоменклатуры
+    ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.уатИзносАгрегатов.Обороты(&amp;ПустаяДата, &amp;Период, , ) КАК уатИзносАгрегатовОбороты
+    ПО уатОстаткиАгрегатовОстатки.СерияНоменклатуры = уатИзносАгрегатовОбороты.СерияНоменклатуры
+{ГДЕ
+    уатОстаткиАгрегатовОстатки.Склад.*,
+    уатОстаткиАгрегатовОстатки.СерияНоменклатуры.* КАК Агрегат,
+    уатОстаткиАгрегатовОстатки.СерияНоменклатуры.ТипАгрегата.* КАК ТипАгрегата}</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоОстаток</dataPath>
+		<expression>Сумма(КоличествоОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВыработкаОборот</dataPath>
+		<expression>Сумма(ВыработкаОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтепеньИзноса</dataPath>
+		<expression>Максимум(СтепеньИзноса)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтепеньИзносаРасчетная</dataPath>
+		<expression>Максимум(СтепеньИзносаРасчетная)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>На начало дня</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>On day beginning</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПустаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустая дата</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Empty date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Остатки агрегатов на складах</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Remains of car parts at warehouses</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остатки агрегатов на складах</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыработкаОборот</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mileage (for tires)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтепеньИзносаРасчетная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтепеньИзноса</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>a06bcb30-bdd1-4a8b-af4d-730fba863f13</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>1a136ebc-423d-4bd7-b1bf-145a801d1023</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипАгрегата</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>4553d4f7-3a79-4003-bb72-ec552744b42e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>70d6d75c-2ec8-4b93-9455-e25594896c40</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>164e24de-969e-4515-aafa-285b398b7f4a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>1f331db0-1667-40e9-9df1-90497b5afeb0</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfNextDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>c2e87501-0e37-4b53-be2a-5a3e3167a80c</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПустаяДата</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c5c0a0ff-a360-49d5-b4a3-9bb4a7827e80</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>696fa91b-85ef-4288-8948-2cf90c62925b</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>0d218ecb-c3af-45a0-b2ed-159fc757d375</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остатки агрегатов на складах</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Remains of car parts at warehouses</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Склад</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипАгрегата</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Агрегат</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>38d40d53-10d7-4fb5-bf42-18287e5f928a</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Остатки агрегатов на складах (по МОЛ)</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Remains of car parts at warehouses (by responsible employee)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остатки агрегатов на складах (по МОЛ)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыработкаОборот</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mileage (for tires)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтепеньИзносаРасчетная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтепеньИзноса</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>a06bcb30-bdd1-4a8b-af4d-730fba863f13</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>1a136ebc-423d-4bd7-b1bf-145a801d1023</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипАгрегата</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>4553d4f7-3a79-4003-bb72-ec552744b42e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МОЛ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>f6bcf129-7527-49a3-880d-28a362787625</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>70d6d75c-2ec8-4b93-9455-e25594896c40</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>164e24de-969e-4515-aafa-285b398b7f4a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>1f331db0-1667-40e9-9df1-90497b5afeb0</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfNextDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>c2e87501-0e37-4b53-be2a-5a3e3167a80c</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>696fa91b-85ef-4288-8948-2cf90c62925b</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>0d218ecb-c3af-45a0-b2ed-159fc757d375</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остатки агрегатов на складах (по МОЛ)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Remains of car parts at warehouses (by responsible employee)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>МОЛ</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Склад</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ТипАгрегата</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Агрегат</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>38d40d53-10d7-4fb5-bf42-18287e5f928a</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

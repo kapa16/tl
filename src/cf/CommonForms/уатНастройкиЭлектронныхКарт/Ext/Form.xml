@@ -1,0 +1,956 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Width>63</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="1029">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<BackColor>style:ImportantColor</BackColor>
+				<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="1030"/>
+			</Button>
+			<Button name="ФормаЗаписать" id="1031">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Записать</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="1032"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="9cc34712-da5f-4faa-a653-343d2085fbe8">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПанельНастроек" id="971">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПанельНастроекРасширеннаяПодсказка" id="972"/>
+			<ChildItems>
+				<UsualGroup name="Картография" id="848">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картография</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Cartography</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется для отображения на карте</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Used for display on the map</v8:content>
+						</v8:item>
+					</ToolTip>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="КартографияРасширеннаяПодсказка" id="849"/>
+					<ChildItems>
+						<CheckBoxField name="Картография_Использование" id="856">
+							<DataPath>Картография_Использование</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использовать</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Use</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Картография_ИспользованиеКонтекстноеМеню" id="857"/>
+							<ExtendedTooltip name="Картография_ИспользованиеРасширеннаяПодсказка" id="858"/>
+							<Events>
+								<Event name="OnChange">Картография_ИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаКартография" id="922">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКартографияРасширеннаяПодсказка" id="923"/>
+							<ChildItems>
+								<InputField name="Картография_УчетнаяЗапись" id="1149">
+									<DataPath>Картография_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.Картография</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="Картография_УчетнаяЗаписьКонтекстноеМеню" id="1150"/>
+									<ExtendedTooltip name="Картография_УчетнаяЗаписьРасширеннаяПодсказка" id="1151"/>
+									<Events>
+										<Event name="Creating">Картография_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Геокодирование" id="846">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Геокодирование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Manual</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется для геокодирования пунктов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Used for geocoding points</v8:content>
+						</v8:item>
+					</ToolTip>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ГеокодированиеРасширеннаяПодсказка" id="847"/>
+					<ChildItems>
+						<CheckBoxField name="Геокодирование_Использование" id="859">
+							<DataPath>Геокодирование_Использование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Геокодирование_ИспользованиеКонтекстноеМеню" id="860"/>
+							<ExtendedTooltip name="Геокодирование_ИспользованиеРасширеннаяПодсказка" id="861"/>
+							<Events>
+								<Event name="OnChange">Геокодирование_ИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаГеокодирование" id="924">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа геокодирование</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Geocoding group</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа геокодирование</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Geocoding group</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГеокодированиеРасширеннаяПодсказка" id="925"/>
+							<ChildItems>
+								<InputField name="Геокодирование_УчетнаяЗапись" id="1152">
+									<DataPath>Геокодирование_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.Геокодирование</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="Геокодирование_УчетнаяЗаписьКонтекстноеМеню" id="1153"/>
+									<ExtendedTooltip name="Геокодирование_УчетнаяЗаписьРасширеннаяПодсказка" id="1154"/>
+									<Events>
+										<Event name="Creating">Геокодирование_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПодсказкиАдресов" id="1045">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервис подсказок при вводе адресов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Address input suggestion service</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется для получения подсказок при вводе адресов и для предоставления пользователю нескольких вариантов геокодирования пунктов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Used to provide hints when entering addresses and to provide the user with multiple options for geocoding points</v8:content>
+						</v8:item>
+					</ToolTip>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ПодсказкиАдресовРасширеннаяПодсказка" id="1046"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПодсказкиАдресов" id="1050">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа геокодирование</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Geocoding group</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа геокодирование</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Geocoding group</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПодсказкиАдресовРасширеннаяПодсказка" id="1051"/>
+							<ChildItems>
+								<CheckBoxField name="ПодсказкиАдресов_Использование" id="1047">
+									<DataPath>ПодсказкиАдресов_Использование</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПодсказкиАдресов_ИспользованиеКонтекстноеМеню" id="1048"/>
+									<ExtendedTooltip name="ПодсказкиАдресов_ИспользованиеРасширеннаяПодсказка" id="1049"/>
+									<Events>
+										<Event name="OnChange">ПодсказкиАдресов_ИспользованиеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="ПодсказкиАдресов_УчетнаяЗапись" id="1155">
+									<DataPath>ПодсказкиАдресов_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.ПодсказкиАдресов</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ПодсказкиАдресов_УчетнаяЗаписьКонтекстноеМеню" id="1156"/>
+									<ExtendedTooltip name="ПодсказкиАдресов_УчетнаяЗаписьРасширеннаяПодсказка" id="1157"/>
+									<Events>
+										<Event name="Creating">ПодсказкиАдресов_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ПодсказкиАдресов_СоздаватьПунктыВЗаказеНаТС" id="1086">
+							<DataPath>ПодсказкиАдресов_СоздаватьПунктыВЗаказеНаТС</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Автоматически создавать подобранные из подсказок пункты в Заказах на ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Automatically create items selected from suggestions in Vehicle Orders</v8:content>
+								</v8:item>
+							</ToolTip>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="ПодсказкиАдресов_СоздаватьПунктыВЗаказеНаТСКонтекстноеМеню" id="1087"/>
+							<ExtendedTooltip name="ПодсказкиАдресов_СоздаватьПунктыВЗаказеНаТСРасширеннаяПодсказка" id="1088"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПостроениеМаршрутов" id="850">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Матрица расстояний и построение маршрутов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Distance matrix and route construction</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется для документов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Used for documents</v8:content>
+						</v8:item>
+					</ToolTip>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ПостроениеМаршрутовРасширеннаяПодсказка" id="851"/>
+					<ChildItems>
+						<CheckBoxField name="ПостроениеМаршрутов_Использование" id="868">
+							<DataPath>ПостроениеМаршрутов_Использование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПостроениеМаршрутов_ИспользованиеКонтекстноеМеню" id="869"/>
+							<ExtendedTooltip name="ПостроениеМаршрутов_ИспользованиеРасширеннаяПодсказка" id="870"/>
+							<Events>
+								<Event name="OnChange">ПостроениеМаршрутов_ИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаПостроениеМаршрутов" id="926">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПостроениеМаршрутовРасширеннаяПодсказка" id="927"/>
+							<ChildItems>
+								<InputField name="ПостроениеМаршрутов_УчетнаяЗапись" id="1158">
+									<DataPath>ПостроениеМаршрутов_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.ПостроениеМаршрутов</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ПостроениеМаршрутов_УчетнаяЗаписьКонтекстноеМеню" id="1159"/>
+									<ExtendedTooltip name="ПостроениеМаршрутов_УчетнаяЗаписьРасширеннаяПодсказка" id="1160"/>
+									<Events>
+										<Event name="Creating">ПостроениеМаршрутов_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПостроениеМаршрутовЖД" id="1093">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Построение железнодорожных маршрутов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Construction of railway routes</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ПостроениеМаршрутовЖДРасширеннаяПодсказка" id="1094"/>
+					<ChildItems>
+						<CheckBoxField name="ПостроениеМаршрутовЖД_Использование" id="1095">
+							<DataPath>ПостроениеМаршрутовЖД_Использование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПостроениеМаршрутовЖД_ИспользованиеКонтекстноеМеню" id="1096"/>
+							<ExtendedTooltip name="ПостроениеМаршрутовЖД_ИспользованиеРасширеннаяПодсказка" id="1097"/>
+							<Events>
+								<Event name="OnChange">ПостроениеМаршрутов_ИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаПостроениеМаршрутовЖД" id="1098">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПостроениеМаршрутовЖДРасширеннаяПодсказка" id="1099"/>
+							<ChildItems>
+								<InputField name="ПостроениеМаршрутовЖД_УчетнаяЗапись" id="1161">
+									<DataPath>ПостроениеМаршрутовЖД_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.ПостроениеМаршрутовЖД</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ПостроениеМаршрутовЖД_УчетнаяЗаписьКонтекстноеМеню" id="1162"/>
+									<ExtendedTooltip name="ПостроениеМаршрутовЖД_УчетнаяЗаписьРасширеннаяПодсказка" id="1163"/>
+									<Events>
+										<Event name="Creating">ПостроениеМаршрутовЖД_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Навигация" id="852">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Навигация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Navigation</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется для мобильного приложения "Водитель УАТ"</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Used for the UAT Driver mobile app</v8:content>
+						</v8:item>
+					</ToolTip>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="НавигацияРасширеннаяПодсказка" id="853"/>
+					<ChildItems>
+						<CheckBoxField name="Навигация_Использование" id="865">
+							<DataPath>Навигация_Использование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Навигация_ИспользованиеКонтекстноеМеню" id="866"/>
+							<ExtendedTooltip name="Навигация_ИспользованиеРасширеннаяПодсказка" id="867"/>
+							<Events>
+								<Event name="OnChange">Навигация_ИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаНавигация" id="928">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНавигацияРасширеннаяПодсказка" id="929"/>
+							<ChildItems>
+								<InputField name="Навигация_УчетнаяЗапись" id="1164">
+									<DataPath>Навигация_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.Навигация</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="Навигация_УчетнаяЗаписьКонтекстноеМеню" id="1165"/>
+									<ExtendedTooltip name="Навигация_УчетнаяЗаписьРасширеннаяПодсказка" id="1166"/>
+									<Events>
+										<Event name="Creating">Навигация_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Маршрутизация" id="854">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Маршрутизация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Routing</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используется для построения и оптимизации маршрута в "АРМ Логиста" и "Маршрутном листе"</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Used for route construction and optimization in the "Logistics Workstation" and "Route Sheet"</v8:content>
+						</v8:item>
+					</ToolTip>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="МаршрутизацияРасширеннаяПодсказка" id="855"/>
+					<ChildItems>
+						<CheckBoxField name="Маршрутизация_Использование" id="862">
+							<DataPath>Маршрутизация_Использование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="Маршрутизация_ИспользованиеКонтекстноеМеню" id="863"/>
+							<ExtendedTooltip name="Маршрутизация_ИспользованиеРасширеннаяПодсказка" id="864"/>
+							<Events>
+								<Event name="OnChange">Маршрутизация_ИспользованиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаМаршрутизация" id="930">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаМаршрутизацияРасширеннаяПодсказка" id="931"/>
+							<ChildItems>
+								<InputField name="Маршрутизация_УчетнаяЗапись" id="1167">
+									<DataPath>Маршрутизация_УчетнаяЗапись</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипСервиса">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.уатТипыГеосервисов.EnumValue.Маршрутизация</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="Маршрутизация_УчетнаяЗаписьКонтекстноеМеню" id="1168"/>
+									<ExtendedTooltip name="Маршрутизация_УчетнаяЗаписьРасширеннаяПодсказка" id="1169"/>
+									<Events>
+										<Event name="Creating">Маршрутизация_УчетнаяЗаписьСоздание</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Картография_УчетнаяЗапись" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_ТипПоставщика" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип поставщика</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.уатТипыЭлектронныхКарт</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Геокодирование_Использование" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Картография_Использование" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Maps</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_Использование" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Навигация_Использование" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПостроениеМаршрутов_Использование" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_Ключ" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ключ маршрутизации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Routing key</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПодсказкиАдресов_Использование" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПодсказкиАдресов_СоздаватьПунктыВЗаказеНаТС" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоматически создавать подобранные пункты в Заказе на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Automatically create selected items in the Vehicle Order</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПостроениеМаршрутовЖД_Использование" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_ТипАвторизации" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип авторизации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Authorization type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_Токен" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ключ маршрутизации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Routing key</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_ИдентификаторКомпании" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор компании</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company ID</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_ЛогированиеЗапросов" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логирование запросов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Logging queries</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Геокодирование_УчетнаяЗапись" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПодсказкиАдресов_УчетнаяЗапись" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПостроениеМаршрутов_УчетнаяЗапись" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПостроениеМаршрутовЖД_УчетнаяЗапись" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Навигация_УчетнаяЗапись" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Маршрутизация_УчетнаяЗапись" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатУчетныеЗаписиСервисовГеоданных</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Записать" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Записать</Action>
+		</Command>
+		<Command name="ЗаписатьИЗакрыть" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write and close</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write and close</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаписатьИЗакрыть</Action>
+		</Command>
+	</Commands>
+</Form>

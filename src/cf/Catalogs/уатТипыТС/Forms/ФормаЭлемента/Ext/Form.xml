@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеИКод" id="13">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеИКодExtendedTooltip" id="14"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="15"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="16"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="5">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="РодительExtendedTooltip" id="17"/>
+		</InputField>
+		<UsualGroup name="ГруппаВидТСИТипКузова" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид ТСИТип кузова</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group type TSIT Body type</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид ТСИТип кузова</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group type TSIT Body type</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидТСИТипКузоваРасширеннаяПодсказка" id="44"/>
+			<ChildItems>
+				<InputField name="ВидТС" id="7">
+					<DataPath>Объект.ВидТС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВидТСКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ВидТСExtendedTooltip" id="18"/>
+					<Events>
+						<Event name="OnChange">ВидТСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТипКузова" id="45">
+					<DataPath>Объект.ТипКузова</DataPath>
+					<ContextMenu name="ТипКузоваКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ТипКузоваРасширеннаяПодсказка" id="47"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="РодВагона" id="103">
+			<DataPath>Объект.РодВагона</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="РодВагонаКонтекстноеМеню" id="104"/>
+			<ExtendedTooltip name="РодВагонаРасширеннаяПодсказка" id="105"/>
+			<Events>
+				<Event name="OnChange">РодВагонаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="Группа1" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group1</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group1</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаХарактеристики" id="69">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Characteristics</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>NormalSeparation</Representation>
+					<ExtendedTooltip name="ГруппаХарактеристикиРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<InputField name="Грузоподъемность" id="61">
+							<DataPath>Объект.Грузоподъемность</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Грузоподъемность, т</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Load capacity, t</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ГрузоподъемностьКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ГрузоподъемностьРасширеннаяПодсказка" id="63"/>
+						</InputField>
+						<InputField name="ОбъемКузова" id="64">
+							<DataPath>Объект.ОбъемКузова</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Объем кузова, м3</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Body volume, m3</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ОбъемКузоваКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ОбъемКузоваРасширеннаяПодсказка" id="66"/>
+						</InputField>
+						<CheckBoxField name="Самосвал" id="71">
+							<DataPath>Объект.Самосвал</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СамосвалКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="СамосвалРасширеннаяПодсказка" id="73"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПолезныеРазмеры" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полезные размеры</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Useful sizes</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>NormalSeparation</Representation>
+					<ExtendedTooltip name="ГруппаПолезныеРазмерыРасширеннаяПодсказка" id="49"/>
+					<ChildItems>
+						<InputField name="ПолезныйРазмерДлина" id="53">
+							<DataPath>Объект.ПолезныйРазмерДлина</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Длина, мм</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Length, mm</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПолезныйРазмерДлинаКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ПолезныйРазмерДлинаРасширеннаяПодсказка" id="55"/>
+						</InputField>
+						<InputField name="ПолезныйРазмерВысота" id="50">
+							<DataPath>Объект.ПолезныйРазмерВысота</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Высота, мм</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Height, mm</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПолезныйРазмерВысотаКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ПолезныйРазмерВысотаРасширеннаяПодсказка" id="52"/>
+						</InputField>
+						<InputField name="ПолезныйРазмерШирина" id="56">
+							<DataPath>Объект.ПолезныйРазмерШирина</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ширина, мм</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Width, mm</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПолезныйРазмерШиринаКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ПолезныйРазмерШиринаРасширеннаяПодсказка" id="58"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаТаблицы" id="74">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаТаблицыРасширеннаяПодсказка" id="75"/>
+			<ChildItems>
+				<Page name="ГруппаСовместимыеТипы" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Совместимые типы ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Compatible vehicle types</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа совместимые типы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>group of compatible types</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>None</ToolTipRepresentation>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="ГруппаСовместимыеТипыРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<Table name="СовместимыеТипыТС" id="20">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.СовместимыеТипыТС</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СовместимыеТипыТСКонтекстноеМеню" id="21"/>
+							<AutoCommandBar name="СовместимыеТипыТСКоманднаяПанель" id="22"/>
+							<ExtendedTooltip name="СовместимыеТипыТСРасширеннаяПодсказка" id="23"/>
+							<SearchStringAddition name="СовместимыеТипыТССтрокаПоиска" id="24">
+								<AdditionSource>
+									<Item>СовместимыеТипыТС</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СовместимыеТипыТССтрокаПоискаКонтекстноеМеню" id="25"/>
+								<ExtendedTooltip name="СовместимыеТипыТССтрокаПоискаРасширеннаяПодсказка" id="26"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СовместимыеТипыТССостояниеПросмотра" id="27">
+								<AdditionSource>
+									<Item>СовместимыеТипыТС</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СовместимыеТипыТССостояниеПросмотраКонтекстноеМеню" id="28"/>
+								<ExtendedTooltip name="СовместимыеТипыТССостояниеПросмотраРасширеннаяПодсказка" id="29"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СовместимыеТипыТСУправлениеПоиском" id="30">
+								<AdditionSource>
+									<Item>СовместимыеТипыТС</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СовместимыеТипыТСУправлениеПоискомКонтекстноеМеню" id="31"/>
+								<ExtendedTooltip name="СовместимыеТипыТСУправлениеПоискомРасширеннаяПодсказка" id="32"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СовместимыеТипыТСНомерСтроки" id="33">
+									<DataPath>Объект.СовместимыеТипыТС.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СовместимыеТипыТСНомерСтрокиКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="СовместимыеТипыТСНомерСтрокиРасширеннаяПодсказка" id="35"/>
+								</LabelField>
+								<InputField name="СовместимыеТипыТСТипТС" id="36">
+									<DataPath>Объект.СовместимыеТипыТС.ТипТС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СовместимыеТипыТСТипТСКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="СовместимыеТипыТСТипТСРасширеннаяПодсказка" id="38"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОбязательныеВидыДокументов" id="76">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обязательные виды документов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Required types of documents</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа обязательные виды документов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group of mandatory types of documents</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОбязательныеВидыДокументовРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<Table name="ОбязательныеВидыДокументов" id="78">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ОбязательныеВидыДокументов</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОбязательныеВидыДокументовКонтекстноеМеню" id="79"/>
+							<AutoCommandBar name="ОбязательныеВидыДокументовКоманднаяПанель" id="80"/>
+							<ExtendedTooltip name="ОбязательныеВидыДокументовРасширеннаяПодсказка" id="81"/>
+							<SearchStringAddition name="ОбязательныеВидыДокументовСтрокаПоиска" id="82">
+								<AdditionSource>
+									<Item>ОбязательныеВидыДокументов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОбязательныеВидыДокументовСтрокаПоискаКонтекстноеМеню" id="83"/>
+								<ExtendedTooltip name="ОбязательныеВидыДокументовСтрокаПоискаРасширеннаяПодсказка" id="84"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОбязательныеВидыДокументовСостояниеПросмотра" id="85">
+								<AdditionSource>
+									<Item>ОбязательныеВидыДокументов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОбязательныеВидыДокументовСостояниеПросмотраКонтекстноеМеню" id="86"/>
+								<ExtendedTooltip name="ОбязательныеВидыДокументовСостояниеПросмотраРасширеннаяПодсказка" id="87"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОбязательныеВидыДокументовУправлениеПоиском" id="88">
+								<AdditionSource>
+									<Item>ОбязательныеВидыДокументов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОбязательныеВидыДокументовУправлениеПоискомКонтекстноеМеню" id="89"/>
+								<ExtendedTooltip name="ОбязательныеВидыДокументовУправлениеПоискомРасширеннаяПодсказка" id="90"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ОбязательныеВидыДокументовНомерСтроки" id="91">
+									<DataPath>Объект.ОбязательныеВидыДокументов.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОбязательныеВидыДокументовНомерСтрокиКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="ОбязательныеВидыДокументовНомерСтрокиРасширеннаяПодсказка" id="93"/>
+								</LabelField>
+								<InputField name="ОбязательныеВидыДокументовПринадлежность" id="94">
+									<DataPath>Объект.ОбязательныеВидыДокументов.Принадлежность</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ОбязательныеВидыДокументовПринадлежностьКонтекстноеМеню" id="95"/>
+									<ExtendedTooltip name="ОбязательныеВидыДокументовПринадлежностьРасширеннаяПодсказка" id="96"/>
+								</InputField>
+								<InputField name="ОбязательныеВидыДокументовВидДокумента" id="97">
+									<DataPath>Объект.ОбязательныеВидыДокументов.ВидДокумента</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ОбязательныеВидыДокументовВидДокументаКонтекстноеМеню" id="98"/>
+									<ExtendedTooltip name="ОбязательныеВидыДокументовВидДокументаРасширеннаяПодсказка" id="99"/>
+								</InputField>
+								<InputField name="ОбязательныеВидыДокументовКатегорияДокумента" id="100">
+									<DataPath>Объект.ОбязательныеВидыДокументов.КатегорияДокумента</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ОбязательныеВидыДокументовКатегорияДокументаКонтекстноеМеню" id="101"/>
+									<ExtendedTooltip name="ОбязательныеВидыДокументовКатегорияДокументаРасширеннаяПодсказка" id="102"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дополнительные реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional attributes group</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="42"/>
+		</UsualGroup>
+		<InputField name="Комментарий" id="11">
+			<DataPath>Объект.Комментарий</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Height>1</Height>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="КомментарийExtendedTooltip" id="19"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатТипыТС</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>

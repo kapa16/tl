@@ -1,0 +1,885 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="ON_AKTREZRABP_1_971_01_01_00_01">
+	<property name="Файл">
+		<typeDef xsi:type="ObjectType">
+			<property name="ИдФайл" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+			</property>
+			<property name="ВерсПрог" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="40"/>
+			</property>
+			<property name="ВерсФорм" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5">
+					<enumeration>1.00</enumeration>
+				</typeDef>
+			</property>
+			<property name="Документ">
+				<typeDef xsi:type="ObjectType">
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КНД" type="d6p1:КНДТип" lowerBound="1" form="Attribute"/>
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаИнфПодр" type="d6p1:ДатаТип" lowerBound="1" form="Attribute"/>
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ВремИнфПодр" type="d6p1:ВремяТип" lowerBound="1" form="Attribute"/>
+					<property name="НаимЭкСубСост" lowerBound="1" form="Attribute">
+						<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+					</property>
+					<property name="СоглСтрДопИнф" lowerBound="0" form="Attribute">
+						<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="14"/>
+					</property>
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ОснДовОргСост" type="d6p1:РеквДокТип" lowerBound="0"/>
+					<property name="СвАктСдПр">
+						<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+							<property name="НомерДок" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаДок" type="d8p1:ДатаТип" lowerBound="1" form="Attribute"/>
+							<property name="НаимОб" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КодОКВДог" type="d8p1:ОКВТип" lowerBound="1" form="Attribute"/>
+							<property name="ИдОбОСИтСтр" lowerBound="0" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдДог" type="d8p1:ИдРеквДокТип"/>
+							<property name="ИспрАктСдПр" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="НомИспр" lowerBound="1" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minInclusive="1" totalDigits="3"/>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаИспр" type="d10p1:ДатаТип" lowerBound="1" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="СвПодр" type="d8p1:СвСторДогТип"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="СвЗак" type="d8p1:СвСторДогТип"/>
+							<property name="ОсновСтроит" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="ПрГосМун" lowerBound="1" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+											<enumeration>0</enumeration>
+											<enumeration>1</enumeration>
+										</typeDef>
+									</property>
+									<property name="РеестрНомКонт" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="19"/>
+									</property>
+									<property name="ПрНескОбъект" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+											<enumeration>0</enumeration>
+											<enumeration>1</enumeration>
+										</typeDef>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдКонтрСтр" type="d10p1:ИдРеквДокТип" lowerBound="0"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдИнвСтр" type="d10p1:ИдРекСостТип" lowerBound="0"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдЗакСтр" type="d10p1:ИдРекСостТип" lowerBound="0"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдСубПодрСтр" type="d10p1:ИдРекСостТип" lowerBound="0" upperBound="-1"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d10p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+								</typeDef>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="МестВыпРаб" type="d8p1:АдресТип" lowerBound="0"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдСмет" type="d8p1:ИдРеквДокТип" lowerBound="0"/>
+							<property name="ИзмСмет" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="КодСмет" lowerBound="1" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="2"/>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдДопСогл" type="d10p1:ИдРеквДокТип"/>
+								</typeDef>
+							</property>
+							<property name="ИзмСметНет" lowerBound="0">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="17">
+									<enumeration>смета не менялась</enumeration>
+								</typeDef>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ОснСдачи" type="d8p1:ИдРеквДокТип" lowerBound="0" upperBound="-1"/>
+							<property name="ДенИзм">
+								<typeDef xsi:type="ObjectType">
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КодОКВ" type="d10p1:ОКВТип" lowerBound="1" form="Attribute"/>
+									<property name="НаимОКВ" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+									</property>
+									<property name="КурсВал" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="4"/>
+									</property>
+									<property name="НомВал" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="6">
+											<enumeration>10</enumeration>
+											<enumeration>100</enumeration>
+											<enumeration>1000</enumeration>
+											<enumeration>10000</enumeration>
+											<enumeration>100000</enumeration>
+										</typeDef>
+									</property>
+								</typeDef>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИнфПолФХЖ1" type="d8p1:ИнфПолТип" lowerBound="0"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d8p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+						</typeDef>
+					</property>
+					<property name="НаимИСт" upperBound="-1">
+						<typeDef xsi:type="ObjectType">
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ВидРаб" type="d8p1:СвВидРабТип" lowerBound="0" upperBound="-1"/>
+							<property name="Раздел" lowerBound="0" upperBound="-1">
+								<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+									<property name="НомСтр" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="6"/>
+									</property>
+									<property name="ПозРаздСмет" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+									</property>
+									<property name="НомРазд" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="6"/>
+									</property>
+									<property name="НаимРаздел" lowerBound="1" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+									</property>
+									<property name="СтБезНДСРаздСмет" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="СтСНДСРаздСмет" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="СтБезНДСРаздОтч" lowerBound="1" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="СтСНДСРаздОтч" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="СтБезНДСРаздСНач" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="СтСНДСРаздСНач" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="СвВидРаб" type="d10p1:СвВидРабТип" upperBound="-1"/>
+									<property name="СумНалРаздСмет" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="ПрочеркНалСмет" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+											<enumeration>-</enumeration>
+										</typeDef>
+									</property>
+									<property name="СумНалРаздОтч" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="ПрочеркНалОтч" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+											<enumeration>-</enumeration>
+										</typeDef>
+									</property>
+									<property name="СумНалРаздСНач" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+									</property>
+									<property name="ПрочеркНалСНач" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+											<enumeration>-</enumeration>
+										</typeDef>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИнфПолРазд" type="d10p1:ИнфПолТип" lowerBound="0" upperBound="-1"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d10p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+								</typeDef>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="РасшифРес" type="d8p1:СвВидРабТип" lowerBound="0" upperBound="-1"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d8p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+						</typeDef>
+					</property>
+					<property name="СвПродПер">
+						<typeDef xsi:type="ObjectType">
+							<property name="СвПер">
+								<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+									<property name="СодОпер" lowerBound="1" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+									</property>
+									<property name="ВидОпер" lowerBound="0" form="Attribute">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатПредъявЗак" type="d10p1:ДатаТип" lowerBound="0" form="Attribute"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="НачПерВДок" type="d10p1:ДатаТип" lowerBound="0" form="Attribute"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ОконПерВДок" type="d10p1:ДатаТип" lowerBound="0" form="Attribute"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдДокПредъявЗак" type="d10p1:ИдРеквДокТип" lowerBound="0"/>
+									<property name="СрокПринРабДн" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+									</property>
+									<property name="СрокПринКалендДн" lowerBound="0">
+										<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+									</property>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="СрокПринДат" type="d10p1:ДатаТип" lowerBound="0"/>
+									<property xmlns:d10p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдСообОГотовн" type="d10p1:ИдРеквДокТип" lowerBound="0"/>
+								</typeDef>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИнфПолФХЖ3" type="d8p1:ИнфПолТип" lowerBound="0"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d8p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+						</typeDef>
+					</property>
+					<property name="СвОРасч" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ВсегоКОплатОтч" lowerBound="0" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+							</property>
+							<property name="ВсегоКОплатеСНач" lowerBound="0" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+							</property>
+							<property name="СумУдержВсегоОтч" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+							</property>
+							<property name="СумУдержВсегоСНач" lowerBound="0" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+							</property>
+							<property name="СумТребВсегоОтч" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+							</property>
+							<property name="СумТребВсегоСНач" lowerBound="0" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+							</property>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="УчетТребУдерж" type="d8p1:СумТребУдержТип"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="УчетТребУдержСНач" type="d8p1:СумТребУдержТип" lowerBound="0"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИнфПолСвОРасч" type="d8p1:ИнфПолТип" lowerBound="0" upperBound="-1"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d8p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+						</typeDef>
+					</property>
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ВсегоАктОтч" type="d6p1:ВсегоАктТип"/>
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ВсегоАктСНач" type="d6p1:ВсегоАктТип" lowerBound="0"/>
+					<property xmlns:d6p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d6p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+					<property name="НастрФормДок" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="ПрНДСВИтог" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+									<enumeration>0</enumeration>
+									<enumeration>1</enumeration>
+								</typeDef>
+							</property>
+							<property name="ПрНакИтог" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+									<enumeration>0</enumeration>
+									<enumeration>1</enumeration>
+									<enumeration>2</enumeration>
+								</typeDef>
+							</property>
+							<property name="ПрИндЦен" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="4"/>
+							</property>
+							<property name="СтепАгрег" lowerBound="0" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13">
+									<enumeration>НаимКонстрРеш</enumeration>
+									<enumeration>НаимРаб</enumeration>
+								</typeDef>
+							</property>
+							<property name="ПрСведРасчСогл" lowerBound="1" form="Attribute">
+								<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+									<enumeration>0</enumeration>
+									<enumeration>1</enumeration>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+					<property name="ПодписантПодр" upperBound="-1">
+						<typeDef xsi:type="ObjectType">
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="Подписант" type="d8p1:ПодписантТип"/>
+							<property xmlns:d8p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d8p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+						</typeDef>
+					</property>
+				</typeDef>
+			</property>
+		</typeDef>
+	</property>
+	<valueType name="БИКТип" base="xs:string" variety="Atomic" length="9">
+		<pattern>[0-9]{9}</pattern>
+	</valueType>
+	<valueType name="ВремяТип" base="xs:string" variety="Atomic" length="8">
+		<pattern>([0-1]{1}[0-9]{1}|2[0-3]{1}):([0-5]{1}[0-9]{1}):([0-5]{1}[0-9]{1})</pattern>
+	</valueType>
+	<valueType name="ДатаТип" base="xs:string" variety="Atomic" length="10">
+		<pattern>((((0[1-9]{1}|1[0-9]{1}|2[0-8]{1})\.(0[1-9]{1}|1[0-2]{1}))|((29|30)\.(01|0[3-9]{1}|1[0-2]{1}))|(31\.(01|03|05|07|08|10|12)))\.((19|20)[0-9]{2}))|(29\.02\.((19|20)(((0|2|4|6|8)(0|4|8))|((1|3|5|7|9)(2|6)))))</pattern>
+	</valueType>
+	<valueType name="ИННФЛТип" base="xs:string" variety="Atomic" length="12">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{10}</pattern>
+	</valueType>
+	<valueType name="ИННЮЛТип" base="xs:string" variety="Atomic" length="10">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{8}</pattern>
+	</valueType>
+	<valueType name="КНДТип" base="xs:string" variety="Atomic" length="7">
+		<pattern>[0-9]{7}</pattern>
+	</valueType>
+	<valueType name="КППТип" base="xs:string" variety="Atomic" length="9">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})([0-9]{2})([0-9A-Z]{2})([0-9]{3})</pattern>
+	</valueType>
+	<valueType name="ОГРНИПТип" base="xs:string" variety="Atomic" length="15">
+		<pattern>[0-9]{15}</pattern>
+	</valueType>
+	<valueType name="ОКВТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="ОКЕИТип" base="xs:string" variety="Atomic" minLength="3" maxLength="4">
+		<pattern>[0-9]{3}</pattern>
+		<pattern>[0-9]{4}</pattern>
+	</valueType>
+	<valueType name="ОКСМТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="ССРФТип" base="xs:string" variety="Atomic" length="2">
+		<pattern>[0-9]{2}</pattern>
+	</valueType>
+	<objectType name="АдрИнфТип">
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КодСтр" type="d3p1:ОКСМТип" lowerBound="1" form="Attribute"/>
+		<property name="АдрТекст" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="АдрРФТип">
+		<property name="Индекс" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="6">
+				<pattern>[0-9]{6}</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КодРегион" type="d3p1:ССРФТип" lowerBound="1" form="Attribute"/>
+		<property name="Район" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Город" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="НаселПункт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Улица" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Дом" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+		<property name="Корпус" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+		<property name="Кварт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+	</objectType>
+	<objectType name="АдресТип" ordered="false" sequenced="true">
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="АдрРФ" type="d3p1:АдрРФТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="АдрИнф" type="d3p1:АдрИнфТип" lowerBound="0"/>
+		<property name="КодГАР" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="36"/>
+		</property>
+	</objectType>
+	<objectType name="ВсегоАктТип" ordered="false" sequenced="true">
+		<property name="СтТовБезНДСВсего" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СтТовУчНалВсего" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СтУчНалВсВалДог" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СумНалВсВалДог" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СумНалВсего" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ОтсСумНДС" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>-</enumeration>
+			</typeDef>
+		</property>
+		<property name="СумПоСтавке" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="НалСт" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35">
+						<enumeration>0%</enumeration>
+						<enumeration xsi:type="xs:string">5%</enumeration>
+						<enumeration xsi:type="xs:string">7%</enumeration>
+						<enumeration>9,09%</enumeration>
+						<enumeration>10%</enumeration>
+						<enumeration>16,67%</enumeration>
+						<enumeration>18,03%</enumeration>
+						<enumeration>20%</enumeration>
+						<enumeration>22%</enumeration>
+						<enumeration>5/105</enumeration>
+						<enumeration>7/107</enumeration>
+						<enumeration>10/110</enumeration>
+						<enumeration>20/120</enumeration>
+						<enumeration>22/122</enumeration>
+						<enumeration>без НДС</enumeration>
+						<enumeration>НДС исчисляется налоговым агентом</enumeration>
+					</typeDef>
+				</property>
+				<property name="НалБаза" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+				</property>
+				<property name="СумНДС" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+				</property>
+				<property name="НеобНДС" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="18">
+						<enumeration>без НДС</enumeration>
+					</typeDef>
+				</property>
+				<property name="НДСНалАг" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>-</enumeration>
+					</typeDef>
+				</property>
+				<property name="НомПозСт" lowerBound="0" upperBound="-1">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ДаннИноТип">
+		<property name="ИдСтат" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="25">
+				<enumeration>ИО</enumeration>
+				<enumeration>ИГ</enumeration>
+			</typeDef>
+		</property>
+		<property name="Стран" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="Наим" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="Идентиф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ИныеСвед" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="ДопПолеСтрИнфТип" open="true" sequenced="true">
+		<property name="ИмяДопПакета" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="Версия" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5"/>
+		</property>
+		<property name="Свойство" lowerBound="1" upperBound="-1" form="Element"/>
+	</objectType>
+	<objectType name="ИдРекСостТип" ordered="false" sequenced="true">
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИННЮЛ" type="d3p1:ИННЮЛТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДаннИно" type="d3p1:ДаннИноТип" lowerBound="0"/>
+		<property name="НаимОИВ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="ИдРеквДокТип">
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ТипИдДок" type="d3p1:РеквДокТип"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d3p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="ИзмДаннПрПерТип">
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ОшибПрПер" type="d3p1:ИзмененияТип" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="НовОбстПрПер" type="d3p1:ИзмененияТип" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ИзмененияТип" ordered="false" sequenced="true">
+		<property name="РНПТУвел" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="29"/>
+		</property>
+		<property name="РНПТУменьш" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="29"/>
+		</property>
+		<property name="УвелДен" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="УменьшДен" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="УвелКол" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="УменьшКол" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="НетИзмКол" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="7">
+				<enumeration>без изм</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ПрДокИзмСНачСтр" type="d3p1:ИдРеквДокТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="ИнфПолТип">
+		<property name="ИдФайлИнфПол" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ТекстИнф" type="d3p1:ТекстИнфТип" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="КонтактТип">
+		<property name="ИнКонт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="Тлф" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ЭлПочта" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="ПодписантТип">
+		<property name="СтатПодп" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+			</typeDef>
+		</property>
+		<property name="ТипПодпис" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+			</typeDef>
+		</property>
+		<property name="ИдСистХран" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+		</property>
+		<property name="Должн" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ФИО" type="d3p1:ФИОТип"/>
+		<property name="СвДовер" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="НомДовер" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36"/>
+				</property>
+				<property xmlns:d5p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаНач" type="d5p1:ДатаТип" lowerBound="0" form="Attribute"/>
+				<property name="ВнНомДовер" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+				</property>
+				<property xmlns:d5p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаВнРегДовер" type="d5p1:ДатаТип" lowerBound="0" form="Attribute"/>
+				<property name="СведСистОтм" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="СвДоверБум" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаНач" type="d5p1:ДатаТип" lowerBound="0" form="Attribute"/>
+				<property name="ВнНомДовер" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+				</property>
+				<property name="СвИдДовер" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+				</property>
+				<property xmlns:d5p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ФИО" type="d5p1:ФИОТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="РеквДокТип">
+		<property name="НаимДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="НомерДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДатаДок" type="d3p1:ДатаТип" lowerBound="0" form="Attribute"/>
+		<property name="ИдДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ДопСведДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИдРекСост" type="d3p1:ИдРекСостТип" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СвВидРабТип" ordered="false" sequenced="true">
+		<property name="НомСтр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="6"/>
+		</property>
+		<property name="ПозСмет" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+		</property>
+		<property name="НомПоз" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+		</property>
+		<property name="НаимТов" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+		</property>
+		<property name="ПрИспрОш" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1"/>
+		</property>
+		<property name="ПрНовОбст" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1"/>
+		</property>
+		<property name="ТипЗатр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+				<enumeration>4</enumeration>
+				<enumeration>5</enumeration>
+				<enumeration>6</enumeration>
+			</typeDef>
+		</property>
+		<property name="ЦенаТов" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="СтПоСметеБезНДС" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="КоэфПересч" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="6" fractionDigits="2"/>
+		</property>
+		<property name="СтТовБезНДС" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СтСНачСтрБезНДС" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ИдОС" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ОКЕИ_Стройка" type="d3p1:ОКЕИТип" lowerBound="0" form="Attribute"/>
+		<property name="НаимЕдИзм" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="НаимОЕИ" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="СтТовУчНал" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СтТовУчНалСНачСтр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СтПоСметеУчНал" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КодПроисх" type="d3p1:ОКСМТип" lowerBound="0" form="Attribute"/>
+		<property name="НаимСтрПр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="УчОшИНовОбстСт" type="d3p1:ИзмДаннПрПерТип" lowerBound="0"/>
+		<property name="НалСтПостр" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35">
+				<enumeration>0%</enumeration>
+				<enumeration xsi:type="xs:string">5%</enumeration>
+				<enumeration xsi:type="xs:string">7%</enumeration>
+				<enumeration>9,09%</enumeration>
+				<enumeration>10%</enumeration>
+				<enumeration>16,67%</enumeration>
+				<enumeration>18,03%</enumeration>
+				<enumeration>20%</enumeration>
+				<enumeration>22%</enumeration>
+				<enumeration>5/105</enumeration>
+				<enumeration>7/107</enumeration>
+				<enumeration>10/110</enumeration>
+				<enumeration>20/120</enumeration>
+				<enumeration>22/122</enumeration>
+				<enumeration>без НДС</enumeration>
+				<enumeration>НДС исчисляется налоговым агентом</enumeration>
+			</typeDef>
+		</property>
+		<property name="НалСтВИтог" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35">
+				<enumeration>0%</enumeration>
+				<enumeration xsi:type="xs:string">5%</enumeration>
+				<enumeration xsi:type="xs:string">7%</enumeration>
+				<enumeration>9,09%</enumeration>
+				<enumeration>10%</enumeration>
+				<enumeration>16,67%</enumeration>
+				<enumeration>18,03%</enumeration>
+				<enumeration>20%</enumeration>
+				<enumeration>5/105</enumeration>
+				<enumeration>7/107</enumeration>
+				<enumeration>10/110</enumeration>
+				<enumeration>20/120</enumeration>
+				<enumeration>22/122</enumeration>
+				<enumeration>без НДС</enumeration>
+				<enumeration>НДС исчисляется налоговым агентом</enumeration>
+			</typeDef>
+		</property>
+		<property name="КолСмет" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="КолСметТекст" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+		</property>
+		<property name="КолТов" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="КолТовТекст" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+		</property>
+		<property name="КолСНач" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="КолСНачТекст" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="УчОшИНовОбстКол" type="d3p1:ИзмДаннПрПерТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="СумНал" type="d3p1:СумНДСТип" lowerBound="0"/>
+		<property name="СвПрослежСтройка" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="НомТовПрослеж" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="27" maxLength="29"/>
+				</property>
+				<property xmlns:d5p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ЕдИзмПрослеж" type="d5p1:ОКЕИТип" lowerBound="1" form="Attribute"/>
+				<property name="НаимЕдИзмПрослеж" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="КолВЕдПрослеж" lowerBound="1" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minExclusive="0" totalDigits="26" fractionDigits="11"/>
+				</property>
+				<property name="НаимТовВГрупп" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+				</property>
+				<property name="СтТовПрослежБезНДС" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИнфПолФХЖ2" type="d3p1:ИнфПолТип" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d3p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="СвСторДогТип">
+		<property name="ПрИспКППКр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="СвСторДог" type="d3p1:УчастникТип"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДопПолеСтрИнф" type="d3p1:ДопПолеСтрИнфТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="СумНДСТип" ordered="false" sequenced="true">
+		<property name="СумНал" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="БезНДС" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="18">
+				<enumeration>Без НДС</enumeration>
+			</typeDef>
+		</property>
+		<property name="ДефНДС" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>-</enumeration>
+				<enumeration>0</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СумТребУдержТип" ordered="false" sequenced="true">
+		<property name="СумТребУдерж" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ВидТреб" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+				<enumeration>01</enumeration>
+				<enumeration>02</enumeration>
+				<enumeration>03</enumeration>
+				<enumeration>04</enumeration>
+				<enumeration>05</enumeration>
+			</typeDef>
+		</property>
+		<property name="ВидУдерж" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2">
+				<enumeration>31</enumeration>
+				<enumeration>32</enumeration>
+				<enumeration>33</enumeration>
+				<enumeration>34</enumeration>
+				<enumeration>35</enumeration>
+				<enumeration>36</enumeration>
+			</typeDef>
+		</property>
+		<property name="ИнВидТреб" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ИнВидУдерж" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ДокПодтСумУд" type="d3p1:ИдРеквДокТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="ТекстИнфТип">
+		<property name="Идентиф" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Значение" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+		</property>
+	</objectType>
+	<objectType name="УчастникТип">
+		<property name="ОКПО" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+		</property>
+		<property name="СтруктПодр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="ИнфДляУчаст" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="КраткНазв" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ИдСв">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="СвИП" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИННФЛ" type="d7p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ОГРНИП" type="d7p1:ОГРНИПТип" lowerBound="0" form="Attribute"/>
+						<property name="ИныеСвед" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ФИО" type="d7p1:ФИОТип"/>
+					</typeDef>
+				</property>
+				<property name="СвЮЛУч" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="НаимОрг" lowerBound="1" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИННЮЛ" type="d7p1:ИННЮЛТип" lowerBound="1" form="Attribute"/>
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="КПП" type="d7p1:КППТип" lowerBound="0" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="СвИнНеУч" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="НаимОрг" lowerBound="1" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property name="Идентиф" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="ИныеСвед" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="СвФЛУчастФХЖ" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ИННФЛ" type="d7p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+						<property name="ИныеСвед" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="ФИО" type="d7p1:ФИОТип"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="Адрес" type="d3p1:АдресТип" lowerBound="0"/>
+		<property xmlns:d3p1="ON_AKTREZRABP_1_971_01_01_00_01" name="Контакт" type="d3p1:КонтактТип" lowerBound="0"/>
+		<property name="БанкРекв" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="НомерСчета" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+				</property>
+				<property name="СвБанк" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="НаимБанк" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property xmlns:d7p1="ON_AKTREZRABP_1_971_01_01_00_01" name="БИК" type="d7p1:БИКТип" lowerBound="0" form="Attribute"/>
+						<property name="КорСчет" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ФИОТип">
+		<property name="Фамилия" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+		<property name="Имя" lowerBound="1" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+		<property name="Отчество" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+	</objectType>
+</package>

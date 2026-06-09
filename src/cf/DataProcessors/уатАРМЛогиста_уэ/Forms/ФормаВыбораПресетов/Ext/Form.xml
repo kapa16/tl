@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выберите геозону</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Select a geofence</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКоманднаяПанель" id="28">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<Button name="ФормаВыбрать" id="26">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Выбрать</CommandName>
+					<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="27"/>
+				</Button>
+				<RadioButtonField name="Группа" id="23">
+					<DataPath>Группа</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>компании</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>companies</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">компании</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>публичные</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>public</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">публичные</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ГруппаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="25"/>
+					<Events>
+						<Event name="OnChange">ГруппаПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<CommandBar name="ГруппаКоманднаяПанельФормы" id="30">
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="ГруппаКоманднаяПанельФормыРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<Button name="ФормаОбновить" id="32">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Обновить</CommandName>
+							<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="33"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="СписокПресетов" id="1">
+			<Representation>List</Representation>
+			<DefaultItem>true</DefaultItem>
+			<ChoiceMode>true</ChoiceMode>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>СписокПресетов</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокПресетовКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокПресетовКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокПресетовРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокПресетовСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>СписокПресетов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПресетовСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокПресетовСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокПресетовСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>СписокПресетов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПресетовСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокПресетовСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокПресетовУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>СписокПресетов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПресетовУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокПресетовУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокПресетовВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="СписокПресетовНаименование" id="17">
+					<DataPath>СписокПресетов.Наименование</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокПресетовНаименованиеКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СписокПресетовНаименованиеРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="СписокПресетовОписание" id="20">
+					<DataPath>СписокПресетов.Описание</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокПресетовОписаниеКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокПресетовОписаниеРасширеннаяПодсказка" id="22"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатАРМЛогиста_уэ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СписокПресетов" id="2">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Тип" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Описание" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Description</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Группа" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Группа" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипПресета" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип пресета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Preset type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокПресетовНаименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СписокПресетовОписание</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокПресетов.Группа</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">Группа</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Обновить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+			<Representation>Picture</Representation>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДействуетДо</dataPath>
+			<field>ДействуетДо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Valid to</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Действует до</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС / Сотрудник</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle / Employee</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОсталосьДней</dataPath>
+			<field>ОсталосьДней</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Left days</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Осталось дней</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипОбъекта</dataPath>
+			<field>ТипОбъекта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип объекта (ТС / Основной водитель)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object type (Vehicle / Main driver)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидДокумента</dataPath>
+			<field>ВидДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document type</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредставлениеДокументаВодителя</dataPath>
+			<field>ПредставлениеДокументаВодителя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ водителя / ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver document / vehicle</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументСсылка</dataPath>
+			<field>ДокументСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ водителя / ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver document / vehicle</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ПредставлениеДокументаВодителя</presentationExpression>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+    ВложенныйЗапрос.Ссылка КАК Документ,
+    ВложенныйЗапрос.ВидДокумента КАК ВидДокумента,
+    ВложенныйЗапрос.ТипОбъекта КАК ТипОбъекта,
+    ВложенныйЗапрос.ПредставлениеДокументаВодителя КАК ПредставлениеДокументаВодителя,
+    ВложенныйЗапрос.Количество КАК Количество,
+    ВложенныйЗапрос.ОсталосьДней КАК ОсталосьДней,
+    ВложенныйЗапрос.ДействуетДо КАК ДействуетДо,
+    ВложенныйЗапрос.Объект КАК Объект,
+    ВложенныйЗапрос.ДокументСсылка КАК ДокументСсылка
+ИЗ
+    (ВЫБРАТЬ
+        уатПутевойЛист.Ссылка КАК Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.ПЛ) КАК ВидДокумента,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ОсновнойВодитель) КАК ТипОбъекта,
+        уатПутевойЛист.Водитель1 КАК Объект,
+        уатДокументыВодителей.ВидДокумента.Наименование + ", Серия " + уатДокументыВодителей.Серия + ", №" + уатДокументыВодителей.Номер КАК ПредставлениеДокументаВодителя,
+        1 КАК Количество,
+        ВЫБОР
+            КОГДА уатДокументыВодителей.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыВодителей.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ КАК ОсталосьДней,
+        уатДокументыВодителей.ДатаОкончания КАК ДействуетДо,
+        уатДокументыВодителей.Ссылка КАК ДокументСсылка
+    ИЗ
+        Документ.уатПутевойЛист КАК уатПутевойЛист
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыВодителей
+            ПО уатПутевойЛист.Водитель1 = уатДокументыВодителей.ВладелецДокументов
+                И (НЕ уатДокументыВодителей.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        уатПутевойЛист.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатПутевойЛист.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.ПЛ),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ВторойВодитель),
+        уатПутевойЛист.Водитель2,
+        уатДокументыВодителей.ВидДокумента.Наименование + ", Серия " + уатДокументыВодителей.Серия + ", №" + уатДокументыВодителей.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыВодителей.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыВодителей.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыВодителей.ДатаОкончания,
+        уатДокументыВодителей.Ссылка
+    ИЗ
+        Документ.уатПутевойЛист КАК уатПутевойЛист
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыВодителей
+            ПО уатПутевойЛист.Водитель2 = уатДокументыВодителей.ВладелецДокументов
+                И (НЕ уатДокументыВодителей.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        уатПутевойЛист.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатПутевойЛист.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.ПЛ),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ОсновноеСопроводительноеЛицо),
+        уатПутевойЛист.Сотрудник1,
+        уатДокументыВодителей.ВидДокумента.Наименование + ", Серия " + уатДокументыВодителей.Серия + ", №" + уатДокументыВодителей.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыВодителей.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыВодителей.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыВодителей.ДатаОкончания,
+        уатДокументыВодителей.Ссылка
+    ИЗ
+        Документ.уатПутевойЛист КАК уатПутевойЛист
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыВодителей
+            ПО уатПутевойЛист.Сотрудник1 = уатДокументыВодителей.ВладелецДокументов
+                И (НЕ уатДокументыВодителей.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        уатПутевойЛист.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатПутевойЛист.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.ПЛ),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ВтороеСопроводительноеЛицо),
+        уатПутевойЛист.Сотрудник2,
+        уатДокументыВодителей.ВидДокумента.Наименование + ", Серия " + уатДокументыВодителей.Серия + ", №" + уатДокументыВодителей.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыВодителей.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыВодителей.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыВодителей.ДатаОкончания,
+        уатДокументыВодителей.Ссылка
+    ИЗ
+        Документ.уатПутевойЛист КАК уатПутевойЛист
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыВодителей
+            ПО уатПутевойЛист.Сотрудник2 = уатДокументыВодителей.ВладелецДокументов
+                И (НЕ уатДокументыВодителей.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        уатПутевойЛист.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатПутевойЛист.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.ПЛ),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ТС),
+        уатПутевойЛист.ТранспортноеСредство,
+        уатДокументыТС.ВидДокумента.Наименование + ", Серия " + уатДокументыТС.Серия + ", №" + уатДокументыТС.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыТС.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыТС.ДатаОкончания,
+        уатДокументыТС.Ссылка
+    ИЗ
+        Документ.уатПутевойЛист КАК уатПутевойЛист
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыТС
+            ПО уатПутевойЛист.ТранспортноеСредство = уатДокументыТС.ВладелецДокументов
+                И (НЕ уатДокументыТС.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        уатПутевойЛист.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатРазнарядкаРазнарядка.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.Разнарядка),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ОсновнойВодитель),
+        уатРазнарядкаРазнарядка.Водитель,
+        уатДокументыВодителей.ВидДокумента.Наименование + ", Серия " + уатДокументыВодителей.Серия + ", №" + уатДокументыВодителей.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыВодителей.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыВодителей.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыВодителей.ДатаОкончания,
+        уатДокументыВодителей.Ссылка
+    ИЗ
+        Документ.уатРазнарядка.Разнарядка КАК уатРазнарядкаРазнарядка
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыВодителей
+            ПО уатРазнарядкаРазнарядка.Водитель = уатДокументыВодителей.ВладелецДокументов
+                И (НЕ уатДокументыВодителей.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        ВЫБОР
+                КОГДА &amp;ДатаКонца = ДАТАВРЕМЯ(1, 1, 1)
+                    ТОГДА уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаНачала
+                ИНАЧЕ уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+            КОНЕЦ
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатРазнарядкаРазнарядка.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.Разнарядка),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ВторойВодитель),
+        уатРазнарядкаРазнарядка.Водитель2,
+        уатДокументыВодителей.ВидДокумента.Наименование + ", Серия " + уатДокументыВодителей.Серия + ", №" + уатДокументыВодителей.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыВодителей.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыВодителей.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыВодителей.ДатаОкончания,
+        уатДокументыВодителей.Ссылка
+    ИЗ
+        Документ.уатРазнарядка.Разнарядка КАК уатРазнарядкаРазнарядка
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыВодителей
+            ПО уатРазнарядкаРазнарядка.Водитель2 = уатДокументыВодителей.ВладелецДокументов
+                И (НЕ уатДокументыВодителей.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        ВЫБОР
+                КОГДА &amp;ДатаКонца = ДАТАВРЕМЯ(1, 1, 1)
+                    ТОГДА уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаНачала
+                ИНАЧЕ уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+            КОНЕЦ
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатРазнарядкаРазнарядка.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.Разнарядка),
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ТС),
+        уатРазнарядкаРазнарядка.ТС,
+        уатДокументыТС.ВидДокумента.Наименование + ", Серия " + уатДокументыТС.Серия + ", №" + уатДокументыТС.Номер,
+        1,
+        ВЫБОР
+            КОГДА уатДокументыТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатДокументыТС.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатДокументыТС.ДатаОкончания,
+        уатДокументыТС.Ссылка
+    ИЗ
+        Документ.уатРазнарядка.Разнарядка КАК уатРазнарядкаРазнарядка
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатРегистрационныеДокументы КАК уатДокументыТС
+            ПО уатРазнарядкаРазнарядка.ТС = уатДокументыТС.ВладелецДокументов
+                И (НЕ уатДокументыТС.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        ВЫБОР
+                КОГДА &amp;ДатаКонца = ДАТАВРЕМЯ(1, 1, 1)
+                    ТОГДА уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаНачала
+                ИНАЧЕ уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+            КОНЕЦ
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатПутевойЛист.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.ПЛ),
+        ВЫБОР
+            КОГДА уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Водитель1
+                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ОсновнойВодитель)
+            ИНАЧЕ ВЫБОР
+                    КОГДА уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Водитель2
+                        ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ВторойВодитель)
+                    ИНАЧЕ ВЫБОР
+                            КОГДА уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Сотрудник1
+                                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ОсновноеСопроводительноеЛицо)
+                            ИНАЧЕ ВЫБОР
+                                    КОГДА уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Сотрудник2
+                                        ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ВтороеСопроводительноеЛицо)
+                                    ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ТС)
+                                КОНЕЦ
+                        КОНЕЦ
+                КОНЕЦ
+        КОНЕЦ,
+        уатПластиковыеКарты.КомуВыдана,
+        "Топливная карта, " + уатПластиковыеКарты.Код,
+        1,
+        ВЫБОР
+            КОГДА уатПластиковыеКарты.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатПластиковыеКарты.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатПластиковыеКарты.ДатаОкончания,
+        уатПластиковыеКарты.Ссылка
+    ИЗ
+        Справочник.уатПластиковыеКарты КАК уатПластиковыеКарты
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист
+            ПО (уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Водитель1
+                    ИЛИ уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Водитель2
+                    ИЛИ уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Сотрудник1
+                    ИЛИ уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.Сотрудник2
+                    ИЛИ уатПластиковыеКарты.КомуВыдана = уатПутевойЛист.ТранспортноеСредство)
+                И (НЕ уатПластиковыеКарты.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+    ГДЕ
+        уатПутевойЛист.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+    
+    ОБЪЕДИНИТЬ ВСЕ
+    
+    ВЫБРАТЬ
+        уатРазнарядкаРазнарядка.Ссылка,
+        ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаПЛРазнарядка.Разнарядка),
+        ВЫБОР
+            КОГДА уатПластиковыеКарты.КомуВыдана = уатРазнарядкаРазнарядка.Водитель
+                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ОсновнойВодитель)
+            ИНАЧЕ ВЫБОР
+                    КОГДА уатПластиковыеКарты.КомуВыдана = уатРазнарядкаРазнарядка.Водитель2
+                        ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ВторойВодитель)
+                    ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаТипВладельцаДокумента.ТС)
+                КОНЕЦ
+        КОНЕЦ,
+        уатПластиковыеКарты.КомуВыдана,
+        "Топливная карта, " + уатПластиковыеКарты.Код,
+        1,
+        ВЫБОР
+            КОГДА уатПластиковыеКарты.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА 0
+            ИНАЧЕ РАЗНОСТЬДАТ(&amp;ДатаКонца, уатПластиковыеКарты.ДатаОкончания, ДЕНЬ)
+        КОНЕЦ,
+        уатПластиковыеКарты.ДатаОкончания,
+        уатПластиковыеКарты.Ссылка
+    ИЗ
+        Справочник.уатПластиковыеКарты КАК уатПластиковыеКарты
+            ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.уатРазнарядка.Разнарядка КАК уатРазнарядкаРазнарядка
+            ПО (НЕ уатПластиковыеКарты.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыдействия.НеДействует))
+                И (уатПластиковыеКарты.КомуВыдана = уатРазнарядкаРазнарядка.Водитель
+                    ИЛИ уатПластиковыеКарты.КомуВыдана = уатРазнарядкаРазнарядка.Водитель2
+                    ИЛИ уатПластиковыеКарты.КомуВыдана = уатРазнарядкаРазнарядка.ТС)
+    ГДЕ
+        ВЫБОР
+                КОГДА &amp;ДатаКонца = ДАТАВРЕМЯ(1, 1, 1)
+                    ТОГДА уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаНачала
+                ИНАЧЕ уатРазнарядкаРазнарядка.ДатаВозвращения МЕЖДУ &amp;ДатаНачала И &amp;ДатаКонца
+            КОНЕЦ) КАК ВложенныйЗапрос</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОсталосьДней</dataPath>
+		<expression>Минимум(ОсталосьДней)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДействуетДо</dataPath>
+		<expression>Минимум(ДействуетДо)</expression>
+	</totalField>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Start date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаКонца</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата конца</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Документы по путевым листам и разнарядкам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Documents by waybills and daily vehicles plans</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Документы по путевым листам и разнарядкам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОсталосьДней</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДействуетДо</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>87d50640-951a-4d42-94ef-8aac238921e3</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидДокумента</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>ce75d190-9f41-4a87-a907-1af526c47c93</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Документ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>ae0e9e94-0e4d-44ec-a4e0-700a0e037436</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>247e5c9c-06c1-4ca8-b341-af2f6c7918ac</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>7ec67c7c-fc9e-43c2-987e-11012cccb20a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>d35e3428-c493-47cd-b999-8fe9bc6b934a</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>987517d5-16cc-4ab2-98a0-abc039facba8</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОсталосьДней</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>f91b8b2d-bd19-49da-b527-531f540aef26</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы по путевым листам и разнарядкам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Documents by waybills and daily vehicles plans</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Документ</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Объект</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ДокументСсылка</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>98ff7b25-158e-4669-95b5-27934f077580</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

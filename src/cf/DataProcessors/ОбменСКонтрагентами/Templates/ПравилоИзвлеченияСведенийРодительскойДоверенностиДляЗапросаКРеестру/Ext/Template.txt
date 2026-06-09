@@ -1,0 +1,123 @@
+﻿<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+    xmlns:func="http://exslt.org/functions" extension-element-prefixes="func"
+    xmlns:m4d_003="urn://x-artefacts/EMCHD_1"
+    xmlns:common="common"
+    xmlns:f_002="f_002"
+    xmlns:f_003="f_003">
+
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+
+    <xsl:template match="/">
+        <Structure xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Structure">
+            <Property name="НомерДоверенности">
+                <Value xsi:type="xs:string">
+                    <xsl:value-of select="common:НомерДоверенности()"/>
+                </Value>
+            </Property>
+            <Property name="ИННДоверителя">
+                <Value xsi:type="xs:string">
+                    <xsl:value-of select="common:ИННДоверителя()"/>
+                </Value>
+            </Property>
+        </Structure>
+    </xsl:template>
+
+    <!-- Начало общих функций -->
+
+    <func:function name="common:НомерДоверенности">
+        <xsl:choose>
+            <xsl:when test="common:ЭтоФормат003()">
+                <func:result select="m4d_003:Доверенность/m4d_003:Документ[1]/m4d_003:Передов[1]/m4d_003:СвПервДовер[1]/@НомДоверПерв" />
+            </xsl:when>
+            <xsl:otherwise>
+                <func:result select="Доверенность/Документ[1]/Передов[1]/СвДовПер[1]/НомДоверN" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </func:function>
+
+    <func:function name="common:ИННДоверителя">
+        <xsl:choose>
+            <xsl:when test="common:ЭтоФормат003()">
+                <xsl:variable name="Доверитель" select="m4d_003:Доверенность/m4d_003:Документ[1]/m4d_003:Передов[1]/m4d_003:СвПервДовер[1]/m4d_003:СвДоверПерв[1]"/>
+                <xsl:choose>
+                    <xsl:when test="$Доверитель/@ТипДоверит = f_003:ЮридическоеЛицо()">
+                        <func:result select="$Доверитель/m4d_003:ДоверитПерв[1]/m4d_003:РосОргДовер[1]/@ИННЮЛ" />
+                    </xsl:when>
+                    <xsl:when test="$Доверитель/@ТипДоверит = f_003:ИностранноеЮридическоеЛицо()">
+                        <func:result select="$Доверитель/m4d_003:ДоверитПерв[1]/m4d_003:ИнОргДовер[1]/@ИННЮЛ" />
+                    </xsl:when>
+                    <xsl:when test="$Доверитель/@ТипДоверит = f_003:ИндивидуальныйПредприниматель()">
+                        <func:result select="$Доверитель/m4d_003:ДоверитПерв[1]/m4d_003:ИПДовер[1]/@ИННФЛ" />
+                    </xsl:when>
+                    <xsl:when test="$Доверитель/@ТипДоверит = f_003:ФизическоеЛицо()">
+                        <func:result select="$Доверитель/m4d_003:ДоверитПерв[1]/m4d_003:ФЛДовер[1]/@ИННФЛ" />
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="Доверитель" select="Доверенность[1]/Документ[1]/Передов[1]/СвДовПер[1]/СвОснДовер[1]/СвДовер0[1]"/>
+                <xsl:choose>
+                    <xsl:when test="$Доверитель/@ТипДовер = f_002:ЮридическоеЛицо()">
+                        <func:result select="$Доверитель/РосОргДовер[1]/@ИННЮЛ" />
+                    </xsl:when>
+                    <xsl:when test="$Доверитель/@ТипДовер = f_002:ИностранноеЮридическоеЛицо()">
+                        <func:result select="$Доверитель/ИнОргДовер[1]/@ИННЮЛ" />
+                    </xsl:when>
+                    <xsl:when test="$Доверитель/@ТипДовер = f_002:ИндивидуальныйПредприниматель()">
+                        <func:result select="$Доверитель/ИПДовер[1]/@ИННФЛ" />
+                    </xsl:when>
+                    <xsl:when test="$Доверитель/@ТипДовер = f_002:ФизическоеЛицо()">
+                        <func:result select="$Доверитель/ФЛДовер[1]/@ИННФЛ" />
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
+    </func:function>
+
+    <func:function name="common:ЭтоФормат003">
+        <func:result select="not(not(m4d_003:Доверенность))" />
+    </func:function>
+
+    <!-- Конец общих функций -->
+
+    <!-- Начало функций формата МЧД 003 -->
+
+    <func:function name="f_003:ЮридическоеЛицо">
+        <func:result select="'1'" />
+    </func:function>
+
+    <func:function name="f_003:ИностранноеЮридическоеЛицо">
+        <func:result select="'2'" />
+    </func:function>
+
+    <func:function name="f_003:ИндивидуальныйПредприниматель">
+        <func:result select="'3'" />
+    </func:function>
+
+    <func:function name="f_003:ФизическоеЛицо">
+        <func:result select="'4'" />
+    </func:function>
+
+    <!-- Конец функций формата МЧД 003 -->
+
+    <!-- Начало функций формата МЧД 002 -->
+
+    <func:function name="f_002:ЮридическоеЛицо">
+        <func:result select="'ЮЛ'" />
+    </func:function>
+
+    <func:function name="f_002:ИностранноеЮридическоеЛицо">
+        <func:result select="'ИО'" />
+    </func:function>
+
+    <func:function name="f_002:ИндивидуальныйПредприниматель">
+        <func:result select="'ИП'" />
+    </func:function>
+
+    <func:function name="f_002:ФизическоеЛицо">
+        <func:result select="'ФЛ'" />
+    </func:function>
+
+    <!-- Конец функций формата МЧД 002 -->
+
+</xsl:stylesheet>

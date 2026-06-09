@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнитьПоOSM" id="15">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗаполнитьПоOSM</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьПоOSMРасширеннаяПодсказка" id="16"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Пункт1" id="1">
+			<DataPath>Запись.Пункт1</DataPath>
+			<ContextMenu name="Пункт1КонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="Пункт1РасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Пункт2" id="4">
+			<DataPath>Запись.Пункт2</DataPath>
+			<ContextMenu name="Пункт2КонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="Пункт2РасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<UsualGroup name="РасстояниеВремя" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние время</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Distance time</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расстояние время</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Distance time</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="РасстояниеВремяРасширеннаяПодсказка" id="14"/>
+			<ChildItems>
+				<InputField name="Расстояние" id="7">
+					<DataPath>Запись.Расстояние</DataPath>
+					<ContextMenu name="РасстояниеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РасстояниеРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="Время" id="10">
+					<DataPath>Запись.Время</DataPath>
+					<ContextMenu name="ВремяКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ВремяРасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ВремяПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.уатРасстоянияМеждуПунктами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПоOSM" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить время и расстояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill time and distance</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить время и расстояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill time and distance</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатВремяРасстояние</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьПоOSM</Action>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

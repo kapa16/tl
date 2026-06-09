@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<ButtonGroup name="ГруппаОрганайзерОтправить" id="12">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Органайзер отправить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Send organizer</v8:content>
+					</v8:item>
+				</Title>
+				<Representation>Compact</Representation>
+				<ExtendedTooltip name="ГруппаОрганайзерОтправитьРасширеннаяПодсказка" id="13"/>
+				<ChildItems>
+					<Popup name="ПодменюОрганайзер" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Органайзер</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Organizer</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>CommonPicture.Напоминание</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОрганайзерРасширеннаяПодсказка" id="15"/>
+					</Popup>
+					<Popup name="ПодменюОтправить" id="16">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправить</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Send</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>StdPicture.SendMessage</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОтправитьРасширеннаяПодсказка" id="17"/>
+					</Popup>
+				</ChildItems>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="10">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="11"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="Услуга" id="7">
+			<DataPath>Объект.Услуга</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="УслугаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="УслугаРасширеннаяПодсказка" id="9"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВидыНоменклатуры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

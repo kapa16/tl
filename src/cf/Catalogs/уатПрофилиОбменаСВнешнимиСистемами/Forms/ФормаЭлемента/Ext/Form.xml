@@ -1,0 +1,1146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ТипСистемы" id="102">
+			<DataPath>Объект.ТипСистемы</DataPath>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="ТипСистемыКонтекстноеМеню" id="103"/>
+			<ExtendedTooltip name="ТипСистемыРасширеннаяПодсказка" id="104"/>
+			<Events>
+				<Event name="OnChange">ТипСистемыПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ВнешняяСистема" id="133">
+			<DataPath>Объект.ВнешняяСистема</DataPath>
+			<ChoiceParameterLinks>
+				<xr:Link>
+					<xr:Name>Отбор.ТипВнешнейСистемы</xr:Name>
+					<xr:DataPath xsi:type="xs:string">Объект.ТипСистемы</xr:DataPath>
+					<xr:ValueChange>Clear</xr:ValueChange>
+				</xr:Link>
+			</ChoiceParameterLinks>
+			<ContextMenu name="ВнешняяСистемаКонтекстноеМеню" id="134"/>
+			<ExtendedTooltip name="ВнешняяСистемаРасширеннаяПодсказка" id="135"/>
+			<Events>
+				<Event name="OnChange">ВнешняяСистемаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Pages name="Страницы" id="116">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="117"/>
+			<ChildItems>
+				<Page name="СтраницаЗагрузкаЗаправок" id="118">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загрузка заправок ГСМ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Loading fuel and lubricants filling stations</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаЗагрузкаЗаправокРасширеннаяПодсказка" id="119"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЗагрузкаЗаправок" id="105">
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗагрузкаЗаправокРасширеннаяПодсказка" id="106"/>
+							<ChildItems>
+								<CheckBoxField name="ТолькоПроверенные" id="16">
+									<DataPath>Объект.ТолькоПроверенные</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Только проверенные заправки ГСМ</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Only checked fueling</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ТолькоПроверенныеКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ТолькоПроверенныеExtendedTooltip" id="18"/>
+								</CheckBoxField>
+								<CheckBoxField name="ЗаменятьАналогНаОсновноеТопливо" id="113">
+									<DataPath>Объект.ЗаменятьАналогНаОсновноеТопливо</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ЗаменятьАналогНаОсновноеТопливоКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="ЗаменятьАналогНаОсновноеТопливоРасширеннаяПодсказка" id="115"/>
+								</CheckBoxField>
+								<CheckBoxField name="ПроводитьСозданныеЗаправкиГСМ" id="210">
+									<DataPath>Объект.ПроводитьСозданныеЗаправкиГСМ</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Если данный флажок установлен, то сформированные "Заправки ГСМ" и "Сливы ГСМ" проводятся, иначе документы записываются без проведения.</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>If this flag is checked, then the generated "Fuel and Lubricant Fillings" and "Fuel and Lubricant Drainings" are posted; otherwise, the documents are recorded without posting.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ПроводитьСозданныеЗаправкиГСМКонтекстноеМеню" id="211"/>
+									<ExtendedTooltip name="ПроводитьСозданныеЗаправкиГСМExtendedTooltip" id="212"/>
+								</CheckBoxField>
+								<CheckBoxField name="ОбрабатыватьРассчитанныеПутевыеЛисты" id="204">
+									<DataPath>Объект.ОбрабатыватьРассчитанныеПутевыеЛисты</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Если флаг установлен, то заправки будут подставляться и в рассчитанные путевые листы. При этом будет выполнен перерасчет расхода ГСМ в ПЛ.</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>If the flag is set, refuelings will be included in calculated waybills. This will also recalculate fuel consumption in the PL.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ОбрабатыватьРассчитанныеПутевыеЛистыКонтекстноеМеню" id="205"/>
+									<ExtendedTooltip name="ОбрабатыватьРассчитанныеПутевыеЛистыExtendedTooltip" id="206"/>
+								</CheckBoxField>
+								<CheckBoxField name="ПересчитатьПутевыеЛисты" id="207">
+									<DataPath>Объект.ПересчитатьПутевыеЛисты</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>После загрузки заправок ГСМ и привязки их к путевым листам, будет выполнен перерасчет количества выданного ГСМ в табличной части "Расход ГСМ"</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>After loading fuel and lubricant refills and linking them to waybills, the amount of fuel and lubricants issued will be recalculated in the "Fuel and lubricants consumption" tabular section.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ПересчитатьПутевыеЛистыКонтекстноеМеню" id="208"/>
+									<ExtendedTooltip name="ПересчитатьПутевыеЛистыExtendedTooltip" id="209"/>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаГлубинаПоискаПЛ" id="185">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Глубина поиска технологических ПЛ для подстановки в заправки ГСМ</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Depth of waybill search</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа глубина поиска ПЛ</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>group search depth WB</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаГлубинаПоискаПЛРасширеннаяПодсказка" id="186"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияДоп2" id="187">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Максимальное отклонение времени заправки ГСМ от периода путевого листа:</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Maximum deviation of fuel and lubricant refill time from the waybill period:</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Путевой лист считается подходящим и подставляется в заправку ГСМ, если время заправки находится в интервале с [время выезда ПЛ минус глубина поиска до выезда] по [время возвращения ПЛ плюс глубина поиска после возвращения]</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>The waybill is considered suitable and is substituted for the fuel refill if the refill time is in the interval from [the submarine's departure time minus the search depth before departure] to [the submarine's return time plus the search depth after return]</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ContextMenu name="ДекорацияДоп2КонтекстноеМеню" id="188"/>
+											<ExtendedTooltip name="ДекорацияДоп2РасширеннаяПодсказка" id="189"/>
+										</LabelDecoration>
+										<UsualGroup name="ГруппаГлубинаПоискаПЛ2" id="190">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Глубина поиска технологических ПЛ для подстановки в заправки ГСМ</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Depth of waybill search</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа глубина поиска ПЛ</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>group search depth WB</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ThroughAlign>DontUse</ThroughAlign>
+											<ExtendedTooltip name="ГруппаГлубинаПоискаПЛ2РасширеннаяПодсказка" id="191"/>
+											<ChildItems>
+												<InputField name="ГлубинаПоискаПЛДоВыезда" id="192">
+													<DataPath>Объект.ГлубинаПоискаПЛДоВыезда</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>до выезда</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Before departure, hours</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Left</TitleLocation>
+													<Width>5</Width>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="ГлубинаПоискаПЛДоВыездаКонтекстноеМеню" id="193"/>
+													<ExtendedTooltip name="ГлубинаПоискаПЛДоВыездаРасширеннаяПодсказка" id="194"/>
+												</InputField>
+												<LabelDecoration name="Декорация1" id="195">
+													<Width>3</Width>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ч.</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>h.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация1КонтекстноеМеню" id="196"/>
+													<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="197"/>
+												</LabelDecoration>
+												<InputField name="ГлубинаПоискаПЛПослеВозвращения" id="198">
+													<DataPath>Объект.ГлубинаПоискаПЛПослеВозвращения</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>после возвращения</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>After return, hours</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Left</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Путевой лист считается подходящим и подставляется в заправку ГСМ, если время заправки находится в интервале с [время выезда ПЛ минус глубина поиска до выезда] по [время возвращения ПЛ плюс глубина поиска после возвращения]</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>The waybill is considered suitable and is substituted for the fuel refill if the refill time is in the interval from [the submarine's departure time minus the search depth before departure] to [the submarine's return time plus the search depth after return]</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>None</ToolTipRepresentation>
+													<Width>5</Width>
+													<SpinButton>true</SpinButton>
+													<ContextMenu name="ГлубинаПоискаПЛПослеВозвращенияКонтекстноеМеню" id="199"/>
+													<ExtendedTooltip name="ГлубинаПоискаПЛПослеВозвращенияРасширеннаяПодсказка" id="200"/>
+												</InputField>
+												<LabelDecoration name="Декорация2" id="201">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ч.</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>h.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="Декорация2КонтекстноеМеню" id="202"/>
+													<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="203"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<RadioButtonField name="РежимОбработкиЗаправок" id="232">
+									<DataPath>Объект.РежимОбработкиЗаправок</DataPath>
+									<TitleLocation>Top</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При установленном режиме работы "Создавать заправку" для строк с положительным количеством будут сформированы документы "Заправка ГСМ".
+При установленном режиме работы "Пропускать строки" строки с положительным  количеством будут пропущены. </v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<RadioButtonType>Tumbler</RadioButtonType>
+									<ItemWidth>21</ItemWidth>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Создавать заправку</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Create a dressing</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Пропускать строки</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Skip lines</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="РежимОбработкиЗаправокКонтекстноеМеню" id="233"/>
+									<ExtendedTooltip name="РежимОбработкиЗаправокРасширеннаяПодсказка" id="234"/>
+									<Events>
+										<Event name="OnChange">РежимОбработкиЗаправокПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+								<RadioButtonField name="РежимОбработкиСливов" id="226">
+									<DataPath>Объект.РежимОбработкиСливов</DataPath>
+									<TitleLocation>Top</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При установленном режиме работы "Создавать слив"  для строк с отрицательным количеством будут сформированы документы "Слив ГСМ".
+
+При установленном режиме работы "Уменьшать заправку" количество “Слива ГСМ” вычитается из “Заправок ГСМ”, соответствующих по ключевым полям. 
+Например, при загрузке  двух строк “Заправка ГСМ” с количеством 30 и “Слива ГСМ” с количеством 5, будет создана одна “Заправка ГСМ” с количеством 25.
+Заправки могут быть модифицированы с разницей во времени от текущего слива не более 1 часа.
+Если для “Сливов ГСМ” не найдены соответствующие “Заправки ГСМ”, будут сформированы документы "Слив ГСМ".
+
+При установленном режиме работы "Пропускать строки" строки с отрицательным количеством будут пропущены. </v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<RadioButtonType>Tumbler</RadioButtonType>
+									<ItemWidth>21</ItemWidth>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Создавать слив</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Create a drain</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Уменьшать заправку</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Reduce refueling</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">2</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Пропускать строки</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Skip lines</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">3</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="РежимОбработкиСливовКонтекстноеМеню" id="227"/>
+									<ExtendedTooltip name="РежимОбработкиСливовРасширеннаяПодсказка" id="228"/>
+								</RadioButtonField>
+								<UsualGroup name="ГруппаНастройкиДополнительно" id="12">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительно</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Add. inf.</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки дополнительно</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Settings group additionally</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ThroughAlign>Use</ThroughAlign>
+									<ExtendedTooltip name="ГруппаНастройкиДополнительноРасширеннаяПодсказка" id="13"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаНастройкиДополнительноИнформация" id="216">
+											<HorizontalStretch>true</HorizontalStretch>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<Group>AlwaysHorizontal</Group>
+											<VerticalSpacing>Single</VerticalSpacing>
+											<VerticalAlign>Center</VerticalAlign>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<BackColor>#FFF4CD</BackColor>
+											<ExtendedTooltip name="ГруппаНастройкиДополнительноИнформацияРасширеннаяПодсказка" id="217"/>
+											<ChildItems>
+												<PictureDecoration name="ДекорацияИнформацияИзображение1" id="218">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Decoration информация1</v8:content>
+														</v8:item>
+													</Title>
+													<PictureSize>AutoSize</PictureSize>
+													<Picture>
+														<xr:Ref>CommonPicture.уатИнформация16</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<FileDragMode>AsFile</FileDragMode>
+													<ContextMenu name="ДекорацияИнформацияИзображение1КонтекстноеМеню" id="219"/>
+													<ExtendedTooltip name="ДекорацияИнформацияИзображение1РасширеннаяПодсказка" id="220"/>
+												</PictureDecoration>
+												<LabelDecoration name="ДекорацияНазначение" id="221">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Title formatted="true">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>&lt;fontsize 10&gt;Настройки применяются только при использовании обработки "Загрузить заправки ГСМ из отчетов ПЦ"&lt;/&gt;</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>The settings are applied only when using the "Download fuel refills from PC reports" processing.</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияНазначениеКонтекстноеМеню" id="222"/>
+													<ExtendedTooltip name="ДекорацияНазначениеРасширеннаяПодсказка" id="223"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаНастройкиДополнительноОсновное" id="224">
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНастройкиДополнительноОсновноеРасширеннаяПодсказка" id="225"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаЛевая" id="14">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа левая</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Left group</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа левая</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Left group</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЛеваяРасширеннаяПодсказка" id="15"/>
+													<ChildItems>
+														<CheckBoxField name="ОткрыватьФормыЗаписанныхЗаправок" id="33">
+															<DataPath>Объект.ОткрыватьФормыЗаписанныхЗаправок</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Если данный флажок установлен, будут открываться сформированные документы.</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>If this checkbox is checked, generated documents will be opened.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Switcher</CheckBoxType>
+															<ContextMenu name="ОткрыватьФормыЗаписанныхЗаправокКонтекстноеМеню" id="34"/>
+															<ExtendedTooltip name="ОткрыватьФормыЗаписанныхЗаправокExtendedTooltip" id="35"/>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаПравая" id="28">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа правая</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Right group</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа правая</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Right group</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПраваяРасширеннаяПодсказка" id="29"/>
+													<ChildItems>
+														<CheckBoxField name="ФлажокКомментироватьХодВыполнения" id="25">
+															<DataPath>Объект.КомментироватьХодВыполнения</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Если данный флажок установлен, пользователю сообщается о сформированных документах.</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>If this flag is checked, the user is informed about the generated documents.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<CheckBoxType>Switcher</CheckBoxType>
+															<ContextMenu name="ФлажокКомментироватьХодВыполненияКонтекстноеМеню" id="26"/>
+															<ExtendedTooltip name="ФлажокКомментироватьХодВыполненияExtendedTooltip" id="27"/>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПредупреждения" id="39">
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПредупрежденияРасширеннаяПодсказка" id="40"/>
+											<ChildItems>
+												<RadioButtonField name="ПроверятьНаличиеДублейПоСозданнымРанееДокументам" id="213">
+													<DataPath>Объект.ПроверятьНаличиеДублейПоСозданнымРанееДокументам</DataPath>
+													<TitleLocation>Top</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Под дублем здесь понимается новая загружаемая заправка ГСМ, данные которой совпадают с данными какой-либо имеющейся в базе заправки ГСМ. Варианты обработки данной ситуации
+Не проверять - дубль будет загружен в любом случае, никаких сообщений не выводится,
+Проверять - дубль не будет загружен, выводится сообщение с краткой информацией,
+Предупреждать - дубль будет загружен, выводится сообщение с краткой информацией</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>A duplicate here is defined as a newly loaded fuel fill-up whose data matches the data of any fuel fill-up already in the database. Options for handling this situation:
+Do not check - the duplicate will be loaded regardless, no messages are displayed;
+Check - the duplicate will not be loaded, a message with brief information is displayed;
+Warn - the duplicate will be loaded, a message with brief information is displayed.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<RadioButtonType>Tumbler</RadioButtonType>
+													<ItemWidth>13</ItemWidth>
+													<EqualColumnsWidth>true</EqualColumnsWidth>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Не проверять</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Do not check</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">0</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Проверять</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Check</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">1</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Warn</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Предупреждать</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">2</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ПроверятьНаличиеДублейПоСозданнымРанееДокументамКонтекстноеМеню" id="214"/>
+													<ExtendedTooltip name="ПроверятьНаличиеДублейПоСозданнымРанееДокументамРасширеннаяПодсказка" id="215"/>
+												</RadioButtonField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЗагрузкаДанныхПЦ" id="120">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загрузка данных ПЦ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group check box</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загрузка данных ПЦ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group check box</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЗагрузкаДанныхПЦРасширеннаяПодсказка" id="121"/>
+					<ChildItems>
+						<CheckBoxField name="УчитыватьНаценкиСкидки" id="130">
+							<DataPath>Объект.УчитыватьНаценкиСкидки</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчитыватьНаценкиСкидкиКонтекстноеМеню" id="131"/>
+							<ExtendedTooltip name="УчитыватьНаценкиСкидкиРасширеннаяПодсказка" id="132"/>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаНастройки" id="44">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Settings</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Settings</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиExtendedTooltip" id="45"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСоответствие" id="109">
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСоответствиеРасширеннаяПодсказка" id="110"/>
+									<ChildItems>
+										<RadioButtonField name="ТипСоответствияКолонок" id="46">
+											<DataPath>Объект.ТипСоответствияКолонок</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Соответствие колонок</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Column matching</v8:content>
+												</v8:item>
+											</Title>
+											<RadioButtonType>Tumbler</RadioButtonType>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>По имени</v8:content>
+															</v8:item>
+															<v8:item>
+																<v8:lang>en</v8:lang>
+																<v8:content>By name</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">0</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>По номеру</v8:content>
+															</v8:item>
+															<v8:item>
+																<v8:lang>en</v8:lang>
+																<v8:content>By number</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ТипСоответствияКолонокКонтекстноеМеню" id="47"/>
+											<ExtendedTooltip name="ТипСоответствияКолонокExtendedTooltip" id="48"/>
+											<Events>
+												<Event name="OnChange">ТипСоответствияКолонокПриИзменении</Event>
+											</Events>
+										</RadioButtonField>
+										<Button name="ЗаполнитьПоШаблону" id="107">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ЗаполнитьПоШаблону</CommandName>
+											<ExtendedTooltip name="ЗаполнитьПоШаблонуРасширеннаяПодсказка" id="108"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<Table name="СоответствиеКолонок" id="49">
+									<Representation>List</Representation>
+									<CommandBarLocation>None</CommandBarLocation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.СоответствиеКолонок</DataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СоответствиеКолонокКонтекстноеМеню" id="50"/>
+									<AutoCommandBar name="СоответствиеКолонокКоманднаяПанель" id="51"/>
+									<ExtendedTooltip name="СоответствиеКолонокРасширеннаяПодсказка" id="52"/>
+									<SearchStringAddition name="СоответствиеКолонокСтрокаПоиска" id="53">
+										<AdditionSource>
+											<Item>СоответствиеКолонок</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СоответствиеКолонокСтрокаПоискаКонтекстноеМеню" id="54"/>
+										<ExtendedTooltip name="СоответствиеКолонокСтрокаПоискаРасширеннаяПодсказка" id="55"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СоответствиеКолонокСостояниеПросмотра" id="56">
+										<AdditionSource>
+											<Item>СоответствиеКолонок</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СоответствиеКолонокСостояниеПросмотраКонтекстноеМеню" id="57"/>
+										<ExtendedTooltip name="СоответствиеКолонокСостояниеПросмотраРасширеннаяПодсказка" id="58"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СоответствиеКолонокУправлениеПоиском" id="59">
+										<AdditionSource>
+											<Item>СоответствиеКолонок</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СоответствиеКолонокУправлениеПоискомКонтекстноеМеню" id="60"/>
+										<ExtendedTooltip name="СоответствиеКолонокУправлениеПоискомРасширеннаяПодсказка" id="61"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<ColumnGroup name="СоответствиеКолонокГруппаИспольз" id="62">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Соответствие колонок группа использ</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Column matching group usage</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Соответствие колонок группа использ</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Column matching group usage</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>3</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ExtendedTooltip name="СоответствиеКолонокГруппаИспользExtendedTooltip" id="63"/>
+											<ChildItems>
+												<CheckBoxField name="СоответствиеКолонокИспользование" id="99">
+													<DataPath>Объект.СоответствиеКолонок.Использование</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="СоответствиеКолонокИспользованиеКонтекстноеМеню" id="100"/>
+													<ExtendedTooltip name="СоответствиеКолонокИспользованиеРасширеннаяПодсказка" id="101"/>
+													<Events>
+														<Event name="OnChange">СоответствиеКолонокИспользованиеПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+											</ChildItems>
+										</ColumnGroup>
+										<InputField name="СоответствиеКолонокКолонкаДокумента" id="87">
+											<DataPath>Объект.СоответствиеКолонок.КолонкаДокументаПредставление</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СоответствиеКолонокКолонкаДокументаКонтекстноеМеню" id="88"/>
+											<ExtendedTooltip name="СоответствиеКолонокКолонкаДокументаРасширеннаяПодсказка" id="89"/>
+										</InputField>
+										<InputField name="СоответствиеКолонокИмяКолонкиФайла" id="90">
+											<DataPath>Объект.СоответствиеКолонок.ИмяКолонкиФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СоответствиеКолонокИмяКолонкиФайлаКонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="СоответствиеКолонокИмяКолонкиФайлаРасширеннаяПодсказка" id="92"/>
+											<Events>
+												<Event name="OnChange">СоответствиеКолонокИмяКолонкиФайлаПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="СоответствиеКолонокНомерКолонкиФайла" id="96">
+											<DataPath>Объект.СоответствиеКолонок.НомерКолонкиФайла</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СоответствиеКолонокНомерКолонкиФайлаКонтекстноеМеню" id="97"/>
+											<ExtendedTooltip name="СоответствиеКолонокНомерКолонкиФайлаРасширеннаяПодсказка" id="98"/>
+											<Events>
+												<Event name="OnChange">СоответствиеКолонокНомерКолонкиФайлаПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="ГруппаОписание" id="122">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group tariff</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа тариф</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group tariff</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<GroupVerticalAlign>Center</GroupVerticalAlign>
+									<Group>Horizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ThroughAlign>Use</ThroughAlign>
+									<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="123"/>
+									<ChildItems>
+										<PictureDecoration name="ДекорацияИнформацияИзображение" id="124">
+											<Width>2</Width>
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration информация1</v8:content>
+												</v8:item>
+											</Title>
+											<PictureSize>AutoSize</PictureSize>
+											<Picture>
+												<xr:Ref>CommonPicture.Информация32</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ДекорацияИнформацияИзображениеКонтекстноеМеню" id="125"/>
+											<ExtendedTooltip name="ДекорацияИнформацияИзображениеРасширеннаяПодсказка" id="126"/>
+										</PictureDecoration>
+										<LabelDecoration name="ДекорацияИнформация" id="127">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Настройки используются, когда интеграция с поставщиком реализована через обмен файлами.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Tariff is indicate on tab "Groups"</v8:content>
+												</v8:item>
+											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="128"/>
+											<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="129"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатПрофилиОбменаСВнешнимиСистемами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СоответствиеКолонокНомерКолонкиФайла</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СоответствиеКолонок.Использование</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СоответствиеКолонок.НомерКолонкиФайла</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СоответствиеКолонокИмяКолонкиФайла</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СоответствиеКолонок.Использование</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СоответствиеКолонок.ИмяКолонкиФайла</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:string"/>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СоответствиеКолонок</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.СоответствиеКолонок.Использование</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:LightGray</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПоШаблону" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по шаблону</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in from template</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по шаблону</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in from template</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПоШаблону</Action>
+		</Command>
+	</Commands>
+</Form>

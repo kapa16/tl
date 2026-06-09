@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Укажите значения перечисления</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОК" id="30">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="31"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="28">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="29"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Перечисления" id="1">
+			<Representation>List</Representation>
+			<Header>false</Header>
+			<DataPath>Перечисления</DataPath>
+			<CommandSet>
+				<ExcludedCommand>CheckAll</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Pickup</ExcludedCommand>
+				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+				<ExcludedCommand>UncheckAll</ExcludedCommand>
+			</CommandSet>
+			<ContextMenu name="ПеречисленияКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ПеречисленияКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ПеречисленияДобавить" id="4">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Item.Перечисления.StandardCommand.Add</CommandName>
+						<ExtendedTooltip name="ПеречисленияДобавитьРасширеннаяПодсказка" id="5"/>
+					</Button>
+					<Button name="ПеречисленияУдалить" id="6">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Перечисления.StandardCommand.Delete</CommandName>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ПеречисленияУдалитьРасширеннаяПодсказка" id="7"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПеречисленияРасширеннаяПодсказка" id="8"/>
+			<SearchStringAddition name="ПеречисленияСтрокаПоиска" id="9">
+				<AdditionSource>
+					<Item>Перечисления</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПеречисленияСтрокаПоискаКонтекстноеМеню" id="10"/>
+				<ExtendedTooltip name="ПеречисленияСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПеречисленияСостояниеПросмотра" id="12">
+				<AdditionSource>
+					<Item>Перечисления</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПеречисленияСостояниеПросмотраКонтекстноеМеню" id="13"/>
+				<ExtendedTooltip name="ПеречисленияСостояниеПросмотраРасширеннаяПодсказка" id="14"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПеречисленияУправлениеПоиском" id="15">
+				<AdditionSource>
+					<Item>Перечисления</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПеречисленияУправлениеПоискомКонтекстноеМеню" id="16"/>
+				<ExtendedTooltip name="ПеречисленияУправлениеПоискомРасширеннаяПодсказка" id="17"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ПеречисленияЗначение" id="21">
+					<DataPath>Перечисления.Value</DataPath>
+					<ContextMenu name="ПеречисленияЗначениеКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="ПеречисленияЗначениеРасширеннаяПодсказка" id="23"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Перечисления" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечисления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>150</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОК</Action>
+		</Command>
+	</Commands>
+</Form>

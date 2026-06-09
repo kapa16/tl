@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>уатПредоставленныеУслуги</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатЗаправкаГСМ</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДекада</dataPath>
+			<field>ПериодДекада</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодПолугодие</dataPath>
+			<field>ПериодПолугодие</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКурса</dataPath>
+			<field>ПериодКурса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период курса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Период курса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатТС</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Маршрут</dataPath>
+			<field>Маршрут</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатМаршруты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъектСтроительства</dataPath>
+			<field>ОбъектСтроительства</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатОбъектыСтроительства</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРегл</dataPath>
+			<field>СуммаРегл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма регл</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Amount compl</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатПредоставленныеУслугиОбороты.Регистратор КАК Регистратор,
+	уатПредоставленныеУслугиОбороты.ПериодДень КАК ПериодДень,
+	уатПредоставленныеУслугиОбороты.ПериодНеделя КАК ПериодНеделя,
+	уатПредоставленныеУслугиОбороты.ПериодДекада КАК ПериодДекада,
+	уатПредоставленныеУслугиОбороты.ПериодМесяц КАК ПериодМесяц,
+	уатПредоставленныеУслугиОбороты.ПериодКвартал КАК ПериодКвартал,
+	уатПредоставленныеУслугиОбороты.ПериодПолугодие КАК ПериодПолугодие,
+	уатПредоставленныеУслугиОбороты.ПериодГод КАК ПериодГод,
+	уатПредоставленныеУслугиОбороты.ПериодДень КАК ПериодКурса,
+	уатПредоставленныеУслугиОбороты.Организация КАК Организация,
+	уатПредоставленныеУслугиОбороты.ДоговорКонтрагента.Владелец КАК Контрагент,
+	уатПредоставленныеУслугиОбороты.ТС КАК ТС,
+	уатПредоставленныеУслугиОбороты.Маршрут КАК Маршрут,
+	уатПредоставленныеУслугиОбороты.ОбъектСтроительства КАК ОбъектСтроительства,
+	уатПредоставленныеУслугиОбороты.СуммаРеглОборот КАК СуммаРегл
+{ВЫБРАТЬ
+	Регистратор.*,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодПолугодие,
+	ПериодГод,
+	ПериодКурса,
+	Организация.*,
+	Контрагент,
+	ТС,
+	Маршрут,
+	ОбъектСтроительства,
+	СуммаРегл}
+ИЗ
+	РегистрНакопления.уатПредоставленныеУслуги.Обороты({(&amp;НачалоПериода)}, {(&amp;КонецПериода)}, Авто, ) КАК уатПредоставленныеУслугиОбороты
+{ГДЕ
+	уатПредоставленныеУслугиОбороты.Организация.*,
+	уатПредоставленныеУслугиОбороты.ДоговорКонтрагента.Владелец.* КАК Контрагент,
+	уатПредоставленныеУслугиОбороты.ТС.* КАК ТС,
+	уатПредоставленныеУслугиОбороты.Маршрут.* КАК Маршрут,
+	уатПредоставленныеУслугиОбороты.ОбъектСтроительства.* КАК ОбъектСтроительства}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ХозяйственнаяОперация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Хозяйственная операция</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Economic operation</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ХозяйственныеОперации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ХозяйственныеОперации.РеализацияТранспортныхУслуг</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Периодичность</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Периодичность</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Periodicity</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.Периодичность</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ХозяйственнаяОперация</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.ХозяйственныеОперации.РеализацияТранспортныхУслуг</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Периодичность</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

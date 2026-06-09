@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="62">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Приоритет" id="4">
+					<DataPath>Объект.Приоритет</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ПриоритетКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ПриоритетРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="ТерминалДляОтбора" id="66">
+					<DataPath>Объект.ТерминалДляОтбора</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ContextMenu name="ТерминалДляОтбораКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="ТерминалДляОтбораРасширеннаяПодсказка" id="68"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНазначенияИспользования" id="69">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначение оформления</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Purpose of registration</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаНазначенияИспользованияРасширеннаяПодсказка" id="70"/>
+			<ChildItems>
+				<CheckBoxField name="ДляСписка" id="10">
+					<DataPath>Объект.ДляСписка</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДляСпискаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ДляСпискаРасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ДляСпискаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ДляКарты" id="13">
+					<DataPath>Объект.ДляКарты</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДляКартыКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ДляКартыРасширеннаяПодсказка" id="15"/>
+					<Events>
+						<Event name="OnChange">ДляКартыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСписок" id="71">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформление списка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List design</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаСписокРасширеннаяПодсказка" id="72"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаСписок_ЦветФона" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа список цвет фона</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group list background color</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа список цвет фона</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group list background color</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСписок_ЦветФонаРасширеннаяПодсказка" id="97"/>
+					<ChildItems>
+						<Button name="Список_ВыбратьЦветФона" id="90">
+							<Type>UsualButton</Type>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>17</MaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<CommandName>Form.Command.Список_ВыбратьЦветФона</CommandName>
+							<ExtendedTooltip name="Список_ВыбратьЦветФонаРасширеннаяПодсказка" id="91"/>
+						</Button>
+						<Button name="Список_ОчиститьЦветФона" id="98">
+							<Type>Hyperlink</Type>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<CommandName>Form.Command.Список_ОчиститьЦветФона</CommandName>
+							<ExtendedTooltip name="Список_ОчиститьЦветФонаРасширеннаяПодсказка" id="99"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаСписок_ЦветНадписи" id="100">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа список цвет надписи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group list inscription color</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа список цвет надписи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group list inscription color</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСписок_ЦветНадписиРасширеннаяПодсказка" id="101"/>
+					<ChildItems>
+						<Button name="Список_ВыбратьЦветНадписи" id="92">
+							<Type>UsualButton</Type>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>17</MaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<CommandName>Form.Command.Список_ВыбратьЦветНадписи</CommandName>
+							<ExtendedTooltip name="Список_ВыбратьЦветНадписиРасширеннаяПодсказка" id="93"/>
+						</Button>
+						<Button name="Список_ОчиститьЦветНадписи" id="102">
+							<Type>Hyperlink</Type>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<CommandName>Form.Command.Список_ОчиститьЦветНадписи</CommandName>
+							<ExtendedTooltip name="Список_ОчиститьЦветНадписиРасширеннаяПодсказка" id="103"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКарта" id="73">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформление карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Card registration</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаКартаРасширеннаяПодсказка" id="74"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаКарта_ЦветНадписи" id="104">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа карта цвет надписи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group map inscription color</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа карта цвет надписи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group map inscription color</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКарта_ЦветНадписиРасширеннаяПодсказка" id="105"/>
+					<ChildItems>
+						<Button name="Карта_ВыбратьЦветНадписи" id="94">
+							<Type>UsualButton</Type>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>17</MaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<CommandName>Form.Command.Карта_ВыбратьЦветНадписи</CommandName>
+							<ExtendedTooltip name="Карта_ВыбратьЦветНадписиРасширеннаяПодсказка" id="95"/>
+						</Button>
+						<Button name="Карта_ОчиститьЦветНадписи" id="106">
+							<Type>Hyperlink</Type>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<CommandName>Form.Command.Карта_ОчиститьЦветНадписи</CommandName>
+							<ExtendedTooltip name="Карта_ОчиститьЦветНадписиРасширеннаяПодсказка" id="107"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Карта_ДействиеСТекущейИконкой" id="25">
+					<DataPath>Объект.Карта_ДействиеСТекущейИконкой</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="Карта_ДействиеСТекущейИконкойКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="Карта_ДействиеСТекущейИконкойРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">Карта_ДействиеСТекущейИконкойПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаВыборИконки" id="79">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа выбор иконки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group icon selection</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВыборИконкиРасширеннаяПодсказка" id="80"/>
+					<ChildItems>
+						<InputField name="Карта_НоваяИконка" id="87">
+							<DataPath>Объект.Карта_НоваяИконка</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<ContextMenu name="Карта_НоваяИконкаКонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="Карта_НоваяИконкаРасширеннаяПодсказка" id="89"/>
+							<Events>
+								<Event name="OnChange">Карта_НоваяИконкаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<PictureField name="АдресНовойИконки" id="84">
+							<DataPath>АдресИконки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+							<Width>15</Width>
+							<Height>4</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Border width="1">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Indented</v8ui:style>
+							</Border>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="АдресНовойИконкиКонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="АдресНовойИконкиРасширеннаяПодсказка" id="86"/>
+						</PictureField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНастройкиПоложенияНовойИконки" id="75">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки положения новой иконки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>New icon position settings group</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиПоложенияНовойИконкиРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<InputField name="ВыравниваниеДопИконки_ВариантОтносительногоПоложения" id="28">
+							<DataPath>Объект.ВыравниваниеДопИконки_ВариантОтносительногоПоложения</DataPath>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВыравниваниеДопИконки_ВариантОтносительногоПоложенияКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ВыравниваниеДопИконки_ВариантОтносительногоПоложенияРасширеннаяПодсказка" id="30"/>
+						</InputField>
+						<UsualGroup name="ГруппаСдвигиНовойИконки" id="77">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сдвинуть новую иконку</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Move the new icon</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа сдвиги новой иконки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>New Icon Shift Group</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаСдвигиНовойИконкиРасширеннаяПодсказка" id="78"/>
+							<ChildItems>
+								<InputField name="ВыравниваниеДопИконки_СдвигПоОсиАбсцисс" id="31">
+									<DataPath>Объект.ВыравниваниеДопИконки_СдвигПоОсиАбсцисс</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По оси X</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Along the X axis</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВыравниваниеДопИконки_СдвигПоОсиАбсциссКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ВыравниваниеДопИконки_СдвигПоОсиАбсциссРасширеннаяПодсказка" id="33"/>
+								</InputField>
+								<InputField name="ВыравниваниеДопИконки_СдвигПоОсиОрдинат" id="34">
+									<DataPath>Объект.ВыравниваниеДопИконки_СдвигПоОсиОрдинат</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По оси Y</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Along the Y axis</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВыравниваниеДопИконки_СдвигПоОсиОрдинатКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ВыравниваниеДопИконки_СдвигПоОсиОрдинатРасширеннаяПодсказка" id="36"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаУсловияОтбора" id="64">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условия отбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter criteria</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаУсловияОтбораРасширеннаяПодсказка" id="65">
+				<Title formatted="true">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Если условий не задано, то подбор будет всегда успешным
+Если задано ограничение по терминалу (в шапке), то оно считается более значимым, чем условия отбора из ТЧ (если не пройден фильтр по терминалу, то вариант динамического оформления не будет подобран в любом случае)
+Порядок условий влияет только на скорость проверки (выше лучше ставить более быстрые / более простые условия), но не на ее результат</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>If no conditions are specified, the selection will always be successful. If a terminal restriction is specified (in the header), it is considered more significant than the selection conditions from the TC (if the terminal filter fails, the dynamic design option will not be selected in any case). The order of the conditions only affects the speed of the check (faster/simpler conditions are better placed higher), but not its outcome.</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+			<ChildItems>
+				<Table name="УсловияОтбора" id="37">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>Объект.УсловияОтбора</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="УсловияОтбораКонтекстноеМеню" id="38"/>
+					<AutoCommandBar name="УсловияОтбораКоманднаяПанель" id="39"/>
+					<ExtendedTooltip name="УсловияОтбораРасширеннаяПодсказка" id="40"/>
+					<SearchStringAddition name="УсловияОтбораСтрокаПоиска" id="41">
+						<AdditionSource>
+							<Item>УсловияОтбора</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="УсловияОтбораСтрокаПоискаКонтекстноеМеню" id="42"/>
+						<ExtendedTooltip name="УсловияОтбораСтрокаПоискаРасширеннаяПодсказка" id="43"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="УсловияОтбораСостояниеПросмотра" id="44">
+						<AdditionSource>
+							<Item>УсловияОтбора</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="УсловияОтбораСостояниеПросмотраКонтекстноеМеню" id="45"/>
+						<ExtendedTooltip name="УсловияОтбораСостояниеПросмотраРасширеннаяПодсказка" id="46"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="УсловияОтбораУправлениеПоиском" id="47">
+						<AdditionSource>
+							<Item>УсловияОтбора</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="УсловияОтбораУправлениеПоискомКонтекстноеМеню" id="48"/>
+						<ExtendedTooltip name="УсловияОтбораУправлениеПоискомРасширеннаяПодсказка" id="49"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="УсловияОтбораНомерСтроки" id="50">
+							<DataPath>Объект.УсловияОтбора.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="УсловияОтбораНомерСтрокиКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="УсловияОтбораНомерСтрокиРасширеннаяПодсказка" id="52"/>
+						</LabelField>
+						<InputField name="УсловияОтбораПоказатель" id="53">
+							<DataPath>Объект.УсловияОтбора.Показатель</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="УсловияОтбораПоказательКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="УсловияОтбораПоказательРасширеннаяПодсказка" id="55"/>
+							<Events>
+								<Event name="OnChange">УсловияОтбораПоказательПриИзменении</Event>
+								<Event name="ChoiceProcessing">УсловияОтбораПоказательОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="УсловияОтбораВидСравнения" id="56">
+							<DataPath>Объект.УсловияОтбора.ВидСравнения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="УсловияОтбораВидСравненияКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="УсловияОтбораВидСравненияРасширеннаяПодсказка" id="58"/>
+						</InputField>
+						<InputField name="УсловияОтбораЗначение" id="59">
+							<DataPath>Объект.УсловияОтбора.Значение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="УсловияОтбораЗначениеКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="УсловияОтбораЗначениеРасширеннаяПодсказка" id="61"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ItobВариантыДинамическогоОформления</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="АдресИконки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес иконки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Icon address</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>УсловияОтбораЗначение</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.УсловияОтбора.Значение</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>УсловияОтбораНомерСтроки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УсловияОтбораПоказатель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УсловияОтбораВидСравнения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.УсловияОтбора.Значение</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Tomato</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Список_ВыбратьЦветФона" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Background color</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать цвет фона для списка объектов мониторинга</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select a background color for the list of monitoring objects</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Список_ВыбратьЦветФона</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="Список_ВыбратьЦветНадписи" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет надписи (список)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Inscription color (list)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать цвет надписей в списке объектов мониторинга</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select the color of the labels in the list of monitoring objects</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Список_ВыбратьЦветНадписи</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="Карта_ВыбратьЦветНадписи" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет надписи (карта)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Inscription color (map)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать цвет надписи объекта мониторинга на карте</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select the color of the monitoring object label on the map</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Карта_ВыбратьЦветНадписи</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="Карта_ОчиститьЦветНадписи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карта очистить цвет надписи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Map clear text color</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить выбранный цвет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear the selected color</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Карта_ОчиститьЦветНадписи</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="Список_ОчиститьЦветНадписи" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карта очистить цвет надписи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Map clear text color</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить выбранный цвет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear the selected color</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Список_ОчиститьЦветНадписи</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="Список_ОчиститьЦветФона" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Карта очистить цвет надписи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Map clear text color</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить выбранный цвет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear the selected color</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Список_ОчиститьЦветФона</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидМоделиТС</dataPath>
+			<field>ВидМоделиТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Гараж</dataPath>
+			<field>Гараж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГаражныйНомер</dataPath>
+			<field>ГаражныйНомер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГосударственныйНомер</dataPath>
+			<field>ГосударственныйНомер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Колонна</dataPath>
+			<field>Колонна</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипТС</dataPath>
+			<field>ТипТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатТС.Ссылка
+ИЗ
+	Справочник.уатТС КАК уатТС
+ГДЕ
+	НЕ уатТС.ЭтоГруппа
+{ГДЕ
+	уатТС.Ссылка.* КАК ТС,
+	уатТС.Наименование,
+	уатТС.Гараж.*,
+	уатТС.ГаражныйНомер,
+	уатТС.ГосударственныйНомер,
+	уатТС.Колонна.*,
+	уатТС.Модель.*,
+	уатТС.Организация.*,
+	уатТС.ТипТС.*,
+	уатТС.ВидМоделиТС.*}</query>
+	</dataSet>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Ссылка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

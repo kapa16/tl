@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style media="screen">
+    * {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      font-family: Calibri, Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      color: black;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .unselectable {
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .checked {
+      background: rgb(253, 230, 143);
+      pointer-events: none;
+    }
+
+    .top-menu {
+      flex-grow: 1;
+      z-index: 2;
+    }
+
+    .bottom-menu {
+      padding-bottom: 10px;
+      display: none;
+    }
+
+    .menu-btn {
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px 0 10px;
+      border-radius: 10px;
+    }
+
+    .menu-btn:hover {
+      background: rgb(245, 245, 245);
+    }
+
+    .top-menu .menu-btn .btn-count {
+      color: gray;
+    } 
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body id="container">
+
+  <div class="top-menu unselectable">
+    <div class="menu-btn" id="create-button" onclick="createChecked()">
+      <div class="btn-label" id="create-button">Создать новый</div>
+      <div class="btn-count" id="create-button">КоличествоСоздать</div>
+    </div>
+    <div class="menu-btn checked" id="inbox-button" onclick="setChecked()">
+      <div class="btn-label" id="inbox-button">Входящие</div>
+      <div class="btn-count" id="inbox-button">КоличествоВходящих</div>
+    </div>
+    <div class="menu-btn" id="sent-button" onclick="sentChecked()">
+      <div class="btn-label" id="sent-button">Исходящие</div>
+      <div class="btn-count" id="sent-button">КоличествоИсходящих</div>
+    </div>
+    <div class="menu-btn" id="invitation-button" onclick="inviteChecked()">
+      <div class="btn-label" id="invitation-button">Приглашения</div>
+      <div class="btn-count" id="invitation-button">КоличествоПриглашений</div>
+    </div>
+
+    <div class="menu-btn скрыть" id="error-button" onclick="errorChecked()">
+      <div class="btn-label" id="error-button">Ошибки распаковки</div>
+      <div class="btn-count" id="error-button">КоличествоНераспакованныхКонтейнеров</div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+
+    function clearChecked() {
+      document.getElementById("sent-button").classList.remove('checked');
+      document.getElementById("inbox-button").classList.remove('checked');
+      document.getElementById("create-button").classList.remove('checked');
+      document.getElementById("invitation-button").classList.remove('checked');
+      document.getElementById("error-button").classList.remove('checked');
+    }
+
+    clearChecked();
+
+    var checkedButton = 'checkedbutton';
+    switch (checkedButton) {
+      case 'inbox':
+        document.getElementById("inbox-button").classList.add('checked');
+        break;
+      case 'sent':
+        document.getElementById("sent-button").classList.add('checked');
+        break;
+      case 'create':
+        document.getElementById("create-button").classList.add('checked');
+        break;
+      case 'invitation':
+        document.getElementById("invitation-button").classList.add('checked');
+        break;
+       case 'error':
+        document.getElementById("error-button").classList.add('checked');
+        break;
+    }
+
+    function sentChecked() {
+      clearChecked();
+      document.getElementById("sent-button").classList.add('checked');
+    }
+
+    function setChecked() {
+      clearChecked();
+      document.getElementById("inbox-button").classList.add('checked');
+    }
+
+    function createChecked() {
+      clearChecked();
+      document.getElementById("create-button").classList.add('checked');
+    }
+
+    function inviteChecked() {
+      clearChecked();
+      document.getElementById("invitation-button").classList.add('checked');
+    }
+
+    function errorChecked() {
+      clearChecked();
+      document.getElementById("error-button").classList.add('checked');
+    }
+
+    </script>
+
+</body>
+
+</html>

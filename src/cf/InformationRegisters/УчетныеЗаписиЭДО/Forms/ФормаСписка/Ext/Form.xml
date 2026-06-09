@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ГруппаСоздать" id="54">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать</v8:content>
+					</v8:item>
+				</Title>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ГруппаСоздатьРасширеннаяПодсказка" id="55"/>
+				<ChildItems>
+					<Button name="СоздатьЧерезОблачныйЭДО" id="83">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СоздатьЧерезОблачныйЭДО</CommandName>
+						<ExtendedTooltip name="СоздатьЧерезОблачныйЭДОРасширеннаяПодсказка" id="84"/>
+					</Button>
+					<Button name="СоздатьОбменЧерезСервисЭДО" id="28">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СоздатьОбменЧерезСервисЭДО</CommandName>
+						<ExtendedTooltip name="СоздатьОбменЧерезСервисЭДОРасширеннаяПодсказка" id="29"/>
+					</Button>
+					<Button name="СоздатьПрямойОбмен" id="56">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СоздатьПрямойОбмен</CommandName>
+						<ExtendedTooltip name="СоздатьПрямойОбменРасширеннаяПодсказка" id="57"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Popup name="ГруппаКонтекстныхПодсказок" id="81">
+				<ExtendedTooltip name="ГруппаКонтекстныхПодсказокРасширеннаяПодсказка" id="82"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ПанельКонтекстныхНовостей" id="58">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новости</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ToolTipBackColor</BackColor>
+			<ExtendedTooltip name="ПанельКонтекстныхНовостейРасширеннаяПодсказка" id="59"/>
+		</UsualGroup>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.СостоянияУчетныхЗаписейЭДО</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</RowsPicture>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="НаименованиеУчетнойЗаписи" id="19">
+					<DataPath>Список.НаименованиеУчетнойЗаписи</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НаименованиеУчетнойЗаписиКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НаименованиеУчетнойЗаписиРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="Организация" id="16">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="ОператорЭДО" id="22">
+					<DataPath>Список.ОператорЭДО</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оператор ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ОператорЭДОКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ОператорЭДОРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="Предупреждения" id="30">
+					<DataPath>Список.Предупреждения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предупреждения</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПредупрежденияКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ПредупрежденияРасширеннаяПодсказка" id="32"/>
+				</LabelField>
+				<LabelField name="НазначениеУчетнойЗаписи" id="39">
+					<DataPath>Список.НазначениеУчетнойЗаписи</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="НазначениеУчетнойЗаписиКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="НазначениеУчетнойЗаписиРасширеннаяПодсказка" id="41"/>
+				</LabelField>
+				<LabelField name="ПодробноеОписаниеУчетнойЗаписи" id="45">
+					<DataPath>Список.ПодробноеОписаниеУчетнойЗаписи</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ПодробноеОписаниеУчетнойЗаписиКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ПодробноеОписаниеУчетнойЗаписиРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<LabelField name="ИдентификаторЭДО" id="51">
+					<DataPath>Список.ИдентификаторЭДО</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ИдентификаторЭДОКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ИдентификаторЭДОРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<CheckBoxField name="ЭтоОблачныйЭДО" id="85">
+					<DataPath>Список.ЭтоОблачныйЭДО</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Облачный ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЭтоОблачныйЭДОКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="ЭтоОблачныйЭДОРасширеннаяПодсказка" id="87"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.ЕстьОшибки</Field>
+				<Field>Список.ИндексКартинки</Field>
+				<Field>Список.НомерПопытки</Field>
+				<Field>Список.Остановлено</Field>
+				<Field>Список.Предупреждения</Field>
+				<Field>Список.СпособОбменаПредставление</Field>
+				<Field>Список.ЭтоПрямойОбмен</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СертификатыУчетныхЗаписейЭДО.ИдентификаторЭДО КАК ИдентификаторЭДО,
+	МАКСИМУМ(СертификатыУчетныхЗаписейЭДО.ДействителенДо) КАК СертификатДействителенДо
+ПОМЕСТИТЬ ДатыСертификатов
+ИЗ
+	РегистрСведений.СертификатыУчетныхЗаписейЭДО КАК СертификатыУчетныхЗаписейЭДО
+ГДЕ
+	НЕ СертификатыУчетныхЗаписейЭДО.Сертификат В (&amp;ОтозванныеСертификаты)
+СГРУППИРОВАТЬ ПО
+	СертификатыУчетныхЗаписейЭДО.ИдентификаторЭДО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СертификатыУчетныхЗаписейЭДО.ИдентификаторЭДО КАК ИдентификаторЭДО,
+	КОЛИЧЕСТВО(СертификатыУчетныхЗаписейЭДО.Сертификат) КАК Количество
+ПОМЕСТИТЬ ОтозванныеСертификаты
+ИЗ
+	РегистрСведений.СертификатыУчетныхЗаписейЭДО КАК СертификатыУчетныхЗаписейЭДО
+ГДЕ
+	СертификатыУчетныхЗаписейЭДО.Сертификат В (&amp;ОтозванныеСертификаты)
+СГРУППИРОВАТЬ ПО
+	СертификатыУчетныхЗаписейЭДО.ИдентификаторЭДО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РегистрСведенийУчетныеЗаписиЭДО.Организация КАК Организация,
+	РегистрСведенийУчетныеЗаписиЭДО.НаименованиеУчетнойЗаписи КАК НаименованиеУчетнойЗаписи,
+	РегистрСведенийУчетныеЗаписиЭДО.ИдентификаторЭДО КАК ИдентификаторЭДО,
+	РегистрСведенийУчетныеЗаписиЭДО.НазначениеУчетнойЗаписи КАК НазначениеУчетнойЗаписи,
+	РегистрСведенийУчетныеЗаписиЭДО.ПодробноеОписаниеУчетнойЗаписи КАК ПодробноеОписаниеУчетнойЗаписи,
+	ПРЕДСТАВЛЕНИЕ(РегистрСведенийУчетныеЗаписиЭДО.СпособОбменаЭД) КАК СпособОбменаПредставление,
+	&amp;ИспользоватьПрямойОбмен
+	И РегистрСведенийУчетныеЗаписиЭДО.СпособОбменаЭД В (&amp;СпособыПрямогоОбмена) КАК ЭтоПрямойОбмен,
+	РегистрСведенийУчетныеЗаписиЭДО.ЭтоОблачныйЭДО КАК ЭтоОблачныйЭДО,
+	ВЫБОР
+		КОГДА ОператорыЭДО.Представление ЕСТЬ НЕ NULL
+			ТОГДА ОператорыЭДО.Представление
+		КОГДА РегистрСведенийУчетныеЗаписиЭДО.ПредставлениеОператораЭДО &lt;&gt; ""
+			ТОГДА РегистрСведенийУчетныеЗаписиЭДО.ПредставлениеОператораЭДО
+		ИНАЧЕ &amp;Неизвестный
+	КОНЕЦ КАК ОператорЭДО,
+	ВЫБОР
+		КОГДА (ДатыСертификатов.СертификатДействителенДо ЕСТЬ NULL И ОтозванныеСертификаты.Количество = 0)
+			ИЛИ РАЗНОСТЬДАТ(&amp;ТекущаяДата, ДатыСертификатов.СертификатДействителенДо, ДЕНЬ) &gt; 30
+			ТОГДА "                                                     "
+		КОГДА РАЗНОСТЬДАТ(&amp;ТекущаяДата, ДатыСертификатов.СертификатДействителенДо, МИНУТА) &lt;= 0
+			ИЛИ (ДатыСертификатов.СертификатДействителенДо ЕСТЬ NULL И ОтозванныеСертификаты.Количество &gt; 0)
+			ТОГДА &amp;ВсеСертификатыПросрочены
+		ИНАЧЕ &amp;СертификатыЗаканчиваются
+	КОНЕЦ КАК Предупреждения,
+	ВЫБОР
+		КОГДА (ДатыСертификатов.СертификатДействителенДо ЕСТЬ NULL И ОтозванныеСертификаты.Количество = 0)
+			ИЛИ РАЗНОСТЬДАТ(&amp;ТекущаяДата, ДатыСертификатов.СертификатДействителенДо, ДЕНЬ) &gt; 30
+			ТОГДА 0
+		КОГДА РАЗНОСТЬДАТ(&amp;ТекущаяДата, ДатыСертификатов.СертификатДействителенДо, МИНУТА) &lt;= 0
+			ИЛИ (ДатыСертификатов.СертификатДействителенДо ЕСТЬ NULL И ОтозванныеСертификаты.Количество &gt; 0)
+			ТОГДА 2
+		ИНАЧЕ 1
+	КОНЕЦ КАК ИндексКартинки,
+	ЕСТЬNULL(СостоянияАвтоматическогоПолученияЭДО.Естьошибки, ЛОЖЬ) КАК ЕстьОшибки,
+	ЕСТЬNULL(СостоянияАвтоматическогоПолученияЭДО.НомерПопытки, 0) КАК НомерПопытки,
+	ЕСТЬNULL(СостоянияАвтоматическогоПолученияЭДО.Остановлено, ЛОЖЬ) КАК Остановлено
+ИЗ
+	РегистрСведений.УчетныеЗаписиЭДО КАК РегистрСведенийУчетныеЗаписиЭДО
+		ЛЕВОЕ СОЕДИНЕНИЕ ДатыСертификатов КАК ДатыСертификатов
+		ПО РегистрСведенийУчетныеЗаписиЭДО.ИдентификаторЭДО = ДатыСертификатов.ИдентификаторЭДО
+		ЛЕВОЕ СОЕДИНЕНИЕ ОтозванныеСертификаты КАК ОтозванныеСертификаты
+		ПО РегистрСведенийУчетныеЗаписиЭДО.ИдентификаторЭДО = ОтозванныеСертификаты.ИдентификаторЭДО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ОператорыЭДО КАК ОператорыЭДО
+		ПО РегистрСведенийУчетныеЗаписиЭДО.ОператорЭДО = ОператорыЭДО.ИдентификаторОператора
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияАвтоматическогоПолученияЭДО КАК СостоянияАвтоматическогоПолученияЭДО
+		ПО РегистрСведенийУчетныеЗаписиЭДО.ИдентификаторЭДО = СостоянияАвтоматическогоПолученияЭДО.ИдентификаторЭДО
+ГДЕ
+	ВЫБОР
+		КОГДА &amp;ИспользоватьПрямойОбмен
+			ТОГДА ИСТИНА
+		ИНАЧЕ
+		НЕ РегистрСведенийУчетныеЗаписиЭДО.СпособОбменаЭД В (&amp;СпособыПрямогоОбмена)
+	КОНЕЦ</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОператорЭДО</dcssch:dataPath>
+					<dcssch:field>ОператорЭДО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НаименованиеУчетнойЗаписи</dcssch:dataPath>
+					<dcssch:field>НаименованиеУчетнойЗаписи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИдентификаторЭДО</dcssch:dataPath>
+					<dcssch:field>ИдентификаторЭДО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазначениеУчетнойЗаписи</dcssch:dataPath>
+					<dcssch:field>НазначениеУчетнойЗаписи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПодробноеОписаниеУчетнойЗаписи</dcssch:dataPath>
+					<dcssch:field>ПодробноеОписаниеУчетнойЗаписи</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СпособОбменаПредставление</dcssch:dataPath>
+					<dcssch:field>СпособОбменаПредставление</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ обмена представление</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоПрямойОбмен</dcssch:dataPath>
+					<dcssch:field>ЭтоПрямойОбмен</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это прямой обмен</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Предупреждения</dcssch:dataPath>
+					<dcssch:field>Предупреждения</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предупреждения</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИндексКартинки</dcssch:dataPath>
+					<dcssch:field>ИндексКартинки</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерПопытки</dcssch:dataPath>
+					<dcssch:field>НомерПопытки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Остановлено</dcssch:dataPath>
+					<dcssch:field>Остановлено</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоОблачныйЭДО</dcssch:dataPath>
+					<dcssch:field>ЭтоОблачныйЭДО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьОшибки</dcssch:dataPath>
+					<dcssch:field>ЕстьОшибки</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть ошибки</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВерсияКонфигурации</dcssch:dataPath>
+					<dcssch:field>ВерсияКонфигурации</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СпособОбменаЭД</dcssch:dataPath>
+					<dcssch:field>СпособОбменаЭД</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭлектроннаяПочтаДляУведомлений</dcssch:dataPath>
+					<dcssch:field>ЭлектроннаяПочтаДляУведомлений</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОжидатьИзвещениеОПолучении</dcssch:dataPath>
+					<dcssch:field>ОжидатьИзвещениеОПолучении</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УведомлятьОНовыхПриглашениях</dcssch:dataPath>
+					<dcssch:field>УведомлятьОНовыхПриглашениях</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УведомлятьОбОтветахНаПриглашения</dcssch:dataPath>
+					<dcssch:field>УведомлятьОбОтветахНаПриглашения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УведомлятьОНовыхДокументах</dcssch:dataPath>
+					<dcssch:field>УведомлятьОНовыхДокументах</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УведомлятьОНеОбработанныхДокументах</dcssch:dataPath>
+					<dcssch:field>УведомлятьОНеОбработанныхДокументах</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УведомлятьОбОкончанииСрокаДействияСертификата</dcssch:dataPath>
+					<dcssch:field>УведомлятьОбОкончанииСрокаДействияСертификата</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КодНалоговогоОргана</dcssch:dataPath>
+					<dcssch:field>КодНалоговогоОргана</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АдресОрганизации</dcssch:dataPath>
+					<dcssch:field>АдресОрганизации</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АдресОрганизацииЗначение</dcssch:dataPath>
+					<dcssch:field>АдресОрганизацииЗначение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ИмяФайлаСоглашенияНаРоуминг</dcssch:dataPath>
+					<dcssch:field>ИмяФайлаСоглашенияНаРоуминг</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДанныеСоглашенияНаРоуминг</dcssch:dataPath>
+					<dcssch:field>ДанныеСоглашенияНаРоуминг</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаСоглашенияНаРоуминг</dcssch:dataPath>
+					<dcssch:field>ДатаСоглашенияНаРоуминг</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КаталогОбмена</dcssch:dataPath>
+					<dcssch:field>КаталогОбмена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПассивноеСоединениеFTP</dcssch:dataPath>
+					<dcssch:field>ПассивноеСоединениеFTP</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПортFTP</dcssch:dataPath>
+					<dcssch:field>ПортFTP</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПутьFTP</dcssch:dataPath>
+					<dcssch:field>ПутьFTP</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УчетнаяЗаписьЭлектроннойПочты</dcssch:dataPath>
+					<dcssch:field>УчетнаяЗаписьЭлектроннойПочты</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>EmailОрганизации</dcssch:dataPath>
+					<dcssch:field>EmailОрганизации</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбновитьНастройкиУведомлений</dcssch:dataPath>
+					<dcssch:field>ОбновитьНастройкиУведомлений</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПринятыУсловияИспользования</dcssch:dataPath>
+					<dcssch:field>ПринятыУсловияИспользования</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПредставлениеОператораЭДО</dcssch:dataPath>
+					<dcssch:field>ПредставлениеОператораЭДО</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ОтозванныеСертификаты</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отозванные сертификаты</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:CatalogRef.СертификатыКлючейЭлектроннойПодписиИШифрования</v8:Type>
+					</dcssch:valueType>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>Неизвестный</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Неизвестный</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ВсеСертификатыПросрочены</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Все сертификаты просрочены</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>СпособыПрямогоОбмена</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способы прямого обмена</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:EnumRef.СпособыОбменаЭД</v8:Type>
+					</dcssch:valueType>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ИспользоватьПрямойОбмен</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать прямой обмен</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:boolean</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>СертификатыЗаканчиваются</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификаты заканчиваются</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>ТекущаяДата</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущая дата</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<MainTable>InformationRegister.УчетныеЗаписиЭДО</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПредопределенныйОтбор" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предопределенный отбор</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПараметрыАвтоматическогоПолученияЭДО" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры автоматического получения ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьОбменЧерезСервисЭДО" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>через сервис ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать обмен через сервис ЭДО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьОбменЧерезСервисЭДО</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СоздатьПрямойОбмен" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>через каталог, ftp, email</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прямой обмен</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрямойОбмен</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьПрямойОбменЭлектроннымиДокументами</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьЧерезОблачныйЭДО" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>через облачный ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Action>СоздатьЧерезОблачныйЭДО</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьИнтеграциюОблачногоЭДО</Item>
+			</FunctionalOptions>
+		</Command>
+	</Commands>
+</Form>

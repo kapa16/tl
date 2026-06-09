@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыполнить" id="7">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выполнить</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пересчитать</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Recalculate</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаВыполнитьРасширеннаяПодсказка" id="14"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<ChildItems>
+		<UsualGroup name="ГруппаНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>ShowTop</ToolTipRepresentation>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="16">
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Если не указаны границы периода -  тогда пересчитается вся выработка
+Пересчет может занять продолжительное время</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>If the period boundaries are not specified, then the entire output will be recalculated.
+Recalculation may take a long time.</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+			<ChildItems>
+				<InputField name="НачПериода" id="2">
+					<DataPath>Объект.НачПериода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Period from</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<SpinButton>true</SpinButton>
+					<AutoMarkIncomplete>false</AutoMarkIncomplete>
+					<ContextMenu name="НачПериодаКонтекстноеМеню" id="3"/>
+					<ExtendedTooltip name="НачПериодаРасширеннаяПодсказка" id="17"/>
+					<Events>
+						<Event name="Tuning">НачПериодаРегулирование</Event>
+					</Events>
+				</InputField>
+				<InputField name="КонПериода" id="4">
+					<DataPath>Объект.КонПериода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>By</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<SpinButton>true</SpinButton>
+					<AutoMarkIncomplete>false</AutoMarkIncomplete>
+					<ContextMenu name="КонПериодаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="КонПериодаРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="Tuning">КонПериодаРегулирование</Event>
+					</Events>
+				</InputField>
+				<Button name="УстановитьИнтервал" id="6">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>Form.Command.УстановитьИнтервал</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="УстановитьИнтервалРасширеннаяПодсказка" id="19"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Терминал" id="10">
+			<DataPath>Объект.Терминал</DataPath>
+			<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="ТерминалКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ТерминалРасширеннаяПодсказка" id="21">
+				<Title formatted="false">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Если терминал не указан, то выработка будет пересчитана для всех терминалов</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>If the terminal is not specified, the output will be recalculated for all terminals.</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+		</InputField>
+		<Button name="УдалитьДубли" id="22">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.УдалитьДубли</CommandName>
+			<ExtendedTooltip name="УдалитьДублиРасширеннаяПодсказка" id="23"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ItobПересчетВыработки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="УстановитьИнтервал" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить интервал</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set interval</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить интервал</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set interval</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьИнтервал</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Выполнить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Execute</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Execute</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыполнитьПересчет</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УдалитьДубли" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить дубли</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete duplicates</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить дубли</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete duplicates</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьДубли</Action>
+		</Command>
+	</Commands>
+</Form>

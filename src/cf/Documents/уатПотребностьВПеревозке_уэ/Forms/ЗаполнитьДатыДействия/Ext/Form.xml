@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКоманднаяПанель" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Command bar group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа командная панель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Command bar group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<Button name="ФормаЗаполнить" id="9">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Заполнить</CommandName>
+					<Picture>
+						<xr:Ref>CommonPicture.Успешно</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="10"/>
+				</Button>
+				<InputField name="Длительность" id="38">
+					<DataPath>Длительность</DataPath>
+					<ChoiceButton>false</ChoiceButton>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ДлительностьКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ДлительностьРасширеннаяПодсказка" id="40"/>
+					<Events>
+						<Event name="OnChange">ДлительностьПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelDecoration name="ДекорацияДней" id="43">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>дн.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>days.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияДнейКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДекорацияДнейРасширеннаяПодсказка" id="45"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<RadioButtonField name="РежимЗаполнения" id="46">
+			<DataPath>РежимЗаполнения</DataPath>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>By week days</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По дням недели</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>By schedule</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По расписанию</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="РежимЗаполненияКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="РежимЗаполненияРасширеннаяПодсказка" id="48"/>
+			<Events>
+				<Event name="OnChange">РежимЗаполненияПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<UsualGroup name="ГруппаПериод" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<InputField name="НачалоПериода" id="3">
+					<DataPath>НачалоПериода</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="НачалоПериодаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НачалоПериодаРасширеннаяПодсказка" id="5"/>
+				</InputField>
+				<InputField name="КонецПериода" id="6">
+					<DataPath>КонецПериода</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="КонецПериодаКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="КонецПериодаРасширеннаяПодсказка" id="8"/>
+				</InputField>
+				<Button name="НастройкаПериода" id="36">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.НастройкаПериода</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>...</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>...</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="НастройкаПериодаExtendedTooltip" id="37"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДниНедели" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни недели</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Week days</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаДниНеделиРасширеннаяПодсказка" id="14"/>
+			<ChildItems>
+				<CheckBoxField name="Пн" id="15">
+					<DataPath>Пн</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПнКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="ПнРасширеннаяПодсказка" id="17"/>
+				</CheckBoxField>
+				<CheckBoxField name="Вт" id="30">
+					<DataPath>Вт</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВтКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ВтРасширеннаяПодсказка" id="32"/>
+				</CheckBoxField>
+				<CheckBoxField name="Ср" id="24">
+					<DataPath>Ср</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СрКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="СрРасширеннаяПодсказка" id="26"/>
+				</CheckBoxField>
+				<CheckBoxField name="Чт" id="27">
+					<DataPath>Чт</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЧтКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ЧтРасширеннаяПодсказка" id="29"/>
+				</CheckBoxField>
+				<CheckBoxField name="Пт" id="18">
+					<DataPath>Пт</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПтКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ПтРасширеннаяПодсказка" id="20"/>
+				</CheckBoxField>
+				<CheckBoxField name="Сб" id="21">
+					<DataPath>Сб</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СбКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="СбРасширеннаяПодсказка" id="23"/>
+				</CheckBoxField>
+				<CheckBoxField name="Вс" id="33">
+					<DataPath>Вс</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВсКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="ВсРасширеннаяПодсказка" id="35"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Пн" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пн</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mo</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Вт" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Tu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Ср" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ср</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>We</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Чт" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Th</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Пт" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fr</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Сб" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сб</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sa</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Вс" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вс</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Su</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НачалоПериода" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период с</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period from</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонецПериода" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>по</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>till</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Длительность" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Duration</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимЗаполнения" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим заполнения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filling type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресНазначения" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес назначения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Destination address</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресОтправления" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес отправления</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Shipping address</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Грузоотправитель" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузоотправитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Shipper</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Грузополучатель" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузополучатель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Consignee</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Маршрут" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Route</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатМаршруты</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Заполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкаПериода" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкаПериода</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

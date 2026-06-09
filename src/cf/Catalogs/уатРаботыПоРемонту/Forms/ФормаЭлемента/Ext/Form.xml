@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<ButtonGroup name="ГруппаОрганайзерОтправить" id="72">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Органайзер отправить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Send organizer</v8:content>
+					</v8:item>
+				</Title>
+				<Representation>Compact</Representation>
+				<ExtendedTooltip name="ГруппаОрганайзерОтправитьРасширеннаяПодсказка" id="73"/>
+				<ChildItems>
+					<Popup name="ПодменюОрганайзер" id="74">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Органайзер</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Organizer</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>CommonPicture.Напоминание</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОрганайзерРасширеннаяПодсказка" id="75"/>
+					</Popup>
+					<Popup name="ПодменюОтправить" id="76">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отправить</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Send</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>StdPicture.SendMessage</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Representation>Picture</Representation>
+						<ExtendedTooltip name="ПодменюОтправитьРасширеннаяПодсказка" id="77"/>
+					</Popup>
+				</ChildItems>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="13">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаExtendedTooltip" id="37"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЛеваяКолонка" id="14">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛеваяКолонкаExtendedTooltip" id="38"/>
+					<ChildItems>
+						<InputField name="Наименование" id="3">
+							<DataPath>Объект.Description</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="39"/>
+							<Events>
+								<Event name="OnChange">НаименованиеПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="НаименованиеПолное" id="9">
+							<DataPath>Объект.НаименованиеПолное</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="НаименованиеПолноеExtendedTooltip" id="40"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПраваяКолонка" id="15">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПраваяКолонкаExtendedTooltip" id="41"/>
+					<ChildItems>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодExtendedTooltip" id="42"/>
+						</InputField>
+						<InputField name="Артикул" id="7">
+							<DataPath>Объект.Артикул</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>По каталогу</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>By catalog</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="АртикулКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="АртикулExtendedTooltip" id="43"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Номенклатура" id="11">
+			<DataPath>Объект.Номенклатура</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НоменклатураКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="НоменклатураExtendedTooltip" id="53"/>
+		</InputField>
+		<Pages name="ГруппаСтраницы" id="16">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыExtendedTooltip" id="44"/>
+			<ChildItems>
+				<Page name="ГруппаНормочасы" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормочасы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Working hours</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаНормочасыExtendedTooltip" id="45"/>
+					<ChildItems>
+						<Table name="Нормочасы" id="18">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Нормочасы</DataPath>
+							<RowPictureDataPath>Нормочасы.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="НормочасыКонтекстноеМеню" id="19"/>
+							<AutoCommandBar name="НормочасыКоманднаяПанель" id="20"/>
+							<ExtendedTooltip name="НормочасыExtendedTooltip" id="46"/>
+							<SearchStringAddition name="НормочасыСтрокаПоиска" id="54">
+								<AdditionSource>
+									<Item>Нормочасы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормочасыСтрокаПоискаКонтекстноеМеню" id="55"/>
+								<ExtendedTooltip name="НормочасыСтрокаПоискаРасширеннаяПодсказка" id="56"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НормочасыСостояниеПросмотра" id="57">
+								<AdditionSource>
+									<Item>Нормочасы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НормочасыСостояниеПросмотраКонтекстноеМеню" id="58"/>
+								<ExtendedTooltip name="НормочасыСостояниеПросмотраРасширеннаяПодсказка" id="59"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НормочасыУправлениеПоиском" id="60">
+								<AdditionSource>
+									<Item>Нормочасы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НормочасыУправлениеПоискомКонтекстноеМеню" id="61"/>
+								<ExtendedTooltip name="НормочасыУправлениеПоискомРасширеннаяПодсказка" id="62"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">НормочасыПередНачаломДобавления</Event>
+								<Event name="OnStartEdit">НормочасыПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="НормочасыМодельТС" id="23">
+									<DataPath>Нормочасы.МодельТС</DataPath>
+									<ContextMenu name="НормочасыМодельТСКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="НормочасыМодельТСExtendedTooltip" id="47"/>
+								</LabelField>
+								<LabelField name="НормочасыКоличествоНЧ" id="25">
+									<DataPath>Нормочасы.КоличествоНЧ</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Quantity w/h</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество н/ч</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НормочасыКоличествоНЧКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="НормочасыКоличествоНЧExtendedTooltip" id="48"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСвязанныеРаботы" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Связанные работы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Related works</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСвязанныеРаботыExtendedTooltip" id="49"/>
+					<ChildItems>
+						<Table name="СвязанныеРаботы" id="28">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СвязанныеРаботы</DataPath>
+							<RowPictureDataPath>СвязанныеРаботы.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СвязанныеРаботыКонтекстноеМеню" id="29"/>
+							<AutoCommandBar name="СвязанныеРаботыКоманднаяПанель" id="30"/>
+							<ExtendedTooltip name="СвязанныеРаботыExtendedTooltip" id="50"/>
+							<SearchStringAddition name="СвязанныеРаботыСтрокаПоиска" id="63">
+								<AdditionSource>
+									<Item>СвязанныеРаботы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СвязанныеРаботыСтрокаПоискаКонтекстноеМеню" id="64"/>
+								<ExtendedTooltip name="СвязанныеРаботыСтрокаПоискаРасширеннаяПодсказка" id="65"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СвязанныеРаботыСостояниеПросмотра" id="66">
+								<AdditionSource>
+									<Item>СвязанныеРаботы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СвязанныеРаботыСостояниеПросмотраКонтекстноеМеню" id="67"/>
+								<ExtendedTooltip name="СвязанныеРаботыСостояниеПросмотраРасширеннаяПодсказка" id="68"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СвязанныеРаботыУправлениеПоиском" id="69">
+								<AdditionSource>
+									<Item>СвязанныеРаботы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СвязанныеРаботыУправлениеПоискомКонтекстноеМеню" id="70"/>
+								<ExtendedTooltip name="СвязанныеРаботыУправлениеПоискомРасширеннаяПодсказка" id="71"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">СвязанныеРаботыПередНачаломДобавления</Event>
+								<Event name="OnStartEdit">СвязанныеРаботыПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СвязанныеРаботыСвязаннаяРабота" id="33">
+									<DataPath>СвязанныеРаботы.СвязаннаяРабота</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Related work/spare part</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Связанная работа/запчасть</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СвязанныеРаботыСвязаннаяРаботаКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="СвязанныеРаботыСвязаннаяРаботаExtendedTooltip" id="51"/>
+								</LabelField>
+								<LabelField name="СвязанныеРаботыКоличество" id="35">
+									<DataPath>СвязанныеРаботы.Количество</DataPath>
+									<ContextMenu name="СвязанныеРаботыКоличествоКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="СвязанныеРаботыКоличествоExtendedTooltip" id="52"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатРаботыПоРемонту</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Нормочасы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нормочасы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Working hours</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.уатНормочасыРаботПоРемонту</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СвязанныеРаботы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связанные работы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Related works</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.уатСвязанныеРаботыПоРемонту</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>

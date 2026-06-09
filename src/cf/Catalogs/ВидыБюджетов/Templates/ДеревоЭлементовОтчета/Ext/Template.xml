@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ЭлементыОтчета</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЭлемента</dataPath>
+			<field>ВидЭлемента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭлементОтчета</dataPath>
+			<field>ЭлементОтчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресСтруктурыЭлемента</dataPath>
+			<field>АдресСтруктурыЭлемента</field>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбратныйЗнак</dataPath>
+			<field>ОбратныйЗнак</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕстьНастройки</dataPath>
+			<field>ЕстьНастройки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Родитель</dataPath>
+			<field>Родитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяПоказательТипИзмерения</dataPath>
+			<field>СтатьяПоказательТипИзмерения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья показатель тип измерения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Статья показатель тип измерения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Name</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗначениеАналитики</dataPath>
+			<field>ЗначениеАналитики</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЭлементыФинансовыхОтчетов.Ссылка КАК ЭлементОтчета,
+	ЭлементыФинансовыхОтчетов.ВидЭлемента КАК ВидЭлемента,
+	ЭлементыФинансовыхОтчетов.НаименованиеДляПечати КАК Наименование,
+	ЭлементыФинансовыхОтчетов.Комментарий КАК Комментарий,
+	ЭлементыФинансовыхОтчетов.ОбратныйЗнак КАК ОбратныйЗнак,
+	"" КАК АдресСтруктурыЭлемента,
+	ЭлементыФинансовыхОтчетов.ЕстьНастройки,
+	ЭлементыФинансовыхОтчетов.Родитель,
+	"" КАК СтатьяПоказательТипИзмерения,
+	ЭлементыФинансовыхОтчетов.ЗначениеАналитики КАК ЗначениеАналитики
+ИЗ
+	Справочник.ЭлементыФинансовыхОтчетов КАК ЭлементыФинансовыхОтчетов
+ГДЕ
+	ЭлементыФинансовыхОтчетов.Владелец = &amp;ВидОтчета
+	И ЭлементыФинансовыхОтчетов.Родитель В(&amp;Родители)
+	И (&amp;ВыводитьЭлементыСложнойТаблицы
+		ИЛИ НЕ ЭлементыФинансовыхОтчетов.Ссылка В
+				(ВЫБРАТЬ
+					Справочник.Операнд
+				ИЗ
+					Справочник.ЭлементыФинансовыхОтчетов.ОперандыФормулы КАК Справочник
+				ГДЕ
+					Справочник.Ссылка.Владелец = &amp;ВидОтчета
+		
+				ОБЪЕДИНИТЬ ВСЕ
+		
+				ВЫБРАТЬ
+					Справочник.Элемент
+				ИЗ
+					Справочник.ЭлементыФинансовыхОтчетов.ЭлементыТаблицы КАК Справочник
+				ГДЕ
+					Справочник.Ссылка.Владелец = &amp;ВидОтчета)
+		)
+
+УПОРЯДОЧИТЬ ПО
+	ЭлементыФинансовыхОтчетов.Код</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ЭлементыОтчета</sourceDataSet>
+		<destinationDataSet>ЭлементыОтчета</destinationDataSet>
+		<sourceExpression>ЭлементОтчета</sourceExpression>
+		<destinationExpression>Родитель</destinationExpression>
+		<parameter>Родители</parameter>
+		<parameterListAllowed>true</parameterListAllowed>
+		<startExpression>ЗНАЧЕНИЕ(Справочник.ЭлементыФинансовыхОтчетов.ПустаяСсылка)</startExpression>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>НестандартнаяКартинка</dataPath>
+		<expression>ФинансоваяОтчетностьПовтИсп.НестандартнаяКартинка
+(ВидЭлемента, ВЫБОР КОГДА ВидЭлемента = &amp;Строки И Родитель.ВидЭлемента = &amp;ТаблицаПоказателиВСтроках ТОГДА "Ввод" КОГДА ВидЭлемента = &amp;Колонки И Родитель.ВидЭлемента = &amp;ТаблицаПоказателиВКолонках Тогда "Ввод" КОНЕЦ)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Нестандартная картинка</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Нестандартная картинка</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>3</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВыводимыеПоказатели</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ЗначениеДополнительногоРеквизита(ЭлементОтчета, &amp;ВыводимыеПоказатели, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводимые показатели</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Выводимые показатели</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВыводитьЗаголовокЭлемента</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ЗначениеДополнительногоРеквизита(ЭлементОтчета, &amp;ВыводитьЗаголовок, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить заголовок элемента</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Выводить заголовок элемента</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ЭтоАналитикаПрочее</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ЗначениеДополнительногоРеквизита(ЭлементОтчета, &amp;ЭтоАналитикаПрочее, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Это аналитика прочее</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Это аналитика прочее</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ТипЗначенияПоказателя</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ЗначениеДополнительногоРеквизита(ЭлементОтчета, &amp;ТипЗначенияПоказателя, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип значения показателя</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Тип значения показателя</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>НаименованиеДляПечати</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ПолучитьПредставлениеЭлемента(ВидЭлемента, ЭлементОтчета, ЗначениеАналитики, Наименование, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Наименование для печати</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Наименование для печати</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ТипИзмерения</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ЗначениеДополнительногоРеквизита(ЭлементОтчета, &amp;ТипИзмерения, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип измерения</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Тип измерения</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВыводитьВместеСРодительским</dataPath>
+		<expression>ФинансоваяОтчетностьСервер.ЗначениеДополнительногоРеквизита(ЭлементОтчета, &amp;ВыводитьВместеСРодительским, &amp;КэшРеквизитов)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить вместе с родительским</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Выводить вместе с родительским</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<parameter>
+		<name>ВидОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид отчета</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Вид отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыБюджетов</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Родители</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Родители</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Родители</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЭлементыФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ЭлементыФинансовыхОтчетов.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КэшРеквизитов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Кэш реквизитов</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Кэш реквизитов</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВыводимыеПоказатели</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводимые показатели</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Выводимые показатели</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.РеквизитыЭлементовФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.РеквизитыЭлементовФинансовыхОтчетов.ВыводимыеПоказатели</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТипЗначенияПоказателя</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип значения показателя</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Тип значения показателя</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.РеквизитыЭлементовФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.РеквизитыЭлементовФинансовыхОтчетов.ТипЗначенияПоказателя</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВыводитьЗаголовок</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить заголовок</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Display title</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.РеквизитыЭлементовФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.РеквизитыЭлементовФинансовыхОтчетов.ВыводитьЗаголовокЭлемента</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ЭтоАналитикаПрочее</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Это аналитика прочее</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Это аналитика прочее</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.РеквизитыЭлементовФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.РеквизитыЭлементовФинансовыхОтчетов.ЭтоАналитикаПрочее</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Колонки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Колонки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Columns</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыЭлементовФинансовогоОтчета</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭлементовФинансовогоОтчета.Колонки</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Строки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Строки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Rows</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыЭлементовФинансовогоОтчета</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭлементовФинансовогоОтчета.Строки</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТаблицаПоказателиВСтроках</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Таблица показатели в строках</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Таблица показатели в строках</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыЭлементовФинансовогоОтчета</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭлементовФинансовогоОтчета.ТаблицаПоказателиВСтроках</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТаблицаПоказателиВКолонках</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Таблица показатели в колонках</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Таблица показатели в колонках</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыЭлементовФинансовогоОтчета</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭлементовФинансовогоОтчета.ТаблицаПоказателиВКолонках</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТипИзмерения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип измерения</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Тип измерения</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.РеквизитыЭлементовФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.РеквизитыЭлементовФинансовыхОтчетов.ТипИзмерения</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВыводитьЭлементыСложнойТаблицы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить элементы сложной таблицы</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Выводить элементы сложной таблицы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВыводитьВместеСРодительским</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить вместе с родительским</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Выводить вместе с родительским</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.РеквизитыЭлементовФинансовыхОтчетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.РеквизитыЭлементовФинансовыхОтчетов.ВыводитьВместеСРодительским</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЭлементОтчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидЭлемента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НестандартнаяКартинка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕстьНастройки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыводитьЗаголовокЭлемента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Комментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресСтруктурыЭлемента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбратныйЗнак</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеДляПечати</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатьяПоказательТипИзмерения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыводимыеПоказатели</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЭтоАналитикаПрочее</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗначениеАналитики</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипЗначенияПоказателя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеДляПечати</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипИзмерения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыводитьВместеСРодительским</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto">
+						<dcsset:use>false</dcsset:use>
+					</dcsset:item>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЭлементОтчета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="100">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьРасширеннаяПодсказка" id="101"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="12">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="13"/>
+			</Button>
+			<Button name="ФормаУстановитьДрайвер" id="70">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.УстановитьДрайвер</CommandName>
+				<ExtendedTooltip name="ФормаУстановитьДрайверРасширеннаяПодсказка" id="71"/>
+			</Button>
+			<Button name="ФормаОбновитьДрайверИзФайла" id="68">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.ОбновитьДрайвер</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьДрайверИзФайлаРасширеннаяПодсказка" id="69"/>
+			</Button>
+			<Popup name="Дополнительно" id="113">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительно</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="114"/>
+				<ChildItems>
+					<Button name="ФормаПолучитьШаблонЛокализации" id="115">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Form.Command.ПолучитьШаблонЛокализации</CommandName>
+						<ExtendedTooltip name="ФормаПолучитьШаблонЛокализацииРасширеннаяПодсказка" id="116"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СнятСПоддержки" id="128">
+			<Visible>false</Visible>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снят с поддержки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ReportHeaderBackColor</BackColor>
+			<ExtendedTooltip name="СнятСПоддержкиРасширеннаяПодсказка" id="129"/>
+			<ChildItems>
+				<LabelDecoration name="СнятСПоддержкиТекст" id="72">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:NegativeTextColor</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Внимание! Данный драйвер устарел и снят с поддержки.
+Использование данного драйвера не рекомендуется и может приводить к некорректной работе.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СнятСПоддержкиТекстКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="СнятСПоддержкиТекстРасширеннаяПодсказка" id="74"/>
+				</LabelDecoration>
+				<CheckBoxField name="СообщениеПриИспользовании" id="130">
+					<DataPath>Объект.СообщениеПриИспользовании</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СообщениеПриИспользованииКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="СообщениеПриИспользованииРасширеннаяПодсказка" id="132"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="НеСертифицирован" id="133">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не сертифицирован</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снят с поддержки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ReportHeaderBackColor</BackColor>
+			<ExtendedTooltip name="НеСертифицированРасширеннаяПодсказка" id="134"/>
+			<ChildItems>
+				<LabelDecoration name="НеСертифицированТекст" id="135">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:NegativeTextColor</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Драйвер не сертифицирован фирмой 1С.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НеСертифицированТекстКонтекстноеМеню" id="136"/>
+					<ExtendedTooltip name="НеСертифицированТекстРасширеннаяПодсказка" id="137"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<LabelDecoration name="МакетНеДоступен" id="75">
+			<Visible>false</Visible>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<TextColor>style:NegativeTextColor</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Макет для данного драйвера не найден.</v8:content>
+				</v8:item>
+			</Title>
+			<BackColor>style:ReportGroup1BackColor</BackColor>
+			<ContextMenu name="МакетНеДоступенКонтекстноеМеню" id="76"/>
+			<ExtendedTooltip name="МакетНеДоступенРасширеннаяПодсказка" id="77"/>
+		</LabelDecoration>
+		<LabelDecoration name="ЭтоЭмулятор" id="117">
+			<Visible>false</Visible>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<TextColor>style:NegativeTextColor</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внимание! Данный драйвер является эмулятором, и предназначен только для 
+целей тестирования разрабатываемых программных продуктов и обучения.</v8:content>
+				</v8:item>
+			</Title>
+			<BackColor>style:ReportGroup1BackColor</BackColor>
+			<ContextMenu name="ЭтоЭмуляторКонтекстноеМеню" id="118"/>
+			<ExtendedTooltip name="ЭтоЭмуляторРасширеннаяПодсказка" id="119"/>
+		</LabelDecoration>
+		<InputField name="ТипОборудования" id="92">
+			<DataPath>Объект.ТипОборудования</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<DropListButton>true</DropListButton>
+			<ChoiceButton>false</ChoiceButton>
+			<ClearButton>false</ClearButton>
+			<QuickChoice>true</QuickChoice>
+			<ContextMenu name="ТипОборудованияКонтекстноеМеню" id="93"/>
+			<ExtendedTooltip name="ТипОборудованияРасширеннаяПодсказка" id="94"/>
+			<Events>
+				<Event name="StartChoice">ТипОборудованияНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="РежимРаботы" id="89">
+			<DataPath>РежимРаботы</DataPath>
+			<Visible>false</Visible>
+			<ReadOnly>true</ReadOnly>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="РежимРаботыКонтекстноеМеню" id="90"/>
+			<ExtendedTooltip name="РежимРаботыРасширеннаяПодсказка" id="91"/>
+		</InputField>
+		<InputField name="ИдентификаторОбъекта" id="7">
+			<DataPath>Объект.ИдентификаторОбъекта</DataPath>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ИдентификаторОбъектаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ИдентификаторОбъектаРасширеннаяПодсказка" id="9">
+				<AutoMaxWidth>false</AutoMaxWidth>
+			</ExtendedTooltip>
+		</InputField>
+		<UsualGroup name="Подключение" id="123">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключение</v8:content>
+				</v8:item>
+			</Title>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПодключениеРасширеннаяПодсказка" id="124"/>
+			<ChildItems>
+				<InputField name="СпособПодключения" id="95">
+					<DataPath>Объект.СпособПодключения</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="СпособПодключенияКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="СпособПодключенияРасширеннаяПодсказка" id="97"/>
+				</InputField>
+				<CheckBoxField name="БезопасноеПодключение" id="125">
+					<DataPath>Объект.БезопасноеПодключение</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="БезопасноеПодключениеКонтекстноеМеню" id="126"/>
+					<ExtendedTooltip name="БезопасноеПодключениеРасширеннаяПодсказка" id="127"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа" id="87">
+			<Visible>false</Visible>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="88"/>
+			<ChildItems>
+				<CheckBoxField name="Локальный" id="78">
+					<DataPath>Объект.ЛокальныйРежим</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Локальный</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЛокальныйКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="ЛокальныйРасширеннаяПодсказка" id="80"/>
+				</CheckBoxField>
+				<CheckBoxField name="СетевойРежим" id="81">
+					<DataPath>Объект.СетевойРежим</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сетевой</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СетевойРежимКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="СетевойРежимРасширеннаяПодсказка" id="83"/>
+				</CheckBoxField>
+				<CheckBoxField name="СерверныйРежим" id="84">
+					<DataPath>Объект.СерверныйРежим</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Серверный</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СерверныйРежимКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="СерверныйРежимРасширеннаяПодсказка" id="86"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ВерсияДрайвера" id="16">
+			<DataPath>Объект.ВерсияДрайвера</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Версия драйвера</v8:content>
+				</v8:item>
+			</Title>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="ВерсияДрайвераКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ВерсияДрайвераРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="ТекущийСтатус" id="54">
+			<DataPath>ТекущийСтатус</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<AutoMaxHeight>false</AutoMaxHeight>
+			<MultiLine>false</MultiLine>
+			<ContextMenu name="ТекущийСтатусКонтекстноеМеню" id="55"/>
+			<ExtendedTooltip name="ТекущийСтатусРасширеннаяПодсказка" id="56"/>
+		</InputField>
+		<InputField name="УстановленнаяВерсия" id="62">
+			<DataPath>УстановленнаяВерсия</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="УстановленнаяВерсияКонтекстноеМеню" id="63"/>
+			<ExtendedTooltip name="УстановленнаяВерсияРасширеннаяПодсказка" id="64"/>
+		</InputField>
+		<UsualGroup name="ГруппаЛог" id="107">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа лог</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЛогРасширеннаяПодсказка" id="108"/>
+			<ChildItems>
+				<InputField name="ЛогДрайвераПутьКФайлу" id="102">
+					<DataPath>ЛогДрайвераПутьКФайлу</DataPath>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ЛогДрайвераПутьКФайлуКонтекстноеМеню" id="103"/>
+					<ExtendedTooltip name="ЛогДрайвераПутьКФайлуРасширеннаяПодсказка" id="104"/>
+				</InputField>
+				<Button name="ПерейтиКФайлуЛогаДрайвера" id="111">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.Command.ПерейтиКФайлуЛогаДрайвера</CommandName>
+					<ExtendedTooltip name="ПерейтиКФайлуЛогаДрайвераРасширеннаяПодсказка" id="112"/>
+				</Button>
+				<Button name="СохранитьЛогДрайвера" id="109">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.Command.СохранитьЛогДрайвера</CommandName>
+					<ExtendedTooltip name="СохранитьЛогДрайвераРасширеннаяПодсказка" id="110"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ДрайверыОборудования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ТекущийСтатус" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="УстановленнаяВерсия" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установленная версия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеДрайвера" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные драйвера</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПоставляемыйВСоставеКонфигурации" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поставляемый в составе конфигурации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимРаботы" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим работы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПодключениеЛокальноПоИдентификатору" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключение локально по идентификатору</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПодключениеИзИнформационнойБазы" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключение из информационной базы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПодключениеИзМакета" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключение из макета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЛогДрайвераПутьКФайлу" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лог драйвера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЛогДрайвераВключен" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лог драйвера включен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ШаблонЛокализации" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон локализации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипОборудования" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип оборудования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ТипыПодключаемогоОборудования</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ОблачнаяККТ" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Облачная ККТ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="УстановитьДрайвер" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить драйвер</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить драйвер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьДрайвер</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьДрайвер" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить драйвер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьДрайвер</Action>
+		</Command>
+		<Command name="СохранитьЛогДрайвера" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить в файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить в файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СохранитьЛогДрайвера</Action>
+		</Command>
+		<Command name="ПерейтиКФайлуЛогаДрайвера" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к файлу лога драйвера</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к файлу лога драйвера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowData</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПерейтиКФайлуЛогаДрайвера</Action>
+		</Command>
+		<Command name="ПолучитьШаблонЛокализации" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить шаблон локализации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить шаблон локализации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПолучитьШаблонЛокализации</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаТС" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group of TD</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group of TD</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТСРасширеннаяПодсказка" id="21"/>
+			<ChildItems>
+				<InputField name="ТС" id="103">
+					<DataPath>Запись.ТС</DataPath>
+					<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+					<ContextMenu name="ТСКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="ТСРасширеннаяПодсказка" id="105"/>
+					<Events>
+						<Event name="AutoComplete">ТСАвтоПодбор</Event>
+						<Event name="StartChoice">ТСНачалоВыбора</Event>
+						<Event name="TextEditEnd">ТСОкончаниеВводаТекста</Event>
+					</Events>
+				</InputField>
+				<InputField name="ТСМодель" id="25">
+					<DataPath>Запись.ТС.Модель</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>18</MaxWidth>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ContextMenu name="ТСМодельКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ТСМодельРасширеннаяПодсказка" id="27"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="36">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="37"/>
+			<ChildItems>
+				<InputField name="Период" id="1">
+					<DataPath>Запись.Period</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действует с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Valid from</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПериодExtendedTooltip" id="13"/>
+				</InputField>
+				<Button name="История" id="15">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.История</CommandName>
+					<ExtendedTooltip name="ИсторияРасширеннаяПодсказка" id="16"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКоэффициент" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коэффициент изменения норм расхода топлива</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Change coefficient of fuel consumption</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа коэффициент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group ratio</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<United>false</United>
+			<ExtendedTooltip name="ГруппаКоэффициентРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<InputField name="Коэффициент" id="5">
+					<DataPath>Запись.КоэффициентИзмененияНормТоплива</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэффициент, %</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Coefficient</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КоэффициентКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="КоэффициентExtendedTooltip" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСтавкаНалога" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортный налог</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle tax</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ставка налога</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group tax rate</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<United>false</United>
+			<ExtendedTooltip name="ГруппаСтавкаНалогаРасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<CheckBoxField name="НачислятьТранспортныйНалог" id="41">
+					<DataPath>Запись.НачислятьТранспортныйНалог</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НачислятьТранспортныйНалогКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="НачислятьТранспортныйНалогРасширеннаяПодсказка" id="43"/>
+					<Events>
+						<Event name="OnChange">НачислятьТранспортныйНалогПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<UsualGroup name="ГруппаНалог2" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа налог2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group tax2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа налог2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group tax2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНалог2РасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<InputField name="НалоговаяБаза" id="46">
+							<DataPath>Запись.НалоговаяБаза</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Мощность двигателя</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gross tonnage</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Налоговая база</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Tax base</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ContextMenu name="НалоговаяБазаКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="НалоговаяБазаРасширеннаяПодсказка" id="48"/>
+						</InputField>
+						<InputField name="ЕдиницаИзмеренияНалоговойБазы" id="49">
+							<DataPath>Запись.ЕдиницаИзмеренияНалоговойБазы</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>9</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>21</MaxWidth>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>251 (л.с.)</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>HP</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">251</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>999 (кгс)</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>kgf</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">999</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>181 (БРТ)</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>BRT</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">181</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>796 (шт)</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>pcs.</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">796</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ЕдиницаИзмеренияНалоговойБазыКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ЕдиницаИзмеренияНалоговойБазыРасширеннаяПодсказка" id="51"/>
+							<Events>
+								<Event name="OnChange">ЕдиницаИзмеренияНалоговойБазыПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНалог" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа налог</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group tax</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа налог</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group tax</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНалогРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<InputField name="СтавкаТранспортногоНалога" id="28">
+							<DataPath>Запись.СтавкаТранспортногоНалога</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ставка</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Rate</v8:content>
+								</v8:item>
+							</Title>
+							<OpenButton>false</OpenButton>
+							<ContextMenu name="СтавкаТранспортногоНалогаКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="СтавкаТранспортногоНалогаРасширеннаяПодсказка" id="30"/>
+							<Events>
+								<Event name="OnChange">СтавкаТранспортногоНалогаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelField name="НадписьСтавкаТранспортногоНалога" id="60">
+							<DataPath>НадписьСтавкаТранспортногоНалога</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="НадписьСтавкаТранспортногоНалогаКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="НадписьСтавкаТранспортногоНалогаРасширеннаяПодсказка" id="62"/>
+						</LabelField>
+						<Button name="ЗаполнитьСтавку" id="106">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ЗаполнитьСтавку</CommandName>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ExtendedTooltip name="ЗаполнитьСтавкуРасширеннаяПодсказка" id="107"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ЭкологическийКласс" id="54">
+					<DataPath>Запись.ЭкологическийКласс</DataPath>
+					<Width>3</Width>
+					<ContextMenu name="ЭкологическийКлассКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ЭкологическийКлассРасширеннаяПодсказка" id="56"/>
+				</InputField>
+				<CheckBoxField name="ОбщаяСобственность" id="63">
+					<DataPath>Запись.ОбщаяСобственность</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОбщаяСобственностьКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="ОбщаяСобственностьРасширеннаяПодсказка" id="65"/>
+					<Events>
+						<Event name="OnChange">ОбщаяСобственностьПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<UsualGroup name="ГруппаДоляВПравеНаТС" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доля в праве на ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Part in right on vehicle</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДоляВПравеНаТСРасширеннаяПодсказка" id="67"/>
+					<ChildItems>
+						<InputField name="ДоляВПравеОбщейСобственностиЧислитель" id="68">
+							<DataPath>Запись.ДоляВПравеОбщейСобственностиЧислитель</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Доля в праве на ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Part in right on vehicle</v8:content>
+								</v8:item>
+							</Title>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧН=-</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>NZ=-</v8:content>
+								</v8:item>
+							</EditFormat>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ДоляВПравеОбщейСобственностиЧислительКонтекстноеМеню" id="69"/>
+							<ExtendedTooltip name="ДоляВПравеОбщейСобственностиЧислительExtendedTooltip" id="70"/>
+						</InputField>
+						<LabelDecoration name="ДекорацияДоляВПравеНаУчасток" id="71">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>/</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>/</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияДоляВПравеНаУчастокКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="ДекорацияДоляВПравеНаУчастокExtendedTooltip" id="73"/>
+						</LabelDecoration>
+						<InputField name="ДоляВПравеОбщейСобственностиЗнаменатель" id="74">
+							<DataPath>Запись.ДоляВПравеОбщейСобственностиЗнаменатель</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧН=-</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>NZ=-</v8:content>
+								</v8:item>
+							</EditFormat>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ДоляВПравеОбщейСобственностиЗнаменательКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="ДоляВПравеОбщейСобственностиЗнаменательExtendedTooltip" id="76"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ПовышающийКоэффициент" id="77">
+					<DataPath>Запись.ПовышающийКоэффициент</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<ListChoiceMode>true</ListChoiceMode>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧН=-</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>NZ=-</v8:content>
+						</v8:item>
+					</EditFormat>
+					<TextEdit>false</TextEdit>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>-</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>-</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>1,1</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>1,1</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1.1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>1,3</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>1,3</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1.3</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>1,5</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>1,5</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1.5</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>2</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>2</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>3</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>3</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">3</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ПовышающийКоэффициентКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="ПовышающийКоэффициентРасширеннаяПодсказка" id="79">
+						<Title formatted="true">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Исчисление суммы налога производится с учетом повышающего коэффициента:
+&lt;b&gt;1,1&lt;/&gt; - в отношении легковых автомобилей средней стоимостью от 3 миллионов до 5 миллионов рублей включительно, с года выпуска которых прошло от 2 до 3 лет;
+&lt;b&gt;1,3&lt;/&gt; - в отношении легковых автомобилей средней стоимостью от 3 миллионов до 5 миллионов рублей включительно, с года выпуска которых прошло от 1 года до 2 лет;
+&lt;b&gt;1,5&lt;/&gt; - в отношении легковых автомобилей средней стоимостью от 3 миллионов до 5 миллионов рублей включительно, с года выпуска которых прошло не более 1 года;
+&lt;b&gt;2&lt;/&gt; - в отношении легковых автомобилей средней стоимостью от 5 миллионов до 10 миллионов рублей включительно, с года выпуска которых прошло не более 5 лет;
+&lt;b&gt;3&lt;/&gt; - в отношении легковых автомобилей средней стоимостью от 10 миллионов до 15 миллионов рублей включительно, с года выпуска которых прошло не более 10 лет;
+&lt;b&gt;3&lt;/&gt; - в отношении легковых автомобилей средней стоимостью от 15 миллионов рублей, с года выпуска которых прошло не более 20 лет.
+При этом исчисление сроков начинается с года выпуска соответствующего легкового автомобиля.
+Порядок расчета средней стоимости легковых автомобилей определяется федеральным органом исполнительной власти, осуществляющим функции по выработке государственной политики и нормативно-правовому регулированию в сфере торговли. Перечень легковых автомобилей средней стоимостью от 3 миллионов рублей размещается ежегодно не позднее 1 марта на официальном сайте указанного органа в информационно-телекоммуникационной сети "Интернет".</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Calculation of amount of tax is made taking into account increasing coefficient: 1,1 - for cars with average cost ranging from 3 million to 5 million rubles inclusive, from year of manufacture has passed from 2 to 3 years; 1,3 - for cars with average cost ranging from 3 million to 5 million rubles inclusive, from year of manufacture has passed from 1 to 2 years; 1,5 - for cars with average cost ranging from 3 million to 5 million rubles inclusive, from year of manufacture has passed no more than 1 year; 2 - for cars with an average cost ranging from 5 million to 10 million rubles, inclusive, from year of manufacture has passed no more than 5 years; 3 - for cars with an average cost ranging from 10 million to 15 million rubles, inclusive, from year of manufacture has passed no more than 10 years; 3 - for cars with an average cost of 15 million rubles, from year of manufacture has passed no more than 20 years. At the same time, the calculation of terms begins with year of manufacture of corresponding car. Procedure for calculating the average cost of cars is determined by federal executive authority, which exercises functions for development of state policy and regulatory and legal regulation in trade sector. List of cars with average cost of 3 million rubles is placed annually not later than March 1 on official website of specified authority in the information and telecommunications network Internet.</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</InputField>
+				<InputField name="НалоговаяЛьгота" id="80">
+					<DataPath>Запись.НалоговаяЛьгота</DataPath>
+					<ContextMenu name="НалоговаяЛьготаКонтекстноеМеню" id="81"/>
+					<ExtendedTooltip name="НалоговаяЛьготаРасширеннаяПодсказка" id="82"/>
+					<Events>
+						<Event name="OnChange">НалоговаяЛьготаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаКодНалоговойЛьготы" id="83">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код налоговой льготы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Код налоговой льготы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа код налоговой льготы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group code tax benefits</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКодНалоговойЛьготыРасширеннаяПодсказка" id="84"/>
+					<ChildItems>
+						<InputField name="КодНалоговойЛьготы" id="85">
+							<DataPath>Запись.КодНалоговойЛьготы</DataPath>
+							<Width>13</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ChoiceButton>true</ChoiceButton>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>20200 Льготы по транспортному налогу, устанавливаемые законами субъектов Российской Федерации</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>20200 Benefits for transport tax, established by laws of subjects of Russian Federation</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">20200</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>20210 - льготы в виде освобождения от налогообложения по транспортному налогу</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>20210 - benefits in form of exemption from taxation of transport tax</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">20210</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>30200 Льготы (освобождения) по транспортному налогу, предусмотренные международными договорами Российской Федерации</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>30200 Benefits (exemption) for transport tax, specified by international treaties of Russian Federation</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">30200</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="КодНалоговойЛьготыКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="КодНалоговойЛьготыРасширеннаяПодсказка" id="87"/>
+							<Events>
+								<Event name="StartChoice">КодНалоговойЛьготыНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияКодЛьготы" id="88">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>/</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>/</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияКодЛьготыКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="ДекорацияКодЛьготыРасширеннаяПодсказка" id="90"/>
+						</LabelDecoration>
+						<InputField name="РегиональныйКодЛьготы" id="91">
+							<DataPath>Запись.РегиональныйКодЛьготы</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ChoiceButton>true</ChoiceButton>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РегиональныйКодЛьготыКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="РегиональныйКодЛьготыРасширеннаяПодсказка" id="93"/>
+							<Events>
+								<Event name="StartChoice">РегиональныйКодЛьготыНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ЛьготнаяСтавка" id="94">
+					<DataPath>Запись.ЛьготнаяСтавка</DataPath>
+					<ChoiceButton>false</ChoiceButton>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ЛьготнаяСтавкаКонтекстноеМеню" id="95"/>
+					<ExtendedTooltip name="ЛьготнаяСтавкаРасширеннаяПодсказка" id="96"/>
+				</InputField>
+				<InputField name="ПроцентУменьшения" id="97">
+					<DataPath>Запись.ПроцентУменьшения</DataPath>
+					<Visible>false</Visible>
+					<ChoiceButton>false</ChoiceButton>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ПроцентУменьшенияКонтекстноеМеню" id="98"/>
+					<ExtendedTooltip name="ПроцентУменьшенияРасширеннаяПодсказка" id="99"/>
+				</InputField>
+				<InputField name="СуммаУменьшения" id="100">
+					<DataPath>Запись.СуммаНалоговойЛьготы</DataPath>
+					<Visible>false</Visible>
+					<ChoiceButton>false</ChoiceButton>
+					<ContextMenu name="СуммаУменьшенияКонтекстноеМеню" id="101"/>
+					<ExtendedTooltip name="СуммаУменьшенияРасширеннаяПодсказка" id="102"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Комментарий" id="7">
+			<DataPath>Запись.Комментарий</DataPath>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КомментарийExtendedTooltip" id="14"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.уатСведенияОТС</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ТекОрганизация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Curr company</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьСтавкаТранспортногоНалога" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись ставка транспортного налога</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>inscription rate of the transport tax</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="История" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>History</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>History</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>История</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьСтавку" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить ставку по данным ТС и справочника "Ставки по транспортному налогу".
+Необходимые данные для заполнения:
+- актуальные загруженные ставки в справочнике "Ставки по транспортному налогу",
+- код ОКТМО организации, к которой относится ТС,
+- категория ТС в коде по классификатору ТС (ТС/Бух.учет/Транспортный налог),
+- мощность двигателя (Дополнительные сведения о ТС/Транспортный налог), если используется градация ставок по мощности,
+- год выпуска ТС (ТС/Основное), если используется градация ставок по возрасту ТС.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill out the rate based on vehicle data and the "Transport Tax Rates" reference book.
+Required data:
+- Current rates uploaded to the "Transport Tax Rates" reference book,
+- OKTMO code of the organization to which the vehicle belongs,
+- Vehicle category in the vehicle classifier code (Vehicle/Accounting/Transport Tax),
+- Engine power (Additional Vehicle Information/Transport Tax), if rates are graded by power,
+- Vehicle year of manufacture (Vehicle/Main), if rates are graded by vehicle age.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьСтавку</Action>
+		</Command>
+	</Commands>
+</Form>

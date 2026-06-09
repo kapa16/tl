@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПрименитьЛимит" id="36">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПрименитьЛимит</CommandName>
+				<ExtendedTooltip name="ФормаПрименитьЛимитРасширеннаяПодсказка" id="37"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ДатаУстановки" id="1">
+			<DataPath>Запись.ДатаУстановки</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ДатаУстановкиКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ДатаУстановкиРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Карта" id="4">
+			<DataPath>Запись.Карта</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КартаКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="КартаРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">КартаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="КомуВыдана" id="7">
+			<DataPath>Запись.КомуВыдана</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КомуВыданаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КомуВыданаРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="ГСМ" id="13">
+			<DataPath>Запись.ГСМ</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ГСМКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ГСМРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<UsualGroup name="ГруппаДлительность" id="38">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДлительностьРасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<InputField name="Периодичность" id="19">
+					<DataPath>Запись.Периодичность</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ПериодичностьКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="21"/>
+				</InputField>
+				<InputField name="Длительность" id="40">
+					<DataPath>Запись.Длительность</DataPath>
+					<SpinButton>true</SpinButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ДлительностьКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ДлительностьРасширеннаяПодсказка" id="42"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ТипЛимита" id="16">
+			<DataPath>Запись.ТипЛимита</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ТипЛимитаКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ТипЛимитаРасширеннаяПодсказка" id="18"/>
+			<Events>
+				<Event name="OnChange">ТипЛимитаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаЛимит" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа лимит</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group limit</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа лимит</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group limit</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalSpacing>Half</HorizontalSpacing>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЛимитРасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="Лимит" id="22">
+					<DataPath>Запись.Лимит</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЛимитКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ЛимитРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<Pages name="ГруппаЕдиницаИзмерения" id="29">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа единица измерения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Unit of measurement group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаЕдиницаИзмеренияРасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<Page name="ГруппаВалюта" id="27">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа валюта</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Currency group</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа валюта</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Currency group</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<ExtendedTooltip name="ГруппаВалютаРасширеннаяПодсказка" id="28"/>
+							<ChildItems>
+								<InputField name="Валюта" id="10">
+									<DataPath>Запись.Валюта</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ВалютаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="12"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаЛитры" id="31">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа литры</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group liters</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа литры</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group liters</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<ExtendedTooltip name="ГруппаЛитрыРасширеннаяПодсказка" id="32"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияЛитры" id="33">
+									<Width>3</Width>
+									<MaxWidth>1</MaxWidth>
+									<Height>1</Height>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<MaxHeight>2</MaxHeight>
+									<VerticalStretch>true</VerticalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>л</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>h</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияЛитрыКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="ДекорацияЛитрыРасширеннаяПодсказка" id="35"/>
+								</LabelDecoration>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="Действует" id="43">
+			<DataPath>Запись.Действует</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ДействуетКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="ДействуетРасширеннаяПодсказка" id="45"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.уатИсторияУстановкиЛимитовТопливныхКарт</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="флДоступностьПримененияЛимитов" id="2">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПрименитьЛимит" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить лимит</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Apply limit</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить лимит</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Apply limit</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПрименитьЛимит</Action>
+		</Command>
+	</Commands>
+</Form>

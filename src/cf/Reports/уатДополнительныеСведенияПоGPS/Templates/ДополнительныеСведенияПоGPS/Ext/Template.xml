@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлительностьСобытия</dataPath>
+			<field>ДлительностьСобытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность события</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Event duration</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Значение</dataPath>
+			<field>Значение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Value</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредельноеЗначение</dataPath>
+			<field>ПредельноеЗначение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предельное значение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Limit value</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипСобытия</dataPath>
+			<field>ТипСобытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип события</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Event type</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТСВыбыло</dataPath>
+			<field>ТСВыбыло</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС выбыло</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Decommissioning of vehicles</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+    уатДополнительныеСведенияПоGPSСрезПоследних.Период КАК Дата,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ТС КАК ТС,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ТипСобытия КАК ТипСобытия,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ДлительностьСобытия КАК ДлительностьСобытия,
+    уатДополнительныеСведенияПоGPSСрезПоследних.Значение КАК Значение,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ПредельноеЗначение КАК ПредельноеЗначение
+{ВЫБРАТЬ
+    Дата,
+    ТС.*,
+    ТипСобытия.*,
+    ДлительностьСобытия,
+    Значение,
+    ПредельноеЗначение}
+ИЗ
+    РегистрСведений.уатДополнительныеСведенияПоGPS.СрезПоследних(&amp;Период, ) КАК уатДополнительныеСведенияПоGPSСрезПоследних
+{ГДЕ
+    уатДополнительныеСведенияПоGPSСрезПоследних.Период,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ТС.*,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ТипСобытия.*,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ДлительностьСобытия,
+    уатДополнительныеСведенияПоGPSСрезПоследних.Значение,
+    уатДополнительныеСведенияПоGPSСрезПоследних.ПредельноеЗначение,
+    (ВЫБОР
+            КОГДА уатДополнительныеСведенияПоGPSСрезПоследних.ТС.ДатаВыбытия &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА ИСТИНА
+            КОГДА уатДополнительныеСведенияПоGPSСрезПоследних.ТС.ДатаВыбытия = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА ЛОЖЬ
+        КОНЕЦ) КАК ТСВыбыло}</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Дата</dataPath>
+		<expression>Максимум(Дата)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДлительностьСобытия</dataPath>
+		<expression>Максимум(ДлительностьСобытия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Значение</dataPath>
+		<expression>Максимум(Значение)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПредельноеЗначение</dataPath>
+		<expression>Максимум(ПредельноеЗначение)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>На начало дня</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>On day beginning</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Дополнительные cведения по GPS</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Additional information by monitoring data</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>События по мониторингу</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДлительностьСобытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Значение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПредельноеЗначение</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.уатТС.ПустаяСсылка</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>f02c173f-f381-4009-94c2-19b14c95bc4e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипСобытия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатТипСобытияGPS.СливГСМ</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>7183b4e6-7745-4bd6-a2bb-7d58dd65f1e2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ТСВыбыло</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>c4a00684-3f52-45c6-a121-4149e85d8247</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfNextDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>34fcabe4-73c6-49b5-b7ec-78a0295ec388</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Дата</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ДлительностьСобытия</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Значение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПредельноеЗначение</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInGroup>DontUse</dcsset:useInGroup>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInGroup>DontUse</dcsset:useInGroup>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>События по мониторингу</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>For more information on GPS</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ТС</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+						<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+						<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+						<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+						<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+						<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипСобытия</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

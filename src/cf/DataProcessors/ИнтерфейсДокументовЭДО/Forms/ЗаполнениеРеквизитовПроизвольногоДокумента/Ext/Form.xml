@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Реквизиты документа</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Номер" id="4">
+			<DataPath>Номер</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ContextMenu name="НомерКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Дата" id="7">
+			<DataPath>Дата</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ContextMenu name="ДатаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Сумма" id="1">
+			<DataPath>Сумма</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ContextMenu name="СуммаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ВидДокумента" id="10">
+			<DataPath>ВидДокумента</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<DropListButton>false</DropListButton>
+			<ChoiceButton>true</ChoiceButton>
+			<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+			<CreateButton>false</CreateButton>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceParameters>
+				<app:item name="ДляПроизвольногоФормата">
+					<app:value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:boolean">true</Value>
+					</app:value>
+				</app:item>
+			</ChoiceParameters>
+			<ContextMenu name="ВидДокументаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ВидДокументаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<Button name="ФормаОК" id="13">
+			<Type>UsualButton</Type>
+			<DefaultButton>true</DefaultButton>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<CommandName>Form.Command.ОК</CommandName>
+			<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="14"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ИнтерфейсДокументовЭДО</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Номер" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Дата" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Сумма" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидДокумента" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВидыДокументовЭДО</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОК</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Настройки просмотра</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="ФормаКомандаОК" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<DefaultItem>true</DefaultItem>
+				<CommandName>Form.Command.КомандаОК</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="ФормаКомандаОтмена" id="12">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.КомандаОтмена</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОтменаРасширеннаяПодсказка" id="13"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаРежимПросмотра" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим просмотра</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<ChildrenAlign>ItemsLeftTitlesLeft</ChildrenAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаРежимПросмотраРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<RadioButtonField name="РежимОтображенияКИсполнению" id="1">
+					<DataPath>РежимОтображения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Режим отображения "К исполнению"</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображаются разделы, содержащие документы, подлежащие обработке.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>К исполнению</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">КИсполнению</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РежимОтображенияКИсполнениюКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="РежимОтображенияКИсполнениюРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">РежимОтображенияКИсполнениюПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<RadioButtonField name="РежимОтображенияМоиДокументы" id="4">
+					<DataPath>РежимОтображения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Режим отображения "Мои документы"</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображаются документы, по которым я являюсь ответственным.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Мои документы</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">МоиДокументы</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РежимОтображенияМоиДокументыКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="РежимОтображенияМоиДокументыРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">РежимОтображенияМоиДокументыПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<RadioButtonField name="РежимОтображенияВсеДокументы" id="7">
+					<DataPath>РежимОтображения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Режим отображения "Все документы"</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображаются все разделы без ограничений.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Весь документооборот</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ВсеДокументы</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РежимОтображенияВсеДокументыКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РежимОтображенияВсеДокументыРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="OnChange">РежимОтображенияВсеДокументыПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<CheckBoxField name="ПакетноеОтображение" id="17">
+					<DataPath>ПакетноеОтображение</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<EqualItemsWidth>true</EqualItemsWidth>
+					<ContextMenu name="ПакетноеОтображениеКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ПакетноеОтображениеРасширеннаяПодсказка" id="19"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВидимостьОбластей" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Видимость областей</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаВидимостьОбластейРасширеннаяПодсказка" id="21"/>
+			<ChildItems>
+				<CheckBoxField name="ОбластьПросмотра" id="25">
+					<DataPath>ОбластьПросмотра</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Область предпросмотра</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображать область предварительного просмотра документа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>None</ToolTipRepresentation>
+					<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="ОбластьПросмотраКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ОбластьПросмотраРасширеннаяПодсказка" id="27"/>
+				</CheckBoxField>
+				<CheckBoxField name="ОбластьЛегенды" id="22">
+					<DataPath>ОбластьЛегенды</DataPath>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="ОбластьЛегендыКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ОбластьЛегендыРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВариантИнтерфейса" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант интерфейса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<Group>AlwaysHorizontal</Group>
+			<VerticalSpacing>Single</VerticalSpacing>
+			<VerticalAlign>Center</VerticalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ThroughAlign>DontUse</ThroughAlign>
+			<ExtendedTooltip name="ГруппаВариантИнтерфейсаРасширеннаяПодсказка" id="31">
+				<Width>45</Width>
+				<Title formatted="true">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>В любой момент можно вернуться к прежнему варианту, 
+нажав кнопку Еще - Перейти на легкий/расширенный интерфейс</v8:content>
+					</v8:item>
+				</Title>
+			</ExtendedTooltip>
+			<ChildItems>
+				<RadioButtonField name="ВариантИнтерфейса" id="35">
+					<DataPath>ВариантИнтерфейса</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Легкий</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Расширенный</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВариантИнтерфейсаКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ВариантИнтерфейсаРасширеннаяПодсказка" id="37"/>
+					<Events>
+						<Event name="OnChange">ВариантИнтерфейсаПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РежимОтображения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим отображения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПакетноеОтображение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пакетное отображение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбластьПросмотра" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Область просмотра</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбластьЛегенды" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Область легенды</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантИнтерфейса" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант интерфейса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзмененВариантИнтерфейса" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменен вариант интерфейса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуетсяЛегкийИнтерфейс" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется легкий интерфейс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<Action>КомандаОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОтмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<Action>КомандаОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

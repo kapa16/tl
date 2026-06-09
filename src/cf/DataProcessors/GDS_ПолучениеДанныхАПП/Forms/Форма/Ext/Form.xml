@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Команда1" id="10">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Команда1</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Запрос данных</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="Команда1РасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="ФормаИзвлечьИД" id="149">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ИзвлечьИД</CommandName>
+				<ExtendedTooltip name="ФормаИзвлечьИДРасширеннаяПодсказка" id="150"/>
+			</Button>
+			<Button name="Инициализировать" id="44">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Инициализировать</CommandName>
+				<ExtendedTooltip name="ИнициализироватьРасширеннаяПодсказка" id="45"/>
+			</Button>
+			<Button name="ФормаИзвлечьСписокИдентификаторовФайла" id="58">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ИзвлечьСписокИдентификаторовФайла</CommandName>
+				<ExtendedTooltip name="ФормаИзвлечьСписокИдентификаторовФайлаРасширеннаяПодсказка" id="59"/>
+			</Button>
+			<Button name="ПоказатьКартинку" id="84">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПоказатьКартинку</CommandName>
+				<ExtendedTooltip name="ПоказатьКартинкуРасширеннаяПодсказка" id="85"/>
+			</Button>
+			<Button name="ФормаРазборЧерезРегулярка" id="122">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РазборЧерезРегулярка</CommandName>
+				<ExtendedTooltip name="ФормаРазборЧерезРегуляркаРасширеннаяПодсказка" id="123"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="РесурсСервера" id="41">
+			<DataPath>РесурсСервера</DataPath>
+			<DropListButton>true</DropListButton>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="РесурсСервераКонтекстноеМеню" id="42"/>
+			<ExtendedTooltip name="РесурсСервераРасширеннаяПодсказка" id="43"/>
+		</InputField>
+		<InputField name="ОрганизацияИНН" id="178">
+			<DataPath>ОрганизацияИНН</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОрганизацияИННКонтекстноеМеню" id="179"/>
+			<ExtendedTooltip name="ОрганизацияИННРасширеннаяПодсказка" id="180"/>
+		</InputField>
+		<InputField name="ИдентификаторСущности" id="46">
+			<DataPath>ИдентификаторСущности</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ИдентификаторСущностиКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="ИдентификаторСущностиРасширеннаяПодсказка" id="48"/>
+		</InputField>
+		<InputField name="ИдентификаторФайла" id="78">
+			<DataPath>ИдентификаторФайла</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ИдентификаторФайлаКонтекстноеМеню" id="79"/>
+			<ExtendedTooltip name="ИдентификаторФайлаРасширеннаяПодсказка" id="80"/>
+		</InputField>
+		<InputField name="РегулярноеВыражение" id="124">
+			<DataPath>РегулярноеВыражение</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="РегулярноеВыражениеКонтекстноеМеню" id="125"/>
+			<ExtendedTooltip name="РегулярноеВыражениеРасширеннаяПодсказка" id="126"/>
+		</InputField>
+		<InputField name="РегулярноеВыражение2" id="127">
+			<DataPath>РегулярноеВыражение2</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="РегулярноеВыражение2КонтекстноеМеню" id="128"/>
+			<ExtendedTooltip name="РегулярноеВыражение2РасширеннаяПодсказка" id="129"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="12">
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<InputField name="ОтветСервера" id="14">
+					<DataPath>ОтветСервера</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>true</VerticalStretch>
+					<MultiLine>true</MultiLine>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ОтветСервераКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ОтветСервераРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<UsualGroup name="Группа2" id="17">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="18"/>
+					<ChildItems>
+						<UsualGroup name="Группа3" id="60">
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="61"/>
+							<ChildItems>
+								<InputField name="detailsIn" id="169">
+									<DataPath>detailsIn</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>true</MultiLine>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="detailsInКонтекстноеМеню" id="170"/>
+									<ExtendedTooltip name="detailsInРасширеннаяПодсказка" id="171"/>
+								</InputField>
+								<InputField name="detailsOut" id="172">
+									<DataPath>detailsOut</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>true</MultiLine>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="detailsOutКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="detailsOutРасширеннаяПодсказка" id="174"/>
+								</InputField>
+								<InputField name="detailsFiles" id="175">
+									<DataPath>detailsFiles</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>true</MultiLine>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="detailsFilesКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="detailsFilesРасширеннаяПодсказка" id="177"/>
+								</InputField>
+								<Table name="ИДЧекЛистов" id="130">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ИДЧекЛистов</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ИДЧекЛистовКонтекстноеМеню" id="131"/>
+									<AutoCommandBar name="ИДЧекЛистовКоманднаяПанель" id="132"/>
+									<ExtendedTooltip name="ИДЧекЛистовРасширеннаяПодсказка" id="133"/>
+									<SearchStringAddition name="ИДЧекЛистовСтрокаПоиска" id="134">
+										<AdditionSource>
+											<Item>ИДЧекЛистов</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ИДЧекЛистовСтрокаПоискаКонтекстноеМеню" id="135"/>
+										<ExtendedTooltip name="ИДЧекЛистовСтрокаПоискаРасширеннаяПодсказка" id="136"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ИДЧекЛистовСостояниеПросмотра" id="137">
+										<AdditionSource>
+											<Item>ИДЧекЛистов</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ИДЧекЛистовСостояниеПросмотраКонтекстноеМеню" id="138"/>
+										<ExtendedTooltip name="ИДЧекЛистовСостояниеПросмотраРасширеннаяПодсказка" id="139"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ИДЧекЛистовУправлениеПоиском" id="140">
+										<AdditionSource>
+											<Item>ИДЧекЛистов</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ИДЧекЛистовУправлениеПоискомКонтекстноеМеню" id="141"/>
+										<ExtendedTooltip name="ИДЧекЛистовУправлениеПоискомРасширеннаяПодсказка" id="142"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ИДЧекЛистовid" id="143">
+											<DataPath>ИДЧекЛистов.id</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ИДЧекЛистовidКонтекстноеМеню" id="144"/>
+											<ExtendedTooltip name="ИДЧекЛистовidРасширеннаяПодсказка" id="145"/>
+										</InputField>
+										<InputField name="ИДЧекЛистовdata" id="146">
+											<DataPath>ИДЧекЛистов.data</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ИДЧекЛистовdataКонтекстноеМеню" id="147"/>
+											<ExtendedTooltip name="ИДЧекЛистовdataРасширеннаяПодсказка" id="148"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<Table name="ПолученныеФайлы" id="86">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>НеисправностиФайлы</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПолученныеФайлыКонтекстноеМеню" id="87"/>
+									<AutoCommandBar name="ПолученныеФайлыКоманднаяПанель" id="88"/>
+									<ExtendedTooltip name="ПолученныеФайлыРасширеннаяПодсказка" id="89"/>
+									<SearchStringAddition name="ПолученныеФайлыСтрокаПоиска" id="90">
+										<AdditionSource>
+											<Item>ПолученныеФайлы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПолученныеФайлыСтрокаПоискаКонтекстноеМеню" id="91"/>
+										<ExtendedTooltip name="ПолученныеФайлыСтрокаПоискаРасширеннаяПодсказка" id="92"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПолученныеФайлыСостояниеПросмотра" id="93">
+										<AdditionSource>
+											<Item>ПолученныеФайлы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПолученныеФайлыСостояниеПросмотраКонтекстноеМеню" id="94"/>
+										<ExtendedTooltip name="ПолученныеФайлыСостояниеПросмотраРасширеннаяПодсказка" id="95"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПолученныеФайлыУправлениеПоиском" id="96">
+										<AdditionSource>
+											<Item>ПолученныеФайлы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПолученныеФайлыУправлениеПоискомКонтекстноеМеню" id="97"/>
+										<ExtendedTooltip name="ПолученныеФайлыУправлениеПоискомРасширеннаяПодсказка" id="98"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ПолученныеФайлыid" id="99">
+											<DataPath>НеисправностиФайлы.id</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыidКонтекстноеМеню" id="100"/>
+											<ExtendedTooltip name="ПолученныеФайлыidРасширеннаяПодсказка" id="101"/>
+										</InputField>
+										<InputField name="ПолученныеФайлыfilename" id="102">
+											<DataPath>НеисправностиФайлы.filename</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыfilenameКонтекстноеМеню" id="103"/>
+											<ExtendedTooltip name="ПолученныеФайлыfilenameРасширеннаяПодсказка" id="104"/>
+										</InputField>
+										<InputField name="ПолученныеФайлыsize" id="105">
+											<DataPath>НеисправностиФайлы.size</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыsizeКонтекстноеМеню" id="106"/>
+											<ExtendedTooltip name="ПолученныеФайлыsizeРасширеннаяПодсказка" id="107"/>
+										</InputField>
+										<InputField name="ПолученныеФайлыhiddenFieldId" id="108">
+											<DataPath>НеисправностиФайлы.hiddenFieldId</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыhiddenFieldIdКонтекстноеМеню" id="109"/>
+											<ExtendedTooltip name="ПолученныеФайлыhiddenFieldIdРасширеннаяПодсказка" id="110"/>
+										</InputField>
+										<InputField name="ПолученныеФайлыversion" id="111">
+											<DataPath>НеисправностиФайлы.version</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыversionКонтекстноеМеню" id="112"/>
+											<ExtendedTooltip name="ПолученныеФайлыversionРасширеннаяПодсказка" id="113"/>
+										</InputField>
+										<InputField name="ПолученныеФайлыlastModifiedTime" id="114">
+											<DataPath>НеисправностиФайлы.lastModifiedTime</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыlastModifiedTimeКонтекстноеМеню" id="115"/>
+											<ExtendedTooltip name="ПолученныеФайлыlastModifiedTimeРасширеннаяПодсказка" id="116"/>
+										</InputField>
+										<InputField name="ПолученныеФайлыchecksum" id="117">
+											<DataPath>НеисправностиФайлы.checksum</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ПолученныеФайлыchecksumКонтекстноеМеню" id="118"/>
+											<ExtendedTooltip name="ПолученныеФайлыchecksumРасширеннаяПодсказка" id="119"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.GDS_ПолучениеДанныхАПП</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="detailsIn" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Details in</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="detailsOut" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Details out</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Идентификаторы" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификаторы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтветСервера" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответ сервера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РесурсСервера" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ресурс сервера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>РесурсСервера</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ИдентификаторСущности" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор сущности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ИдентификаторСущности</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="detailsFiles" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Details files</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторФайла" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор файла</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ИдентификаторФайла</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="НеисправностиФайлы" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неисправности файлы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="id" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Id</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="filename" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Filename</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="size" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Size</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="hiddenFieldId" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Hidden field id</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="version" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Version</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="lastModifiedTime" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Last modified time</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="checksum" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Checksum</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="РегулярноеВыражение" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регулярное выражение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РегулярноеВыражение2" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регулярное выражение2</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НеисправностиТехники" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неисправности техники</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Неисправность" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Неисправность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПричиныНеисправности" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Причины неисправности</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НеисправностиКомментарий" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неисправности комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Наименование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Комментарий" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ИДЧекЛистов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИДЧек листов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="id" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Id</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="data" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Data</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОрганизацияИНН" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация ИНН</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>15</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ОрганизацияИНН</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Команда1" id="1">
+			<Action>ЗапроситьДанные</Action>
+		</Command>
+		<Command name="Инициализировать" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инициализировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инициализировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Инициализировать</Action>
+		</Command>
+		<Command name="ИзвлечьСписокИдентификаторовФайла" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Извлечь список идентификаторов файла</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Извлечь список идентификаторов файла</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзвлечьСписокИдентификаторовФайла</Action>
+		</Command>
+		<Command name="ПоказатьКартинку" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать картинку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать картинку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьКартинку</Action>
+		</Command>
+		<Command name="РазборЧерезРегулярка" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разбор через регулярка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разбор через регулярка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РазборЧерезРегулярка</Action>
+		</Command>
+		<Command name="ИзвлечьИД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Извлечь ИД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Извлечь ИД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзвлечьИД</Action>
+		</Command>
+	</Commands>
+</Form>

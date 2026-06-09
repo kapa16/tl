@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="3"/>
+		</InputField>
+		<InputField name="ВидМоделиТС" id="4">
+			<DataPath>Объект.ВидМоделиТС</DataPath>
+			<ContextMenu name="ВидМоделиТСКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ВидМоделиТСРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="ВидПеревозкиДляЭПЛ" id="7">
+			<DataPath>Объект.ВидПеревозкиДляЭПЛ</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о виде перевозки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Information about the type of transportation</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>2</Width>
+			<ListChoiceMode>true</ListChoiceMode>
+			<AutoMarkIncomplete>false</AutoMarkIncomplete>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Коммерческая перевозка</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">КП</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перевозка для собственных нужд</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">СН</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Передвижение и работа специальных транспортных средств</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">СТ</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ВидПеревозкиДляЭПЛКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВидПеревозкиДляЭПЛРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ВидПеревозкиДляЭПЛПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ТитулОформлениеВидКоммерческойПеревозки" id="16">
+			<DataPath>Объект.ТипПеревозки</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид коммерческой перевозки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Type of commercial transportation</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>2</Width>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Регулярная перевозка пассажиров и багажа</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">РП</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перевозка грузов на основании договора перевозки грузов или договора фрахтования</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ПГ</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перевозка пассажиров и багажа по заказу</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ЗП</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перевозка пассажиров и багажа легковым такси</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ЛТ</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Организованная перевозка групп детей автобусами </v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ПД</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ТитулОформлениеВидКоммерческойПеревозкиКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ТитулОформлениеВидКоммерческойПеревозкиРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="ВидТСДляСтрахования" id="19">
+			<DataPath>Объект.ВидТСДляСтрахования</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ВидТСДляСтрахованияКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ВидТСДляСтрахованияРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<CheckBoxField name="ИспользоватьДляЖДПеревозок" id="22">
+			<DataPath>Объект.ИспользоватьДляЖДПеревозок</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИспользоватьДляЖДПеревозокКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ИспользоватьДляЖДПеревозокРасширеннаяПодсказка" id="24"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатВидыПеревозок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>

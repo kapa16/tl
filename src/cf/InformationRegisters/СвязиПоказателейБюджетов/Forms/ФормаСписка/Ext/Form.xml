@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОтчетПроверкаСвязейПоказателейБюджетовПроверкаСвязей" id="70">
+				<Type>CommandBarButton</Type>
+				<CommandName>Report.ПроверкаСвязейПоказателейБюджетов.Command.ПроверкаСвязей</CommandName>
+				<ExtendedTooltip name="ФормаОтчетПроверкаСвязейПоказателейБюджетовПроверкаСвязейРасширеннаяПодсказка" id="71"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.НестандартнаяКартинка</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="46"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="72">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="73"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="74"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="75">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="76"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="77"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="78">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="79"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="80"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="МодельБюджетирования" id="58">
+					<DataPath>~Список.МодельБюджетирования</DataPath>
+					<ContextMenu name="МодельБюджетированияКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="МодельБюджетированияРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+				<LabelField name="СтатьяБюджетов" id="8">
+					<DataPath>Список.СтатьяБюджетов</DataPath>
+					<ContextMenu name="СтатьяБюджетовКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СтатьяБюджетовExtendedTooltip" id="48"/>
+				</LabelField>
+				<LabelField name="СвязанныйПоказательБюджетов" id="61">
+					<DataPath>Список.СвязанныйПоказательБюджетов</DataPath>
+					<ContextMenu name="СвязанныйПоказательБюджетовКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СвязанныйПоказательБюджетовРасширеннаяПодсказка" id="63"/>
+				</LabelField>
+				<LabelField name="Влияние" id="64">
+					<DataPath>Список.Влияние</DataPath>
+					<ContextMenu name="ВлияниеКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ВлияниеРасширеннаяПодсказка" id="66"/>
+				</LabelField>
+				<LabelField name="Коэффициент" id="67">
+					<DataPath>Список.Коэффициент</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэф.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Коэф.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КоэффициентКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="КоэффициентРасширеннаяПодсказка" id="69"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаЗаполнениеАналитики" id="35">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнение аналитики показателя бюджетов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Заполнение аналитики показателя бюджетов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнение аналитики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Заполнение аналитики</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаЗаполнениеАналитикиExtendedTooltip" id="51"/>
+					<ChildItems>
+						<LabelField name="Аналитика1" id="17">
+							<DataPath>Список.Аналитика1</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика 1</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Аналитика 1</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Аналитика1КонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="Аналитика1ExtendedTooltip" id="52"/>
+						</LabelField>
+						<LabelField name="Аналитика2" id="20">
+							<DataPath>Список.Аналитика2</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика 2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Аналитика 2</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Аналитика2КонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="Аналитика2ExtendedTooltip" id="53"/>
+						</LabelField>
+						<LabelField name="Аналитика3" id="23">
+							<DataPath>Список.Аналитика3</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика 3</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Аналитика 3</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Аналитика3КонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="Аналитика3ExtendedTooltip" id="54"/>
+						</LabelField>
+						<LabelField name="Аналитика4" id="26">
+							<DataPath>Список.Аналитика4</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика 4</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Аналитика 4</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Аналитика4КонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="Аналитика4ExtendedTooltip" id="55"/>
+						</LabelField>
+						<LabelField name="Аналитика5" id="29">
+							<DataPath>Список.Аналитика5</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика 5</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Аналитика 5</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Аналитика5КонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="Аналитика5ExtendedTooltip" id="56"/>
+						</LabelField>
+						<LabelField name="Аналитика6" id="43">
+							<DataPath>Список.Аналитика6</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика 6</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Аналитика 6</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Аналитика6КонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="Аналитика6ExtendedTooltip" id="57"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СвязиПоказателейБюджетов.СтатьяБюджетов,
+	СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.ТранслироватьАналитику1
+			ТОГДА "&lt;" + &amp;ТекстТранслируется + "&gt;"
+		КОГДА СвязиПоказателейБюджетов.Аналитика1 = НЕОПРЕДЕЛЕНО
+			ТОГДА "&lt;" + &amp;ТекстПрочие + " " + СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.ВидАналитики1.Наименование + "&gt;"
+		ИНАЧЕ СвязиПоказателейБюджетов.Аналитика1
+	КОНЕЦ КАК Аналитика1,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.ТранслироватьАналитику2
+			ТОГДА "&lt;" + &amp;ТекстТранслируется + "&gt;"
+		КОГДА СвязиПоказателейБюджетов.Аналитика2 = НЕОПРЕДЕЛЕНО
+			ТОГДА "&lt;" + &amp;ТекстПрочие + " " + СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.ВидАналитики2.Наименование + "&gt;"
+		ИНАЧЕ СвязиПоказателейБюджетов.Аналитика2
+	КОНЕЦ КАК Аналитика2,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.ТранслироватьАналитику3
+			ТОГДА "&lt;" + &amp;ТекстТранслируется + "&gt;"
+		КОГДА СвязиПоказателейБюджетов.Аналитика3 = НЕОПРЕДЕЛЕНО
+			ТОГДА "&lt;" + &amp;ТекстПрочие + " " + СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.ВидАналитики3.Наименование + "&gt;"
+		ИНАЧЕ СвязиПоказателейБюджетов.Аналитика3
+	КОНЕЦ КАК Аналитика3,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.ТранслироватьАналитику4
+			ТОГДА "&lt;" + &amp;ТекстТранслируется + "&gt;"
+		КОГДА СвязиПоказателейБюджетов.Аналитика4 = НЕОПРЕДЕЛЕНО
+			ТОГДА "&lt;" + &amp;ТекстПрочие + " " + СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.ВидАналитики4.Наименование + "&gt;"
+		ИНАЧЕ СвязиПоказателейБюджетов.Аналитика4
+	КОНЕЦ КАК Аналитика4,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.ТранслироватьАналитику5
+			ТОГДА "&lt;" + &amp;ТекстТранслируется + "&gt;"
+		КОГДА СвязиПоказателейБюджетов.Аналитика5 = НЕОПРЕДЕЛЕНО
+			ТОГДА "&lt;" + &amp;ТекстПрочие + " " + СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.ВидАналитики5.Наименование + "&gt;"
+		ИНАЧЕ СвязиПоказателейБюджетов.Аналитика5
+	КОНЕЦ КАК Аналитика5,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.ТранслироватьАналитику6
+			ТОГДА "&lt;" + &amp;ТекстТранслируется + "&gt;"
+		КОГДА СвязиПоказателейБюджетов.Аналитика6 = НЕОПРЕДЕЛЕНО
+			ТОГДА "&lt;" + &amp;ТекстПрочие + " " + СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.ВидАналитики6.Наименование + "&gt;"
+		ИНАЧЕ СвязиПоказателейБюджетов.Аналитика6
+	КОНЕЦ КАК Аналитика6,
+	СвязиПоказателейБюджетов.ТранслироватьАналитику1,
+	СвязиПоказателейБюджетов.ТранслироватьАналитику2,
+	СвязиПоказателейБюджетов.ТранслироватьАналитику3,
+	СвязиПоказателейБюджетов.ТранслироватьАналитику4,
+	СвязиПоказателейБюджетов.ТранслироватьАналитику5,
+	СвязиПоказателейБюджетов.ТранслироватьАналитику6,
+	СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов.КоличествоИспользуемыхАналитик КАК КоличествоИспользуемыхАналитик,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов ЕСТЬ NULL 
+				ИЛИ СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов = НЕОПРЕДЕЛЕНО
+				ИЛИ СвязиПоказателейБюджетов.СвязанныйПоказательБюджетов = ЗНАЧЕНИЕ(Справочник.СтатьиБюджетов.ПустаяСсылка)
+			ТОГДА 1
+		ИНАЧЕ 4
+	КОНЕЦ КАК НестандартнаяКартинка,
+	ВЫБОР
+		КОГДА СвязиПоказателейБюджетов.Расход
+			ТОГДА &amp;Расход
+		ИНАЧЕ &amp;Приход
+	КОНЕЦ КАК Влияние,
+	СвязиПоказателейБюджетов.Коэффициент
+ИЗ
+	РегистрСведений.СвязиПоказателейБюджетов КАК СвязиПоказателейБюджетов</QueryText>
+				<MainTable>InformationRegister.СвязиПоказателейБюджетов</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Аналитика1</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика2</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика3</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика4</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика5</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика6</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">КоличествоИспользуемыхАналитик</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не используется&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Аналитика не используется</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Аналитика2</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика3</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика4</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика5</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика6</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">КоличествоИспользуемыхАналитик</dcsset:left>
+									<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не используется&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Используется одна аналитика</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Аналитика3</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика4</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика5</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика6</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">КоличествоИспользуемыхАналитик</dcsset:left>
+									<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не используется&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Используется две аналитики</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Аналитика4</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика5</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика6</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">КоличествоИспользуемыхАналитик</dcsset:left>
+									<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">3</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не используется&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Используется три аналитика</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Аналитика5</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Аналитика6</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">КоличествоИспользуемыхАналитик</dcsset:left>
+									<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">4</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не используется&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Используется четыре аналитики</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Аналитика6</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">КоличествоИспользуемыхАналитик</dcsset:left>
+									<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">5</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">&lt;не используется&gt;</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Используется пять аналитик</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<GroupList>Дерево</GroupList>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Фильтр" id="14">
+			<DataPath>Фильтр</DataPath>
+			<ClearButton>true</ClearButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Запланирован</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Planned</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.Запланирован</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>В рейсе</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>In trip</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.ВРейсе</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>In downtime</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>В простое</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.ВПростое</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>In repair</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>В ремонте</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.ВРемонте</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>На консервации</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>On conservation</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.НаКонсервации</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбыло</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Decommissioning</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.Выбыло</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прочее</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Other</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатВидыСостоянийТС.EnumValue.Прочее</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ФильтрКонтекстноеМеню" id="15"/>
+			<ExtendedTooltip name="ФильтрExtendedTooltip" id="18"/>
+			<Events>
+				<Event name="OnChange">ФильтрПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ДеревоИСписок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево и список</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Tree view and list</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ДеревоИСписокExtendedTooltip" id="19"/>
+			<ChildItems>
+				<Table name="Дерево" id="2">
+					<Representation>Tree</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<Width>25</Width>
+					<InitialTreeView>ExpandTopLevel</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Дерево</DataPath>
+					<RowPictureDataPath>Дерево.DefaultPicture</RowPictureDataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Folders</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ДеревоКонтекстноеМеню" id="3"/>
+					<AutoCommandBar name="ДеревоКоманднаяПанель" id="4">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ДеревоExtendedTooltip" id="20"/>
+					<SearchStringAddition name="ДеревоSearchString" id="26">
+						<AdditionSource>
+							<Item>Дерево</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоSearchStringContextMenu" id="27"/>
+						<ExtendedTooltip name="ДеревоSearchStringExtendedTooltip" id="28"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДеревоViewStatus" id="29">
+						<AdditionSource>
+							<Item>Дерево</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоViewStatusContextMenu" id="30"/>
+						<ExtendedTooltip name="ДеревоViewStatusExtendedTooltip" id="31"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДеревоSearchControl" id="32">
+						<AdditionSource>
+							<Item>Дерево</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоSearchControlContextMenu" id="33"/>
+						<ExtendedTooltip name="ДеревоSearchControlExtendedTooltip" id="34"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ДеревоНаименование" id="5">
+							<DataPath>Дерево.Description</DataPath>
+							<ContextMenu name="ДеревоНаименованиеКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ДеревоНаименованиеExtendedTooltip" id="21"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+				<Table name="Список" id="7">
+					<CommandBarLocation>None</CommandBarLocation>
+					<DefaultItem>true</DefaultItem>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Список</DataPath>
+					<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>false</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="СписокКонтекстноеМеню" id="8"/>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="9">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокExtendedTooltip" id="22"/>
+					<SearchStringAddition name="СписокSearchString" id="35">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокSearchStringContextMenu" id="36"/>
+						<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="37"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокViewStatus" id="38">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокViewStatusContextMenu" id="39"/>
+						<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="40"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокSearchControl" id="41">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокSearchControlContextMenu" id="42"/>
+						<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="43"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
+					</Events>
+					<ChildItems>
+						<PictureField name="ПрисоединенныйФайл" id="47">
+							<DataPath>Список.ПрисоединенныйФайл</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HeaderPicture>
+								<xr:Ref>CommonPicture.уатПрисоединенныйФайл</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.уатПрисоединенныйФайл</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="ПрисоединенныйФайлКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ПрисоединенныйФайлРасширеннаяПодсказка" id="49"/>
+						</PictureField>
+						<LabelField name="Код" id="12">
+							<DataPath>Список.Код</DataPath>
+							<ContextMenu name="КодКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="КодExtendedTooltip" id="23"/>
+						</LabelField>
+						<LabelField name="ПолеЦветСостояния" id="50">
+							<DataPath>Список.ПолеЦветСостояния</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Цвет</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Color</v8:content>
+								</v8:item>
+							</Title>
+							<Width>5</Width>
+							<ContextMenu name="ПолеЦветСостоянияКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ПолеЦветСостоянияРасширеннаяПодсказка" id="52"/>
+						</LabelField>
+						<LabelField name="Наименование" id="10">
+							<DataPath>Список.Наименование</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="24"/>
+						</LabelField>
+						<LabelField name="ВидСостояния" id="16">
+							<DataPath>Список.ВидСостояния</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ВидСостоянияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ВидСостоянияExtendedTooltip" id="25"/>
+						</LabelField>
+						<LabelField name="Ссылка" id="44">
+							<DataPath>Список.Ссылка</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СсылкаКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="46"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Дерево" id="2">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Catalog.уатСостояниеТС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЭтоГруппа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникуатСостояниеТС.Ссылка КАК Ссылка,
+	СправочникуатСостояниеТС.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникуатСостояниеТС.Родитель КАК Родитель,
+	СправочникуатСостояниеТС.ЭтоГруппа КАК ЭтоГруппа,
+	СправочникуатСостояниеТС.Код КАК Код,
+	СправочникуатСостояниеТС.Наименование КАК Наименование,
+	СправочникуатСостояниеТС.ВидСостояния КАК ВидСостояния,
+	СправочникуатСостояниеТС.ОплатаВодителю КАК ОплатаВодителю,
+	СправочникуатСостояниеТС.ОплатаКлиента КАК ОплатаКлиента,
+	СправочникуатСостояниеТС.ЦветСостояния КАК ЦветСостояния,
+	СправочникуатСостояниеТС.РазрешитьВыпискуДокументов КАК РазрешитьВыпискуДокументов,
+	СправочникуатСостояниеТС.ВидРабочегоВремениПростоя КАК ВидРабочегоВремениПростоя,
+	СправочникуатСостояниеТС.УменьшатьПростойНаВремяОбеда КАК УменьшатьПростойНаВремяОбеда,
+	СправочникуатСостояниеТС.Предопределенный КАК Предопределенный,
+	СправочникуатСостояниеТС.ИмяПредопределенныхДанных КАК ИмяПредопределенныхДанных,
+	ВЫРАЗИТЬ("" КАК СТРОКА(10)) КАК ПолеЦветСостояния,
+	ВЫБОР
+		КОГДА НаличиеФайлов.ЕстьФайлы ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ НаличиеФайлов.ЕстьФайлы
+	КОНЕЦ КАК ПрисоединенныйФайл
+ИЗ
+	Справочник.уатСостояниеТС КАК СправочникуатСостояниеТС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеФайлов КАК НаличиеФайлов
+		ПО СправочникуатСостояниеТС.Ссылка = НаличиеФайлов.ОбъектСФайлами</QueryText>
+				<MainTable>Catalog.уатСостояниеТС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Фильтр" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.уатВидыСостоянийТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>

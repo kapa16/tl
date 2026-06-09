@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Запись.Period</DataPath>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Организация" id="4">
+			<DataPath>Запись.Организация</DataPath>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="СпособОценкиМПЗ" id="10">
+			<DataPath>Запись.СпособОценкиМПЗ</DataPath>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ContextMenu name="СпособОценкиМПЗКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="СпособОценкиМПЗРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<UsualGroup name="ГруппаУчетПартийПоОрганизациям" id="35">
+			<Group>Vertical</Group>
+			<VerticalSpacing>Half</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаУчетПартийПоОрганизациямРасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<CheckBoxField name="УчетПартийПоОрганизациям" id="7">
+					<DataPath>Запись.УчетПартийПоОрганизациям</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTipRepresentation>None</ToolTipRepresentation>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="УчетПартийПоОрганизациямКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="УчетПартийПоОрганизациямРасширеннаяПодсказка" id="9"/>
+				</CheckBoxField>
+				<UsualGroup name="Группа1" id="44">
+					<Group>Vertical</Group>
+					<VerticalSpacing>None</VerticalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияУчетПартийПоОрганизациям" id="13">
+							<Width>67</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Остатки партий материалов будут храниться в разрезе организаций документов-партий.
+Принадлежность материалов организациям можно увидеть в отчетах "Остатки материалов (по организациям)" и "Ведомость движения материалов (по организациям)".
+При выключенной настройке списываются партии всех организаций, в учетной политике которых эта настройка также выключена. При включенной настройке списываются партии только организации документа списания.</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Material batch balances will be stored by organization of the batch document.
+The organization ownership of materials can be viewed in the "Material Balances (by Organization)" and "Material Flow Statement (by Organization)" reports.
+When this setting is disabled, batches of all organizations whose accounting policies have this setting disabled are written off. When this setting is enabled, only batches of the organization of the write-off document are written off.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияУчетПартийПоОрганизациямКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ДекорацияУчетПартийПоОрганизациямРасширеннаяПодсказка" id="15"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаПереносПартий" id="37">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПереносПартийРасширеннаяПодсказка" id="38"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация1" id="39">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При включении настройки рекомендуется выполнить</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>When enabling the setting, it is recommended to perform</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="41"/>
+								</LabelDecoration>
+								<Button name="ОткрытьФормуПереносаНаОрганизацию" id="42">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОткрытьФормуПереносаНаОрганизацию</CommandName>
+									<ExtendedTooltip name="ОткрытьФормуПереносаНаОрганизациюРасширеннаяПодсказка" id="43"/>
+								</Button>
+								<LabelDecoration name="ДекорацияСмСправку" id="46">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>(см. справку)</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>(see help)</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияСмСправкуКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ДекорацияСмСправкуРасширеннаяПодсказка" id="48"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРекомендация" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа рекомендация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Группа рекомендация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа рекомендация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Группа рекомендация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>50</Width>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#FFF4CD</BackColor>
+			<ExtendedTooltip name="ГруппаРекомендацияРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаРекомендация" id="18">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка рекомендация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Picture recommendation</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.уатИнформация16</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаРекомендацияКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="КартинкаРекомендацияРасширеннаяПодсказка" id="20"/>
+				</PictureDecoration>
+				<LabelDecoration name="тРекомендация" id="23">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>80</MaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:ТекстИнформационнойНадписи</TextColor>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не рекомендуется изменять учетную политику задним числом. Это повлечет нарушение складского учета при перепроведении существующих документов.
+Для изменения учетной политики нужно ввести новую запись и указать новые значения параметров.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>It is not recommended to change accounting policies retroactively. This will disrupt inventory control when reposting existing documents. To change an accounting policy, you must enter a new entry and specify new parameter values.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="тРекомендацияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="тРекомендацияРасширеннаяПодсказка" id="25"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.уатУчетнаяПолитика</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьФормуПереносаНаОрганизацию" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенос партий на организацию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Transfer of parties to the organization</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть форму переноса на организацию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open the transfer form to the organization</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьФормуПереносаНаОрганизацию</Action>
+		</Command>
+	</Commands>
+</Form>

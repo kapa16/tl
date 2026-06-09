@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Point</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СоседнийПункт</dataPath>
+			<field>СоседнийПункт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соседний пункт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Neighboring point</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Лат</dataPath>
+			<field>Лат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Лон</dataPath>
+			<field>Лон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СоседнийПунктЛат</dataPath>
+			<field>СоседнийПунктЛат</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соседний пункт лат</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Neighboring point lat</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РадиусПоиска</dataPath>
+			<field>РадиусПоиска</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СоседнийПунктЛон</dataPath>
+			<field>СоседнийПунктЛон</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соседний пункт лон</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Neighboring point lon</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаписей</dataPath>
+			<field>КоличествоЗаписей</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of records</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+    уатПунктыНазначения.Ссылка КАК Ссылка,
+    СоседнийПункт.Ссылка КАК СоседнийПункт,
+    СоседнийПункт.Лат КАК Лат,
+    СоседнийПункт.Лон КАК Лон,
+    уатПунктыНазначения.Лат КАК СоседнийПунктЛат,
+    уатПунктыНазначения.Лон КАК СоседнийПунктЛон,
+    уатПунктыНазначения.РадиусПоиска КАК РадиусПоиска,
+    1 КАК КоличествоЗаписей
+ИЗ
+    Справочник.уатПунктыНазначения КАК уатПунктыНазначения
+        ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатПунктыНазначения КАК СоседнийПункт
+        ПО (СоседнийПункт.Лат &lt;= уатПунктыНазначения.Лат + (ВЫРАЗИТЬ(уатПунктыНазначения.РадиусПоиска / 111226.255 КАК ЧИСЛО(10, 3))))
+            И (СоседнийПункт.Лат &gt;= уатПунктыНазначения.Лат - (ВЫРАЗИТЬ(уатПунктыНазначения.РадиусПоиска / 111226.255 КАК ЧИСЛО(10, 3))))
+            И (СоседнийПункт.Лон &lt;= уатПунктыНазначения.Лон + (ВЫРАЗИТЬ(уатПунктыНазначения.РадиусПоиска / 10 КАК ЧИСЛО(10, 3))))
+            И (СоседнийПункт.Лон &gt;= уатПунктыНазначения.Лон - (ВЫРАЗИТЬ(уатПунктыНазначения.РадиусПоиска / 10 КАК ЧИСЛО(10, 3))))
+            И (СоседнийПункт.Ссылка &lt;&gt; уатПунктыНазначения.Ссылка)
+ГДЕ
+    ВЫБОР
+            КОГДА &amp;ВыводитьТолькоПунктыСОтличающимисяКоординатами
+                ТОГДА ВЫБОР
+                        КОГДА СоседнийПункт.Лат &lt;&gt; уатПунктыНазначения.Лат
+                                ИЛИ СоседнийПункт.Лон &lt;&gt; уатПунктыНазначения.Лон
+                            ТОГДА ИСТИНА
+                        ИНАЧЕ ЛОЖЬ
+                    КОНЕЦ
+            ИНАЧЕ ИСТИНА
+        КОНЕЦ</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>РасстояниеМеждуПунктами</dataPath>
+		<expression>уатЗащищенныеФункцииСервер_проф.РассчитатьДистанциюПоКоординатам(Лат,Лон, СоседнийПунктЛат, СоседнийПунктЛон)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Расстояние между пунктами, м</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Distance between points, m</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧН=</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>NZ=</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>КоличествоЗаписей</dataPath>
+		<expression>Сумма(КоличествоЗаписей)</expression>
+	</totalField>
+	<parameter>
+		<name>ВыводитьТолькоПунктыСОтличающимисяКоординатами</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить только пункты с отличающимися координатами</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Display only points with different coordinates</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Соседние пункты назначения</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Соседние пункты назначения</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Nearby destinations</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗаписей</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>5323428d-025d-4f23-932d-8339489592cf</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Ссылка.Родитель</dcsset:left>
+					<dcsset:comparisonType>InHierarchy</dcsset:comparisonType>
+					<dcsset:userSettingID>9a89af5c-b93e-426f-8121-3f0d4b2ad966</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Ссылка.НаправлениеПеревозки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fdb07b56-7d5b-46e8-9861-78e6f8f8f9c1</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление перевозки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Transportation direction</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Ссылка.ТипПункта</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>8cf1780e-50c8-4585-b7e9-4f3b6c1c2a58</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип пункта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Point type</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">РасстояниеМеждуПунктами</dcsset:left>
+					<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:Field">РадиусПоиска</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>fb2d27b5-05bf-484d-a253-b70944167212</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьТолькоПунктыСОтличающимисяКоординатами</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:userSettingID>9383785f-e005-444e-a365-fc5ce767d816</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>КоличествоЗаписей</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>9764417a-9112-4b9b-b6f5-2b3b3185a167</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>10bfeaef-d7ef-45ea-abca-b0861db0b9bb</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Ссылка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>КоличествоЗаписей</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СоседнийПункт</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>РасстояниеМеждуПунктами</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>0a8b1d08-3ae9-4674-9f2e-07d127e2c76a</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

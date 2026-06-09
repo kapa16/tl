@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<Width>1</Width>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<Button name="СправочникуатПодписиНапечататьПомощникСозданияФаксимилеПодписи" id="6">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.НапечататьПомощникСозданияФаксимилеПодписи</CommandName>
+			<ExtendedTooltip name="СправочникуатПодписиНапечататьПомощникСозданияФаксимилеПодписиРасширеннаяПодсказка" id="7"/>
+		</Button>
+		<PictureField name="ФаксимилеПодписи" id="8">
+			<DataPath>ФаксимилеПодписи</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<Width>17</Width>
+			<MaxWidth>30</MaxWidth>
+			<Height>2</Height>
+			<MaxHeight>9</MaxHeight>
+			<HorizontalStretch>false</HorizontalStretch>
+			<VerticalStretch>false</VerticalStretch>
+			<PictureSize>Proportionally</PictureSize>
+			<Hyperlink>true</Hyperlink>
+			<NonselectedPictureText>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить факсимиле подписи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add a facsimile signature</v8:content>
+				</v8:item>
+			</NonselectedPictureText>
+			<TextColor>style:BorderColor</TextColor>
+			<FileDragMode>AsFile</FileDragMode>
+			<ContextMenu name="ФаксимилеПодписиКонтекстноеМеню" id="9">
+				<ChildItems>
+					<Button name="ФаксимилеПодписиКонтекстноеМенюИзменитьФаксимилеПодписи" id="11">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЗаменитьФаксимилеПодписи</CommandName>
+						<ExtendedTooltip name="ФаксимилеПодписиКонтекстноеМенюИзменитьФаксимилеПодписиРасширеннаяПодсказка" id="12"/>
+					</Button>
+					<Button name="ФаксимилеПодписиКонтекстноеМенюДобавитьИзображениеФаксимиле" id="19">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьИзображениеФаксимиле</CommandName>
+						<ExtendedTooltip name="ФаксимилеПодписиКонтекстноеМенюДобавитьИзображениеФаксимилеРасширеннаяПодсказка" id="20"/>
+					</Button>
+					<Button name="ФаксимилеПодписиКонтекстноеМенюОчиститьФаксимилеПодписи" id="15">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОчиститьФаксимилеПодписи</CommandName>
+						<ExtendedTooltip name="ФаксимилеПодписиКонтекстноеМенюОчиститьФаксимилеПодписиРасширеннаяПодсказка" id="16"/>
+					</Button>
+					<Button name="ФаксимилеПодписиКонтекстноеМенюВыбратьИзПрисоединенныхФайлов" id="17">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыбратьИзПрисоединенныхФайлов</CommandName>
+						<ExtendedTooltip name="ФаксимилеПодписиКонтекстноеМенюВыбратьИзПрисоединенныхФайловРасширеннаяПодсказка" id="18"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<ExtendedTooltip name="ФаксимилеПодписиРасширеннаяПодсказка" id="10"/>
+			<Events>
+				<Event name="Click">ФаксимилеПодписиНажатие</Event>
+			</Events>
+		</PictureField>
+		<Button name="ПредварительныйПросмотрПечатиСчета" id="13">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ПредварительныйПросмотрПечатнойФормыСчетНаОплату</CommandName>
+			<ExtendedTooltip name="ПредварительныйПросмотрПечатиСчетаРасширеннаяПодсказка" id="14"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатПодписи</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ФаксимилеПодписи" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факсимиле подписи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Facsimile of signature</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="АдресФаксимиле" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="НапечататьПомощникСозданияФаксимилеПодписи" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инструкция "Как создать факсимиле подписи"</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Instructions "How to create a facsimile signature"</v8:content>
+				</v8:item>
+			</Title>
+			<Action>НапечататьПомощникСозданияФаксимилеПодписи</Action>
+		</Command>
+		<Command name="ЗаменитьФаксимилеПодписи" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заменить факсимиле файлом с диска...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Replace the facsimile with a file from disk...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заменить факсимиле подписи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Replace the facsimile signature</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьФаксимилеПодписи</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПредварительныйПросмотрПечатнойФормыСчетНаОплату" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предварительный просмотр печатной формы "Счет на оплату"</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Preview of the printed form "Invoice for payment"</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ПредварительныйПросмотрПечатнойФормыСчетНаОплату</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОчиститьФаксимилеПодписи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить изображение факсимиле</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear facsimile image</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить изображение факсимиле</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear facsimile image</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОчиститьФаксимилеПодписи</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВыбратьИзПрисоединенныхФайлов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать из присоединенных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select from attached</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать подпись из присоединенных файлов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select a signature from the attached files</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыбратьИзПрисоединенныхФайлов</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьИзображениеФаксимиле" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать изображение факсимиле</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select a facsimile image</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить изображение факсимиле</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add facsimile image</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДобавитьИзображениеФаксимиле</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

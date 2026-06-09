@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СписаниеСРЗ</dataPath>
+			<field>СписаниеСРЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма затрат (руб.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Total expenses (rubles)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПутьПройденныйТС</dataPath>
+			<field>ПутьПройденныйТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег (км)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Пробег (км)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РубКм</dataPath>
+			<field>РубКм</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Руб/км</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>RUB/km</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПутевойЛист</dataPath>
+			<field>ПутевойЛист</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путевой лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Waybill</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатПутевойЛист</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеСистемы</dataPath>
+			<field>НаименованиеСистемы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование системы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>System name</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	МИНИМУМ(ВЫБОР
+			КОГДА уатПутевойЛист.ДатаВыезда ЕСТЬ NULL
+				ТОГДА ЕСТЬNULL(уатПутевойЛист1.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+			ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+		КОНЕЦ) КАК ДатаВыезда,
+	уатОтчетСистемыАвтодорРасходы.НомерСтроки КАК НомерСтроки,
+	уатОтчетСистемыАвтодорРасходы.Ссылка КАК Ссылка
+ПОМЕСТИТЬ втДатаВыездаАвтодор
+ИЗ
+	Документ.уатОтчетСистемыАвтодор.Расходы КАК уатОтчетСистемыАвтодорРасходы
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист
+		ПО уатОтчетСистемыАвтодорРасходы.ТС = уатПутевойЛист.ТранспортноеСредство
+			И (уатОтчетСистемыАвтодорРасходы.ДатаОперации МЕЖДУ уатПутевойЛист.ДатаВыезда И уатПутевойЛист.ДатаВозвращения)
+			И (уатПутевойЛист.Проведен)
+			И (НЕ уатПутевойЛист.ПометкаУдаления)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист1
+		ПО уатОтчетСистемыАвтодорРасходы.ТС = уатПутевойЛист1.ТранспортноеСредство
+			И (уатОтчетСистемыАвтодорРасходы.ДатаОперации МЕЖДУ уатПутевойЛист1.ДатаВыезда И уатПутевойЛист1.ДатаВозвращения)
+			И (уатПутевойЛист1.Проведен)
+			И (НЕ уатПутевойЛист1.ПометкаУдаления)
+ГДЕ
+	уатОтчетСистемыАвтодорРасходы.ДатаОперации МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+СГРУППИРОВАТЬ ПО
+	уатОтчетСистемыАвтодорРасходы.НомерСтроки,
+	уатОтчетСистемыАвтодорРасходы.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МИНИМУМ(ВЫБОР
+			КОГДА уатПутевойЛист.ДатаВыезда ЕСТЬ NULL
+				ТОГДА ЕСТЬNULL(уатПутевойЛист1.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+			ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+		КОНЕЦ) КАК ДатаВыезда,
+	уатОтчетСистемыПлатонРасходы.НомерСтроки КАК НомерСтроки,
+	уатОтчетСистемыПлатонРасходы.Ссылка КАК Ссылка
+ПОМЕСТИТЬ втдатаВыезда
+ИЗ
+	Документ.уатОтчетСистемыПлатон.Расходы КАК уатОтчетСистемыПлатонРасходы
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист
+		ПО уатОтчетСистемыПлатонРасходы.ДатаВремяНачалаДвижения &gt;= уатПутевойЛист.ДатаВыезда
+			И уатОтчетСистемыПлатонРасходы.ДатаВремяНачалаДвижения &lt;= уатПутевойЛист.ДатаВозвращения
+			И уатОтчетСистемыПлатонРасходы.ТС = уатПутевойЛист.ТранспортноеСредство
+			И (НЕ уатПутевойЛист.ПометкаУдаления)
+			И (уатПутевойЛист.Проведен)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист1
+		ПО уатОтчетСистемыПлатонРасходы.ДатаВремяОкончанияДвижения &gt;= уатПутевойЛист1.ДатаВыезда
+			И уатОтчетСистемыПлатонРасходы.ДатаВремяОкончанияДвижения &lt;= уатПутевойЛист1.ДатаВозвращения
+			И уатОтчетСистемыПлатонРасходы.ТС = уатПутевойЛист1.ТранспортноеСредство
+			И (НЕ уатПутевойЛист1.ПометкаУдаления)
+			И (уатПутевойЛист1.Проведен)
+ГДЕ
+	уатОтчетСистемыПлатонРасходы.ДатаОперации МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+СГРУППИРОВАТЬ ПО
+	уатОтчетСистемыПлатонРасходы.НомерСтроки,
+	уатОтчетСистемыПлатонРасходы.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	уатОтчетСистемыПлатонРасходы.ТС КАК ТС,
+	уатОтчетСистемыПлатонРасходы.ПутьПройденныйТС КАК ПутьПройденныйТС,
+	уатОтчетСистемыПлатонРасходы.СписаниеСРЗ КАК СписаниеСРЗ,
+	уатОтчетСистемыПлатонРасходы.Ссылка.Организация КАК Организация,
+	ВЫБОР
+		КОГДА уатПутевойЛист.Водитель1 ЕСТЬ NULL
+			ТОГДА ЕСТЬNULL(уатПутевойЛист1.Водитель1, ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка))
+		ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.Водитель1, ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка))
+	КОНЕЦ КАК Водитель,
+	0 КАК РубКм,
+	ВЫБОР
+		КОГДА уатПутевойЛист.ДатаВыезда ЕСТЬ NULL
+			ТОГДА ЕСТЬNULL(уатПутевойЛист1.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+		ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+	КОНЕЦ КАК ДатаВыезда,
+	уатОтчетСистемыПлатонРасходы.Ссылка КАК Ссылка,
+	уатОтчетСистемыПлатонРасходы.НомерСтроки КАК НомерСтроки,
+	ВЫБОР
+		КОГДА уатПутевойЛист.ДатаВыезда ЕСТЬ NULL
+			ТОГДА ЕСТЬNULL(уатПутевойЛист1.Ссылка, ЗНАЧЕНИЕ(Документ.уатПутевойЛист.ПустаяСсылка))
+		ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.Ссылка, ЗНАЧЕНИЕ(Документ.уатПутевойЛист.ПустаяСсылка))
+	КОНЕЦ КАК ПутевойЛист,
+	ЗНАЧЕНИЕ(Справочник.уатВнешниеСистемы.Платон) КАК НаименованиеСистемы
+ПОМЕСТИТЬ втВодители
+ИЗ
+	Документ.уатОтчетСистемыПлатон.Расходы КАК уатОтчетСистемыПлатонРасходы
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист
+		ПО уатОтчетСистемыПлатонРасходы.ДатаВремяНачалаДвижения &gt;= уатПутевойЛист.ДатаВыезда
+			И уатОтчетСистемыПлатонРасходы.ДатаВремяНачалаДвижения &lt;= уатПутевойЛист.ДатаВозвращения
+			И уатОтчетСистемыПлатонРасходы.ТС = уатПутевойЛист.ТранспортноеСредство
+			И (НЕ уатПутевойЛист.ПометкаУдаления)
+			И (уатПутевойЛист.Проведен)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист1
+		ПО уатОтчетСистемыПлатонРасходы.ДатаВремяОкончанияДвижения &gt;= уатПутевойЛист1.ДатаВыезда
+			И уатОтчетСистемыПлатонРасходы.ДатаВремяОкончанияДвижения &lt;= уатПутевойЛист1.ДатаВозвращения
+			И уатОтчетСистемыПлатонРасходы.ТС = уатПутевойЛист1.ТранспортноеСредство
+			И (НЕ уатПутевойЛист1.ПометкаУдаления)
+			И (уатПутевойЛист1.Проведен)
+ГДЕ
+	уатОтчетСистемыПлатонРасходы.ДатаОперации МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	уатОтчетСистемыАвтодорРасходы.ТС,
+	0,
+	уатОтчетСистемыАвтодорРасходы.Сумма,
+	уатОтчетСистемыАвтодорРасходы.Ссылка.Организация,
+	ВЫБОР
+		КОГДА уатПутевойЛист.Водитель1 ЕСТЬ NULL
+			ТОГДА ЕСТЬNULL(уатПутевойЛист1.Водитель1, ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка))
+		ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.Водитель1, ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка))
+	КОНЕЦ,
+	0,
+	ВЫБОР
+		КОГДА уатПутевойЛист.ДатаВыезда ЕСТЬ NULL
+			ТОГДА ЕСТЬNULL(уатПутевойЛист1.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+		ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.ДатаВыезда, ДАТАВРЕМЯ(1, 1, 1))
+	КОНЕЦ,
+	уатОтчетСистемыАвтодорРасходы.Ссылка,
+	уатОтчетСистемыАвтодорРасходы.НомерСтроки,
+	ВЫБОР
+		КОГДА уатПутевойЛист.ДатаВыезда ЕСТЬ NULL
+			ТОГДА ЕСТЬNULL(уатПутевойЛист1.Ссылка, ЗНАЧЕНИЕ(Документ.уатПутевойЛист.ПустаяСсылка))
+		ИНАЧЕ ЕСТЬNULL(уатПутевойЛист.Ссылка, ЗНАЧЕНИЕ(Документ.уатПутевойЛист.ПустаяСсылка))
+	КОНЕЦ,
+	ЗНАЧЕНИЕ(Справочник.уатВнешниеСистемы.Автодор)
+ИЗ
+	Документ.уатОтчетСистемыАвтодор.Расходы КАК уатОтчетСистемыАвтодорРасходы
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист
+		ПО уатОтчетСистемыАвтодорРасходы.ТС = уатПутевойЛист.ТранспортноеСредство
+			И (уатОтчетСистемыАвтодорРасходы.ДатаОперации МЕЖДУ уатПутевойЛист.ДатаВыезда И уатПутевойЛист.ДатаВозвращения)
+			И (уатПутевойЛист.Проведен)
+			И (НЕ уатПутевойЛист.ПометкаУдаления)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.уатПутевойЛист КАК уатПутевойЛист1
+		ПО уатОтчетСистемыАвтодорРасходы.ТС = уатПутевойЛист1.ТранспортноеСредство
+			И (уатОтчетСистемыАвтодорРасходы.ДатаОперации МЕЖДУ уатПутевойЛист1.ДатаВыезда И уатПутевойЛист1.ДатаВозвращения)
+			И (уатПутевойЛист1.Проведен)
+ГДЕ
+	уатОтчетСистемыАвтодорРасходы.ДатаОперации МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втВодители.ТС КАК ТС,
+	втВодители.ПутьПройденныйТС КАК ПутьПройденныйТС,
+	втВодители.СписаниеСРЗ КАК СписаниеСРЗ,
+	втВодители.Организация КАК Организация,
+	МАКСИМУМ(втВодители.Водитель) КАК Водитель,
+	втВодители.РубКм КАК РубКм,
+	втВодители.ПутевойЛист КАК ПутевойЛист,
+	втВодители.НаименованиеСистемы КАК НаименованиеСистемы
+ИЗ
+	втВодители КАК втВодители
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втдатаВыезда КАК втдатаВыезда
+		ПО втВодители.Ссылка = втдатаВыезда.Ссылка
+			И втВодители.НомерСтроки = втдатаВыезда.НомерСтроки
+
+СГРУППИРОВАТЬ ПО
+	втВодители.ТС,
+	втВодители.ПутьПройденныйТС,
+	втВодители.СписаниеСРЗ,
+	втВодители.Организация,
+	втВодители.РубКм,
+	втВодители.ПутевойЛист,
+	втВодители.НаименованиеСистемы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	втВодители.ТС,
+	втВодители.ПутьПройденныйТС,
+	втВодители.СписаниеСРЗ,
+	втВодители.Организация,
+	втВодители.Водитель,
+	втВодители.РубКм,
+	втВодители.ПутевойЛист,
+	втВодители.НаименованиеСистемы
+ИЗ
+	втВодители КАК втВодители
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втДатаВыездаАвтодор КАК втДатаВыездаАвтодор
+		ПО втВодители.Ссылка = втДатаВыездаАвтодор.Ссылка
+			И втВодители.НомерСтроки = втДатаВыездаАвтодор.НомерСтроки</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СписаниеСРЗ</dataPath>
+		<expression>Сумма(СписаниеСРЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПутьПройденныйТС</dataPath>
+		<expression>Сумма(ПутьПройденныйТС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РубКм</dataPath>
+		<expression>Сумма(СписаниеСРЗ)/Сумма(ПутьПройденныйТС)</expression>
+	</totalField>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ТипОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип отчета</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Report type</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Рейтинг затрат на платные дороги</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рейтинг затрат на платные дороги по ТС</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПутьПройденныйТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СписаниеСРЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РубКм</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemGroup">
+					<dcsset:groupType>AndGroup</dcsset:groupType>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.уатТС.ПустаяСсылка</dcsset:right>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:userSettingID>c0fb5d75-8ccc-47d7-b69b-ed1bd14c7d55</dcsset:userSettingID>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>c5fbbb58-ee11-4cde-88c4-9add02dcbe8c</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>НаименованиеСистемы</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Рейтинг затрат на платные дороги по Водителям</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рейтинг затрат на платные дороги по Водителям</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Toll Road Cost Ranking by Driver</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПутьПройденныйТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СписаниеСРЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РубКм</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemGroup">
+					<dcsset:groupType>AndGroup</dcsset:groupType>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Водитель</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Сотрудники.ПустаяСсылка</dcsset:right>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:left xsi:type="dcscor:Field">Водитель</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:userSettingID>71091054-ad4a-4602-b817-106fb88fee64</dcsset:userSettingID>
+					</dcsset:item>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПутевойЛист</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6e7ed3ef-c7c3-4b26-9cf9-784767124a9d</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>16c95094-305d-47d9-b42a-ba6628dfe3fe</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ТипОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">1</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>НаименованиеСистемы</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Водитель</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ПутевойЛист</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetObject">
+		<name>Периоды</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодПланирования</dataPath>
+			<field>ДатаНачала</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning period</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>Заголовок</presentationExpression>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заголовок</dataPath>
+			<field>Заголовок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Title</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>Периоды</objectName>
+	</dataSet>
+	<dataSet xsi:type="DataSetObject">
+		<name>АналитикаСтатейБюджетов</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяБюджетов</dataPath>
+			<field>СтатьяБюджетов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья бюджетов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Budget item</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтатьиБюджетов</v8:Type>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аналитика1</dataPath>
+			<field>Аналитика1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика 1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Аналитика 1</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ЗначениеЗаполнено(Аналитика1)</dcscom:expression>
+				<dcscom:orderType>Desc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Аналитика1</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.АналитикиСтатейБюджетов</v8:TypeSet>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аналитика2</dataPath>
+			<field>Аналитика2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика 2</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Аналитика 2</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ЗначениеЗаполнено(Аналитика2)</dcscom:expression>
+				<dcscom:orderType>Desc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Аналитика2</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.АналитикиСтатейБюджетов</v8:TypeSet>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аналитика3</dataPath>
+			<field>Аналитика3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика 3</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Аналитика 3</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ЗначениеЗаполнено(Аналитика3)</dcscom:expression>
+				<dcscom:orderType>Desc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Аналитика3</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.АналитикиСтатейБюджетов</v8:TypeSet>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аналитика4</dataPath>
+			<field>Аналитика4</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика 4</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Аналитика 4</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ЗначениеЗаполнено(Аналитика4)</dcscom:expression>
+				<dcscom:orderType>Desc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Аналитика4</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.АналитикиСтатейБюджетов</v8:TypeSet>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аналитика5</dataPath>
+			<field>Аналитика5</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика 5</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Аналитика 5</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ЗначениеЗаполнено(Аналитика5)</dcscom:expression>
+				<dcscom:orderType>Desc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Аналитика5</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.АналитикиСтатейБюджетов</v8:TypeSet>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Аналитика6</dataPath>
+			<field>Аналитика6</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика 6</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Аналитика 6</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ЗначениеЗаполнено(Аналитика6)</dcscom:expression>
+				<dcscom:orderType>Desc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Аналитика6</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+			<valueType>
+				<v8:TypeSet xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.АналитикиСтатейБюджетов</v8:TypeSet>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИдентификаторСтроки</dataPath>
+			<field>ИдентификаторСтроки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Line identifier</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>АналитикаСтатейБюджетов</objectName>
+	</dataSet>
+	<dataSet xsi:type="DataSetObject">
+		<name>ОборотыПоСтатьямБюджетов</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодПланирования</dataPath>
+			<field>ПериодПланирования</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning period</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sum</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧО=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИдентификаторСтрокиОборотов</dataPath>
+			<field>ИдентификаторСтроки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор строки оборотов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Идентификатор строки оборотов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧО=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ОборотыПоСтатьямБюджетов</objectName>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>Периоды</sourceDataSet>
+		<destinationDataSet>АналитикаСтатейБюджетов</destinationDataSet>
+		<sourceExpression>Истина</sourceExpression>
+		<destinationExpression>Истина</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Периоды</sourceDataSet>
+		<destinationDataSet>ОборотыПоСтатьямБюджетов</destinationDataSet>
+		<sourceExpression>ПериодПланирования</sourceExpression>
+		<destinationExpression>ПериодПланирования</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>АналитикаСтатейБюджетов</sourceDataSet>
+		<destinationDataSet>ОборотыПоСтатьямБюджетов</destinationDataSet>
+		<sourceExpression>ИдентификаторСтроки</sourceExpression>
+		<destinationExpression>ИдентификаторСтрокиОборотов</destinationExpression>
+	</dataSetLink>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<parameter>
+		<name>Периодичность</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Периодичность</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Periodicity</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.Периодичность</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Main</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Периодичность</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>СтатьяБюджетов</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Аналитика1</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Аналитика2</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Аналитика3</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Аналитика4</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Аналитика5</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Аналитика6</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ОформлениеОтчетовБюджетирование</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПериодПланирования</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтатьяБюджетов</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Аналитика1</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Аналитика2</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Аналитика3</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Аналитика4</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Аналитика5</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Аналитика6</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>МакетОформления</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">Основной</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">Separately</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">End</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">SpecialPosition</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Заголовок</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType"/>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ВариантИспользованияГруппировки</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionGroupUseVariant">AdditionalInformation</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+				</dcsset:row>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаРасписаниеРейсовНастроить" id="56">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РасписаниеРейсовНастроить</CommandName>
+				<ExtendedTooltip name="ФормаРасписаниеРейсовНастроитьРасширеннаяПодсказка" id="57"/>
+			</Button>
+			<Button name="ФормаПечать" id="58">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Печать</CommandName>
+				<ExtendedTooltip name="ФормаПечатьРасширеннаяПодсказка" id="59"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<UsualGroup name="Группа2" id="79">
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="80"/>
+					<ChildItems>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Владелец" id="4">
+					<DataPath>Объект.Owner</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВладелецКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаГрафик" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время выезда, возвращения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure time, return</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаГрафикРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаГрафик1" id="73">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа график1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group schedule1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа график1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group schedule1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаГрафик1РасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<InputField name="ВыездИзГаража" id="7">
+							<DataPath>Объект.ВыездИзГаража</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВыездИзГаражаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ВыездИзГаражаРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="ВозвращениеВГараж" id="16">
+							<DataPath>Объект.ВозвращениеВГараж</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВозвращениеВГаражКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ВозвращениеВГаражРасширеннаяПодсказка" id="18"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаГрафик2" id="75">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа график2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group schedule2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа график2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group schedule2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>28</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаГрафик2РасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<InputField name="ПрибытиеНаНачальныйПункт" id="10">
+							<DataPath>Объект.ПрибытиеНаНачальныйПункт</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Arrival to initial point</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Прибытие в начальный пункт</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ПрибытиеНаНачальныйПунктКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПрибытиеНаНачальныйПунктРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="ВыездИзКонечногоПункта" id="13">
+							<DataPath>Объект.ВыездИзКонечногоПункта</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выезд из конечного пункта</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Departure from the final point</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВыездИзКонечногоПунктаКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ВыездИзКонечногоПунктаРасширеннаяПодсказка" id="15"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВремяНаМаршруте" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время работы на маршруте</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Working time on route</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время на маршруте</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Time on the route</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаВремяНаМаршрутеРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВремя1" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group time1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group time1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремя1РасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<InputField name="ВремяНаМаршрутеВодителя1" id="19">
+							<DataPath>Объект.ВремяНаМаршрутеВодителя1</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Driver (1 shift)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Водитель (1 смена)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВремяНаМаршрутеВодителя1КонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ВремяНаМаршрутеВодителя1РасширеннаяПодсказка" id="21"/>
+						</InputField>
+						<InputField name="ВремяНаМаршрутеКондуктора1" id="22">
+							<DataPath>Объект.ВремяНаМаршрутеКондуктора1</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кондуктор (1 смена)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Conductor (1 shift)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВремяНаМаршрутеКондуктора1КонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ВремяНаМаршрутеКондуктора1РасширеннаяПодсказка" id="24"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа1" id="77">
+					<Width>28</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Vertical</Group>
+					<ChildrenAlign>ItemsRightTitlesLeft</ChildrenAlign>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<InputField name="ВремяНаМаршрутеВодителя2" id="25">
+							<DataPath>Объект.ВремяНаМаршрутеВодителя2</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Driver (2 shift)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Водитель (2 смена)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВремяНаМаршрутеВодителя2КонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="ВремяНаМаршрутеВодителя2РасширеннаяПодсказка" id="27"/>
+						</InputField>
+						<InputField name="ВремяНаМаршрутеКондуктора2" id="28">
+							<DataPath>Объект.ВремяНаМаршрутеКондуктора2</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кондуктор (2 смена)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Conductor (2 shift)</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=HH:mm</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>DF=HH:mm</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВремяНаМаршрутеКондуктора2КонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ВремяНаМаршрутеКондуктора2РасширеннаяПодсказка" id="30"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТС" id="71">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортные средства</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicles</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаТСРасширеннаяПодсказка" id="72"/>
+			<ChildItems>
+				<Table name="ТС" id="31">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.ТС</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ТСКонтекстноеМеню" id="32"/>
+					<AutoCommandBar name="ТСКоманднаяПанель" id="33"/>
+					<ExtendedTooltip name="ТСРасширеннаяПодсказка" id="34"/>
+					<SearchStringAddition name="ТССтрокаПоиска" id="60">
+						<AdditionSource>
+							<Item>ТС</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ТССтрокаПоискаКонтекстноеМеню" id="61"/>
+						<ExtendedTooltip name="ТССтрокаПоискаРасширеннаяПодсказка" id="62"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ТССостояниеПросмотра" id="63">
+						<AdditionSource>
+							<Item>ТС</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ТССостояниеПросмотраКонтекстноеМеню" id="64"/>
+						<ExtendedTooltip name="ТССостояниеПросмотраРасширеннаяПодсказка" id="65"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ТСУправлениеПоиском" id="66">
+						<AdditionSource>
+							<Item>ТС</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ТСУправлениеПоискомКонтекстноеМеню" id="67"/>
+						<ExtendedTooltip name="ТСУправлениеПоискомРасширеннаяПодсказка" id="68"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ТСНомерСтроки" id="35">
+							<DataPath>Объект.ТС.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>3</Width>
+							<ContextMenu name="ТСНомерСтрокиКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ТСНомерСтрокиРасширеннаяПодсказка" id="37"/>
+						</LabelField>
+						<InputField name="ТСТС" id="81">
+							<DataPath>Объект.ТС.ТС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ТСТСКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="ТСТСРасширеннаяПодсказка" id="83"/>
+							<Events>
+								<Event name="AutoComplete">ТСТСАвтоПодбор</Event>
+								<Event name="StartChoice">ТСТСНачалоВыбора</Event>
+								<Event name="TextEditEnd">ТСТСОкончаниеВводаТекста</Event>
+							</Events>
+						</InputField>
+						<InputField name="ТССмена" id="41">
+							<DataPath>Объект.ТС.Смена</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТССменаКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ТССменаРасширеннаяПодсказка" id="43"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатВыходыМаршрутов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.ТС"/>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Расписания" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписания</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатРейсыМаршрутов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="мОбрРасписание" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М обр расписание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>M OBR schedule</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатРасписаниеМаршрутов</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РасписаниеРейсовНастроить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перейти к обработке Расписание рейсов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Go to data proccesor Trip timetable</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataProcessor</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РасписаниеРейсовНастроить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Печать" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать расписания</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print schedules</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать расписания рейсов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print trip schedules</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Печать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

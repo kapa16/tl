@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Width>55</Width>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаВалюта" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа валюта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Currency group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа валюта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Currency group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВалютаExtendedTooltip" id="20"/>
+			<ChildItems>
+				<InputField name="Валюта" id="3">
+					<DataPath>Валюта</DataPath>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<OpenButton>false</OpenButton>
+					<ContextMenu name="ВалютаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ВалютаExtendedTooltip" id="21"/>
+					<Events>
+						<Event name="OnChange">ВалютаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ПрогнозныеКурсы" id="5">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ПрогнозныеКурсы</DataPath>
+			<RowPictureDataPath>ПрогнозныеКурсы.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="ПрогнозныеКурсыКонтекстноеМеню" id="6"/>
+			<AutoCommandBar name="ПрогнозныеКурсыКоманднаяПанель" id="7">
+				<ChildItems>
+					<Button name="ПрогнозныеКурсыЗагрузить" id="28">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЗагрузитьКурсы</CommandName>
+						<ExtendedTooltip name="ПрогнозныеКурсыЗагрузитьРасширеннаяПодсказка" id="29"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПрогнозныеКурсыРасширеннаяПодсказка" id="23"/>
+			<SearchStringAddition name="ПрогнозныеКурсыСтрокаПоиска" id="30">
+				<AdditionSource>
+					<Item>ПрогнозныеКурсы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПрогнозныеКурсыСтрокаПоискаКонтекстноеМеню" id="31"/>
+				<ExtendedTooltip name="ПрогнозныеКурсыСтрокаПоискаРасширеннаяПодсказка" id="32"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПрогнозныеКурсыСостояниеПросмотра" id="33">
+				<AdditionSource>
+					<Item>ПрогнозныеКурсы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПрогнозныеКурсыСостояниеПросмотраКонтекстноеМеню" id="34"/>
+				<ExtendedTooltip name="ПрогнозныеКурсыСостояниеПросмотраРасширеннаяПодсказка" id="35"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПрогнозныеКурсыУправлениеПоиском" id="36">
+				<AdditionSource>
+					<Item>ПрогнозныеКурсы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПрогнозныеКурсыУправлениеПоискомКонтекстноеМеню" id="37"/>
+				<ExtendedTooltip name="ПрогнозныеКурсыУправлениеПоискомРасширеннаяПодсказка" id="38"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ПрогнозныеКурсыВыбор</Event>
+				<Event name="BeforeAddRow">ПрогнозныеКурсыПередНачаломДобавления</Event>
+				<Event name="BeforeRowChange">ПрогнозныеКурсыПередНачаломИзменения</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ПрогнозныеКурсыПериод" id="18">
+					<DataPath>ПрогнозныеКурсы.Period</DataPath>
+					<ContextMenu name="ПрогнозныеКурсыПериодКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ПрогнозныеКурсыПериодРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="ПрогнозныеКурсыВалюта" id="10">
+					<DataPath>ПрогнозныеКурсы.Валюта</DataPath>
+					<ContextMenu name="ПрогнозныеКурсыВалютаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ПрогнозныеКурсыВалютаРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="ПрогнозныеКурсыКурс" id="12">
+					<DataPath>ПрогнозныеКурсы.Курс</DataPath>
+					<ContextMenu name="ПрогнозныеКурсыКурсКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ПрогнозныеКурсыКурсРасширеннаяПодсказка" id="26"/>
+				</LabelField>
+				<LabelField name="ПрогнозныеКурсыКратность" id="14">
+					<DataPath>ПрогнозныеКурсы.Кратность</DataPath>
+					<ContextMenu name="ПрогнозныеКурсыКратностьКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ПрогнозныеКурсыКратностьРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПрогнозныеКурсы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прогнозные курсы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Прогнозные курсы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ПрогнозныеКурсы.Период,
+	ПрогнозныеКурсы.Валюта,
+	ПрогнозныеКурсы.Курс,
+	ПрогнозныеКурсы.Кратность
+ИЗ
+	РегистрСведений.ПрогнозныеКурсыСценариев КАК ПрогнозныеКурсы
+ГДЕ
+	ПрогнозныеКурсы.Сценарий = &amp;Сценарий</QueryText>
+				<MainTable>InformationRegister.ПрогнозныеКурсыСценариев</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Сценарий" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сценарий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Script</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Сценарии</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Валюта" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Currency</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗагрузитьКурсы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Import</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить курсы валюты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Загрузить курсы валюты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьКурсы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Режим отображения трека (для всех объектов мониторинга)</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Track display mode (for all monitoring objects)</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписатьНастройкиИЗакрыть" id="11">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаписатьНастройкиИЗакрыть</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьНастройкиИЗакрытьРасширеннаяПодсказка" id="12"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="13">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отмена</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Cancel</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="14"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПереключатель" id="4">
+			<Group>Vertical</Group>
+			<VerticalSpacing>Double</VerticalSpacing>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПереключательРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<RadioButtonField name="РежимГрупповогоОтображения" id="1">
+					<DataPath>РежимГрупповогоОтображения</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<RadioButtonType>RadioButtons</RadioButtonType>
+					<ColumnsCount>1</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По умолчанию</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Default</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ПоУмолчанию</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Отключить все варианты отображения трека</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Disable all track display options</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ИгнорироватьВариантыОтображенияТрека</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Использовать только выбранный вариант отображения трека</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Use only the selected track display option</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ИспользоватьВыбранныйВариантОтображенияТрекаУВсех</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РежимГрупповогоОтображенияКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="РежимГрупповогоОтображенияРасширеннаяПодсказка" id="3">
+						<TextColor>style:FormTextColor</TextColor>
+						<Title formatted="true">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;b&gt;По умолчанию&lt;/&gt; - используется настройка каждого объекта мониторинга (отдельно и независимо)
+
+&lt;b&gt;Отключить все варианты отображения трека&lt;/&gt; - варианты отображения трека будут игнорироваться, даже если они указаны в настройках объекта мониторинга. Позволяет быстро переключаться между стандартным и расширенным отображением трека (сразу для всех объектов мониторинга)
+
+&lt;b&gt;Использовать только выбранный вариант отображения трека&lt;/&gt; - появится возможность указать произвольный вариант отображения трека, который "перебьет" настройки отображения трека у каждого объекта мониторинга. Позволяет быстро переключиться на единое оформление треков для всех объектов мониторинга, а также может использоваться для тестирования нового варианта динамического отображения трека.
+Если не заполнить поле "Вариант отображения", то настройка будет считаться некорректной, и фактически действовать будет вариант "&lt;b&gt;По умолчанию&lt;/&gt;"</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Default - the setting for each monitoring object is used (separately and independently).  Disable all track display options - track display options will be ignored, even if they are specified in the monitoring object settings. Allows you to quickly switch between standard and extended track display (for all monitoring objects).  Use only the selected track display option - you can specify a custom track display option that will override the track display settings for each monitoring object. Allows you to quickly switch to a uniform track design for all monitoring objects, and can also be used to test new dynamic track display options. If you leave the "Display Option" field blank, the setting will be considered invalid, and the "Default" option will be used.</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+					<Events>
+						<Event name="OnChange">РежимГрупповогоОтображенияПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКонкретныйВариантОтображения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа конкретный вариант отображения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group specific display option</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКонкретныйВариантОтображенияРасширеннаяПодсказка" id="7"/>
+			<ChildItems>
+				<InputField name="КонкретныйВариантОтображения" id="8">
+					<DataPath>КонкретныйВариантОтображения</DataPath>
+					<ContextMenu name="КонкретныйВариантОтображенияКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="КонкретныйВариантОтображенияРасширеннаяПодсказка" id="10"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ItobРабочееМестоДиспетчера</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="РежимГрупповогоОтображения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим группового отображения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group display mode</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонкретныйВариантОтображения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант отображения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Display option</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ItobВариантыОтображенияТрека</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаписатьНастройкиИЗакрыть" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать настройки и закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save settings and close</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаписатьНастройкиИЗакрыть</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

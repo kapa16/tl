@@ -1,0 +1,865 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСохранить" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="11">
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="85"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизиты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитаТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовки" id="14">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Лицо, по указанию которого может осуществляться переадресовка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовкиРасширеннаяПодсказка" id="15"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовки" id="16">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Лицо, по указанию которого может осуществляться переадресовка:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовкиКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ЗаголовокТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовкиРасширеннаяПодсказка" id="18"/>
+						</LabelDecoration>
+						<InputField name="ТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовки" id="19">
+							<DataPath>ТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Лицо, по указанию которого может осуществляться переадресовка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>20</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Грузоотправитель</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">Грузоотправитель</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Грузополучатель</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">Грузополучатель</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовкиКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовкиРасширеннаяПодсказка" id="21"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаТитулГрузоотправителяСпособПередачиУказанияНаПереадресовку" id="22">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ передачи указания на переадресовку</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаТитулГрузоотправителяСпособПередачиУказанияНаПереадресовкуРасширеннаяПодсказка" id="23"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокТитулГрузоотправителяСпособПередачиУказанияНаПереадресовку" id="24">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Способ передачи указания на переадресовку:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокТитулГрузоотправителяСпособПередачиУказанияНаПереадресовкуКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ЗаголовокТитулГрузоотправителяСпособПередачиУказанияНаПереадресовкуРасширеннаяПодсказка" id="26"/>
+						</LabelDecoration>
+						<InputField name="ТитулГрузоотправителяСпособПередачиУказанияНаПереадресовку" id="27">
+							<DataPath>ТитулГрузоотправителяСпособПередачиУказанияНаПереадресовку</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Способ передачи указания на переадресовку</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>20</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Электронное уведомление перевозчика о переадресовке</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">Электронное уведомление перевозчика о переадресовке</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ТитулГрузоотправителяСпособПередачиУказанияНаПереадресовкуКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ТитулГрузоотправителяСпособПередачиУказанияНаПереадресовкуРасширеннаяПодсказка" id="29"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаТитулГОИныеКонтактДанЛицаИмеющееПолномочияПереадресовки" id="30">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Иные контактные данные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаТитулГОИныеКонтактДанЛицаИмеющееПолномочияПереадресовкиРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокТитулГОИныеКонтактДанЛицаИмеющееПолномочияПереадресовки" id="32">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Иные контактные данные:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокТитулГОИныеКонтактДанЛицаИмеющееПолномочияПереадресовкиКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ЗаголовокТитулГОИныеКонтактДанЛицаИмеющееПолномочияПереадресовкиРасширеннаяПодсказка" id="34"/>
+						</LabelDecoration>
+						<InputField name="ТитулГрузоотправителяИныеКонтактныеДанныеЛицаИмеющееПолномочияПереадресовки" id="35">
+							<DataPath>ТитулГрузоотправителяИныеКонтактныеДанныеЛицаИмеющееПолномочияПереадресовки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Иные контактные данные</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ТитулГрузоотправителяИныеКонтактныеДанныеЛицаИмеющееПолномочияПереадресовкиКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ТитулГрузоотправителяИныеКонтактныеДанныеЛицаИмеющееПолномочияПереадресовкиРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаЗаполнитьТитулГрузоотправителяПолномочияПереадресовки" id="38">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы, подтверждающие передачу полномочий по переадресовке</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаЗаполнитьТитулГрузоотправителяПолномочияПереадресовкиРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокЗаполнитьТитулГрузоотправителяПолномочияПереадресовки" id="40">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Документы, подтверждающие передачу полномочий по переадресовке:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокЗаполнитьТитулГрузоотправителяПолномочияПереадресовкиКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ЗаголовокЗаполнитьТитулГрузоотправителяПолномочияПереадресовкиРасширеннаяПодсказка" id="42"/>
+						</LabelDecoration>
+						<Button name="ЗаполнитьТитулГрузоотправителяПолномочияПереадресовки" id="43">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.ЗаполнитьТитулГрузоотправителяПолномочияПереадресовки</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подробно</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ExtendedTooltip name="ЗаполнитьТитулГрузоотправителяПолномочияПереадресовкиРасширеннаяПодсказка" id="44"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТаблицы" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТаблицыРасширеннаяПодсказка" id="46"/>
+			<ChildItems>
+				<Pages name="СтраницыТаблиц" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблицы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблицы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыТаблицРасширеннаяПодсказка" id="48"/>
+					<ChildItems>
+						<Page name="СтраницаТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов" id="49">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер контактного телефона/факс</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер контактного телефона/факс</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновРасширеннаяПодсказка" id="50"/>
+							<ChildItems>
+								<Table name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов" id="51">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновКонтекстноеМеню" id="52"/>
+									<AutoCommandBar name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновКоманднаяПанель" id="53"/>
+									<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновРасширеннаяПодсказка" id="54"/>
+									<SearchStringAddition name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновСтрокаПоиска" id="55">
+										<AdditionSource>
+											<Item>ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновСтрокаПоискаКонтекстноеМеню" id="56"/>
+										<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновСтрокаПоискаРасширеннаяПодсказка" id="57"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновСостояниеПросмотра" id="58">
+										<AdditionSource>
+											<Item>ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновСостояниеПросмотраКонтекстноеМеню" id="59"/>
+										<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновСостояниеПросмотраРасширеннаяПодсказка" id="60"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновУправлениеПоиском" id="61">
+										<AdditionSource>
+											<Item>ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновУправлениеПоискомКонтекстноеМеню" id="62"/>
+										<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновУправлениеПоискомРасширеннаяПодсказка" id="63"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeDeleteRow">ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновПередУдалением</Event>
+										<Event name="OnStartEdit">ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефоновПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="Телефон" id="64">
+											<DataPath>ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов.Телефон</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInFooter>false</ShowInFooter>
+											<Width>20</Width>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<ContextMenu name="ТелефонКонтекстноеМеню" id="65"/>
+											<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="66"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты" id="67">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Адрес электронной почты</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Адрес электронной почты</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="СтраницаТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыРасширеннаяПодсказка" id="68"/>
+							<ChildItems>
+								<Table name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты" id="69">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыКонтекстноеМеню" id="70"/>
+									<AutoCommandBar name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыКоманднаяПанель" id="71"/>
+									<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыРасширеннаяПодсказка" id="72"/>
+									<SearchStringAddition name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыСтрокаПоиска" id="73">
+										<AdditionSource>
+											<Item>ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыСтрокаПоискаКонтекстноеМеню" id="74"/>
+										<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыСтрокаПоискаРасширеннаяПодсказка" id="75"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыСостояниеПросмотра" id="76">
+										<AdditionSource>
+											<Item>ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыСостояниеПросмотраКонтекстноеМеню" id="77"/>
+										<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыСостояниеПросмотраРасширеннаяПодсказка" id="78"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыУправлениеПоиском" id="79">
+										<AdditionSource>
+											<Item>ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыУправлениеПоискомКонтекстноеМеню" id="80"/>
+										<ExtendedTooltip name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыУправлениеПоискомРасширеннаяПодсказка" id="81"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeDeleteRow">ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыПередУдалением</Event>
+										<Event name="OnStartEdit">ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочтыПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="АдресЭлектроннойПочты" id="82">
+											<DataPath>ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты.АдресЭлектроннойПочты</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInFooter>false</ShowInFooter>
+											<Width>20</Width>
+											<ContextMenu name="АдресЭлектроннойПочтыКонтекстноеМеню" id="83"/>
+											<ExtendedTooltip name="АдресЭлектроннойПочтыРасширеннаяПодсказка" id="84"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТитулГрузоотправителяЛицоИмеющееПолномочияПереадресовки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лицо, по указанию которого может осуществляться переадресовка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяСпособПередачиУказанияНаПереадресовку" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ передачи указания на переадресовку</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуНомераТелефонов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер контактного телефона/факс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Телефон" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Телефон лица, по указанию которого может осуществляться перевозка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяОтветственныйЗаПереадресовкуАдресаЭлектроннойПочты" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес электронной почты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="АдресЭлектроннойПочты" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Электронная почты лица по указанию которого может осуществляться перевозка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяИныеКонтактныеДанныеЛицаИмеющееПолномочияПереадресовки" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Иные контактные данные</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяДокументПередачиПолномочийПереадресовкиНаименование" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяДокументПередачиПолномочийПереадресовкиНомер" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяДокументПередачиПолномочийПереадресовкиДата" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяДокументПередачиПолномочийПереадресовкиИдентификаторФайла" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор файла документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяДокументПередачиПолномочийПереадресовкиИныеСведения" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные сведения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТитулГрузоотправителяДокументПолномочийПереадресовкиРеквизитыСторон" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты сторон</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ИдентификаторСтроки" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>40</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ХранимыеДанныеСторонаПодписавшаяДокумент" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Стороны, подписавшие документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ХранимыеДанныеЭПД</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>250</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ФЛ_ИНН" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН физического лица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>12</v8:Length>
+							<v8:AllowedLength>Fixed</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЮЛ_ИНН" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН юридического лица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>10</v8:Length>
+							<v8:AllowedLength>Fixed</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаДатаУдостоверения" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата выдачи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаНомерУдостоверения" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаВидУдостоверения" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>1000</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаИныеСведения" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Иные сведения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаИдентификатор" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор иностранного лица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаНаименование" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование / ФИО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>1000</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаСтрана" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страна</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИнострЛицоБезУчетаСтатусФЛ_ЮЛ" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификация статуса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>25</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОрганВластиВыдавшийДокумент" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование органа исполнительной власти</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>255</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сохранить</Action>
+		</Command>
+		<Command name="ЗаполнитьТитулГрузоотправителяПолномочияПереадресовки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ЗаполнитьТитулГрузоотправителяПолномочияПереадресовки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты документа, подтверждающего передачу полномочий по переадресовке грузополучателю</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьТитулГрузоотправителяПолномочияПереадресовки</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

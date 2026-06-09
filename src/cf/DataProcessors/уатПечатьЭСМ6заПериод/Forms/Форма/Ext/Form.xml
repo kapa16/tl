@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСформироватьОтчет" id="4">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СформироватьОтчет</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСформироватьОтчетРасширеннаяПодсказка" id="5"/>
+			</Button>
+			<Button name="ФормаСправка" id="8">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="9"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПериод" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<InputField name="НачПериода" id="18">
+					<DataPath>НачПериода</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начало периода отображения данных</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Начало периода отображения данных</v8:content>
+						</v8:item>
+					</ToolTip>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="НачПериодаКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="НачПериодаРасширеннаяПодсказка" id="20"/>
+				</InputField>
+				<InputField name="КонПериода" id="21">
+					<DataPath>КонПериода</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="КонПериодаКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="КонПериодаРасширеннаяПодсказка" id="23"/>
+				</InputField>
+				<Button name="НастройкаПериода" id="48">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.Command.НастройкаПериода</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="НастройкаПериодаExtendedTooltip" id="49"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="10">
+			<DataPath>Организация</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по организации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Отбор по организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="ПараметрВыработки" id="13">
+			<DataPath>ПараметрВыработки</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр выработки, который будет использован для вывода объема и стоимости выполненных работ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Параметр выработки, который будет использован для вывода объема и стоимости выполненных работ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПараметрВыработкиКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ПараметрВыработкиРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<CheckBoxField name="ПечататьОбложку" id="45">
+			<DataPath>ПечататьОбложку</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выводить на печать титульный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Выводить на печать титульный лист</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПечататьОбложкуКонтекстноеМеню" id="46"/>
+			<ExtendedTooltip name="ПечататьОбложкуРасширеннаяПодсказка" id="47"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаВидыПЛ" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды путевых листов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Виды путевых листов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа виды ПЛ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Группа виды ПЛ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаВидыПЛРасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<Table name="ВидыПЛ" id="24">
+					<Representation>List</Representation>
+					<Header>false</Header>
+					<HorizontalLines>false</HorizontalLines>
+					<VerticalLines>false</VerticalLines>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ВидыПЛ</DataPath>
+					<RowPictureDataPath>ВидыПЛ.Picture</RowPictureDataPath>
+					<ContextMenu name="ВидыПЛКонтекстноеМеню" id="25"/>
+					<AutoCommandBar name="ВидыПЛКоманднаяПанель" id="26">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ВидыПЛДобавить" id="50">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ВидыПЛ.StandardCommand.Add</CommandName>
+								<ExtendedTooltip name="ВидыПЛДобавитьРасширеннаяПодсказка" id="51"/>
+							</Button>
+							<Button name="ВидыПЛУдалить" id="52">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ВидыПЛ.StandardCommand.Delete</CommandName>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ВидыПЛУдалитьРасширеннаяПодсказка" id="53"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ВидыПЛРасширеннаяПодсказка" id="27"/>
+					<SearchStringAddition name="ВидыПЛСтрокаПоиска" id="28">
+						<AdditionSource>
+							<Item>ВидыПЛ</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВидыПЛСтрокаПоискаКонтекстноеМеню" id="29"/>
+						<ExtendedTooltip name="ВидыПЛСтрокаПоискаРасширеннаяПодсказка" id="30"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ВидыПЛСостояниеПросмотра" id="31">
+						<AdditionSource>
+							<Item>ВидыПЛ</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВидыПЛСостояниеПросмотраКонтекстноеМеню" id="32"/>
+						<ExtendedTooltip name="ВидыПЛСостояниеПросмотраРасширеннаяПодсказка" id="33"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ВидыПЛУправлениеПоиском" id="34">
+						<AdditionSource>
+							<Item>ВидыПЛ</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ВидыПЛУправлениеПоискомКонтекстноеМеню" id="35"/>
+						<ExtendedTooltip name="ВидыПЛУправлениеПоискомРасширеннаяПодсказка" id="36"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="ВидыПЛЗначение" id="37">
+							<DataPath>ВидыПЛ.Value</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВидыПЛЗначениеКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="ВидыПЛЗначениеРасширеннаяПодсказка" id="39"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатПечатьЭСМ6заПериод</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<Save>
+				<Field>Организация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации при открытии формы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПараметрВыработки" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр выработки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Output parameter</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПараметрыВыработки</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПараметрВыработки</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="НачПериода" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период с</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period from</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонПериода" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>по</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>till</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыПЛ" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды ПЛ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Виды ПЛ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ВидыПЛ</Field>
+			</Save>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:EnumRef.уатВидыПЛ</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПечататьОбложку" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печатать обложку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print cover</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьОтчет" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать отчет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьОтчет</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкаПериода" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкаПериода</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

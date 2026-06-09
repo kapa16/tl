@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Списание ГСМ/тех. жидкостей на ТС</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="44">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<CheckBoxField name="Отправлен" id="98">
+					<DataPath>Объект.Отправлен</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтправленКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="ОтправленРасширеннаяПодсказка" id="100"/>
+				</CheckBoxField>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="TextEditEnd">ДатаОкончаниеВводаТекста</Event>
+					</Events>
+				</InputField>
+				<PictureDecoration name="Декорация2" id="65">
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Декорация2КонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="67"/>
+				</PictureDecoration>
+				<InputField name="Организация" id="7">
+					<DataPath>Объект.Организация</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ВидОперации" id="73">
+			<DataPath>Объект.ВидОперации</DataPath>
+			<ContextMenu name="ВидОперацииКонтекстноеМеню" id="74"/>
+			<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="75"/>
+			<Events>
+				<Event name="OnChange">ВидОперацииПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="Группа4" id="93">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="94"/>
+			<ChildItems>
+				<InputField name="Склад" id="90">
+					<DataPath>Объект.Склад</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="СкладКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="92"/>
+					<Events>
+						<Event name="OnChange">СкладПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="СкладВБУ" id="95">
+					<Visible>false</Visible>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="СкладВБУКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="СкладВБУРасширеннаяПодсказка" id="97"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ГСМ" id="16">
+			<Representation>List</Representation>
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ГСМ</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ГСМКонтекстноеМеню" id="17"/>
+			<AutoCommandBar name="ГСМКоманднаяПанель" id="18">
+				<ChildItems>
+					<Button name="ГСМЗаполнить" id="54">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.Заполнить</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ГСМЗаполнитьРасширеннаяПодсказка" id="55"/>
+					</Button>
+					<Button name="ГСМОтправитьВБухгалтерию" id="68">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтправитьВБухгалтерию</CommandName>
+						<ExtendedTooltip name="ГСМОтправитьВБухгалтериюРасширеннаяПодсказка" id="69"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ГСМРасширеннаяПодсказка" id="19"/>
+			<SearchStringAddition name="ГСМСтрокаПоиска" id="20">
+				<AdditionSource>
+					<Item>ГСМ</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ГСМСтрокаПоискаКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ГСМСтрокаПоискаРасширеннаяПодсказка" id="22"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ГСМСостояниеПросмотра" id="23">
+				<AdditionSource>
+					<Item>ГСМ</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ГСМСостояниеПросмотраКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ГСМСостояниеПросмотраРасширеннаяПодсказка" id="25"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ГСМУправлениеПоиском" id="26">
+				<AdditionSource>
+					<Item>ГСМ</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ГСМУправлениеПоискомКонтекстноеМеню" id="27"/>
+				<ExtendedTooltip name="ГСМУправлениеПоискомРасширеннаяПодсказка" id="28"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ГСМНомерСтроки" id="29">
+					<DataPath>Объект.ГСМ.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМНомерСтрокиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ГСМНомерСтрокиРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<InputField name="ГСМСклад" id="76">
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМСкладКонтекстноеМеню" id="77"/>
+					<ExtendedTooltip name="ГСМСкладРасширеннаяПодсказка" id="78"/>
+				</InputField>
+				<InputField name="ГСМСкладВБУ" id="79">
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМСкладВБУКонтекстноеМеню" id="80"/>
+					<ExtendedTooltip name="ГСМСкладВБУРасширеннаяПодсказка" id="81"/>
+				</InputField>
+				<LabelField name="ГСМТСГаражныйНомер" id="48">
+					<DataPath>Объект.ГСМ.ТС.ГаражныйНомер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гар. №</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМТСГаражныйНомерКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="ГСМТСГаражныйНомерРасширеннаяПодсказка" id="50"/>
+				</LabelField>
+				<LabelField name="ГСМТСГосударственныйНомер" id="51">
+					<DataPath>Объект.ГСМ.ТС.ГосударственныйНомер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гос. №</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМТСГосударственныйНомерКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ГСМТСГосударственныйНомерРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<InputField name="ГСМТС" id="32">
+					<DataPath>Объект.ГСМ.ТС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМТСКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ГСМТСРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<InputField name="ГСМОС" id="70">
+					<DataPath>Объект.ГСМ.ОС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМОСКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ГСМОСРасширеннаяПодсказка" id="72"/>
+				</InputField>
+				<InputField name="ГСМГСМ" id="56">
+					<DataPath>Объект.ГСМ.ГСМ</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМГСМКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ГСМГСМРасширеннаяПодсказка" id="58"/>
+				</InputField>
+				<InputField name="ГСМПУ" id="35">
+					<DataPath>Объект.ГСМ.ПУ</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМПУКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ГСМПУРасширеннаяПодсказка" id="37"/>
+				</InputField>
+				<InputField name="ГСМПодразделение" id="38">
+					<DataPath>Объект.ГСМ.Подразделение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ГСМПодразделениеКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ГСМПодразделениеРасширеннаяПодсказка" id="40"/>
+				</InputField>
+				<InputField name="ГСМКоличество" id="41">
+					<DataPath>Объект.ГСМ.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.ГСМ.TotalКоличество</FooterDataPath>
+					<ContextMenu name="ГСМКоличествоКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ГСМКоличествоРасширеннаяПодсказка" id="43"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Группа2" id="46">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="13">
+					<DataPath>Объект.Комментарий</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="15"/>
+				</InputField>
+				<PictureDecoration name="Декорация1" id="62">
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="64"/>
+				</PictureDecoration>
+				<InputField name="Ответственный" id="10">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.GDS_ВыгрузкаГСМиТЖ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+		<Command name="ОтправитьВБухгалтерию" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить в бухгалтерию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить в бухгалтерию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьВБухгалтерию</Action>
+		</Command>
+	</Commands>
+</Form>

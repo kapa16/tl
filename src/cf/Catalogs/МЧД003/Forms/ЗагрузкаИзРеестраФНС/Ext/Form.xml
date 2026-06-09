@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Добавление доверенности</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="КнопкаЗагрузить" id="15">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Загрузить</CommandName>
+				<ExtendedTooltip name="КнопкаЗагрузитьРасширеннаяПодсказка" id="16"/>
+			</Button>
+			<Button name="КнопкаОтмены" id="17">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="КнопкаОтменыРасширеннаяПодсказка" id="18"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаЗаголовок" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЗаголовокРасширеннаяПодсказка" id="8"/>
+			<ChildItems>
+				<PictureDecoration name="ДекорацияЛоготипРеестра" id="4">
+					<Width>5</Width>
+					<Height>2</Height>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация логотип реестра</v8:content>
+						</v8:item>
+					</Title>
+					<PictureSize>Proportionally</PictureSize>
+					<Picture>
+						<xr:Ref>CommonPicture.РаспределенныйРеестрФНС</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ДекорацияЛоготипРеестраКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДекорацияЛоготипРеестраРасширеннаяПодсказка" id="6"/>
+				</PictureDecoration>
+				<LabelDecoration name="ДекорацияОписаниеЗагрузки" id="1">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загрузка машиночитаемой доверенности из распределенного реестра ФНС</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияОписаниеЗагрузкиКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ДекорацияОписаниеЗагрузкиРасширеннаяПодсказка" id="3"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ИННДоверителя" id="9">
+			<DataPath>ИННДоверителя</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН доверителя</v8:content>
+				</v8:item>
+			</Title>
+			<ChoiceButton>true</ChoiceButton>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>10 или 12 цифр</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ИННДоверителяКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ИННДоверителяРасширеннаяПодсказка" id="11"/>
+			<Events>
+				<Event name="AutoComplete">ИННДоверителяАвтоПодбор</Event>
+				<Event name="StartChoice">ИННДоверителяНачалоВыбора</Event>
+				<Event name="ChoiceProcessing">ИННДоверителяОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="ИННПредставителя" id="19">
+			<DataPath>ИННПредставителя</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН представителя</v8:content>
+				</v8:item>
+			</Title>
+			<ChoiceButton>true</ChoiceButton>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>10 или 12 цифр</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ИННПредставителяКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ИННПредставителяРасширеннаяПодсказка" id="21"/>
+			<Events>
+				<Event name="AutoComplete">ИННПредставителяАвтоПодбор</Event>
+				<Event name="StartChoice">ИННПредставителяНачалоВыбора</Event>
+				<Event name="ChoiceProcessing">ИННПредставителяОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="НомерДоверенности" id="12">
+			<DataPath>НомерДоверенности</DataPath>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ecd03726-915d-477f-9f39-8d098686956e</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="НомерДоверенностиКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="НомерДоверенностиРасширеннаяПодсказка" id="14"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ИННДоверителя" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН доверителя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>12</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="НомерДоверенности" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер доверенности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ЕдиныйРегистрационныйНомерДоверенности</v8:TypeSet>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СписокКомандДоверитель" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список команд доверитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="ИННПредставителя" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН представителя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>12</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СписокКомандПредставитель" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список команд представитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Загрузить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Загрузить</Action>
+		</Command>
+	</Commands>
+</Form>

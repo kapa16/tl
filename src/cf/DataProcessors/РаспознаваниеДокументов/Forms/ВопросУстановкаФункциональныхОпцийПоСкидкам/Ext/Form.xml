@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Скидки не поддерживаются</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Discounts are not supported</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
+		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="Да" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.StandardCommand.Yes</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Включить использование скидок</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Enable discounts</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ДаРасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="Пропустить" id="14">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Ignore</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пересчитать суммы</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Recalculate amounts</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ПропуститьРасширеннаяПодсказка" id="15"/>
+			</Button>
+			<Button name="Отмена" id="12">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Cancel</CommandName>
+				<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="13"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="Надпись" id="1">
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;bgcolor #ffffff&gt;&lt;color #333333&gt;Распознанный документ содержит скидки. &lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;
+
+&lt;font Almarai&gt;&lt;fontsize 8&gt;&lt;bgcolor #ffffff&gt;&lt;color #333333&gt;Для ввода такого документа необходимо либо включить использование скидок в программе, либо пересчитать суммы в документе с учетом скидок.
+
+&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;%1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The recognized document contains discounts.   To enter such document, either enable discounts in the application, or recalculate the amounts in the document taking into account the discounts.  %1</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="НадписьКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НадписьРасширеннаяПодсказка" id="3"/>
+		</LabelDecoration>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.СчетНаОплатуРаспознаваниеДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="Направление">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

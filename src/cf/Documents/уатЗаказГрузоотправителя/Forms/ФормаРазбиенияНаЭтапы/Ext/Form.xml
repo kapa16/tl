@@ -1,0 +1,1295 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Заполните последовательность пунктов</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Fill in the sequence of points</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыполнитьРазбиение" id="1">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыполнитьРазбиение</CommandName>
+				<ExtendedTooltip name="ФормаВыполнитьРазбиениеРасширеннаяПодсказка" id="2"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ТаблицаПунктов" id="3">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ТаблицаПунктов</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаПунктовКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="ТаблицаПунктовКоманднаяПанель" id="5">
+				<ChildItems>
+					<Button name="ФормаЗаполнитьПоМаршруту" id="29">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.ЗаполнитьПоМаршруту</CommandName>
+						<ExtendedTooltip name="ФормаЗаполнитьПоМаршрутуРасширеннаяПодсказка" id="30"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ТаблицаПунктовРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="ТаблицаПунктовСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>ТаблицаПунктов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаПунктовСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="ТаблицаПунктовСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаПунктовСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>ТаблицаПунктов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаПунктовСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="ТаблицаПунктовСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаПунктовУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>ТаблицаПунктов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаПунктовУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="ТаблицаПунктовУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnStartEdit">ТаблицаПунктовПриНачалеРедактирования</Event>
+				<Event name="OnChange">ТаблицаПунктовПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ТаблицаПунктовПункт" id="16">
+					<DataPath>ТаблицаПунктов.Пункт</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПунктовПунктКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ТаблицаПунктовПунктРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="OnChange">ТаблицаПунктовПунктПриИзменении</Event>
+					</Events>
+				</InputField>
+				<ColumnGroup name="ТаблицаПунктовГруппаПрибытие" id="71">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Arrival</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Arrival</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ТаблицаПунктовГруппаПрибытиеРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<ColumnGroup name="ТаблицаПунктовГруппаДоставкаС" id="78">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>С</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>WITH</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Доставка с</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Delivery with</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ТаблицаПунктовГруппаДоставкаСРасширеннаяПодсказка" id="79"/>
+							<ChildItems>
+								<InputField name="ТаблицаПунктовДоставкаСДата" id="37">
+									<DataPath>ТаблицаПунктов.ДоставкаС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>С</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>WITH</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>9</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДоставкаСДатаКонтекстноеМеню" id="38"/>
+									<ExtendedTooltip name="ТаблицаПунктовДоставкаСДатаРасширеннаяПодсказка" id="39"/>
+								</InputField>
+								<InputField name="ТаблицаПунктовДоставкаСВремя" id="75">
+									<DataPath>ТаблицаПунктов.ДоставкаС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>С</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>WITH</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>6</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДоставкаСВремяКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="ТаблицаПунктовДоставкаСВремяРасширеннаяПодсказка" id="77"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ТаблицаПунктовГруппаДоставкаПо" id="80">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>По</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>To</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Доставка по</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Delivery to</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ТаблицаПунктовГруппаДоставкаПоРасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<InputField name="ТаблицаПунктовДоставкаПоДата" id="40">
+									<DataPath>ТаблицаПунктов.ДоставкаПо</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>To</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>9</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДоставкаПоДатаКонтекстноеМеню" id="41"/>
+									<ExtendedTooltip name="ТаблицаПунктовДоставкаПоДатаРасширеннаяПодсказка" id="42"/>
+								</InputField>
+								<InputField name="ТаблицаПунктовДоставкаПоВремя" id="82">
+									<DataPath>ТаблицаПунктов.ДоставкаПо</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>To</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>6</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДоставкаПоВремяКонтекстноеМеню" id="83"/>
+									<ExtendedTooltip name="ТаблицаПунктовДоставкаПоВремяРасширеннаяПодсказка" id="84"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ТаблицаПунктовГруппаПрибытиеПлан" id="85">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предварительно в</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Preliminary in</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Прибытие (предварительно)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Arrival (preliminary)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ТаблицаПунктовГруппаПрибытиеПланРасширеннаяПодсказка" id="86"/>
+							<ChildItems>
+								<InputField name="ТаблицаПунктовДатаПрибытияПланДата" id="46">
+									<DataPath>ТаблицаПунктов.ДатаПрибытияПлан</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительно в</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Preliminary in</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительная дата прибытия</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Estimated arrival date</v8:content>
+										</v8:item>
+									</ToolTip>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>9</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДатаПрибытияПланДатаКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ТаблицаПунктовДатаПрибытияПланДатаРасширеннаяПодсказка" id="48"/>
+								</InputField>
+								<InputField name="ТаблицаПунктовДатаПрибытияПланВремя" id="87">
+									<DataPath>ТаблицаПунктов.ДатаПрибытияПлан</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительно в</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Preliminary in</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>6</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДатаПрибытияПланВремяКонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="ТаблицаПунктовДатаПрибытияПланВремяРасширеннаяПодсказка" id="89"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТаблицаПунктовГруппаОтправление" id="73">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Departure</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Departure</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ТаблицаПунктовГруппаОтправлениеРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<ColumnGroup name="ТаблицаПунктовГруппаОтправлениеС" id="90">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>C</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>C</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправление с</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Departure from</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ТаблицаПунктовГруппаОтправлениеСРасширеннаяПодсказка" id="91"/>
+							<ChildItems>
+								<InputField name="ТаблицаПунктовОтправлениеСДата" id="31">
+									<DataPath>ТаблицаПунктов.ОтправлениеС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>С</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>WITH</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>9</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовОтправлениеСДатаКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ТаблицаПунктовОтправлениеСДатаРасширеннаяПодсказка" id="33"/>
+								</InputField>
+								<InputField name="ТаблицаПунктовОтправлениеСВремя" id="96">
+									<DataPath>ТаблицаПунктов.ОтправлениеС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>С</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>WITH</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>6</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовОтправлениеСВремяКонтекстноеМеню" id="97"/>
+									<ExtendedTooltip name="ТаблицаПунктовОтправлениеСВремяРасширеннаяПодсказка" id="98"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ТаблицаПунктовГруппаОтправлениеПо" id="92">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>По</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>To</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправление по</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Departure by</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ТаблицаПунктовГруппаОтправлениеПоРасширеннаяПодсказка" id="93"/>
+							<ChildItems>
+								<InputField name="ТаблицаПунктовОтправлениеПоДата" id="34">
+									<DataPath>ТаблицаПунктов.ОтправлениеПо</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>To</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>9</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовОтправлениеПоДатаКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ТаблицаПунктовОтправлениеПоДатаРасширеннаяПодсказка" id="36"/>
+								</InputField>
+								<InputField name="ТаблицаПунктовОтправлениеПоВремя" id="99">
+									<DataPath>ТаблицаПунктов.ОтправлениеПо</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>To</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>6</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовОтправлениеПоВремяКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="ТаблицаПунктовОтправлениеПоВремяРасширеннаяПодсказка" id="101"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ТаблицаПунктовГруппаОтправлениеПлан" id="94">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предварительно в</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Preliminary in</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправление (предварительно)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Departure (preliminary)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ТаблицаПунктовГруппаОтправлениеПланРасширеннаяПодсказка" id="95"/>
+							<ChildItems>
+								<InputField name="ТаблицаПунктовДатаОтправленияПланДата" id="43">
+									<DataPath>ТаблицаПунктов.ДатаОтправленияПлан</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительно в</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Preliminary in</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительная дата отправления</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>The provisional date of departure</v8:content>
+										</v8:item>
+									</ToolTip>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>9</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yyyy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=dd.MM.yyyy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДатаОтправленияПланДатаКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="ТаблицаПунктовДатаОтправленияПланДатаРасширеннаяПодсказка" id="45"/>
+								</InputField>
+								<InputField name="ТаблицаПунктовДатаОтправленияПланВремя" id="102">
+									<DataPath>ТаблицаПунктов.ДатаОтправленияПлан</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительно в</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Preliminary in</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>6</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=HH:mm</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF=HH:mm</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ТаблицаПунктовДатаОтправленияПланВремяКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="ТаблицаПунктовДатаОтправленияПланВремяРасширеннаяПодсказка" id="104"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаПунктов" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица пунктов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table of points</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пункт" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пункт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Paragraph</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОтправлениеС" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправление с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Departure from</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОтправлениеПо" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправление по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Departure by</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДоставкаС" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Arrival from</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДоставкаПо" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Arrival till</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаОтправленияПлан" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправление (предварительно)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Departure date (tentative)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПрибытияПлан" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибытие (предварительно)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Arrival date (tentative)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоСтрокаОтправления" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это строка отправления</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>This is the departure line</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЭтоСтрокаНазначения" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это строка назначения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>This is the destination line</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ИспользоватьВременныеОкна" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать временные окна</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use time windows</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоШаблонПеревозки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это шаблон перевозки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This is a transportation template</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДоставкаСДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДоставкаСВремя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДоставкаПоДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДоставкаПоВремя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДатаПрибытияПланДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДатаПрибытияПланВремя</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ЭтоСтрокаОтправления</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовОтправлениеСДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовОтправлениеСВремя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовОтправлениеПоДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовОтправлениеПоВремя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДатаОтправленияПланДата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДатаОтправленияПланВремя</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ЭтоСтрокаНазначения</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НедоступныеДанныеЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовОтправлениеСДата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ОтправлениеС</dcsset:left>
+						<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="v8:StandardBeginningDate">
+							<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+							<v8:date>0001-01-01T23:59:59</v8:date>
+						</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ЭтоСтрокаНазначения</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовОтправлениеПоДата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ОтправлениеПо</dcsset:left>
+						<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="v8:StandardBeginningDate">
+							<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+							<v8:date>0001-01-01T23:59:59</v8:date>
+						</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ЭтоСтрокаНазначения</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДоставкаСДата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ДоставкаС</dcsset:left>
+						<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="v8:StandardBeginningDate">
+							<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+							<v8:date>0001-01-01T23:59:59</v8:date>
+						</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ЭтоСтрокаОтправления</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаПунктовДоставкаПоДата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ДоставкаПо</dcsset:left>
+						<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="v8:StandardBeginningDate">
+							<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+							<v8:date>0001-01-01T23:59:59</v8:date>
+						</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаПунктов.ЭтоСтрокаОтправления</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ОтметкаНезаполненного</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьРазбиение" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Execute</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить разбиение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Perform partitioning</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыполнитьРазбиение</Action>
+		</Command>
+		<Command name="ЗаполнитьПоМаршруту" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по маршруту</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in according to the route</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по маршруту</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in according to the route</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатЗаполнить</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьПоМаршруту</Action>
+		</Command>
+	</Commands>
+</Form>

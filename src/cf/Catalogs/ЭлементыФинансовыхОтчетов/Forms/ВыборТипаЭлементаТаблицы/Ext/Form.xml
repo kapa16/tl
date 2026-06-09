@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выберите тип ячейки:</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Выберите тип ячейки:</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="63">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="64"/>
+			<ChildItems>
+				<InputField name="БыстрыйПоискНовых" id="60">
+					<DataPath>БыстрыйПоискНовых</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Shortcut>Ctrl+Shift+F</Shortcut>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="БыстрыйПоискНовыхКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="БыстрыйПоискНовыхExtendedTooltip" id="62"/>
+					<Events>
+						<Event name="OnChange">БыстрыйПоискНовыхПриИзменении</Event>
+						<Event name="Clearing">БыстрыйПоискНовыхОчистка</Event>
+					</Events>
+				</InputField>
+				<Button name="НайтиНовыйЭлемент" id="58">
+					<Type>UsualButton</Type>
+					<Width>3</Width>
+					<CommandName>Form.Command.НайтиНовыйЭлемент</CommandName>
+					<ExtendedTooltip name="НайтиНовыйЭлементExtendedTooltip" id="59"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ЭлементыВидаБюджета" id="1">
+			<Representation>Tree</Representation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<Height>20</Height>
+			<SelectionMode>SingleRow</SelectionMode>
+			<Header>false</Header>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДеревоНовыхЭлементов</DataPath>
+			<RowPictureDataPath>ДеревоНовыхЭлементов.НестандартнаяКартинка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.КоллекцияВидыЭлементовФинансовойОтчетности</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="ЭлементыВидаБюджетаКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+			</ContextMenu>
+			<AutoCommandBar name="ЭлементыВидаБюджетаКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ЭлементыВидаБюджетаРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ЭлементыВидаБюджетаСтрокаПоиска" id="65">
+				<AdditionSource>
+					<Item>ЭлементыВидаБюджета</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭлементыВидаБюджетаСтрокаПоискаКонтекстноеМеню" id="66"/>
+				<ExtendedTooltip name="ЭлементыВидаБюджетаСтрокаПоискаРасширеннаяПодсказка" id="67"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЭлементыВидаБюджетаСостояниеПросмотра" id="68">
+				<AdditionSource>
+					<Item>ЭлементыВидаБюджета</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭлементыВидаБюджетаСостояниеПросмотраКонтекстноеМеню" id="69"/>
+				<ExtendedTooltip name="ЭлементыВидаБюджетаСостояниеПросмотраРасширеннаяПодсказка" id="70"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЭлементыВидаБюджетаУправлениеПоиском" id="71">
+				<AdditionSource>
+					<Item>ЭлементыВидаБюджета</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЭлементыВидаБюджетаУправлениеПоискомКонтекстноеМеню" id="72"/>
+				<ExtendedTooltip name="ЭлементыВидаБюджетаУправлениеПоискомРасширеннаяПодсказка" id="73"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ЭлементыВидаБюджетаВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ЭлементыВидаБюджетаНаименование" id="46">
+					<DataPath>ДеревоНовыхЭлементов.Наименование</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЭлементыВидаБюджетаНаименованиеКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="ЭлементыВидаБюджетаНаименованиеРасширеннаяПодсказка" id="48"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<CommandBar name="КоманднаяПанельНизФормы" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель низ формы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Командная панель низ формы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель низ формы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Командная панель низ формы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="КоманднаяПанельНизФормыРасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<Button name="Выбрать" id="54">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Выбрать</CommandName>
+					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="55"/>
+				</Button>
+				<Button name="Закрыть" id="56">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="57"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДеревоНовыхЭлементов" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды элементов вида бюджета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Виды элементов вида бюджета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВидЭлемента" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид элемента</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Вид элемента</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыЭлементовФинансовогоОтчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЭлементВидаОтчетности" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Элемент вида отчетности</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Элемент вида отчетности</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СтатьиБюджетов</v8:Type>
+						<v8:Type>cfg:CatalogRef.ПоказателиБюджетов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НестандартнаяКартинка" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нестандартная картинка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Нестандартная картинка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоГруппа" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>This is a group</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="БыстрыйПоискНовых" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрый поиск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quick search</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьДляВводаПлана" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать для ввода плана</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Использовать для ввода плана</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НайтиНовыйЭлемент" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти элемент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Найти элемент</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти элемент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Найти элемент</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Find</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НайтиНовыйЭлемент</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

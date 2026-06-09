@@ -1,0 +1,55 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://api-invoice.taxcom.ru/warrant" elementFormQualified="true" attributeFormQualified="false">
+	<property name="Warrant">
+		<typeDef xsi:type="ObjectType">
+			<property name="WarrantCard" upperBound="-1">
+				<typeDef xsi:type="ObjectType">
+					<property name="Description">
+						<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+							<property name="Meta" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="ID" type="xs:string" form="Attribute"/>
+									<property name="Issuer" type="xs:string" form="Attribute"/>
+									<property name="RepresentativeInn" type="xs:string" form="Attribute"/>
+									<property name="Link" type="xs:string" form="Attribute"/>
+								</typeDef>
+							</property>
+							<property name="Files" lowerBound="0">
+								<typeDef xsi:type="ObjectType">
+									<property name="WarrantImage">
+										<typeDef xsi:type="ObjectType">
+											<property name="Path" type="xs:string" form="Attribute"/>
+										</typeDef>
+									</property>
+									<property name="WarrantSignature" lowerBound="0" upperBound="-1">
+										<typeDef xsi:type="ObjectType">
+											<property name="Path" type="xs:string" form="Attribute"/>
+										</typeDef>
+									</property>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+					<property name="ToSign">
+						<typeDef xsi:type="ObjectType">
+							<property name="DocSign" upperBound="-1">
+								<typeDef xsi:type="ObjectType">
+									<property name="file" type="xs:string" form="Attribute"/>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+					<property name="AdditionalData" lowerBound="0">
+						<typeDef xsi:type="ObjectType">
+							<property name="AdditionalParameter" upperBound="-1">
+								<typeDef xsi:type="ObjectType">
+									<property name="Name" type="xs:string" form="Attribute"/>
+									<property name="Value" form="Attribute"/>
+								</typeDef>
+							</property>
+						</typeDef>
+					</property>
+				</typeDef>
+			</property>
+		</typeDef>
+	</property>
+</package>

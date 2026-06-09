@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКодТерминала" id="85">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код терминала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Terminal code group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код терминала</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Terminal code group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#A5FF98</BackColor>
+			<ExtendedTooltip name="ГруппаКодТерминалаРасширеннаяПодсказка" id="86">
+				<HorizontalStretch>true</HorizontalStretch>
+			</ExtendedTooltip>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">КодПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelDecoration name="НадписьПояснениеККоду" id="90">
+					<TextColor>web:Sienna</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для мобильных клиентов заполняется автоматически после регистрации (также доступен ручной ввод кода), для остальных терминалов вводится вручную, должен соответствовать коду терминала на сервере IMCS</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>For mobile clients, it is filled in automatically after registration (manual code entry is also available); for other terminals, it is entered manually and must match the terminal code on the IMCS server.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьПояснениеККодуКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="НадписьПояснениеККодуРасширеннаяПодсказка" id="92"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаМодель" id="102">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа модель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group model</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаМодельРасширеннаяПодсказка" id="103"/>
+			<ChildItems>
+				<InputField name="Модель" id="7">
+					<DataPath>Объект.Модель</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<DropListButton>false</DropListButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+					<ContextMenu name="МодельКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="28"/>
+					<Events>
+						<Event name="OnChange">МодельПриИзменении</Event>
+						<Event name="StartChoice">МодельНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<PictureDecoration name="ПредупреждениеДляМодели" id="104">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предупреждение для модели</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Model Warning</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мобильный клиент зарегистрирован и привязан. Смена модели недопустима</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The mobile client is registered and linked. Model changes are not allowed.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+					<GroupVerticalAlign>Center</GroupVerticalAlign>
+					<Picture>
+						<xr:Ref>StdPicture.Information</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ПредупреждениеДляМоделиКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="ПредупреждениеДляМоделиРасширеннаяПодсказка" id="106"/>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<SkipOnInput>true</SkipOnInput>
+			<EditMode>EnterOnInput</EditMode>
+			<DropListButton>true</DropListButton>
+			<ChoiceListButton>true</ChoiceListButton>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="29"/>
+			<Events>
+				<Event name="OnChange">НаименованиеПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="IMEI" id="5">
+			<DataPath>Объект.IMEI</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="IMEIКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="IMEIРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<InputField name="НомерSimКарты" id="9">
+			<DataPath>Объект.НомерSimКарты</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>№ Sim-карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SIM card number</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НомерSimКартыКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="НомерSimКартыРасширеннаяПодсказка" id="31"/>
+			<Events>
+				<Event name="OnChange">НомерSimКартыПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаУсреднениеДанныхТоплива" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа усреднение данных топлива</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fuel data averaging group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа усреднение данных топлива</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fuel data averaging group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаУсреднениеДанныхТопливаРасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<CheckBoxField name="УсреднятьЗначениеПоТопливу" id="22">
+					<DataPath>Объект.УсреднятьЗначениеПоТопливу</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Усреднять данные 
+датчиков топлива</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Averaging fuel sensor data</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Если к терминалу подключены несколько датчиков топлива то при установке свойства рассчитывается среднее значение по всем датчикам иначе данные суммируются</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>If several fuel sensors are connected to the terminal, then when setting the property, the average value is calculated for all sensors; otherwise, the data is summed up.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УсреднятьЗначениеПоТопливуКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="УсреднятьЗначениеПоТопливуРасширеннаяПодсказка" id="33"/>
+					<Events>
+						<Event name="OnChange">УсреднятьЗначениеПоТопливуПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelDecoration name="НадписьУсреднение" id="24">
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>style:FieldSelectionBackColor</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Надпись 
+усреднение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Caption
+Averaging</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьУсреднениеКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="НадписьУсреднениеРасширеннаяПодсказка" id="34"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="МаксимальнаяСкоростьВыдачиТоплива" id="93">
+			<DataPath>Объект.МаксимальнаяСкоростьВыдачиТоплива</DataPath>
+			<ContextMenu name="МаксимальнаяСкоростьВыдачиТопливаКонтекстноеМеню" id="94"/>
+			<ExtendedTooltip name="МаксимальнаяСкоростьВыдачиТопливаРасширеннаяПодсказка" id="95"/>
+		</InputField>
+		<InputField name="СерверСбораДанных" id="96">
+			<DataPath>Объект.СерверСбораДанных</DataPath>
+			<ContextMenu name="СерверСбораДанныхКонтекстноеМеню" id="97"/>
+			<ExtendedTooltip name="СерверСбораДанныхРасширеннаяПодсказка" id="98"/>
+		</InputField>
+		<Table name="Датчики" id="11">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.Датчики</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДатчикиКонтекстноеМеню" id="12"/>
+			<AutoCommandBar name="ДатчикиКоманднаяПанель" id="13"/>
+			<ExtendedTooltip name="ДатчикиРасширеннаяПодсказка" id="35"/>
+			<SearchStringAddition name="ДатчикиСтрокаПоиска" id="36">
+				<AdditionSource>
+					<Item>Датчики</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДатчикиСтрокаПоискаКонтекстноеМеню" id="37"/>
+				<ExtendedTooltip name="ДатчикиСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДатчикиСостояниеПросмотра" id="39">
+				<AdditionSource>
+					<Item>Датчики</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДатчикиСостояниеПросмотраКонтекстноеМеню" id="40"/>
+				<ExtendedTooltip name="ДатчикиСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДатчикиУправлениеПоиском" id="42">
+				<AdditionSource>
+					<Item>Датчики</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДатчикиУправлениеПоискомКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="ДатчикиУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnChange">ДатчикиПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДатчикиНомерСтроки" id="14">
+					<DataPath>Объект.Датчики.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатчикиНомерСтрокиКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ДатчикиНомерСтрокиРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<InputField name="ДатчикиДатчик" id="16">
+					<DataPath>Объект.Датчики.Датчик</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Владелец</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Объект.Модель</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="ДатчикиДатчикКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатчикиДатчикРасширеннаяПодсказка" id="46"/>
+				</InputField>
+				<InputField name="ДатчикиНазначение" id="18">
+					<DataPath>Объект.Датчики.Назначение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатчикиНазначениеКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ДатчикиНазначениеРасширеннаяПодсказка" id="47"/>
+				</InputField>
+				<InputField name="ДатчикиКалибровочныйГрафик" id="20">
+					<DataPath>Объект.Датчики.КалибровочныйГрафик</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатчикиКалибровочныйГрафикКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ДатчикиКалибровочныйГрафикРасширеннаяПодсказка" id="48"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ItobТерминалы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.Датчики"/>
+			</Columns>
+		</Attribute>
+	</Attributes>
+</Form>

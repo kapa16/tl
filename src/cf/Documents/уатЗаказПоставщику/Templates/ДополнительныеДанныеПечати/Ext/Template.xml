@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатЗаказПоставщику.Ссылка КАК Ссылка
+ИЗ
+	Документ.уатЗаказПоставщику КАК уатЗаказПоставщику</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>НомерДляПечати</dataPath>
+		<expression>Документы.уатПутевойЛист.ПолучитьНомерДляПечати(Ссылка.Организация, Ссылка.Номер)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Номер (для печати)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Number (for printing)</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ТекстЗаголовка</dataPath>
+		<expression>уатОбщегоНазначенияТиповые.уатСформироватьЗаголовокДокумента(Ссылка, НСтр("ru='Заказ поставщику'"))</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текст заголовка</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Title text</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>РежимВыводаКодаВДокументах</dataPath>
+		<expression>уатПраваИНастройки.уатПолучитьПраваИНастройкиПользователя(ПользователиКлиентСервер.АвторизованныйПользователь(), ПредопределенноеЗначение("ПланВидовХарактеристик.уатПраваИНастройки.РежимВыводаКодаВДокументах"))</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Режим вывода кода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Code output mode</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows"/>
+	</settingsVariant>
+</DataCompositionSchema>

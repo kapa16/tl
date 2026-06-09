@@ -1,0 +1,54 @@
+---
+description: "Mandatory extension version bump on every CFE change — 1C ITS std483/std484 (R.P.Z.S)"
+alwaysApply: true
+---
+
+# Extension version bump (CFE)
+
+**Project:** extension `Атжн_Госключ`, sources `src/cfe/`, property `<Version>` in `src/cfe/Configuration.xml`.
+
+## Obligation
+
+On **any** deliverable change to the extension (BSL, metadata XML, forms, roles, command interface, subsystems) — **before** declaring the task done — bump `<Version>` per [ITS std483 — Нумерация редакций и версий](https://its.1c.ru/db/v8std/content/483/hdoc) and classify the release per [ITS std484 — Общие сведения о выпуске конфигураций](https://its.1c.ru/db/v8std/content/484/hdoc).
+
+**Exceptions (no version bump):**
+
+- Docs-only edits under `.cursor/`, `openspec/`, `README.md`, `task.md`, rules — no `src/cfe/` change.
+- Pure repo / tooling / `.dev.env` — no extension source change.
+
+If unsure whether the change touches the extension — read `src/cfe/Configuration.xml` and bump when anything under `src/cfe/` was modified.
+
+## Format (std483)
+
+Full version: `{R}.{P}.{Z}.{S}` — edition · sub-edition · version · build. Each segment has at least one digit (examples: `1.3.2.5`, `1.6.4.7`).
+
+Parse the current value from `<Version>` before incrementing; do not invent a new numbering scheme.
+
+## Which segment to increment (std484)
+
+| Change nature | Segment | Example `1.3.2.5` → |
+|---------------|---------|---------------------|
+| Bug fix, refactor without new user-visible behaviour, small safe tweak | **S** (build) | `1.3.2.6` |
+| New feature, new metadata object, behaviour change with backward-compatible data | **Z** (version); reset **S** to `1` | `1.3.3.1` |
+| Significant functional block within the same edition (product decision) | **P** (sub-edition); reset **Z** and **S** to `1` | `1.4.1.1` |
+| Breaking structure, incompatible data model, mandatory conversion | **R** (edition); reset **P**, **Z**, **S** to `0`/`1` per project line (new configs often start `1.0.1.1`) | e.g. `2.0.1.1` |
+
+When several rules apply, pick the **highest** segment that matches the largest change in the delivery. If ambiguous — use `CONFUSION` (per `AGENTS.md`) and ask; default for routine extension work: **S** for fixes, **Z** for features.
+
+## Workflow
+
+1. Read current `<Version>` in `src/cfe/Configuration.xml`.
+2. Apply the table above; edit `<Version>` in the **same** change set as the functional edits (not a follow-up).
+3. In the delivery summary: state **old → new** version and **which segment** changed and why (one line).
+4. Do not duplicate the version string in BSL unless the task explicitly requires runtime version reporting.
+
+## Verification
+
+- Full-cycle / feature-dev: treat a missing version bump as a **failed** delivery (companion: `verification-checklist.mdc` soft gate D).
+- Quick-fix under `src/cfe/`: version bump is still mandatory.
+
+## References
+
+- [std483 — Нумерация редакций и версий](https://its.1c.ru/db/v8std/content/483/hdoc)
+- [std484 — Общие сведения о выпуске конфигураций](https://its.1c.ru/db/v8std/content/484/hdoc)
+- [std482 — Заполнение свойств конфигурации информацией о выпуске](https://its.1c.ru/db/v8std/content/482/hdoc) — if release-related synonyms / brief information are updated in the same task

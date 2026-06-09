@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСохранитьИЗакрыть" id="83">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СохранитьИЗакрыть</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьИЗакрытьРасширеннаяПодсказка" id="84"/>
+			</Button>
+			<ButtonGroup name="ГруппаВыгрузкиЗагрузки" id="85">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа выгрузки загрузки</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГруппаВыгрузкиЗагрузкиРасширеннаяПодсказка" id="86"/>
+				<ChildItems>
+					<Button name="ФормаВыгрузитьВФайл" id="71">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыгрузитьВФайл</CommandName>
+						<ExtendedTooltip name="ФормаВыгрузитьВФайлРасширеннаяПодсказка" id="72"/>
+					</Button>
+					<Button name="ФормаЗагрузитьИзФайла" id="73">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЗагрузитьИзФайла</CommandName>
+						<ExtendedTooltip name="ФормаЗагрузитьИзФайлаРасширеннаяПодсказка" id="74"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<Button name="ФормаУдалитьНастройку" id="90">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.УдалитьНастройку</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаУдалитьНастройкуРасширеннаяПодсказка" id="91"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelField name="ВидЭлектронногоДокумента" id="3">
+					<DataPath>ВидЭлектронногоДокумента</DataPath>
+					<Font ref="style:ЖирныйШрифтБЭД" kind="StyleItem"/>
+					<ContextMenu name="ВидЭлектронногоДокументаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ВидЭлектронногоДокументаРасширеннаяПодсказка" id="5"/>
+				</LabelField>
+				<LabelField name="ФорматПредставление" id="87">
+					<DataPath>ФорматПредставление</DataPath>
+					<ContextMenu name="ФорматПредставлениеКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ФорматПредставлениеРасширеннаяПодсказка" id="89"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="7"/>
+		</Pages>
+		<UsualGroup name="ГруппаИнформация" id="75">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа информация</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ToolTipBackColor</BackColor>
+			<ExtendedTooltip name="ГруппаИнформацияРасширеннаяПодсказка" id="76"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаИнформация" id="77">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка информация</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.ИнформацияБЭД</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаИнформацияКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="КартинкаИнформацияРасширеннаяПодсказка" id="79"/>
+				</PictureDecoration>
+				<LabelDecoration name="НадписьИнформация" id="80">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не для всех полей указана формула заполнения. Их нужно будет заполнять вручную при создании электронного документа.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьИнформацияКонтекстноеМеню" id="81"/>
+					<ExtendedTooltip name="НадписьИнформацияРасширеннаяПодсказка" id="82"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ВидЭлектронногоДокумента" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид электронного документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВидыДокументовЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Формат" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантыПравилЗаполнения" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Варианты правил заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="ФорматПредставление" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазделыДополнительныхПолей" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разделы дополнительных полей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Имя" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Тип" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПутьКЭлементуXML" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путь к элементу XML</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяТаблицыНастроек" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя таблицы настроек</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="АдресЗапросаКонструктораФормул" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес запроса конструктора формул</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Организация" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КонтрагентБЭД</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоговорКонтрагента" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ДоговорСКонтрагентомЭДО</v8:TypeSet>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыгрузитьВФайл" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить в файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить в файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыгрузитьВФайл</Action>
+		</Command>
+		<Command name="ЗагрузитьИзФайла" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить из файла</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить из файла</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.LevelUp</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗагрузитьИзФайла</Action>
+		</Command>
+		<Command name="СохранитьИЗакрыть" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить и закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьИЗакрыть</Action>
+		</Command>
+		<Command name="УдалитьНастройку" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить настройку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить настройку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьНастройку</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ВидЭлектронногоДокумента">
+			<Type>
+				<v8:Type>cfg:EnumRef.ТипыДокументовЭДО</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="Формат">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="Контрагент">
+			<Type/>
+		</Parameter>
+		<Parameter name="Организация">
+			<Type/>
+		</Parameter>
+		<Parameter name="ДоговорКонтрагента">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,0 +1,2191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСправка" id="35">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="36"/>
+			</Button>
+			<Button name="ИзменитьФорму" id="37">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="38"/>
+			</Button>
+			<Button name="Выполнить" id="9">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+				<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+				<CommandName>Form.Command.Выполнить</CommandName>
+				<ExtendedTooltip name="ВыполнитьРасширеннаяПодсказка" id="10"/>
+			</Button>
+			<Button name="ОтправитьПисьмо" id="262">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.ОтправитьПисьма</CommandName>
+				<BackColor>style:ButtonBackColor</BackColor>
+				<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+				<ExtendedTooltip name="ОтправитьПисьмоРасширеннаяПодсказка" id="263"/>
+			</Button>
+			<Button name="СохранитьИЗакрытьНастройкиКомплектаДокументов" id="252">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.СохранитьИЗакрытьНастройкиКомплектаДокументов</CommandName>
+				<BackColor>style:ImportantColor</BackColor>
+				<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить и закрыть</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Save and close</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="СохранитьИЗакрытьНастройкиКомплектаДокументовРасширеннаяПодсказка" id="253"/>
+			</Button>
+			<Button name="СохранитьНастройкиКомплектаДокументов" id="250">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.СохранитьНастройкиКомплектаДокументов</CommandName>
+				<ExtendedTooltip name="СохранитьНастройкиКомплектаДокументовРасширеннаяПодсказка" id="251"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="НастройкаКомплектовДокументов" id="247">
+			<DataPath>НастройкаКомплектовДокументов</DataPath>
+			<OpenButton>true</OpenButton>
+			<CreateButton>true</CreateButton>
+			<ContextMenu name="НастройкаКомплектовДокументовКонтекстноеМеню" id="248"/>
+			<ExtendedTooltip name="НастройкаКомплектовДокументовРасширеннаяПодсказка" id="249"/>
+			<Events>
+				<Event name="OnChange">НастройкаКомплектовДокументовПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Pages name="Страницы" id="79">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="80"/>
+			<Events>
+				<Event name="OnCurrentPageChange">СтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="Оформление" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оформление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Design</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оформление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Design</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>23</Height>
+					<ExtendedTooltip name="ОформлениеРасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиДокументов" id="5">
+							<Width>50</Width>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиДокументовРасширеннаяПодсказка" id="6"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаКомплектДокументовЗаказчика" id="1">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комплект документов заказчика</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Set of customer documents</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комплект документов заказчика</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Set of customer documents</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Behavior>Collapsible</Behavior>
+									<ControlRepresentation>Picture</ControlRepresentation>
+									<ExtendedTooltip name="ГруппаКомплектДокументовЗаказчикаРасширеннаяПодсказка" id="2"/>
+									<ChildItems>
+										<LabelDecoration name="КонтрагентыДокументовЗаказчика" id="71">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выбрать контрагентов</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Select counterparties</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="КонтрагентыДокументовЗаказчикаКонтекстноеМеню" id="72"/>
+											<ExtendedTooltip name="КонтрагентыДокументовЗаказчикаРасширеннаяПодсказка" id="73"/>
+											<Events>
+												<Event name="Click">КонтрагентыДокументовЗаказчикаНажатие</Event>
+											</Events>
+										</LabelDecoration>
+										<UsualGroup name="ГруппаСчетНаОплатуПокупателю" id="140">
+											<HorizontalStretch>true</HorizontalStretch>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаСчетНаОплатуПокупателюРасширеннаяПодсказка" id="141"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагСчетНаОплатуПокупателю" id="14">
+													<DataPath>ФлагСчетНаОплатуПокупателю</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагСчетНаОплатуПокупателюКонтекстноеМеню" id="15"/>
+													<ExtendedTooltip name="ФлагСчетНаОплатуПокупателюРасширеннаяПодсказка" id="16"/>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаСчетНаОплатуПокупателюДокументы" id="145">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаСчетНаОплатуПокупателюДокументыРасширеннаяПодсказка" id="146"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаРеализацияУслуг" id="147">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРеализацияУслугРасширеннаяПодсказка" id="148"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагРеализацияУслуг" id="17">
+													<DataPath>ФлагРеализацияУслуг</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагРеализацияУслугКонтекстноеМеню" id="18"/>
+													<ExtendedTooltip name="ФлагРеализацияУслугРасширеннаяПодсказка" id="19"/>
+													<Events>
+														<Event name="OnChange">ФлагРеализацияУслугПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаРеализацияУслугДокументы" id="149">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаРеализацияУслугДокументыРасширеннаяПодсказка" id="150"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПлатежноеПоручениеВходящее" id="151">
+											<HorizontalStretch>true</HorizontalStretch>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПлатежноеПоручениеВходящееРасширеннаяПодсказка" id="152"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагПлатежноеПоручениеВходящее" id="23">
+													<DataPath>ФлагПлатежноеПоручениеВходящее</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагПлатежноеПоручениеВходящееКонтекстноеМеню" id="24"/>
+													<ExtendedTooltip name="ФлагПлатежноеПоручениеВходящееРасширеннаяПодсказка" id="25"/>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаПлатежноеПоручениеВходящееДокументы" id="156">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПлатежноеПоручениеВходящееДокументыРасширеннаяПодсказка" id="157"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПриходныйКассовыйОрдер" id="158">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПриходныйКассовыйОрдерРасширеннаяПодсказка" id="159"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагПриходныйКассовыйОрдер" id="29">
+													<DataPath>ФлагПриходныйКассовыйОрдер</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагПриходныйКассовыйОрдерКонтекстноеМеню" id="30"/>
+													<ExtendedTooltip name="ФлагПриходныйКассовыйОрдерРасширеннаяПодсказка" id="31"/>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаПриходныйКассовыйОрдерДокументы" id="163">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПриходныйКассовыйОрдерДокументыРасширеннаяПодсказка" id="164"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаСчетФактураВыданный" id="343">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаСчетФактураВыданныйРасширеннаяПодсказка" id="344"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагСчетФактураВыданный" id="340">
+													<DataPath>ФлагСчетФактураВыданный</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагСчетФактураВыданныйКонтекстноеМеню" id="341"/>
+													<ExtendedTooltip name="ФлагСчетФактураВыданныйРасширеннаяПодсказка" id="342"/>
+													<Events>
+														<Event name="OnChange">ФлагСчетФактураВыданныйПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаСчетФактураВыданныйДокументы" id="348">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаСчетФактураВыданныйДокументыРасширеннаяПодсказка" id="349"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаКомплектДокументовПеревозчика" id="3">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комплект документов перевозчика</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Set of carrier documents</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комплект документов перевозчика</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Set of carrier documents</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<HorizontalSpacing>None</HorizontalSpacing>
+									<VerticalSpacing>Half</VerticalSpacing>
+									<Behavior>Collapsible</Behavior>
+									<ControlRepresentation>Picture</ControlRepresentation>
+									<ExtendedTooltip name="ГруппаКомплектДокументовПеревозчикаРасширеннаяПодсказка" id="4"/>
+									<ChildItems>
+										<LabelDecoration name="КонтрагентыДокументовПеревозчика" id="74">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выбрать контрагентов</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Select counterparties</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="КонтрагентыДокументовПеревозчикаКонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="КонтрагентыДокументовПеревозчикаРасширеннаяПодсказка" id="76"/>
+											<Events>
+												<Event name="Click">КонтрагентыДокументовПеревозчикаНажатие</Event>
+											</Events>
+										</LabelDecoration>
+										<UsualGroup name="ГруппаСчетНаОплатуПоставщика" id="225">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаСчетНаОплатуПоставщикаРасширеннаяПодсказка" id="226"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагСчетНаОплатуПоставщика" id="11">
+													<DataPath>ФлагСчетНаОплатуПоставщика</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>CheckBox</CheckBoxType>
+													<ContextMenu name="ФлагСчетНаОплатуПоставщикаКонтекстноеМеню" id="12"/>
+													<ExtendedTooltip name="ФлагСчетНаОплатуПоставщикаРасширеннаяПодсказка" id="13"/>
+													<Events>
+														<Event name="OnChange">ФлагСчетНаОплатуПоставщикаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаСчетНаОплатуПоставщикаДокументы" id="230">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаСчетНаОплатуПоставщикаДокументыРасширеннаяПодсказка" id="231"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПоступлениеТоваровУслуг" id="218">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПоступлениеТоваровУслугРасширеннаяПодсказка" id="219"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагПоступлениеМатериаловУслуг" id="20">
+													<DataPath>ФлагПоступлениеМатериаловУслуг</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагПоступлениеМатериаловУслугКонтекстноеМеню" id="21"/>
+													<ExtendedTooltip name="ФлагПоступлениеМатериаловУслугРасширеннаяПодсказка" id="22"/>
+													<Events>
+														<Event name="OnChange">ФлагПоступлениеМатериаловУслугПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаПоступлениеТоваровУслугДокументы" id="223">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПоступлениеТоваровУслугДокументыРасширеннаяПодсказка" id="224"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаЗаявкаНаРасходованиеДС" id="211">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаЗаявкаНаРасходованиеДСРасширеннаяПодсказка" id="212"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагЗаявкаНаРасходованиеДС" id="59">
+													<DataPath>ФлагЗаявкаНаРасходованиеДС</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагЗаявкаНаРасходованиеДСКонтекстноеМеню" id="60"/>
+													<ExtendedTooltip name="ФлагЗаявкаНаРасходованиеДСРасширеннаяПодсказка" id="61"/>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаЗаявкаНаРасходованиеДСДокументы" id="216">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЗаявкаНаРасходованиеДСДокументыРасширеннаяПодсказка" id="217"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПлатежноеПоручениеИсходящее" id="204">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПлатежноеПоручениеИсходящееРасширеннаяПодсказка" id="205"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагПлатежноеПоручениеИсходящее" id="26">
+													<DataPath>ФлагПлатежноеПоручениеИсходящее</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагПлатежноеПоручениеИсходящееКонтекстноеМеню" id="27"/>
+													<ExtendedTooltip name="ФлагПлатежноеПоручениеИсходящееРасширеннаяПодсказка" id="28"/>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаПлатежноеПоручениеИсходящееДокументы" id="209">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПлатежноеПоручениеИсходящееДокументыРасширеннаяПодсказка" id="210"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаРасходныйКассовыйОрдер" id="197">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРасходныйКассовыйОрдерРасширеннаяПодсказка" id="198"/>
+											<ChildItems>
+												<CheckBoxField name="ФлагРасходныйКассовыйОрдер" id="32">
+													<DataPath>ФлагРасходныйКассовыйОрдер</DataPath>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ФлагРасходныйКассовыйОрдерКонтекстноеМеню" id="33"/>
+													<ExtendedTooltip name="ФлагРасходныйКассовыйОрдерРасширеннаяПодсказка" id="34"/>
+												</CheckBoxField>
+												<UsualGroup name="ГруппаРасходныйКассовыйОрдерДокументы" id="202">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Созданные документы</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Processed documents</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаРасходныйКассовыйОрдерДокументыРасширеннаяПодсказка" id="203"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаТТД" id="190">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаТТДРасширеннаяПодсказка" id="191"/>
+									<ChildItems>
+										<CheckBoxField name="ФлагТТД" id="68">
+											<DataPath>ФлагТТД</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ФлагТТДКонтекстноеМеню" id="69"/>
+											<ExtendedTooltip name="ФлагТТДРасширеннаяПодсказка" id="70"/>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаТТДДокументы" id="195">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Созданные документы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Processed documents</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ТТДДокументы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>TTDDDocuments Group</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Collapsed>true</Collapsed>
+											<ControlRepresentation>Picture</ControlRepresentation>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТТДДокументыРасширеннаяПодсказка" id="196"/>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаДоверенность" id="240">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Доверенность</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Power of attorney</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа доверенность</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Power of attorney group</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДоверенностьРасширеннаяПодсказка" id="241"/>
+									<ChildItems>
+										<CheckBoxField name="ФлагДоверенность" id="242">
+											<DataPath>ФлагДоверенность</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ФлагДоверенностьКонтекстноеМеню" id="243"/>
+											<ExtendedTooltip name="ФлагДоверенностьРасширеннаяПодсказка" id="244"/>
+										</CheckBoxField>
+										<UsualGroup name="ГруппаДоверенностьДокументы" id="245">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Созданные документы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Processed documents</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ТТДДокументы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>TTDDDocuments Group</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Collapsed>true</Collapsed>
+											<ControlRepresentation>Picture</ControlRepresentation>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДоверенностьДокументыРасширеннаяПодсказка" id="246"/>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбщиеНастройки" id="44">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Settings</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<VerticalSpacing>Half</VerticalSpacing>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ExtendedTooltip name="ГруппаОбщиеНастройкиРасширеннаяПодсказка" id="45"/>
+							<ChildItems>
+								<CheckBoxField name="ФлагПровестиДокументы" id="62">
+									<DataPath>ФлагПровестиДокументы</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ФлагПровестиДокументыКонтекстноеМеню" id="63"/>
+									<ExtendedTooltip name="ФлагПровестиДокументыРасширеннаяПодсказка" id="64"/>
+								</CheckBoxField>
+								<CheckBoxField name="ФлагОтправлятьДокументы" id="299">
+									<DataPath>ФлагОтправлятьДокументы</DataPath>
+									<Visible>false</Visible>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ФлагОтправлятьДокументыКонтекстноеМеню" id="300"/>
+									<ExtendedTooltip name="ФлагОтправлятьДокументыРасширеннаяПодсказка" id="301"/>
+									<Events>
+										<Event name="OnChange">ФлагОтправлятьДокументыПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="Печать" id="81">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Print</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Печать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Print</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>23</Height>
+					<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="82"/>
+					<ChildItems>
+						<Table name="МассивДокументов" id="165">
+							<Representation>List</Representation>
+							<Header>false</Header>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<DataPath>МассивДокументов</DataPath>
+							<RowPictureDataPath>МассивДокументов.ФлагВыбора</RowPictureDataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МассивДокументовКонтекстноеМеню" id="166"/>
+							<AutoCommandBar name="МассивДокументовКоманднаяПанель" id="167">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<ButtonGroup name="РежимОтображенияГрафикиРаботы" id="184">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Режим отображения графики работы</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Work schedule display mode</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Режим отображения графики работы</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Work schedule display mode</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="РежимОтображенияГрафикиРаботыРасширеннаяПодсказка" id="185"/>
+										<ChildItems>
+											<Button name="ОтметитьВсеГрафикиРаботы" id="186">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтметитьВсеСтроки</CommandName>
+												<ExtendedTooltip name="ОтметитьВсеГрафикиРаботыРасширеннаяПодсказка" id="187"/>
+											</Button>
+											<Button name="СнятьОтметкиВоВсехГрафикахРаботы" id="188">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СнятьОтметкиВоВсехСтроках</CommandName>
+												<ExtendedTooltip name="СнятьОтметкиВоВсехГрафикахРаботыРасширеннаяПодсказка" id="189"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="МассивДокументовОбновить" id="238">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьМассивДокументов</CommandName>
+										<ExtendedTooltip name="МассивДокументовОбновитьРасширеннаяПодсказка" id="239"/>
+									</Button>
+									<Button name="ПечатьКомплектаДокументов" id="49">
+										<Type>CommandBarHyperlink</Type>
+										<CommandName>Form.Command.ПечатьКомплектаДокументов</CommandName>
+										<ExtendedTooltip name="ПечатьКомплектаДокументовРасширеннаяПодсказка" id="50"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="МассивДокументовРасширеннаяПодсказка" id="168"/>
+							<SearchStringAddition name="МассивДокументовСтрокаПоиска" id="169">
+								<AdditionSource>
+									<Item>МассивДокументов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МассивДокументовСтрокаПоискаКонтекстноеМеню" id="170"/>
+								<ExtendedTooltip name="МассивДокументовСтрокаПоискаРасширеннаяПодсказка" id="171"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МассивДокументовСостояниеПросмотра" id="172">
+								<AdditionSource>
+									<Item>МассивДокументов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МассивДокументовСостояниеПросмотраКонтекстноеМеню" id="173"/>
+								<ExtendedTooltip name="МассивДокументовСостояниеПросмотраРасширеннаяПодсказка" id="174"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МассивДокументовУправлениеПоиском" id="175">
+								<AdditionSource>
+									<Item>МассивДокументов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МассивДокументовУправлениеПоискомКонтекстноеМеню" id="176"/>
+								<ExtendedTooltip name="МассивДокументовУправлениеПоискомРасширеннаяПодсказка" id="177"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">МассивДокументовВыбор</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="МассивДокументовФлагВыбора" id="330">
+									<DataPath>МассивДокументов.ФлагВыбора</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="МассивДокументовФлагВыбораКонтекстноеМеню" id="331"/>
+									<ExtendedTooltip name="МассивДокументовФлагВыбораРасширеннаяПодсказка" id="332"/>
+								</CheckBoxField>
+								<InputField name="МассивДокументовСсылка" id="232">
+									<DataPath>МассивДокументов.Ссылка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МассивДокументовСсылкаКонтекстноеМеню" id="233"/>
+									<ExtendedTooltip name="МассивДокументовСсылкаРасширеннаяПодсказка" id="234"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ОтправкаПисем" id="254">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправка писем</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Send messages</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправка писем</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Send messages</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОтправкаПисемРасширеннаяПодсказка" id="255"/>
+					<ChildItems>
+						<UsualGroup name="КнопкиОтправки" id="256">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кнопки отправки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Send buttons</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Кнопки отправки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Send buttons</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КнопкиОтправкиРасширеннаяПодсказка" id="257"/>
+							<ChildItems>
+								<Button name="СформироватьПисьма" id="258">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<CommandName>Form.Command.СформироватьПисьма</CommandName>
+									<ExtendedTooltip name="СформироватьПисьмаРасширеннаяПодсказка" id="259"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="ПолучателиУведомлений" id="264">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ПолучателиУведомлений</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПолучателиУведомленийКонтекстноеМеню" id="265"/>
+							<AutoCommandBar name="ПолучателиУведомленийКоманднаяПанель" id="266">
+								<ChildItems>
+									<ButtonGroup name="ПолучателиУведомленийГруппаКнопки" id="302">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Получатели уведомлений группа кнопки</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Notification Recipients Button Group</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Получатели уведомлений группа кнопки</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Notification Recipients Button Group</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="ПолучателиУведомленийГруппаКнопкиРасширеннаяПодсказка" id="303"/>
+										<ChildItems>
+											<Button name="ПолучателиУведомленийОтметитьВсеСтроки" id="295">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтметитьВсеСтроки</CommandName>
+												<ExtendedTooltip name="ПолучателиУведомленийОтметитьВсеСтрокиРасширеннаяПодсказка" id="296"/>
+											</Button>
+											<Button name="ПолучателиУведомленийСнятьОтметкиВоВсехСтроках" id="297">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СнятьОтметкиВоВсехСтроках</CommandName>
+												<ExtendedTooltip name="ПолучателиУведомленийСнятьОтметкиВоВсехСтрокахРасширеннаяПодсказка" id="298"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПолучателиУведомленийРасширеннаяПодсказка" id="267"/>
+							<SearchStringAddition name="ПолучателиУведомленийСтрокаПоиска" id="268">
+								<AdditionSource>
+									<Item>ПолучателиУведомлений</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолучателиУведомленийСтрокаПоискаКонтекстноеМеню" id="269"/>
+								<ExtendedTooltip name="ПолучателиУведомленийСтрокаПоискаРасширеннаяПодсказка" id="270"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПолучателиУведомленийСостояниеПросмотра" id="271">
+								<AdditionSource>
+									<Item>ПолучателиУведомлений</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолучателиУведомленийСостояниеПросмотраКонтекстноеМеню" id="272"/>
+								<ExtendedTooltip name="ПолучателиУведомленийСостояниеПросмотраРасширеннаяПодсказка" id="273"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПолучателиУведомленийУправлениеПоиском" id="274">
+								<AdditionSource>
+									<Item>ПолучателиУведомлений</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолучателиУведомленийУправлениеПоискомКонтекстноеМеню" id="275"/>
+								<ExtendedTooltip name="ПолучателиУведомленийУправлениеПоискомРасширеннаяПодсказка" id="276"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ПолучателиУведомленийПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="ПолучателиУведомленийВыбрать" id="292">
+									<DataPath>ПолучателиУведомлений.Выбрать</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПолучателиУведомленийВыбратьКонтекстноеМеню" id="293"/>
+									<ExtendedTooltip name="ПолучателиУведомленийВыбратьРасширеннаяПодсказка" id="294"/>
+								</CheckBoxField>
+								<InputField name="ПолучателиУведомленийТипПолучателя" id="277">
+									<DataPath>ПолучателиУведомлений.ТипПолучателя</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<AutoMarkIncomplete>false</AutoMarkIncomplete>
+									<ContextMenu name="ПолучателиУведомленийТипПолучателяКонтекстноеМеню" id="278"/>
+									<ExtendedTooltip name="ПолучателиУведомленийТипПолучателяРасширеннаяПодсказка" id="279"/>
+								</InputField>
+								<InputField name="ПолучателиУведомленийПолучатель" id="280">
+									<DataPath>ПолучателиУведомлений.Получатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMarkIncomplete>false</AutoMarkIncomplete>
+									<ContextMenu name="ПолучателиУведомленийПолучательКонтекстноеМеню" id="281"/>
+									<ExtendedTooltip name="ПолучателиУведомленийПолучательРасширеннаяПодсказка" id="282"/>
+								</InputField>
+								<InputField name="ПолучателиУведомленийШаблонЭлектронногоПисьма" id="283">
+									<DataPath>ПолучателиУведомлений.ШаблонЭлектронногоПисьма</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>true</OpenButton>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПолучателиУведомленийШаблонЭлектронногоПисьмаКонтекстноеМеню" id="284"/>
+									<ExtendedTooltip name="ПолучателиУведомленийШаблонЭлектронногоПисьмаРасширеннаяПодсказка" id="285"/>
+								</InputField>
+								<InputField name="ПолучателиУведомленийЭлектронноеПисьмо" id="286">
+									<DataPath>ПолучателиУведомлений.ЭлектронноеПисьмо</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceButton>false</ChoiceButton>
+									<ContextMenu name="ПолучателиУведомленийЭлектронноеПисьмоКонтекстноеМеню" id="287"/>
+									<ExtendedTooltip name="ПолучателиУведомленийЭлектронноеПисьмоРасширеннаяПодсказка" id="288"/>
+								</InputField>
+								<CheckBoxField name="ПолучателиУведомленийОтправлено" id="289">
+									<DataPath>ПолучателиУведомлений.Отправлено</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПолучателиУведомленийОтправленоКонтекстноеМеню" id="290"/>
+									<ExtendedTooltip name="ПолучателиУведомленийОтправленоРасширеннаяПодсказка" id="291"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+						<Table name="МассивДокументов1" id="304">
+							<Representation>List</Representation>
+							<Header>false</Header>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>МассивДокументов</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="МассивДокументов1КонтекстноеМеню" id="305"/>
+							<AutoCommandBar name="МассивДокументов1КоманднаяПанель" id="306">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<ButtonGroup name="МассивДокументовГруппаКнопокОтметить" id="328">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Массив документов группа кнопок отметить</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Array of documents group of buttons mark</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Массив документов группа кнопок отметить</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Array of documents group of buttons mark</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="МассивДокументовГруппаКнопокОтметитьРасширеннаяПодсказка" id="329"/>
+										<ChildItems>
+											<Button name="МассивДокументов1ОтметитьВсеСтрокиВкладкаПисьмо" id="336">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтметитьВсеСтрокиВкладкаПисьмо</CommandName>
+												<ExtendedTooltip name="МассивДокументов1ОтметитьВсеСтрокиВкладкаПисьмоРасширеннаяПодсказка" id="337"/>
+											</Button>
+											<Button name="МассивДокументов1СнятьОтметкиВоВсехСтрокахВкладкаПисьмо" id="338">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СнятьОтметкиВоВсехСтрокахВкладкаПисьмо</CommandName>
+												<ExtendedTooltip name="МассивДокументов1СнятьОтметкиВоВсехСтрокахВкладкаПисьмоРасширеннаяПодсказка" id="339"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="МассивДокументов1ОбновитьМассивДокументов" id="322">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьМассивДокументов</CommandName>
+										<ExtendedTooltip name="МассивДокументов1ОбновитьМассивДокументовРасширеннаяПодсказка" id="323"/>
+									</Button>
+									<Button name="МассивДокументов1ПечатьКомплектаДокументов" id="320">
+										<Type>CommandBarHyperlink</Type>
+										<CommandName>Form.Command.ПечатьКомплектаДокументов</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Печатные формы</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Print forms</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="МассивДокументов1ПечатьКомплектаДокументовРасширеннаяПодсказка" id="321"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="МассивДокументов1РасширеннаяПодсказка" id="307"/>
+							<SearchStringAddition name="МассивДокументов1СтрокаПоиска" id="308">
+								<AdditionSource>
+									<Item>МассивДокументов1</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МассивДокументов1СтрокаПоискаКонтекстноеМеню" id="309"/>
+								<ExtendedTooltip name="МассивДокументов1СтрокаПоискаРасширеннаяПодсказка" id="310"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="МассивДокументов1СостояниеПросмотра" id="311">
+								<AdditionSource>
+									<Item>МассивДокументов1</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="МассивДокументов1СостояниеПросмотраКонтекстноеМеню" id="312"/>
+								<ExtendedTooltip name="МассивДокументов1СостояниеПросмотраРасширеннаяПодсказка" id="313"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="МассивДокументов1УправлениеПоиском" id="314">
+								<AdditionSource>
+									<Item>МассивДокументов1</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="МассивДокументов1УправлениеПоискомКонтекстноеМеню" id="315"/>
+								<ExtendedTooltip name="МассивДокументов1УправлениеПоискомРасширеннаяПодсказка" id="316"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="МассивДокументов1ФлагВыбора" id="333">
+									<DataPath>МассивДокументов.ФлагВыбора</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="МассивДокументов1ФлагВыбораКонтекстноеМеню" id="334"/>
+									<ExtendedTooltip name="МассивДокументов1ФлагВыбораРасширеннаяПодсказка" id="335"/>
+								</CheckBoxField>
+								<InputField name="МассивДокументов1Ссылка" id="317">
+									<DataPath>МассивДокументов.Ссылка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="МассивДокументов1СсылкаКонтекстноеМеню" id="318"/>
+									<ExtendedTooltip name="МассивДокументов1СсылкаРасширеннаяПодсказка" id="319"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ФлагСчетНаОплатуПоставщика" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Invoice for supplier</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет на оплату поставщика</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагСчетНаОплатуПокупателю" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Invoice to buyer</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет на оплату покупателю</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРеализацияУслуг" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selling of services </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализация услуг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагПоступлениеМатериаловУслуг" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Receipt of materials and services</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление материалов и услуг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагПлатежноеПоручениеВходящее" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Outgoing payment order</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Платежное поручение входящее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагПлатежноеПоручениеИсходящее" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Incoming payment order</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Платежное поручение исходящее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагПриходныйКассовыйОрдер" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cash receipt voucher</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приходный кассовый ордер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРасходныйКассовыйОрдер" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cash payment voucher</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расходный кассовый ордер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Автотест" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автотест</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>AutoTest</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументОснование" id="10">
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатМаршрутныйЛист</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатЗаказПеревозчику_уэ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагЗаявкаНаРасходованиеДС" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Expenditure request</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на расходование денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагПровестиДокументы" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open documents</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести документы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимЗаписи" id="16">
+			<Type/>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеРеализацияУслуг" id="17">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеПоступлениеМатериаловУслуг" id="18">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеПлатежноеПоручениеВходящее" id="19">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеПриходныйКассовыйОрдер" id="20">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеЗаявкаНаРасходованиеДС" id="21">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеПлатежноеПоручениеИсходящее" id="22">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагРедактированиеРасходныйКассовыйОрдер" id="23">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МассивДокументов" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Массив документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document array</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ссылка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Reference</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатПлатежноеПоручениеИсходящее</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатПлатежноеПоручениеВходящее</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатРеализацияУслуг</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатМаршрутныйЛист</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатДоверенность</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатПриходныйКассовыйОрдер</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатЗаявкаНаРасходованиеДС</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатСчетНаОплатуПокупателю</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатСчетНаОплатуПоставщика</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатРасходныйКассовыйОрдер</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатСчетФактураВыданный</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатЗаказПеревозчику_уэ</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатТТД</v8:Type>
+						<v8:Type>cfg:DocumentRef.уатПоступлениеТоваровУслуг</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Группа" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ФлагВыбора" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Флаг выбора</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Selection check box</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДокСоздан" id="4">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ФлагЭтоДокумент" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флаг это документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The flag is a document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагТТД" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товарно-транспортный документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Shipping document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаУслуги" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица услуги</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table services</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтрокиДокументовЗаказчика" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строки документов заказчика</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer's document lines</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтрокиДокументовПеревозчика" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строки документов заказчика</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer's document lines</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СчетчикДокументов" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счетчик документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document counter</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагДоверенность" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доверенность</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Shipping document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаКомплектовДокументов" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка комплектов документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Setting up document sets</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатНастройкиКомплектовДокументов_уэ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагЭтоРедактирование" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флаг это редактирование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Flag is an edit</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолучателиУведомлений" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получатели уведомлений</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Notification recipients</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ТипПолучателя" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип получателя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Recipient type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.уатТипыПолучателейУведомлений_уэ</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Получатель" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Recipient</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.КонтактныеЛица</v8:Type>
+						<v8:Type>cfg:CatalogRef.РолиИсполнителей</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ШаблонЭлектронногоПисьма" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаблон электронного письма</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Email template</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ШаблоныСообщений</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЭлектронноеПисьмо" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Электронное письмо</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Email</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ЭлектронноеПисьмоИсходящее</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отправлено" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправлено</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Sent</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Выбрать" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбрать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Select</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ФлагОтправлятьДокументы" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправлять документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Send documents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагЭтоМассивДокументов" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флаг это массив документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Flag is an array of documents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлагСчетФактураВыданный" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selling of services </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет-фактура выданный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>МассивДокументов</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>МассивДокументовФлагВыбора</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>МассивДокументовСсылка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">МассивДокументов.Ссылка</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">ДокументОснование</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПолучателиУведомленийПолучатель</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПолучателиУведомлений.ТипПолучателя</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатТипыПолучателейУведомлений_уэ.ИндивидуальныйПолучатель</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветНедоступногоТекста</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Из данных документа</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>From document data</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПолучателиУведомленийПолучатель</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПолучателиУведомлений.ТипПолучателя</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатТипыПолучателейУведомлений_уэ.ИндивидуальныйПолучатель</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветНедоступногоТекста</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Из данных документа</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>From document data</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПолучателиУведомленийЭлектронноеПисьмо</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПолучателиУведомлений.ЭлектронноеПисьмо</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПолучателиУведомленийЭлектронноеПисьмо</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПолучателиУведомлений.ЭлектронноеПисьмо</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Выполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Complete</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Complete</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьСоздание</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьКомплектаДокументов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print settings</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки печати</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print settings for a set of documents</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки печати комплекта документов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПечатьКомплектаДокументов</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтметитьВсеСтроки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all vehicles on map</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all vehicles on map</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтобразитьВсеСтроки</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьОтметкиВоВсехСтроках" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки во всех строках</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all vehicles on map</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки во всех строках</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all vehicles on map</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьОтметкиВоВсехСтроках</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьМассивДокументов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить массив документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update the document array</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить массив документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update the document array</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьМассивДокументов</Action>
+		</Command>
+		<Command name="СохранитьНастройкиКомплектаДокументов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки комплекта документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save document set settings</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки комплекта документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save document set settings</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СохранитьНастройкиКомплектаДокументов</Action>
+		</Command>
+		<Command name="СохранитьИЗакрытьНастройкиКомплектаДокументов" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить и закрыть настройки комплекта документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save and close the document set settings</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить и закрыть настройки комплекта документов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save and close the document set settings</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьИЗакрытьНастройкиКомплектаДокументов</Action>
+		</Command>
+		<Command name="СформироватьПисьма" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать письма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate letters</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать письма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate letters</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьПисьма</Action>
+		</Command>
+		<Command name="ОтправитьПисьма" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить письма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Send mails</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить письма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Send mails</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьПисьма</Action>
+		</Command>
+		<Command name="ОтметитьВсеСтрокиВкладкаПисьмо" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все строки вкладка письмо</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mark all lines of the letter tab</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all vehicles on map</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтметитьВсеСтрокиВкладкаПисьмо</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьОтметкиВоВсехСтрокахВкладкаПисьмо" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки во всех строках вкладка письмо</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Uncheck all lines in the letter tab</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки во всех строках</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all vehicles on map</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьОтметкиВоВсехСтрокахВкладкаПисьмо</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

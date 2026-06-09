@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаБыстрыеОтборы" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа быстрые отборы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group quick filters</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа быстрые отборы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group quick filters</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаБыстрыеОтборыExtendedTooltip" id="53"/>
+			<ChildItems>
+				<InputField name="ОтборМодельТС" id="43">
+					<DataPath>МодельТС</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Модель / ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Model / vehicle</v8:content>
+						</v8:item>
+					</Title>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="ОтборМодельТСКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ОтборМодельТСExtendedTooltip" id="54"/>
+					<Events>
+						<Event name="OnChange">ОтборМодельТСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ОтборГСМ" id="45">
+					<DataPath>ГСМ</DataPath>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="ОтборГСМКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ОтборГСМExtendedTooltip" id="55"/>
+					<Events>
+						<Event name="OnChange">ОтборГСМПриИзменении</Event>
+						<Event name="StartChoice">ОтборГСМНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ОтборОрганизация" id="87">
+					<DataPath>Организация</DataPath>
+					<ClearButton>true</ClearButton>
+					<ContextMenu name="ОтборОрганизацияКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ОтборОрганизацияРасширеннаяПодсказка" id="89"/>
+					<Events>
+						<Event name="OnChange">ОтборОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="56"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="93">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="94"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="95"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="96">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="97"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="98"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="99">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="100"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="101"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<ColumnGroup name="ГруппаДата" id="85">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Date group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Date group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДатаРасширеннаяПодсказка" id="86"/>
+					<ChildItems>
+						<LabelField name="Период" id="4">
+							<DataPath>Список.Период</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата установки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Installation date</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПериодКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ПериодExtendedTooltip" id="57"/>
+						</LabelField>
+						<LabelField name="Организация" id="82">
+							<DataPath>Список.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="84"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаМодельГСМ" id="193">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа модель ГСМ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group model of fuel and lubricants</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаМодельГСМРасширеннаяПодсказка" id="194"/>
+					<ChildItems>
+						<LabelField name="МодельТС" id="6">
+							<DataPath>Список.МодельТС</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Модель / ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Model / vehicle</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="МодельТСКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="МодельТСExtendedTooltip" id="58"/>
+						</LabelField>
+						<ColumnGroup name="ГруппаГСМ" id="195">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа ГСМ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group fuels</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаГСМРасширеннаяПодсказка" id="196"/>
+							<ChildItems>
+								<LabelField name="ГСМ" id="8">
+									<DataPath>Список.ГСМ</DataPath>
+									<ContextMenu name="ГСМКонтекстноеМеню" id="9"/>
+									<ExtendedTooltip name="ГСМExtendedTooltip" id="59"/>
+								</LabelField>
+								<LabelField name="РаботаНаДвухВидахТопливаОдновременно" id="190">
+									<DataPath>Список.РаботаНаДвухВидахТопливаОдновременно</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Два вида топлива</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Two types of fuel</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="РаботаНаДвухВидахТопливаОдновременноКонтекстноеМеню" id="191"/>
+									<ExtendedTooltip name="РаботаНаДвухВидахТопливаОдновременноРасширеннаяПодсказка" id="192"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа1" id="47">
+					<ExtendedTooltip name="Группа1ExtendedTooltip" id="60"/>
+					<ChildItems>
+						<LabelField name="ЛинейнаяНорма" id="10">
+							<DataPath>Список.ЛинейнаяНорма</DataPath>
+							<ContextMenu name="ЛинейнаяНормаКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ЛинейнаяНормаExtendedTooltip" id="61"/>
+						</LabelField>
+						<LabelField name="НормаНаИзменениеСобственногоВеса" id="16">
+							<DataPath>Список.НормаНаИзменениеСобственногоВеса</DataPath>
+							<ContextMenu name="НормаНаИзменениеСобственногоВесаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="НормаНаИзменениеСобственногоВесаExtendedTooltip" id="62"/>
+						</LabelField>
+						<LabelField name="НормаНаТранспортнуюРаботу" id="26">
+							<DataPath>Список.НормаНаТранспортнуюРаботу</DataPath>
+							<ContextMenu name="НормаНаТранспортнуюРаботуКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="НормаНаТранспортнуюРаботуExtendedTooltip" id="63"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа2" id="48">
+					<ExtendedTooltip name="Группа2ExtendedTooltip" id="64"/>
+					<ChildItems>
+						<LabelField name="НормаНаОтопитель" id="20">
+							<DataPath>Список.НормаНаОтопитель</DataPath>
+							<ContextMenu name="НормаНаОтопительКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="НормаНаОтопительExtendedTooltip" id="65"/>
+						</LabelField>
+						<LabelField name="НормаСпециальнаяНаМоточас" id="38">
+							<DataPath>Список.НормаСпециальнаяНаМоточас</DataPath>
+							<ContextMenu name="НормаСпециальнаяНаМоточасКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="НормаСпециальнаяНаМоточасExtendedTooltip" id="66"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа5" id="51">
+					<ExtendedTooltip name="Группа5ExtendedTooltip" id="67"/>
+					<ChildItems>
+						<LabelField name="НормаНаЕздку" id="12">
+							<DataPath>Список.НормаНаЕздку</DataPath>
+							<ContextMenu name="НормаНаЕздкуКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="НормаНаЕздкуExtendedTooltip" id="68"/>
+						</LabelField>
+						<LabelField name="НормаНаОперацию" id="18">
+							<DataPath>Список.НормаНаОперацию</DataPath>
+							<ContextMenu name="НормаНаОперациюКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="НормаНаОперациюExtendedTooltip" id="69"/>
+						</LabelField>
+						<LabelField name="НормаНаЗапуск" id="14">
+							<DataPath>Список.НормаНаЗапуск</DataPath>
+							<ContextMenu name="НормаНаЗапускКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="НормаНаЗапускExtendedTooltip" id="70"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа6" id="52">
+					<ExtendedTooltip name="Группа6ExtendedTooltip" id="78"/>
+					<ChildItems>
+						<LabelField name="НормаНаПростой" id="102">
+							<DataPath>Список.НормаНаПростой</DataPath>
+							<ContextMenu name="НормаНаПростойКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="НормаНаПростойРасширеннаяПодсказка" id="104"/>
+						</LabelField>
+						<CheckBoxField name="УчитыватьПростоиДляРасчетаНормыМоточасов" id="90">
+							<DataPath>Список.УчитыватьПростоиДляРасчетаНормыМоточасов</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Учитывать простои для моточасов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Consider the downtime for motohours</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчитыватьПростоиДляРасчетаНормыМоточасовКонтекстноеМеню" id="91"/>
+							<ExtendedTooltip name="УчитыватьПростоиДляРасчетаНормыМоточасовРасширеннаяПодсказка" id="92"/>
+						</CheckBoxField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаНадбавки" id="185">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа надбавки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Allowance group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа надбавки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Allowance group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНадбавкиРасширеннаяПодсказка" id="186"/>
+					<ChildItems>
+						<LabelField name="СезоннаяНадбавка" id="40">
+							<DataPath>Список.СезоннаяНадбавка</DataPath>
+							<ContextMenu name="СезоннаяНадбавкаКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="СезоннаяНадбавкаExtendedTooltip" id="81"/>
+						</LabelField>
+						<LabelField name="НадбавкаНаКондиционер" id="187">
+							<DataPath>Список.НадбавкаНаКондиционер</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Надбавка на кондиционер, %</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Air conditioner surcharge, %</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадбавкаНаКондиционерКонтекстноеМеню" id="188"/>
+							<ExtendedTooltip name="НадбавкаНаКондиционерРасширеннаяПодсказка" id="189"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец1" id="105">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец1РасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота1" id="125">
+							<DataPath>Список.СпециальнаяРабота1</DataPath>
+							<ContextMenu name="СпециальнаяРабота1КонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="СпециальнаяРабота1РасширеннаяПодсказка" id="127"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу1" id="155">
+							<DataPath>Список.НормаНаСпециальнуюРаботу1</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу1КонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу1РасширеннаяПодсказка" id="157"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец2" id="107">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец2РасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота2" id="128">
+							<DataPath>Список.СпециальнаяРабота2</DataPath>
+							<ContextMenu name="СпециальнаяРабота2КонтекстноеМеню" id="129"/>
+							<ExtendedTooltip name="СпециальнаяРабота2РасширеннаяПодсказка" id="130"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу2" id="158">
+							<DataPath>Список.НормаНаСпециальнуюРаботу2</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу2КонтекстноеМеню" id="159"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу2РасширеннаяПодсказка" id="160"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец3" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец3РасширеннаяПодсказка" id="110"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота3" id="131">
+							<DataPath>Список.СпециальнаяРабота3</DataPath>
+							<ContextMenu name="СпециальнаяРабота3КонтекстноеМеню" id="132"/>
+							<ExtendedTooltip name="СпециальнаяРабота3РасширеннаяПодсказка" id="133"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу3" id="161">
+							<DataPath>Список.НормаНаСпециальнуюРаботу3</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу3КонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу3РасширеннаяПодсказка" id="163"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец4" id="111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец4РасширеннаяПодсказка" id="112"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота4" id="134">
+							<DataPath>Список.СпециальнаяРабота4</DataPath>
+							<ContextMenu name="СпециальнаяРабота4КонтекстноеМеню" id="135"/>
+							<ExtendedTooltip name="СпециальнаяРабота4РасширеннаяПодсказка" id="136"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу4" id="164">
+							<DataPath>Список.НормаНаСпециальнуюРаботу4</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу4КонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу4РасширеннаяПодсказка" id="166"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец5" id="113">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец5РасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота5" id="137">
+							<DataPath>Список.СпециальнаяРабота5</DataPath>
+							<ContextMenu name="СпециальнаяРабота5КонтекстноеМеню" id="138"/>
+							<ExtendedTooltip name="СпециальнаяРабота5РасширеннаяПодсказка" id="139"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу5" id="167">
+							<DataPath>Список.НормаНаСпециальнуюРаботу5</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу5КонтекстноеМеню" id="168"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу5РасширеннаяПодсказка" id="169"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец6" id="115">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец6РасширеннаяПодсказка" id="116"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота6" id="140">
+							<DataPath>Список.СпециальнаяРабота6</DataPath>
+							<ContextMenu name="СпециальнаяРабота6КонтекстноеМеню" id="141"/>
+							<ExtendedTooltip name="СпециальнаяРабота6РасширеннаяПодсказка" id="142"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу6" id="170">
+							<DataPath>Список.НормаНаСпециальнуюРаботу6</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу6КонтекстноеМеню" id="171"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу6РасширеннаяПодсказка" id="172"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец7" id="117">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец7РасширеннаяПодсказка" id="118"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота7" id="143">
+							<DataPath>Список.СпециальнаяРабота7</DataPath>
+							<ContextMenu name="СпециальнаяРабота7КонтекстноеМеню" id="144"/>
+							<ExtendedTooltip name="СпециальнаяРабота7РасширеннаяПодсказка" id="145"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу7" id="173">
+							<DataPath>Список.НормаНаСпециальнуюРаботу7</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу7КонтекстноеМеню" id="174"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу7РасширеннаяПодсказка" id="175"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец8" id="119">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец8РасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота8" id="146">
+							<DataPath>Список.СпециальнаяРабота8</DataPath>
+							<ContextMenu name="СпециальнаяРабота8КонтекстноеМеню" id="147"/>
+							<ExtendedTooltip name="СпециальнаяРабота8РасширеннаяПодсказка" id="148"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу8" id="176">
+							<DataPath>Список.НормаНаСпециальнуюРаботу8</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу8КонтекстноеМеню" id="177"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу8РасширеннаяПодсказка" id="178"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец9" id="121">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец9РасширеннаяПодсказка" id="122"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота9" id="149">
+							<DataPath>Список.СпециальнаяРабота9</DataPath>
+							<ContextMenu name="СпециальнаяРабота9КонтекстноеМеню" id="150"/>
+							<ExtendedTooltip name="СпециальнаяРабота9РасширеннаяПодсказка" id="151"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу9" id="179">
+							<DataPath>Список.НормаНаСпециальнуюРаботу9</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу9КонтекстноеМеню" id="180"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу9РасширеннаяПодсказка" id="181"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаСпец10" id="123">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа спец1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group special1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаСпец10РасширеннаяПодсказка" id="124"/>
+					<ChildItems>
+						<LabelField name="СпециальнаяРабота10" id="152">
+							<DataPath>Список.СпециальнаяРабота10</DataPath>
+							<ContextMenu name="СпециальнаяРабота10КонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="СпециальнаяРабота10РасширеннаяПодсказка" id="154"/>
+						</LabelField>
+						<LabelField name="НормаНаСпециальнуюРаботу10" id="182">
+							<DataPath>Список.НормаНаСпециальнуюРаботу10</DataPath>
+							<ContextMenu name="НормаНаСпециальнуюРаботу10КонтекстноеМеню" id="183"/>
+							<ExtendedTooltip name="НормаНаСпециальнуюРаботу10РасширеннаяПодсказка" id="184"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РегистрСведенийуатНормыРасходаГСМ.Период КАК Период,
+	РегистрСведенийуатНормыРасходаГСМ.ГСМ КАК ГСМ,
+	РегистрСведенийуатНормыРасходаГСМ.МодельТС КАК МодельТС,
+	РегистрСведенийуатНормыРасходаГСМ.Организация КАК Организация,
+	РегистрСведенийуатНормыРасходаГСМ.ЛинейнаяНорма КАК ЛинейнаяНорма,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаЕздку КАК НормаНаЕздку,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаЗапуск КАК НормаНаЗапуск,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаИзменениеСобственногоВеса КАК НормаНаИзменениеСобственногоВеса,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаОперацию КАК НормаНаОперацию,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаОтопитель КАК НормаНаОтопитель,
+	ВЫБОР
+		КОГДА РегистрСведенийуатНормыРасходаГСМ.НормаНаПростойСВклДвигателемЛитры &lt;&gt; 0
+			ТОГДА РегистрСведенийуатНормыРасходаГСМ.НормаНаПростойСВклДвигателемЛитры
+		ИНАЧЕ ВЫБОР
+				КОГДА РегистрСведенийуатНормыРасходаГСМ.НормаНаПростойСВклДвигателемПроцентомОтБазовой &lt;&gt; 0
+					ТОГДА РегистрСведенийуатНормыРасходаГСМ.НормаНаПростойСВклДвигателемПроцентомОтБазовой
+				ИНАЧЕ РегистрСведенийуатНормыРасходаГСМ.НормаНаПростойСВклДвигателем
+			КОНЕЦ
+	КОНЕЦ КАК НормаНаПростой,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаТранспортнуюРаботу КАК НормаНаТранспортнуюРаботу,
+	РегистрСведенийуатНормыРасходаГСМ.НормаСпециальнаяНаМоточас КАК НормаСпециальнаяНаМоточас,
+	РегистрСведенийуатНормыРасходаГСМ.СезоннаяНадбавка КАК СезоннаяНадбавка,
+	РегистрСведенийуатНормыРасходаГСМ.УчитыватьПростоиДляРасчетаНормыМоточасов КАК УчитыватьПростоиДляРасчетаНормыМоточасов,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота1 КАК СпециальнаяРабота1,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота2 КАК СпециальнаяРабота2,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота3 КАК СпециальнаяРабота3,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота4 КАК СпециальнаяРабота4,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота5 КАК СпециальнаяРабота5,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота6 КАК СпециальнаяРабота6,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота7 КАК СпециальнаяРабота7,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота8 КАК СпециальнаяРабота8,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота9 КАК СпециальнаяРабота9,
+	РегистрСведенийуатНормыРасходаГСМ.СпециальнаяРабота10 КАК СпециальнаяРабота10,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу1 КАК НормаНаСпециальнуюРаботу1,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу2 КАК НормаНаСпециальнуюРаботу2,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу3 КАК НормаНаСпециальнуюРаботу3,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу4 КАК НормаНаСпециальнуюРаботу4,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу5 КАК НормаНаСпециальнуюРаботу5,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу6 КАК НормаНаСпециальнуюРаботу6,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу7 КАК НормаНаСпециальнуюРаботу7,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу8 КАК НормаНаСпециальнуюРаботу8,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу9 КАК НормаНаСпециальнуюРаботу9,
+	РегистрСведенийуатНормыРасходаГСМ.НормаНаСпециальнуюРаботу10 КАК НормаНаСпециальнуюРаботу10,
+	РегистрСведенийуатНормыРасходаГСМ.НадбавкаНаКондиционер КАК НадбавкаНаКондиционер,
+	РегистрСведенийуатНормыРасходаГСМ.РаботаНаДвухВидахТопливаОдновременно КАК РаботаНаДвухВидахТопливаОдновременно
+ИЗ
+	РегистрСведений.уатНормыРасходаГСМ КАК РегистрСведенийуатНормыРасходаГСМ</QueryText>
+				<MainTable>InformationRegister.уатНормыРасходаГСМ</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="МодельТС" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle model</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатМоделиТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ГСМ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ГСМ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fuels</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Организация" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

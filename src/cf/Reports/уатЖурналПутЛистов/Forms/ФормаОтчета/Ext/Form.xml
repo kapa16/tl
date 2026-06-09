@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Журнал путевых листов</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Waybill register</v8:content>
+		</v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСформировать" id="8">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сформировать</CommandName>
+				<ExtendedTooltip name="ФормаСформироватьРасширеннаяПодсказка" id="9"/>
+			</Button>
+			<Button name="ФормаПечатьОтчета" id="46">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПечатьОтчета</CommandName>
+				<ExtendedTooltip name="ФормаПечатьОтчетаРасширеннаяПодсказка" id="47"/>
+			</Button>
+			<Button name="ФормаСортировка" id="73">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.Сортировка</CommandName>
+				<ExtendedTooltip name="ФормаСортировкаРасширеннаяПодсказка" id="74"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНастройки" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="15"/>
+			<ChildItems>
+				<InputField name="НачалоПериода" id="19">
+					<DataPath>НачалоПериода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Period from</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="НачалоПериодаКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НачалоПериодаРасширеннаяПодсказка" id="21"/>
+				</InputField>
+				<InputField name="КонецПериода" id="22">
+					<DataPath>КонецПериода</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>till</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КонецПериодаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="КонецПериодаРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<Button name="УстановитьПериод" id="38">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<Width>3</Width>
+					<CommandName>Form.Command.УстановитьПериод</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="УстановитьПериодРасширеннаяПодсказка" id="39"/>
+				</Button>
+				<CheckBoxField name="ПечататьТитульныйЛист" id="28">
+					<DataPath>ПечататьТитульныйЛист</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Титульный лист</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Front page</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПечататьТитульныйЛистКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ПечататьТитульныйЛистРасширеннаяПодсказка" id="30"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПечататьПоследнийЛист" id="75">
+					<DataPath>ПечататьПоследнийЛист</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Последний лист</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The last leaf</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПечататьПоследнийЛистКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="ПечататьПоследнийЛистРасширеннаяПодсказка" id="77"/>
+				</CheckBoxField>
+				<CheckBoxField name="ТСВыбыло" id="31">
+					<DataPath>ТСВыбыло</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбывшие ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Decommissioning vehicle</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТСВыбылоКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ТСВыбылоРасширеннаяПодсказка" id="33"/>
+				</CheckBoxField>
+				<CheckBoxField name="ОтображатьВторогоВодителя" id="67">
+					<DataPath>ОтображатьВторогоВодителя</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Второй водитель</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Second driver</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтображатьВторогоВодителяКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="ОтображатьВторогоВодителяРасширеннаяПодсказка" id="69"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<Page name="СтраницаОтчет" id="50">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Report</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаОтчетРасширеннаяПодсказка" id="51"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="Результат" id="5">
+							<DataPath>ДокументРезультат</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>100</Width>
+							<VerticalScrollBar>true</VerticalScrollBar>
+							<HorizontalScrollBar>true</HorizontalScrollBar>
+							<ContextMenu name="РезультатКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="7"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОтбор" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filter</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаОтборРасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<Table name="НастройкиКомпоновкиНастройкиОтбор" id="54">
+							<Representation>Tree</Representation>
+							<Autofill>true</Autofill>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>НастройкиКомпоновки.Settings.Filter</DataPath>
+							<ViewMode>All</ViewMode>
+							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+							<ContextMenu name="НастройкиКомпоновкиНастройкиОтборКонтекстноеМеню" id="55"/>
+							<AutoCommandBar name="НастройкиКомпоновкиНастройкиОтборКоманднаяПанель" id="56"/>
+							<ExtendedTooltip name="НастройкиКомпоновкиНастройкиОтборРасширеннаяПодсказка" id="57"/>
+							<SearchStringAddition name="НастройкиКомпоновкиНастройкиОтборСтрокаПоиска" id="58">
+								<AdditionSource>
+									<Item>НастройкиКомпоновкиНастройкиОтбор</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НастройкиКомпоновкиНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="59"/>
+								<ExtendedTooltip name="НастройкиКомпоновкиНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="60"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НастройкиКомпоновкиНастройкиОтборСостояниеПросмотра" id="61">
+								<AdditionSource>
+									<Item>НастройкиКомпоновкиНастройкиОтбор</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НастройкиКомпоновкиНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="62"/>
+								<ExtendedTooltip name="НастройкиКомпоновкиНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="63"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НастройкиКомпоновкиНастройкиОтборУправлениеПоиском" id="64">
+								<AdditionSource>
+									<Item>НастройкиКомпоновкиНастройкиОтбор</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НастройкиКомпоновкиНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="65"/>
+								<ExtendedTooltip name="НастройкиКомпоновкиНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="66"/>
+							</SearchControlAddition>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДокументРезультат" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ результат</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document result</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НачалоПериода" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Beginning of period</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонецПериода" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конец периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>End of period</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПечататьТитульныйЛист" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печатать титульный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print cover</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТСВыбыло" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать выбывшие ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show decommissioning vehicles</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="URLСхемы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>URLСхемы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>URLScheme</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкиКомпоновки" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки компоновки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Layout settings</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>НастройкиКомпоновки.FixedSettings</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ConditionalAppearance</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.DataParameters</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.Filter</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.HasConditionalAppearance</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.HasFilter</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.HasOrder</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.HasOutputParameters</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.HasSelection</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemConditionalAppearance</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemDataParameters</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemFilter</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemGroupFields</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemOrder</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemOutputParameters</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemSelection</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ItemUserFields</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.Order</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.OutputParameters</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ReportStructure</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.ReportStructurePicture</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.Selection</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.Use</Field>
+				<Field>НастройкиКомпоновки.FixedSettings.UserFields</Field>
+				<Field>НастройкиКомпоновки.UserSettings</Field>
+				<Field>НастройкиКомпоновки.UserSettings.ComparisonType</Field>
+				<Field>НастройкиКомпоновки.UserSettings.ConditionalAppearance</Field>
+				<Field>НастройкиКомпоновки.UserSettings.EditInReportForm</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Filter</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Order</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Selection</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Setting</Field>
+				<Field>НастройкиКомпоновки.UserSettings.SettingPicture</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Structure</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Use</Field>
+				<Field>НастройкиКомпоновки.UserSettings.Value</Field>
+				<Field>НастройкиКомпоновки.UserSettings.ValuePicture</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ОтображатьВторогоВодителя" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать второго водителя</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show second driver</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресСхемыКомпоновкиДанныхСортировка" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес схемы компоновки данных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Address of data composition schema</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкиКомпоновкиСортировка" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки компоновки сортировка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Data linker</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПечататьПоследнийЛист" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печатать последний лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print cover</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сформировать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сформировать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьПериод" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьПериод</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПечатьОтчета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Напечатать журнал</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Print journal</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Print</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПечатьОтчета</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Сортировка" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сортировка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sort</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сортировка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sort</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сортировка</Action>
+		</Command>
+	</Commands>
+</Form>

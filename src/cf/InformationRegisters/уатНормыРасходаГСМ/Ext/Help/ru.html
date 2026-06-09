@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.19267"></meta></head><body>
+<h1><font color="#000080">Регистр сведений "Нормы расхода ГСМ <span style="caret-color: rgb(0, 0, 128);">и энергии</span></font><span style="color: rgb(0, 0, 128);">"</span></h1>
+<p class="Usual">В этом регистре хранится данные по нормам расхода ГСМ как для моделей ТС, так и для конкретных ТС. </p>
+<p class="Usual">Использование норм расхода ГСМ описано в приказе Министерства транспорта РФ «Нормы расхода топлива и смазочных материалов на автомобильном транспорте».</p>
+<p class="Usual">Относится к подсистеме: <a href="Subsystem.уатГСМ/Help">«Учет ГСМ»</a>.</p>
+<h3>Измерения и ресурсы</h3>
+<ul><li><strong><font color="#a52a2a">Модель / ТС</font></strong>. <a href="Catalog.уатМоделиТС/Help">Модель ТС</a> или <a href="Catalog.уатТС/Help">ТС</a>, для которого учитываются нормы расхода ГСМ.</li>
+<li><strong><font color="#a52a2a">ГСМ</font>. </strong><a href="InformationRegister.уатНоменклатураГСМ/Help">Номенклатура ГСМ, ТЖ и энергии</a>, по которой установлены нормы.</li>
+<li><strong>Организация</strong>. <a href="Catalog.Организации/Help">Организация</a>, для которой действуют текущие нормы.</li>
+<li><b>Два вида топлива.</b> Режим работы на двух видах топлива. Нормы расхода ГСМ задаются:</li>
+<ul><li>Поочередно -  для работы двух видах топлива поочередно или на одном виде топлива,</li>
+<li>Одновременно - для работы на двух видах топлива одновременно. Нормы с таким режимом не применяются в Маршрутных листах.<br></li></ul></ul><h3>Страница «Основная»</h3>
+<ul><li>
+<div><strong>Линейная норма</strong>. Базовая норма расхода топлива на пробег автомобиля в снаряженном состоянии.</div></li>
+<li><strong><strong>Норма специальная на моточас. </strong><span style="font-weight: normal;">Базовая норма расхода топлива на работу ТС со счетчиком моточасов.</span></strong></li>
+<li><strong>Норма на изменение собственного веса</strong>. Норма расхода топлива на дополнительный вес прицепа или полуприцепа, а также дополнительный вес самого ТС (разница собственного веса ТС и модели ТС).</li>
+
+<li>
+<div><strong>Норма на транспортную работу</strong>. Норма расхода топлива на транспортную работу.</div>
+</li>
+<li>
+<div><strong>Норма на ездку</strong>. Норма на одну ездку (актуальна для самосвалов).</div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div><strong>Норма на операцию</strong>. Норма на одну операцию (например, слив цистерны).</div></div></div></div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div><strong>Норма на запуск</strong>. Норма на запуск двигателя.</div></div></div></div></div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div><strong>Норма на простой с вкл. двигателем. </strong>Норма на простой.</div>
+<ul><li>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div><strong>км на 1 час простоя</strong>. Расход ГСМ рассчитывается по формуле: Время простоя в часах * Базовая (линейная) норма * Норма на простой (км на 1 час простоя) / 100 км;</div></div></div></div></div></div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div><strong>% от базовой (линейной)</strong>. Расход ГСМ рассчитывается по формуле: Время простоя в часах * Базовая (линейная) норма * Норма на простой (% от базовой) / 100 %;</div></div></div></div></div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div><strong>л на 1 час простоя</strong>. Расход ГСМ рассчитывается по формуле: Время простоя в часах * Норма на простой (л на 1 час простоя).</div></div></div></div></div></li></ul><div></div></div></div></div></div>
+</li>
+<li><strong>Учитывать простои для расчета нормы моточасов</strong>. При установленном флаге для ТС со счетчиком моточасов норма на моточасы будет рассчитана от общего времени наработки минус время в простое. Если ТС со счетчиком моточасов работает на двух видах топлива (достаточно редкая ситуация), то время простоя вычитается только из работы на основном топливе. При этом, если время в простое превышает время работы на основном топливе, то норма на моточасы не рассчитывается вообще, а норма на простой считается как в общем случае для всех видов ТС и путевых листов. 
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div><strong>Норма на отопитель, кондиционер, климат-контроль</strong>. Норма расхода ГСМ в литрах на час работы климатической системы.</div></div></div></div></div></div></div></div></li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div><strong>Сезонная надбавка, %</strong>. Надбавка в процентах на нормативный расход топлива.</div></div></div></div></div></div></div></div></div>
+</li>
+<li>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div><strong>Надбавка на климат-контроль и кондиционер при движении, %</strong>. При расчете линейной нормы для ТС со спидометром или со счетчиком моточасов применяется в качестве дополнительного добавочного коэффициента. </div></div></div></div></div></div></div></div></div></li></ul><div>
+<div>
+<div>
+<div>
+<h3>Страница «Спец. работы»</h3>
+<ul><li><strong>Спец. работа 1-10.</strong> Ссылается на справочник <a href="Catalog.уатПараметрыВыработки/Help">Параметры выработки ТС и водителей</a>. Вид специальной работы 1-10. 
+</li>
+<li><strong>Норма на спец. работу 1-10.</strong> Число. Норма расхода ГСМ на выполнение специальной работы 1-10.</li></ul></div></div></div></div>
+<div>
+<div>
+<div>
+<div>
+<h3 style="font-size: 13.4399995803833px;">Применение надбавок для различных видов норм</h3>
+<p class="Usual"><google-sheets-html-origin></google-sheets-html-origin></p>
+<table xmlns="http://www.w3.org/1999/xhtml" cellspacing="0" cellpadding="0" dir="ltr" border="1" style="table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;width:0px;border-collapse:collapse;border:none"><colgroup><col width="341"></col><col width="110"></col><col width="110"></col><col width="110"></col><col width="110"></col><col width="110"></col></colgroup><tbody><tr style="height:21px;"><td style="border-top:1px solid #b7b7b7;border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:middle;background-color:#fff2cc;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Вид нормы&quot;}">Вид нормы</td>
+<td style="border-top:1px solid #b7b7b7;border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:middle;background-color:#fff2cc;wrap-strategy:4;white-space:normal;word-wrap:break-word;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Условие работы&quot;}">Условие работы*</td>
+<td style="border-top:1px solid #b7b7b7;border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:middle;background-color:#fff2cc;wrap-strategy:4;white-space:normal;word-wrap:break-word;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Сезонная надбавка&quot;}">Сезонная надбавка</td>
+<td style="border-top:1px solid #b7b7b7;border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:middle;background-color:#fff2cc;wrap-strategy:4;white-space:normal;word-wrap:break-word;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Коэффициент изменения нормы ТС&quot;}">Коэффициент изменения нормы ТС</td>
+<td style="border-top:1px solid #b7b7b7;border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:middle;background-color:#fff2cc;wrap-strategy:4;white-space:normal;word-wrap:break-word;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Температурный коэффициент&quot;}">Температурный коэффициент</td>
+<td style="border-top:1px solid #b7b7b7;border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:middle;background-color:#fff2cc;wrap-strategy:4;white-space:normal;word-wrap:break-word;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Надбавка на кондиционер&quot;}">Надбавка на кондиционер</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Линейная&quot;}">Линейная</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Специальная на моточас&quot;}">Специальная на моточас</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На изменение собственного веса&quot;}">На изменение собственного веса</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На транспортную работу&quot;}">На транспортную работу</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На ездку&quot;}">На ездку</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На операцию&quot;}">На операцию</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На запуск двигателя&quot;}">На запуск двигателя</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На отопитель, кондиционер, климат-контроль&quot;}">На отопитель, кондиционер, климат-контроль</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На простой&quot;}">На простой</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На спец. работы&quot;}">На спец. работы</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr><tr style="height:21px;"><td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;border-left:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;На работу оборудования&quot;}">На работу оборудования (для оборудования)</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Да&quot;}">Да</td>
+<td style="border-right:1px solid #b7b7b7;border-bottom:1px solid #b7b7b7;overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;text-align:center;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Нет&quot;}">Нет</td></tr></tbody></table>* Надбавка на условие работы применяется для ТС и оборудования со счетчиком моточасов, только если в условии работы установлен флаг "Действует на ТС со счетчиком м/ч".<br><h3 style="font-size: 13.4399995803833px;">Дополнительная информация</h3>
+<p class="Usual"></p>
+<ul><li>При режиме расчета "По заданию" расчет расхода ГСМ по всем нормам, кроме норм на ездки, операции, запуск, простои и отопитель/кондиционер, выполняется по строкам задания Путевого листа из-за возможных разных условий работы, а также использования различного оборудования и прицепов на разных этапах задания.</li>
+<li>При работе на двух видах топлива расчет расхода ГСМ по линейной норме/норме специальной на моточасы выполняется с учетом значений пробега/наработки из табличной части "Расход ГСМ" пропорционально по каждому виду топлива.</li>
+<li>При работе на двух видах топлива в режиме "Одновременно":</li>
+<ul><li>расход основного топлива по линейной норме (норме на моточасы) состоит из:</li>
+<ul><li>расхода по "одновременной" норме для отрезка пути (времени), пройденного с потреблением доп. топлива,</li>
+<li>расхода по "поочередной" норме для отрезка пути (времени), пройденного без потребления доп. топлива.</li></ul></ul></ul><p></p>
+<ul><ul><ul></ul><li>расчет расхода ГСМ для норм, зависящих от пробега (например, норма на транспортную работу), кроме линейной, будет выполняться для обоих видов топлива по пробегу, указанному в строках задания, без учета значений пробега из табличной части "Расход ГСМ". Чтобы не происходило превышение (задвоение) расхода, такие нормы должны указываться только для одного вида топлива.</li></ul></ul><p class="Usual"><br></p></div></div></div></div></body></html>

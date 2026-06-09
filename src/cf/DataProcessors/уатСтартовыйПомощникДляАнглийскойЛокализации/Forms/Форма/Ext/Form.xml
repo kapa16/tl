@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыполнитьЗаполненение" id="3">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыполнитьОбработку</CommandName>
+				<ExtendedTooltip name="ФормаВыполнитьЗаполненениеРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<ChildItems>
+		<LabelDecoration name="ТекстПояснения" id="10">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При нажатии на кнопку "Выполнить" будет выполнено:
+1. Отключение в программе функциональных возможностей, которые доступны только в конфигурации для РФ:
+    - подсистема "Бюджетирование", 
+    - подсистема "Регламентированная отчетность",
+    - подсистема "1С:Центр спутникового мониторинга",
+    - подсистема "Электронная подпись",
+    - регламентированные печатные формы для РФ;
+2. Перевод значений предопределенных элементов справочников на английский язык.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>When you click on the "Run" button:
+1. Functionality in program will be disabled, which are available only in configuration for RF:
+   - subsystem "Budgeting",
+   - subsystem "Compliance reporting",
+   - subsystem "1C:Satellite monitoring center",
+   - subsystem "Electronic signature",
+   - compliance print forms for RF;
+2. Translation of predefined elements values of catalogs into English.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ТекстПоясненияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ТекстПоясненияРасширеннаяПодсказка" id="12"/>
+		</LabelDecoration>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатСтартовыйПомощникДляАнглийскойЛокализации</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации при открытии формы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьОбработку" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Complete</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Perform the processing</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить обработку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыполнитьОбработку</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

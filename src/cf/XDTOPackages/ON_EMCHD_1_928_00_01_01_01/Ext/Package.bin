@@ -1,0 +1,738 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn://x-artefacts/EMCHD_1" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="urn://x-artefacts/EMCHD_1" name="Доверенность" type="d2p1:Доверенность"/>
+	<valueType name="ИННФЛТип" base="xs:string" variety="Atomic" length="12">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{10}</pattern>
+	</valueType>
+	<valueType name="ИННЮЛТип" base="xs:string" variety="Atomic" length="10">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{8}</pattern>
+	</valueType>
+	<valueType name="КППТип" base="xs:string" variety="Atomic" length="9">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})([0-9]{2})([0-9A-Z]{2})([0-9]{3})</pattern>
+	</valueType>
+	<valueType name="КНДТип" base="xs:string" variety="Atomic" length="7">
+		<pattern>[0-9]{7}</pattern>
+	</valueType>
+	<valueType name="СОНОТип" base="xs:string" variety="Atomic" length="4">
+		<pattern>[0-9]{4}</pattern>
+	</valueType>
+	<valueType name="ЕРНТип" base="xs:string" variety="Atomic" length="12">
+		<pattern>[0-9]{12}</pattern>
+	</valueType>
+	<valueType name="ОГРНТип" base="xs:string" variety="Atomic" length="13">
+		<pattern>[0-9]{13}</pattern>
+	</valueType>
+	<valueType name="ОГРНИПТип" base="xs:string" variety="Atomic" length="15">
+		<pattern>[0-9]{15}</pattern>
+	</valueType>
+	<valueType name="ОКСМТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="ОКВТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="СНИЛСТип" base="xs:string" variety="Atomic" length="14">
+		<pattern>[0-9]{3}\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}</pattern>
+		<pattern>[0-9]{3}\-[0-9]{3}\-[0-9]{3} [0-9]{2}</pattern>
+	</valueType>
+	<valueType name="CCРФТип" base="xs:string" variety="Atomic" length="2">
+		<pattern>[0-9]{2}</pattern>
+	</valueType>
+	<valueType name="СПДУЛТип" base="xs:string" variety="Atomic" length="2">
+		<pattern>[0-9]{2}</pattern>
+	</valueType>
+	<valueType name="СПДУЛШТип" base="xs:string" variety="Atomic" minLength="1" maxLength="25"/>
+	<objectType name="РосОргДоверТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвРосОрг" type="d3p1:СвОргТип"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ЛицоБезДов" type="d3p1:ЛицоБезДовТип" upperBound="-1"/>
+		<property name="ЕИОУК" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="ЕИОФЛ" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="ЕИОИП" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ЛицоБезДовТип">
+		<property name="СВЮЛ" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СвЮЛЕИО" type="d5p1:СвОргТип"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СвФЛ" type="d5p1:СвФЛТип" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвФЛ" type="d3p1:СвФЛТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвИП" type="d3p1:СведИПТип" lowerBound="0"/>
+		<property name="ПолнЮЛ" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СвФЛТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ДокПдтв" type="d3p1:ДокПдтвТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СведФЛ" type="d3p1:СведФЛТип"/>
+		<property name="СтУчНД" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3">
+				<enumeration>101</enumeration>
+				<enumeration>102</enumeration>
+				<enumeration>299</enumeration>
+				<enumeration>301</enumeration>
+				<enumeration>303</enumeration>
+				<enumeration>399</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СНИЛС" type="d3p1:СНИЛСТип" lowerBound="0" form="Attribute"/>
+		<property name="Должность" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="ИнОргДоверТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвИнОрг" type="d3p1:СвИнОргТип"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвРукОП" type="d3p1:СвФЛТип" upperBound="-1"/>
+	</objectType>
+	<objectType name="СведИПТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ДокПдтв" type="d3p1:ДокПдтвТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СведФЛ" type="d3p1:СведФЛТип"/>
+		<property name="СтУчНД" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3">
+				<enumeration>101</enumeration>
+				<enumeration>102</enumeration>
+				<enumeration>299</enumeration>
+				<enumeration>301</enumeration>
+				<enumeration>303</enumeration>
+				<enumeration>399</enumeration>
+			</typeDef>
+		</property>
+		<property name="НаимИП" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ОГРНИП" type="d3p1:ОГРНИПТип" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ИННФЛ" type="d3p1:ИННФЛТип" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СНИЛС" type="d3p1:СНИЛСТип" form="Attribute"/>
+	</objectType>
+	<objectType name="СвПервДоверТип">
+		<property name="СвДоверПерв" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ДоверитПерв">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="РосОргДовер" type="d7p1:СвОргТип" lowerBound="0"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="ИнОргДовер" type="d7p1:СвИнОргТип" lowerBound="0"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="ИПДовер" type="d7p1:СведИПТип" lowerBound="0"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="ФЛДовер" type="d7p1:ФЛДоверТип" lowerBound="0"/>
+					</typeDef>
+				</property>
+				<property name="ТипДоверит" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>1</enumeration>
+						<enumeration>2</enumeration>
+						<enumeration>3</enumeration>
+						<enumeration>4</enumeration>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвНотДейств" type="d3p1:СвНотДействТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ВриоНот" type="d3p1:ВриоНотТип" lowerBound="0"/>
+		<property name="ПрДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ФормДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ДатаВыдДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:date" variety="Atomic" minInclusive="1900-01-01" maxInclusive="2100-12-31"/>
+		</property>
+		<property name="СрокДейст" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:date" variety="Atomic" minInclusive="1900-01-01" maxInclusive="2100-12-31"/>
+		</property>
+		<property name="ВнНомДоверПерв" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="ВнНомДоверN" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="НомДоверПерв" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36">
+				<pattern>[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}</pattern>
+			</typeDef>
+		</property>
+		<property name="НомДоверN" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36">
+				<pattern>[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}</pattern>
+			</typeDef>
+		</property>
+		<property name="НомРНДПерв" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="28"/>
+		</property>
+		<property name="НомРНДN" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="28"/>
+		</property>
+	</objectType>
+	<objectType name="СвДовТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="КодНОДейст" type="d3p1:СОНОТип" lowerBound="0" upperBound="-1"/>
+		<property name="СведСист">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="Безотзыв" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ОписУслОт" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+				</property>
+				<property name="ПрПерБезДов" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>1</enumeration>
+						<enumeration>2</enumeration>
+					</typeDef>
+				</property>
+				<property name="УслОтзыва" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration>1</enumeration>
+						<enumeration>2</enumeration>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ВидДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрПередов" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+			</typeDef>
+		</property>
+		<property name="ВнНомДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="НомДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36">
+				<pattern>[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}</pattern>
+			</typeDef>
+		</property>
+		<property name="НомРНДДовер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="28"/>
+		</property>
+		<property name="ДопИдДовер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="ДатаВнРегДовер" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="ДатаВыдДовер" type="xs:date" form="Attribute"/>
+		<property name="СрокДейст" type="xs:date" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="КодНО" type="d3p1:СОНОТип" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="СвУпПредТип">
+		<property name="Пред">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СведОрг" type="d5p1:СвОргТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СведИП" type="d5p1:СведИПТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СведФизЛ" type="d5p1:СвФЛТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СведФилиал" type="d5p1:СвОргТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СведИО" type="d5p1:СвИнОргТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ТипПред" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+				<enumeration>4</enumeration>
+				<enumeration>5</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СвПолнТип">
+		<property name="ТекстПолн" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1"/>
+		</property>
+		<property name="МашПолн" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ОгрСвПолн" lowerBound="0" upperBound="-1">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="КодЗначОгр" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="ТексЗначОгр" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="ИдОгр" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minInclusive="1" totalDigits="3"/>
+						</property>
+						<property name="КодОгр" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="НаимОгр" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="НаимЗначОгр" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="МнПолн" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="6" maxLength="255"/>
+				</property>
+				<property name="КодПолн" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="6" maxLength="255"/>
+				</property>
+				<property name="НаимПолн" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ТипПолн" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрСовмПолн" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрУтрПолн" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СвНотУдТип">
+		<property name="ИнСвУдНадпис" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2500"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвНотДейств" type="d3p1:СвНотДействТип"/>
+		<property name="ПодпРукопис" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property name="ХешPDFДок">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="16000"/>
+				</property>
+				<property name="ПодпИзобр">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="16000"/>
+				</property>
+				<property name="ХешПодп">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="16000"/>
+				</property>
+				<property name="ДатаВремПодп">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" totalDigits="10"/>
+				</property>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ФИООтв" type="d5p1:ФИОТип"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ВриоНот" type="d3p1:ВриоНотТип" lowerBound="0"/>
+		<property name="МестоДовер" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="250"/>
+		</property>
+		<property name="НапрДокДовЕПГУ" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="НапрДокПовЕПГУ" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="НапрДокЗвлФНП" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="НапрДокПовФНП" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="УплНотДейст" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property name="ЛьготаСум" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property name="ДрИнфСист" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ДрСпосВыд" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ДопСвНотДовер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2500"/>
+		</property>
+	</objectType>
+	<objectType name="СвНотДействТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ФИОНотДейств" type="d3p1:ФИОТип"/>
+		<property name="Должность" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="РегНомНот" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="5" maxLength="13"/>
+		</property>
+	</objectType>
+	<objectType name="ВриоНотТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ФИОВриоНот" type="d3p1:ФИОТип"/>
+		<property name="Должность" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="РегНомНот" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="3" maxLength="8"/>
+		</property>
+	</objectType>
+	<objectType name="СвОргТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ДокПдтв" type="d3p1:ДокПдтвТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="АдрРег" type="d3p1:АдрТип" lowerBound="0"/>
+		<property name="СтУчНД" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3">
+				<enumeration>101</enumeration>
+				<enumeration>102</enumeration>
+				<enumeration>299</enumeration>
+				<enumeration>301</enumeration>
+				<enumeration>303</enumeration>
+				<enumeration>399</enumeration>
+			</typeDef>
+		</property>
+		<property name="НаимОрг" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ИННЮЛ" type="d3p1:ИННЮЛТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="КПП" type="d3p1:КППТип" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ОГРН" type="d3p1:ОГРНТип" lowerBound="0" form="Attribute"/>
+		<property name="РегНомер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+		</property>
+		<property name="НаимУчрДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="КонтактТлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="АдрЭлПочт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="3" maxLength="129"/>
+		</property>
+	</objectType>
+	<objectType name="СвИнОргТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="АдрМНФакт" type="d3p1:АдрТип" lowerBound="0"/>
+		<property name="СтУчНД" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3">
+				<enumeration>101</enumeration>
+				<enumeration>102</enumeration>
+				<enumeration>299</enumeration>
+				<enumeration>301</enumeration>
+				<enumeration>303</enumeration>
+				<enumeration>399</enumeration>
+			</typeDef>
+		</property>
+		<property name="НаимИО" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ИННЮЛ" type="d3p1:ИННЮЛТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="КПП" type="d3p1:КППТип" lowerBound="0" form="Attribute"/>
+		<property name="НЗА" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="11"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СтрРег" type="d3p1:ОКСМТип" lowerBound="0" form="Attribute"/>
+		<property name="НаимРегОрг" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="РегНомер" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+		</property>
+		<property name="КодНПРег" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="80"/>
+		</property>
+		<property name="КонтактТлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="АдрЭлПочт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="3" maxLength="129"/>
+		</property>
+		<property name="АдрСтрРег" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="ФЛДоверТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СведФЛ" type="d3p1:СведФЛТип"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СвЗакПредРук" type="d3p1:ЛицоБезДовТип" lowerBound="0"/>
+		<property name="СтУчНД" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3">
+				<enumeration>101</enumeration>
+				<enumeration>102</enumeration>
+				<enumeration>299</enumeration>
+				<enumeration>301</enumeration>
+				<enumeration>303</enumeration>
+				<enumeration>399</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрДеесп" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрНалРук" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>0</enumeration>
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="ДокНедеесп" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="СНИЛС" type="d3p1:СНИЛСТип" form="Attribute"/>
+	</objectType>
+	<objectType name="СведФЛТип">
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="ФИО" type="d3p1:ФИОТип"/>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="АдрМЖ" type="d3p1:АдрТип" lowerBound="0"/>
+		<property name="УдЛичнФЛ" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="expDate" type="xs:date" lowerBound="0"/>
+				<property name="КодВидДок" lowerBound="0" form="Attribute">
+					<typeDef xmlns:d6p1="urn://x-artefacts/EMCHD_1" xsi:type="ValueType" base="d6p1:СПДУЛТип" variety="Atomic" length="2">
+						<pattern>[0-9]{2}</pattern>
+					</typeDef>
+				</property>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="СерНомДок" type="d5p1:СПДУЛШТип" lowerBound="0" form="Attribute"/>
+				<property name="ДатаДок" type="xs:date" lowerBound="0" form="Attribute"/>
+				<property name="ВыдДок" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="4000"/>
+				</property>
+				<property name="КодВыдДок" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="7"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Пол" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрГражд" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="НомЕРН" type="d3p1:ЕРНТип" lowerBound="0" form="Attribute"/>
+		<property name="ДатаРожд" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="МестоРожд" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="250"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="Гражданство" type="d3p1:ОКСМТип" lowerBound="0" form="Attribute"/>
+		<property name="КонтактТлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="АдрЭлПочт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="3" maxLength="129"/>
+		</property>
+	</objectType>
+	<objectType name="ДокПдтвТип">
+		<property name="НаимДокПдтв" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+		</property>
+		<property name="ДатаВыд" type="xs:date" lowerBound="0" form="Attribute"/>
+		<property name="КемВыд" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="СвУдДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+	</objectType>
+	<objectType name="АдрТип" ordered="false" sequenced="true">
+		<property name="АдрРФ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="ФИАСАдрРФ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property xmlns:d3p1="urn://x-artefacts/EMCHD_1" name="Регион" type="d3p1:CCРФТип" form="Attribute"/>
+		<property name="ИдФИАС" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36">
+				<pattern>[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}</pattern>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ФИОТип">
+		<property name="Фамилия" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+		</property>
+		<property name="Имя" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+		</property>
+		<property name="Отчество" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+		</property>
+	</objectType>
+	<objectType name="Доверенность">
+		<property name="ИнСвед" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5000"/>
+		</property>
+		<property name="Документ">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="Довер" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвДов" type="d7p1:СвДовТип"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвДоверит" type="d7p1:СвДоверитТип" upperBound="-1"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвУпПред" type="d7p1:СвУпПредТип" upperBound="-1"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвПолн" type="d7p1:СвПолнТип"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвНотУд" type="d7p1:СвНотУдТип" lowerBound="0"/>
+					</typeDef>
+				</property>
+				<property name="Передов" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвПервДовер" type="d7p1:СвПервДоверТип"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвПередов" type="d7p1:СвПервДоверТип" lowerBound="0"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвПереДовер" type="d7p1:СвДовТип"/>
+						<property name="СвПередПолн" upperBound="-1">
+							<typeDef xsi:type="ObjectType">
+								<property name="ПередПолн">
+									<typeDef xsi:type="ObjectType">
+										<property xmlns:d11p1="urn://x-artefacts/EMCHD_1" name="РосОргПерПолн" type="d11p1:РосОргДоверТип" lowerBound="0"/>
+										<property xmlns:d11p1="urn://x-artefacts/EMCHD_1" name="ИППерПолн" type="d11p1:СведИПТип" lowerBound="0"/>
+										<property name="ФЛПерПолн" lowerBound="0">
+											<typeDef xsi:type="ObjectType">
+												<property xmlns:d13p1="urn://x-artefacts/EMCHD_1" name="СведРукоп" type="d13p1:СвФЛТип" lowerBound="0"/>
+												<property xmlns:d13p1="urn://x-artefacts/EMCHD_1" name="СведФЛ" type="d13p1:СведФЛТип"/>
+												<property name="СтУчНД" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3">
+														<enumeration>101</enumeration>
+														<enumeration>102</enumeration>
+														<enumeration>299</enumeration>
+														<enumeration>301</enumeration>
+														<enumeration>303</enumeration>
+														<enumeration>399</enumeration>
+													</typeDef>
+												</property>
+												<property name="ПрНалРук" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+														<enumeration>0</enumeration>
+														<enumeration>1</enumeration>
+													</typeDef>
+												</property>
+												<property xmlns:d13p1="urn://x-artefacts/EMCHD_1" name="ИННФЛ" type="d13p1:ИННФЛТип" form="Attribute"/>
+												<property xmlns:d13p1="urn://x-artefacts/EMCHD_1" name="СНИЛС" type="d13p1:СНИЛСТип" form="Attribute"/>
+											</typeDef>
+										</property>
+										<property name="ФилПерПолн" lowerBound="0">
+											<typeDef xsi:type="ObjectType">
+												<property xmlns:d13p1="urn://x-artefacts/EMCHD_1" name="СвФил" type="d13p1:СвОргТип"/>
+												<property xmlns:d13p1="urn://x-artefacts/EMCHD_1" name="СвРукФил" type="d13p1:СвФЛТип"/>
+											</typeDef>
+										</property>
+										<property xmlns:d11p1="urn://x-artefacts/EMCHD_1" name="ИнПерПолн" type="d11p1:ИнОргДоверТип" lowerBound="0"/>
+									</typeDef>
+								</property>
+								<property name="ТипПерПолн" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+										<enumeration>1</enumeration>
+										<enumeration>2</enumeration>
+										<enumeration>3</enumeration>
+										<enumeration>4</enumeration>
+										<enumeration>5</enumeration>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвПолучПолн" type="d7p1:СвУпПредТип" upperBound="-1"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвПолн" type="d7p1:СвПолнТип"/>
+						<property xmlns:d7p1="urn://x-artefacts/EMCHD_1" name="СвНотУд" type="d7p1:СвНотУдТип" lowerBound="0"/>
+						<property name="ПрНалПередов" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+								<enumeration>0</enumeration>
+								<enumeration>1</enumeration>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+				<property name="КНД" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="7"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ВерсФорм" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10">
+				<enumeration>EMCHD_1</enumeration>
+			</typeDef>
+		</property>
+		<property name="ПрЭлФорм" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="8">
+				<pattern>[0-1]{8}</pattern>
+			</typeDef>
+		</property>
+		<property name="ИдФайл" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ИдФайлНО" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="OID" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="СвДоверитТип">
+		<property name="Доверит">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="РосОргДовер" type="d5p1:РосОргДоверТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ИнОргДовер" type="d5p1:ИнОргДоверТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ИПДовер" type="d5p1:СведИПТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ФЛДовер" type="d5p1:ФЛДоверТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ТипДоверит" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+				<enumeration>4</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ПередПолнТип">
+		<property name="ПредПолн">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="РосОргПерПолн" type="d5p1:СвОргТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ИППерПолн" type="d5p1:СведИПТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ФЛПерПолн" type="d5p1:СвФЛТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ФилПерПолн" type="d5p1:СвОргТип" lowerBound="0"/>
+				<property xmlns:d5p1="urn://x-artefacts/EMCHD_1" name="ИНПерПолн" type="d5p1:СвИнОргТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ТипПредПолн" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+				<enumeration>1</enumeration>
+				<enumeration>2</enumeration>
+				<enumeration>3</enumeration>
+				<enumeration>4</enumeration>
+				<enumeration>5</enumeration>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

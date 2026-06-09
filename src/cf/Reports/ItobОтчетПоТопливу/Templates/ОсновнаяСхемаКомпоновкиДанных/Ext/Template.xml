@@ -1,0 +1,1902 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пробег</dataPath>
+			<field>Пробег</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег, км.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mileage, km.</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1; ЧН=0</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=1; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СекундСНачалаПериода</dataPath>
+			<field>СекундСНачалаПериода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ДОБАВИТЬКДАТЕ(МинПериод, "СЕКУНДА", СекундСНачалаПериода)</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинПериод</dataPath>
+			<field>МинПериод</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мин. период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Min. period</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Скорость</dataPath>
+			<field>Скорость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скорость</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Speed</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Значение</dataPath>
+			<field>Значение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение (без сглаживания)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Value (without smoothing)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=0</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗначениеСглаженное</dataPath>
+			<field>ЗначениеСглаженное</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение (сглаженное)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Value (smoothed)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=0</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТопливоНачало</dataPath>
+			<field>ТопливоНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>V начальный</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>V initial</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТопливоКонец</dataPath>
+			<field>ТопливоКонец</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>V конечный</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>V final</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1; ДФ=</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=1; ДФ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТопливоПриход</dataPath>
+			<field>ТопливоПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заправка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Заправка</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТопливоРасход</dataPath>
+			<field>ТопливоРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Слив</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Drain</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Место</dataPath>
+			<field>Место</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Место</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Location</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемНаНачало</dataPath>
+			<field>ОбъемНаНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем на начало, л.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Initial volume, l.</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемНаКонец</dataPath>
+			<field>ОбъемНаКонец</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем на конец, л.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Volume at the end, l.</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбщийРасходТоплива</dataPath>
+			<field>ОбщийРасходТоплива</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Израсходовано топлива, л.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fuel consumed, l.</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СредКоэффициентРасхода</dataPath>
+			<field>СредКоэффициентРасхода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Средний расход, л./100 км.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Average consumption, l/100 km.</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧН=-</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧН=-</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПробегОбщий</dataPath>
+			<field>ПробегОбщий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег общий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mileage total</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1; ЧН=0</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=1; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<item xsi:type="DataSetObject">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Пробег</dataPath>
+				<field>Пробег</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пробег</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Mileage</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СекундСНачалаПериода</dataPath>
+				<field>СекундСНачалаПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Секунд с начала периода</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Seconds since the beginning of the period</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>0</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МинПериод</dataPath>
+				<field>МинПериод</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Мин период</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Min period</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Скорость</dataPath>
+				<field>Скорость</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Скорость</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Speed</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Значение</dataPath>
+				<field>Значение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Значение</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Meaning</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Any</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗначениеСглаженное</dataPath>
+				<field>ЗначениеСглаженное</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Значение сглаженное</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>The value is smoothed</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Any</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<objectName>ДанныеПоТопливу</objectName>
+		</item>
+		<item xsi:type="DataSetObject">
+			<name>НаборДанных2</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Период</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Period</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ТопливоНачало</dataPath>
+				<field>ТопливоНачало</field>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ТопливоКонец</dataPath>
+				<field>ТопливоКонец</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Топливо конец</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Fuel is running out</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ТопливоПриход</dataPath>
+				<field>ТопливоПриход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Топливо приход</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Fuel arrival</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Any</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ТопливоРасход</dataPath>
+				<field>ТопливоРасход</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Топливо расход</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Fuel consumption</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Any</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Место</dataPath>
+				<field>Место</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Место</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Location</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>0</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</valueType>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<objectName>ДанныеПоЗаправкам</objectName>
+		</item>
+		<item xsi:type="DataSetObject">
+			<name>НаборДанных3</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбъемНаНачало</dataPath>
+				<field>ОбъемНаНачало</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Объем на начало</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Volume at the beginning</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>10</v8:Digits>
+						<v8:FractionDigits>0</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбъемНаКонец</dataPath>
+				<field>ОбъемНаКонец</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Объем на конец</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Volume at the end</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>10</v8:Digits>
+						<v8:FractionDigits>0</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбщийРасходТоплива</dataPath>
+				<field>ОбщийРасходТоплива</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Общий расход топлива</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Total fuel consumption</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>10</v8:Digits>
+						<v8:FractionDigits>0</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПробегОбщий</dataPath>
+				<field>ПробегОбщий</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Пробег общий</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Mileage total</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СредКоэффициентРасхода</dataPath>
+				<field>СредКоэффициентРасхода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сред коэффициент расхода</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Average flow rate coefficient</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:decimal</v8:Type>
+					<v8:NumberQualifiers>
+						<v8:Digits>15</v8:Digits>
+						<v8:FractionDigits>5</v8:FractionDigits>
+						<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+					</v8:NumberQualifiers>
+				</valueType>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<objectName>ИтоговыеДанные</objectName>
+		</item>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СтрокаДанныхТопливаЗаполнена</dataPath>
+		<expression>НЕ ЗначениеСглаженное ЕСТЬ NULL</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Строка данных топлива заполнена</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuel data line is full</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтрокаДанныхЗаправокЗаполнена</dataPath>
+		<expression>НЕ Период ЕСТЬ NULL</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Строка данных заправок заполнена</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>The gas station data line is full</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ИтоговаяСтрокаЗаполнена</dataPath>
+		<expression>НЕ ОбъемНаНачало ЕСТЬ NULL</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Итоговая строка заполнена</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>The summary line is filled in</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>Значение</dataPath>
+		<expression>Среднее(Значение)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗначениеСглаженное</dataPath>
+		<expression>Среднее(ЗначениеСглаженное)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Скорость</dataPath>
+		<expression>Среднее(Скорость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТопливоПриход</dataPath>
+		<expression>Сумма(ТопливоПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТопливоРасход</dataPath>
+		<expression>Сумма(ТопливоРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбъемНаНачало</dataPath>
+		<expression>Максимум(ОбъемНаНачало)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбъемНаКонец</dataPath>
+		<expression>Максимум(ОбъемНаКонец)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбщийРасходТоплива</dataPath>
+		<expression>Максимум(ОбщийРасходТоплива)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Пробег</dataPath>
+		<expression>Среднее(Пробег)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СредКоэффициентРасхода</dataPath>
+		<expression>Максимум(СредКоэффициентРасхода)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПробегОбщий</dataPath>
+		<expression>Максимум(ПробегОбщий)</expression>
+	</totalField>
+	<parameter>
+		<name>НачПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КонПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Метод</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Метод</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Method</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">Пробег</value>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:string">Пробег</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mileage</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Моточасы</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Моточасы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Moto hours</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Объект</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Объект</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Object</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:TypeId>f0ade1e3-0820-45fa-9a0c-c078423deba6</v8:TypeId>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатчикТоплива</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Датчик топлива</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuel sensor</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ItobНазначенияДатчиков</v8:Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>10</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отчет по топливу за </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Fuel report for</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПериодС</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> - </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> - </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПериодПо</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="14" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="5" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объект мониторинга: </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Monitoring object:</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Объект</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell/>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПериодС</dcsat:name>
+			<dcsat:expression>ПараметрыДанных.НачПериода</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПериодПо</dcsat:name>
+			<dcsat:expression>ПараметрыДанных.КонПериода</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Объект</dcsat:name>
+			<dcsat:expression>Представление(ПараметрыДанных.Объект)</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+				<dcsat:tableCell/>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем на начало, л.</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Initial volume, l.</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗначениеОбъемНачало</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Объем на конец, л.</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Volume at the end, l.</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗначениеОбъемКонец</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Израсходовано топлива, л.</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Fuel consumed, l.</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗначениеРасход</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗаголовокПробег</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗначениеПробег</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗаголовокСреднийКоэф</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">29.625</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">1.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗначениеСреднийКоэф</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗначениеОбъемНачало</dcsat:name>
+			<dcsat:expression>ФОРМАТ(ОбъемНаНачало, "ЧДЦ=1")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗначениеОбъемКонец</dcsat:name>
+			<dcsat:expression>ФОРМАТ(ОбъемНаКонец, "ЧДЦ=1")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗначениеРасход</dcsat:name>
+			<dcsat:expression>ФОРМАТ(ОбщийРасходТоплива, "ЧДЦ=1")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗаголовокПробег</dcsat:name>
+			<dcsat:expression>ВЫБОР КОГДА ПараметрыДанных.Метод = "Пробег" ТОГДА "Пробег, км" ИНАЧЕ "Моточасы" КОНЕЦ
+</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗначениеПробег</dcsat:name>
+			<dcsat:expression>ФОРМАТ(ПробегОбщий, "ЧДЦ=1; ЧН=0")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗаголовокСреднийКоэф</dcsat:name>
+			<dcsat:expression>ВЫБОР КОГДА ПараметрыДанных.Метод = "Пробег" ТОГДА "Средний расход, л/100км" ИНАЧЕ "Средний расход, л/час" КОНЕЦ</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗначениеСреднийКоэф</dcsat:name>
+			<dcsat:expression>ФОРМАТ(СредКоэффициентРасхода, "ЧДЦ=2; ЧН=-")</dcsat:expression>
+		</parameter>
+	</template>
+	<groupTemplate>
+		<groupName>Заголовок</groupName>
+		<templateType>Header</templateType>
+		<template>Макет1</template>
+	</groupTemplate>
+	<groupTemplate>
+		<groupName>ИтоговыеДанные</groupName>
+		<templateType>Header</templateType>
+		<template>Макет2</template>
+	</groupTemplate>
+	<settingsVariant>
+		<dcsset:name>ОтчетПоТопливу</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по топливу (основной)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuel Report (Main)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>16f78149-5536-4c80-abdf-ae597fe125a3</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfNextDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>b0c11ae5-e530-4ead-bac3-7fef8bf7e00f</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Метод</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Пробег</dcscor:value>
+					<dcsset:userSettingID>1f7dd8bf-28ed-449f-990a-1c79607d9147</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Объект</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>4c64768b-8dc9-407f-9166-df34b69b034c</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатчикТоплива</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>d53fab87-d437-4155-856a-57806a0a3587</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:ChartType">Scatter</dcscor:value>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ПропускатьБазовоеЗначение</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.РасположениеЛегенды</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionChartLegendPlacement">None</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ОсьЗначений</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:ChartAxis">
+							<d7p1:minValueDetectionMethod>UseValue</d7p1:minValueDetectionMethod>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ОсьТочек</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:ChartAxis">
+							<d7p1:minValueDetectionMethod>UseValue</d7p1:minValueDetectionMethod>
+							<d7p1:maxValueDetectionMethod>UseValue</d7p1:maxValueDetectionMethod>
+						</dcscor:value>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ИсточникЗначенийОсиТочек</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:ChartPointsAxisValuesSource">Points</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.СоединениеТочек</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:ChartPointsConnectionType">Connect</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ШкалаТочек</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:ChartScale">
+							<d7p1:titleArea>
+								<d7p1:font kind="AutoFont"/>
+								<d7p1:textColor>auto</d7p1:textColor>
+								<d7p1:backColor>auto</d7p1:backColor>
+								<d7p1:border width="1">
+									<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+								</d7p1:border>
+								<d7p1:borderColor>auto</d7p1:borderColor>
+							</d7p1:titleArea>
+							<d7p1:labelOrientation>Horizontal</d7p1:labelOrientation>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.ИспользованиеНечисловыхЗначений</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:NonnumericChartValueUse">Skip</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.СоединениеТочекПриПропущенныхЗначениях</dcscor:parameter>
+						<dcscor:value xmlns:d7p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d7p1:PointsConnectionAcrossSkippedChartValuesType">ConnectUnskippedValues</dcscor:value>
+					</dcscor:item>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Заголовок</dcsset:name>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>МакетОформления</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">БезОформления</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВариантИспользованияГруппировки</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionGroupUseVariant">AdditionalInformation</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СекундСНачалаПериода</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СтрокаДанныхТопливаЗаполнена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЗначениеСглаженное</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>Скорость</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>Значение</dcsset:field>
+					</dcsset:item>
+					<dcsset:userSettingID>ffdb4e62-0b8b-4c66-b784-00ac17f32dc3</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поля графика</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Graph fields</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МаркерВДиаграмме</dcscor:parameter>
+								<dcscor:value xmlns:d9p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d9p1:ChartMarkerType">None</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ИндикаторВДиаграмме</dcscor:parameter>
+								<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>ДанныеПоЗаправкам</dcsset:name>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СтрокаДанныхЗаправокЗаполнена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СистемныеПоля.НомерПоПорядку</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Период</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТопливоНачало</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТопливоПриход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТопливоРасход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТопливоКонец</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Место</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+						<dcsset:useInGroup>DontUse</dcsset:useInGroup>
+						<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+						<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+						<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+						<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+						<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>ИтоговыеДанные</dcsset:name>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИтоговаяСтрокаЗаполнена</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОбъемНаНачало</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОбъемНаКонец</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОбщийРасходТоплива</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПробегОбщий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СредКоэффициентРасхода</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>МакетОформления</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">БезОформления</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВариантИспользованияГруппировки</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionGroupUseVariant">AdditionalInformation</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

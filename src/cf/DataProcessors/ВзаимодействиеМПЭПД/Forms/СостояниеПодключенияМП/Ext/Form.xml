@@ -1,0 +1,1075 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Мобильные устройства 1С-ЭПД</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>OpenFromMainServer</ExcludedCommand>
+		<ExcludedCommand>OpenFromStandaloneServer</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтборов" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборов</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборовРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<InputField name="ТекущаяУчетнаяЗаписьЭДО" id="69">
+					<DataPath>ТекущаяОрганизация</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>30</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>30</MaxWidth>
+					<ClearButton>true</ClearButton>
+					<CreateButton>false</CreateButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChooseType>false</ChooseType>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ТекущаяУчетнаяЗаписьЭДОКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="ТекущаяУчетнаяЗаписьЭДОРасширеннаяПодсказка" id="71"/>
+					<Events>
+						<Event name="OnChange">ТекущаяУчетнаяЗаписьЭДОПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ОтображатьПриостановленые" id="87">
+					<DataPath>ОтображатьПриостановленые</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>30</Width>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='Только активные'; БИ=Все</v8:content>
+						</v8:item>
+					</EditFormat>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приостановленые</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="ОтображатьПриостановленыеКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ОтображатьПриостановленыеРасширеннаяПодсказка" id="89"/>
+					<Events>
+						<Event name="OnChange">ОтображатьПриостановленыеПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="МобильныеУстройства" id="1">
+			<Representation>List</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>МобильныеУстройства</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+				<ExcludedCommand>SearchHistory</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="МобильныеУстройстваКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<ButtonGroup name="МобильныеУстройстваГруппаУправлениеКМ" id="45">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Мобильные устройства группа управление</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="МобильныеУстройстваГруппаУправлениеКМРасширеннаяПодсказка" id="46"/>
+						<ChildItems>
+							<Button name="МобильныеУстройстваКонтекстноеМенюПодключить" id="47">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПодключитьПользователя</CommandName>
+								<ExtendedTooltip name="МобильныеУстройстваКонтекстноеМенюПодключитьРасширеннаяПодсказка" id="48"/>
+							</Button>
+							<Button name="МобильныеУстройстваКонтекстноеМенюИзменить" id="49">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Изменить</CommandName>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="МобильныеУстройстваКонтекстноеМенюИзменитьРасширеннаяПодсказка" id="50"/>
+							</Button>
+							<Button name="МобильныеУстройстваКонтекстноеМенюОтключить" id="53">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Отключить</CommandName>
+								<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="МобильныеУстройстваКонтекстноеМенюОтключитьРасширеннаяПодсказка" id="54"/>
+							</Button>
+							<Button name="МобильныеУстройстваКонтекстноеМенюОбновить" id="57">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОбновитьМобильныеПриложения</CommandName>
+								<ExtendedTooltip name="МобильныеУстройстваКонтекстноеМенюОбновитьРасширеннаяПодсказка" id="58"/>
+							</Button>
+							<Button name="МобильныеУстройстваКонтекстноеМенюВозобновить" id="95">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Возобновить</CommandName>
+								<ExtendedTooltip name="МобильныеУстройстваКонтекстноеМенюВозобновитьРасширеннаяПодсказка" id="96"/>
+							</Button>
+							<Button name="МобильныеУстройстваКонтекстноеМенюПриостановить" id="76">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Приостановить</CommandName>
+								<ExtendedTooltip name="МобильныеУстройстваКонтекстноеМенюПриостановитьРасширеннаяПодсказка" id="77"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<ButtonGroup name="МобильныеУстройстваСортировкаКМ" id="59">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Мобильные устройства сортировка</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Мобильные устройства сортировка</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="МобильныеУстройстваСортировкаКМРасширеннаяПодсказка" id="60"/>
+						<ChildItems>
+							<Button name="СортироватьСписокПоВозрастанию" id="61">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.МобильныеУстройства.StandardCommand.SortListAsc</CommandName>
+								<ExtendedTooltip name="СортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="62"/>
+							</Button>
+							<Button name="СортироватьСписокПоУбыванию" id="63">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.МобильныеУстройства.StandardCommand.SortListDesc</CommandName>
+								<ExtendedTooltip name="СортироватьСписокПоУбываниюРасширеннаяПодсказка" id="64"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="МобильныеУстройстваВывестиСписокКМ" id="65">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.МобильныеУстройства.StandardCommand.OutputList</CommandName>
+						<ExtendedTooltip name="МобильныеУстройстваВывестиСписокКМРасширеннаяПодсказка" id="66"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="МобильныеУстройстваКоманднаяПанель" id="3">
+				<ChildItems>
+					<ButtonGroup name="МобильныеУстройстваГруппаУправление" id="43">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Мобильные устройства группа управление</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="МобильныеУстройстваГруппаУправлениеРасширеннаяПодсказка" id="44"/>
+						<ChildItems>
+							<ButtonGroup name="МобильныеУстройстваГруппаИзменения" id="78">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Мобильные устройства группа изменения</v8:content>
+									</v8:item>
+								</Title>
+								<Representation>Usual</Representation>
+								<ExtendedTooltip name="МобильныеУстройстваГруппаИзмененияРасширеннаяПодсказка" id="79"/>
+								<ChildItems>
+									<Button name="МобильныеУстройстваДобавить" id="23">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПодключитьПользователя</CommandName>
+										<ExtendedTooltip name="МобильныеУстройстваДобавитьРасширеннаяПодсказка" id="24"/>
+									</Button>
+									<Button name="МобильныеУстройстваИзменить" id="33">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.Изменить</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="МобильныеУстройстваИзменитьРасширеннаяПодсказка" id="34"/>
+									</Button>
+									<Button name="МобильныеУстройстваОтключить" id="39">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.Отключить</CommandName>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="МобильныеУстройстваОтключитьРасширеннаяПодсказка" id="40"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<Button name="МобильныеУстройстваОбновитьМобильныеПриложения" id="35">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОбновитьМобильныеПриложения</CommandName>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="МобильныеУстройстваОбновитьМобильныеПриложенияРасширеннаяПодсказка" id="36"/>
+							</Button>
+							<ButtonGroup name="МобильныеУстройстваГруппаПриостановленные" id="80">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Мобильные устройства группа приостановленные</v8:content>
+									</v8:item>
+								</Title>
+								<Representation>Compact</Representation>
+								<ExtendedTooltip name="МобильныеУстройстваГруппаПриостановленныеРасширеннаяПодсказка" id="81"/>
+								<ChildItems>
+									<Button name="МобильныеУстройстваВозобновить" id="85">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Command.Возобновить</CommandName>
+										<ExtendedTooltip name="МобильныеУстройстваВозобновитьРасширеннаяПодсказка" id="86"/>
+									</Button>
+									<Button name="МобильныеУстройстваПриостановить" id="74">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Command.Приостановить</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="МобильныеУстройстваПриостановитьРасширеннаяПодсказка" id="75"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</ButtonGroup>
+					<ButtonGroup name="МобильныеУстройстваСортировка" id="31">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Мобильные устройства сортировка</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="МобильныеУстройстваСортировкаРасширеннаяПодсказка" id="32"/>
+						<ChildItems>
+							<Button name="МобильныеУстройстваСортироватьСписокПоВозрастанию" id="25">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.МобильныеУстройства.StandardCommand.SortListAsc</CommandName>
+								<ExtendedTooltip name="МобильныеУстройстваСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="26"/>
+							</Button>
+							<Button name="МобильныеУстройстваСортироватьСписокПоУбыванию" id="27">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.МобильныеУстройства.StandardCommand.SortListDesc</CommandName>
+								<ExtendedTooltip name="МобильныеУстройстваСортироватьСписокПоУбываниюРасширеннаяПодсказка" id="28"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="МобильныеУстройстваВывестиСписок" id="29">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.МобильныеУстройства.StandardCommand.OutputList</CommandName>
+						<ExtendedTooltip name="МобильныеУстройстваВывестиСписокРасширеннаяПодсказка" id="30"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="МобильныеУстройстваРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="МобильныеУстройстваСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>МобильныеУстройства</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="МобильныеУстройстваСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="МобильныеУстройстваСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="МобильныеУстройстваСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>МобильныеУстройства</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="МобильныеУстройстваСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="МобильныеУстройстваСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="МобильныеУстройстваУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>МобильныеУстройства</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="МобильныеУстройстваУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="МобильныеУстройстваУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">МобильныеУстройстваВыбор</Event>
+				<Event name="OnActivateRow">МобильныеУстройстваПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="МобильныеУстройстваНаименование" id="14">
+					<DataPath>МобильныеУстройства.Наименование</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Устройство</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="МобильныеУстройстваНаименованиеКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="МобильныеУстройстваНаименованиеРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="МобильныеУстройстваОрганизация" id="82">
+					<DataPath>МобильныеУстройства.Организация</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="МобильныеУстройстваОрганизацияКонтекстноеМеню" id="83"/>
+					<ExtendedTooltip name="МобильныеУстройстваОрганизацияРасширеннаяПодсказка" id="84"/>
+				</InputField>
+				<InputField name="МобильныеУстройстваПредставлениеРоли" id="97">
+					<DataPath>МобильныеУстройства.ПредставлениеРоли</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Роль</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="МобильныеУстройстваПредставлениеРолиКонтекстноеМеню" id="98"/>
+					<ExtendedTooltip name="МобильныеУстройстваПредставлениеРолиРасширеннаяПодсказка" id="99"/>
+				</InputField>
+				<ColumnGroup name="МобильныеУстройстваГруппаСостояние" id="93">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мобильные устройства группа состояние</v8:content>
+						</v8:item>
+					</Title>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="МобильныеУстройстваГруппаСостояниеРасширеннаяПодсказка" id="94"/>
+					<ChildItems>
+						<PictureField name="МобильныеУстройстваИндексКартинки" id="90">
+							<DataPath>МобильныеУстройства.ИндексКартинки</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.СостояниеМобильныхУстройствЭПД</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="МобильныеУстройстваИндексКартинкиКонтекстноеМеню" id="91"/>
+							<ExtendedTooltip name="МобильныеУстройстваИндексКартинкиРасширеннаяПодсказка" id="92"/>
+						</PictureField>
+						<InputField name="МобильныеУстройстваСостояние" id="17">
+							<DataPath>МобильныеУстройства.Состояние</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="МобильныеУстройстваСостояниеКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="МобильныеУстройстваСостояниеРасширеннаяПодсказка" id="19"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="УчетныеЗаписиМПЭПД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетные записи МПЭПД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="УчетнаяЗаписьЭДО" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учетная запись ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Организация" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВсегоМП" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего МП</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтатусСертификата" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус сертификата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Настроено" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настроено</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Отправка" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВсегоУведомлений" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего уведомлений</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СодержимоеУведомлений" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Содержимое уведомлений</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаОбновления" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата обновления</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Всего" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекущаяОрганизация" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="МобильныеУстройства" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мобильные устройства</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВидПодписи" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид подписи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторМП" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор МП</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторЭДО" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИНН" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СНИЛС" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СНИЛС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Состояние" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.СостояниеМПЭПД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Телефоны" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Телефоны</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Уведомлений" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уведомлений</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПолучения" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата получения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Идентификатор" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Организация" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Активно" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинки" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Роль" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Роль</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПредставлениеРоли" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Роль</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОбновлениеОтображенияВыполняется" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновление отображения выполняется</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураОбработкиОповещенияОНовомСостоянии" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура обработки оповещения о новом состоянии</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Объект" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВзаимодействиеМПЭПД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ОтображатьПриостановленые" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать приостановленые</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаИндексовКартинок" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица индексов картинок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Состояние" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.СостояниеМПЭПД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИндексКартинки" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>МобильныеУстройства</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">МобильныеУстройства.Состояние</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостояниеМПЭПД.Приостановлен</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветНеАктивнойСтроки</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПодключитьПользователя" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодключитьПользователя</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Изменить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowData</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьПользователя</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ОбновитьМобильныеПриложения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицу мобильных устройств</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьМобильныеПриложения</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="Отключить" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить подключенное мобильное устройство</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтключитьПользователя</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ОтключитьВсехПользователей" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить всех пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить всех пользователей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтключитьВсехПользователей</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Приостановить" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приостановить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приостановить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УправлениеМобильнымУстройствомПриостановитьЭПД</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Приостановить</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Возобновить" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возобновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возобновить работу мобильного устройства</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УправлениеМобильнымУстройствомВозобновитьЭПД</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Возобновить</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Организация">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

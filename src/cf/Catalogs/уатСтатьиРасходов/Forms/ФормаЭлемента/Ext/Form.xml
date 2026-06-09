@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="5">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="6"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="7"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="8"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="116">
+			<DataPath>Объект.Parent</DataPath>
+			<ContextMenu name="РодительКонтекстноеМеню" id="117"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="118"/>
+		</InputField>
+		<InputField name="ВидЗатрат" id="14">
+			<DataPath>Объект.ВидЗатрат</DataPath>
+			<ContextMenu name="ВидЗатратКонтекстноеМеню" id="15"/>
+			<ExtendedTooltip name="ВидЗатратРасширеннаяПодсказка" id="16"/>
+		</InputField>
+		<InputField name="СчетЗатрат" id="23">
+			<DataPath>Объект.Счет</DataPath>
+			<ContextMenu name="СчетЗатратКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="СчетЗатратРасширеннаяПодсказка" id="25"/>
+		</InputField>
+		<RadioButtonField name="ПорядокОтнесенияЗатрат" id="11">
+			<DataPath>Объект.ПорядокОтнесенияЗатрат</DataPath>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прямые затраты</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Direct costs</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатПорядкиОтнесенияРасходов.EnumValue.ПрямыеРасходы</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Распределяемые (косвенные) затраты</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Allocable (indirect) costs</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.уатПорядкиОтнесенияРасходов.EnumValue.РаспределяемыеРасходы</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ПорядокОтнесенияЗатратКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ПорядокОтнесенияЗатратРасширеннаяПодсказка" id="13"/>
+			<Events>
+				<Event name="OnChange">ПорядокОтнесенияЗатратПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<UsualGroup name="Группа2" id="132">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="133"/>
+			<ChildItems>
+				<CheckBoxField name="РаспределятьНаРБП" id="129">
+					<DataPath>Объект.РаспределятьНаРБП</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РаспределятьНаРБПКонтекстноеМеню" id="130"/>
+					<ExtendedTooltip name="РаспределятьНаРБПРасширеннаяПодсказка" id="131"/>
+					<Events>
+						<Event name="OnChange">РаспределятьНаРБППриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="СтатьяРасходов" id="134">
+					<DataPath>Объект.СтатьяРасходов</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="СтатьяРасходовКонтекстноеМеню" id="135"/>
+					<ExtendedTooltip name="СтатьяРасходовРасширеннаяПодсказка" id="136"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="95">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>true</VerticalStretch>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="96"/>
+			<ChildItems>
+				<Page name="ГруппаРаспредМеждуТС" id="97">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Распределение между ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Allocation between vehicles</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаРаспредМеждуТСРасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаРаспредМеждуТСНастройки" id="127">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Распределение затрат между ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Expenses allocation between vehicles</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРаспредМеждуТСНастройкиРасширеннаяПодсказка" id="128"/>
+							<ChildItems>
+								<RadioButtonField name="ВариантСпособаРаспределенияЗатрат" id="106">
+									<DataPath>Объект.ВариантСпособаРаспределенияЗатрат</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вариант распределения</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Allocation option</v8:content>
+										</v8:item>
+									</Title>
+									<RadioButtonType>Tumbler</RadioButtonType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>В целом по предприятию</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>In general on company</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>По колоннам ТС</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>By vehicle departments</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ВариантСпособаРаспределенияЗатратКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="ВариантСпособаРаспределенияЗатратРасширеннаяПодсказка" id="108"/>
+									<Events>
+										<Event name="OnChange">ВариантСпособаРаспределенияЗатратПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+								<InputField name="СпособРаспределенияЗатрат" id="17">
+									<DataPath>Объект.СпособРаспределенияЗатрат</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Способ распределения</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Allocation method</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СпособРаспределенияЗатратКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="СпособРаспределенияЗатратРасширеннаяПодсказка" id="19"/>
+									<Events>
+										<Event name="OnChange">СпособРаспределенияЗатратПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПараметрВыработкиРаспределенияМеждуТС" id="26">
+									<DataPath>Объект.ПараметрВыработкиРаспределенияМеждуТС</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Параметр выработки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Output parameter</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПараметрВыработкиРаспределенияМеждуТСКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="ПараметрВыработкиРаспределенияМеждуТСРасширеннаяПодсказка" id="28"/>
+								</InputField>
+								<CheckBoxField name="РаспределениеРасходовПоСцепкам" id="147">
+									<DataPath>Объект.РаспределениеРасходовПоСцепкам</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РаспределениеРасходовПоСцепкамКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="РаспределениеРасходовПоСцепкамРасширеннаяПодсказка" id="149"/>
+									<Events>
+										<Event name="OnChange">РаспределениеРасходовПоСцепкамПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="СпособРаспределенияВнутриСцепки" id="150">
+									<DataPath>Объект.СпособРаспределенияВнутриСцепки</DataPath>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="СпособРаспределенияВнутриСцепкиКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="СпособРаспределенияВнутриСцепкиРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<Table name="ПараметрыВыработкиРаспределенияМеждуТС" id="32">
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуТС</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТСКонтекстноеМеню" id="33"/>
+									<AutoCommandBar name="ПараметрыВыработкиРаспределенияМеждуТСКоманднаяПанель" id="34"/>
+									<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТСРасширеннаяПодсказка" id="35"/>
+									<SearchStringAddition name="ПараметрыВыработкиРаспределенияМеждуТССтрокаПоиска" id="36">
+										<AdditionSource>
+											<Item>ПараметрыВыработкиРаспределенияМеждуТС</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТССтрокаПоискаКонтекстноеМеню" id="37"/>
+										<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТССтрокаПоискаРасширеннаяПодсказка" id="38"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПараметрыВыработкиРаспределенияМеждуТССостояниеПросмотра" id="39">
+										<AdditionSource>
+											<Item>ПараметрыВыработкиРаспределенияМеждуТС</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТССостояниеПросмотраКонтекстноеМеню" id="40"/>
+										<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТССостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПараметрыВыработкиРаспределенияМеждуТСУправлениеПоиском" id="42">
+										<AdditionSource>
+											<Item>ПараметрыВыработкиРаспределенияМеждуТС</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТСУправлениеПоискомКонтекстноеМеню" id="43"/>
+										<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТСУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnStartEdit">ПараметрыВыработкиРаспределенияМеждуТСПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="ПараметрыВыработкиРаспределенияМеждуТСНомерСтроки" id="45">
+											<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуТС.LineNumber</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТСНомерСтрокиКонтекстноеМеню" id="46"/>
+											<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТСНомерСтрокиРасширеннаяПодсказка" id="47"/>
+										</LabelField>
+										<InputField name="ПараметрыВыработкиРаспределенияМеждуТСКолонна" id="48">
+											<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуТС.Колонна</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТСКолоннаКонтекстноеМеню" id="49"/>
+											<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТСКолоннаРасширеннаяПодсказка" id="50"/>
+										</InputField>
+										<InputField name="ПараметрыВыработкиРаспределенияМеждуТСПараметрВыработки" id="51">
+											<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуТС.ПараметрВыработки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуТСПараметрВыработкиКонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуТСПараметрВыработкиРасширеннаяПодсказка" id="53"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<Table name="ПрямыеРасходы" id="76">
+									<Visible>false</Visible>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ПрямыеРасходы</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПрямыеРасходыКонтекстноеМеню" id="77"/>
+									<AutoCommandBar name="ПрямыеРасходыКоманднаяПанель" id="78"/>
+									<ExtendedTooltip name="ПрямыеРасходыРасширеннаяПодсказка" id="79"/>
+									<SearchStringAddition name="ПрямыеРасходыСтрокаПоиска" id="80">
+										<AdditionSource>
+											<Item>ПрямыеРасходы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПрямыеРасходыСтрокаПоискаКонтекстноеМеню" id="81"/>
+										<ExtendedTooltip name="ПрямыеРасходыСтрокаПоискаРасширеннаяПодсказка" id="82"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПрямыеРасходыСостояниеПросмотра" id="83">
+										<AdditionSource>
+											<Item>ПрямыеРасходы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПрямыеРасходыСостояниеПросмотраКонтекстноеМеню" id="84"/>
+										<ExtendedTooltip name="ПрямыеРасходыСостояниеПросмотраРасширеннаяПодсказка" id="85"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПрямыеРасходыУправлениеПоиском" id="86">
+										<AdditionSource>
+											<Item>ПрямыеРасходы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПрямыеРасходыУправлениеПоискомКонтекстноеМеню" id="87"/>
+										<ExtendedTooltip name="ПрямыеРасходыУправлениеПоискомРасширеннаяПодсказка" id="88"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="ПрямыеРасходыНомерСтроки" id="89">
+											<DataPath>Объект.ПрямыеРасходы.LineNumber</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПрямыеРасходыНомерСтрокиКонтекстноеМеню" id="90"/>
+											<ExtendedTooltip name="ПрямыеРасходыНомерСтрокиРасширеннаяПодсказка" id="91"/>
+										</LabelField>
+										<InputField name="ПрямыеРасходыСтатьяРасходов" id="92">
+											<DataPath>Объект.ПрямыеРасходы.СтатьяРасходов</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПрямыеРасходыСтатьяРасходовКонтекстноеМеню" id="93"/>
+											<ExtendedTooltip name="ПрямыеРасходыСтатьяРасходовРасширеннаяПодсказка" id="94"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаРаспредМеждуАналитиками" id="99">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Распределение между аналитиками</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Allocation between analysts</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаРаспредМеждуАналитикамиРасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<RadioButtonField name="ВариантСпособаРаспределенияЗатратМеждуАналитиками" id="113">
+							<DataPath>Объект.ВариантСпособаРаспределенияЗатратМеждуАналитиками</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вариант распределения</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Allocation option</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>В целом по предприятию</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>In general on company</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По колоннам ТС</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>By vehicle departments</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВариантСпособаРаспределенияЗатратМеждуАналитикамиКонтекстноеМеню" id="114"/>
+							<ExtendedTooltip name="ВариантСпособаРаспределенияЗатратМеждуАналитикамиРасширеннаяПодсказка" id="115"/>
+							<Events>
+								<Event name="OnChange">ВариантСпособаРаспределенияЗатратМеждуАналитикамиПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<UsualGroup name="Группа1" id="125">
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="126"/>
+							<ChildItems>
+								<InputField name="СпособРаспределенияЗатратМеждуАналитиками" id="20">
+									<DataPath>СпособРаспределенияЗатратМеждуАналитиками</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Способ распределения</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Allocation method</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="СпособРаспределенияЗатратМеждуАналитикамиКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="СпособРаспределенияЗатратМеждуАналитикамиРасширеннаяПодсказка" id="22"/>
+									<Events>
+										<Event name="OnChange">СпособРаспределенияЗатратМеждуАналитикамиПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПараметрВыработкиРаспределенияМеждуАналитиками" id="29">
+									<DataPath>ПараметрВыработкиРаспределенияМеждуАналитиками</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Параметр выработки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Output parameter</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПараметрВыработкиРаспределенияМеждуАналитикамиКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="ПараметрВыработкиРаспределенияМеждуАналитикамиРасширеннаяПодсказка" id="31"/>
+									<Events>
+										<Event name="OnChange">ПараметрВыработкиРаспределенияМеждуАналитикамиПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СпособРаспределениеНепрямыхЗатратПоЗаказам" id="139">
+							<DataPath>Объект.СпособРаспределениеНепрямыхРасходовПоЗаказам</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Распределение непрямых расходов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Allocation of indirect expenses</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="СпособРаспределениеНепрямыхЗатратПоЗаказамКонтекстноеМеню" id="140"/>
+							<ExtendedTooltip name="СпособРаспределениеНепрямыхЗатратПоЗаказамРасширеннаяПодсказка" id="141"/>
+						</InputField>
+						<InputField name="ПараметрВыработкиРаспределенияМеждуЗаказами" id="163">
+							<DataPath>Объект.ПараметрВыработкиРаспределенияМеждуЗаказами</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметр выработки для распределения между вложенными Заказами на ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Output parameter for distribution between nested Orders on the TS</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CreateButton>false</CreateButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Catalog.уатПараметрыВыработки.ВесГруза</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Catalog.уатПараметрыВыработки.Объем</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Catalog.уатПараметрыВыработки.КоличествоЗаказов</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПараметрВыработкиРаспределенияМеждуЗаказамиКонтекстноеМеню" id="164"/>
+							<ExtendedTooltip name="ПараметрВыработкиРаспределенияМеждуЗаказамиРасширеннаяПодсказка" id="165"/>
+						</InputField>
+						<Table name="ПараметрыВыработкиРаспределенияМеждуАналитиками" id="54">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуАналитиками</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиКонтекстноеМеню" id="55"/>
+							<AutoCommandBar name="ПараметрыВыработкиРаспределенияМеждуАналитикамиКоманднаяПанель" id="56"/>
+							<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиРасширеннаяПодсказка" id="57"/>
+							<SearchStringAddition name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСтрокаПоиска" id="58">
+								<AdditionSource>
+									<Item>ПараметрыВыработкиРаспределенияМеждуАналитиками</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСтрокаПоискаКонтекстноеМеню" id="59"/>
+								<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСтрокаПоискаРасширеннаяПодсказка" id="60"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСостояниеПросмотра" id="61">
+								<AdditionSource>
+									<Item>ПараметрыВыработкиРаспределенияМеждуАналитиками</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСостояниеПросмотраКонтекстноеМеню" id="62"/>
+								<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСостояниеПросмотраРасширеннаяПодсказка" id="63"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПараметрыВыработкиРаспределенияМеждуАналитикамиУправлениеПоиском" id="64">
+								<AdditionSource>
+									<Item>ПараметрыВыработкиРаспределенияМеждуАналитиками</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиУправлениеПоискомКонтекстноеМеню" id="65"/>
+								<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиУправлениеПоискомРасширеннаяПодсказка" id="66"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ПараметрыВыработкиРаспределенияМеждуАналитикамиПриНачалеРедактирования</Event>
+								<Event name="OnChange">ПараметрыВыработкиРаспределенияМеждуАналитикамиПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ПараметрыВыработкиРаспределенияМеждуАналитикамиНомерСтроки" id="67">
+									<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуАналитиками.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиНомерСтрокиКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиНомерСтрокиРасширеннаяПодсказка" id="69"/>
+								</LabelField>
+								<InputField name="ПараметрыВыработкиРаспределенияМеждуАналитикамиКолонна" id="70">
+									<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуАналитиками.Колонна</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиКолоннаКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиКолоннаРасширеннаяПодсказка" id="72"/>
+								</InputField>
+								<InputField name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСпособРаспределенияЗатратМеждуАналитиками" id="122">
+									<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуАналитиками.СпособРаспределенияЗатратМеждуАналитиками</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Способ распределения</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Allocation method</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСпособРаспределенияЗатратМеждуАналитикамиКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиСпособРаспределенияЗатратМеждуАналитикамиРасширеннаяПодсказка" id="124"/>
+									<Events>
+										<Event name="OnChange">ПараметрыВыработкиРаспределенияМеждуАналитикамиСпособРаспределенияЗатратМеждуАналитикамиПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПараметрыВыработкиРаспределенияМеждуАналитикамиПараметрВыработки" id="73">
+									<DataPath>Объект.ПараметрыВыработкиРаспределенияМеждуАналитиками.ПараметрВыработки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПараметрыВыработкиРаспределенияМеждуАналитикамиПараметрВыработкиКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ПараметрыВыработкиРаспределенияМеждуАналитикамиПараметрВыработкиРасширеннаяПодсказка" id="75"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<UsualGroup name="ГруппаНадписьВЦелом" id="153">
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНадписьВЦеломРасширеннаяПодсказка" id="154"/>
+							<ChildItems>
+								<PictureDecoration name="ДекорацияИнформация1" id="155">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Декорация информация1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Decoration информация1</v8:content>
+										</v8:item>
+									</Title>
+									<PictureSize>AutoSize</PictureSize>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация32</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ДекорацияИнформация1КонтекстноеМеню" id="156"/>
+									<ExtendedTooltip name="ДекорацияИнформация1РасширеннаяПодсказка" id="157"/>
+								</PictureDecoration>
+								<LabelDecoration name="Декорация1" id="158">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Для выбранного параметра выработки используется режим ввода значений “В целом по документу”. 
+Распределение по заказам невозможно.</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>For the selected output parameter, the input mode is "Total for the document".
+Order distribution is not possible.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="159"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="160"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительно" id="142">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Add. inf.</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="143"/>
+					<ChildItems>
+						<CheckBoxField name="НеКопироватьПлановыеРасходыВФактические" id="144">
+							<DataPath>Объект.НеКопироватьПлановыеРасходыВФактические</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НеКопироватьПлановыеРасходыВФактическиеКонтекстноеМеню" id="145"/>
+							<ExtendedTooltip name="НеКопироватьПлановыеРасходыВФактическиеРасширеннаяПодсказка" id="146"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дополнительные реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional attributes group</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="10"/>
+		</UsualGroup>
+		<InputField name="Комментарий" id="101">
+			<DataPath>Объект.Комментарий</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="102"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="103"/>
+			<Events>
+				<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+			</Events>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатСтатьиРасходов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СпособРаспределенияЗатратМеждуАналитиками" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ распределения затрат между аналитиками</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allocation method of exepenses between analysts</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.уатСпособыРаспределенияДоходовРасходовМеждуАналитиками</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПараметрВыработкиРаспределенияМеждуАналитиками" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр выработки распределения между аналитиками</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Output parameter allocation between analysts</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПараметрыВыработки</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПараметрыВыработкиРаспределенияМеждуАналитикамиПараметрВыработки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПараметрыВыработкиРаспределенияМеждуАналитиками.СпособРаспределенияЗатратМеждуАналитиками</dcsset:left>
+						<dcsset:comparisonType>NotInList</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатСпособыРаспределенияДоходовРасходовМеждуАналитиками.РаспределятьПоЗаказам</dcsset:right>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатСпособыРаспределенияДоходовРасходовМеждуАналитиками.РаспределятьПоВыработке</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

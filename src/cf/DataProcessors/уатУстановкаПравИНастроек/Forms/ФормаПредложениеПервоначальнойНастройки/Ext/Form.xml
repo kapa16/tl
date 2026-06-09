@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыполнитьПервоначальнуюНастройку" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыполнитьПервоначальнуюНастройку</CommandName>
+				<ExtendedTooltip name="ФормаВыполнитьПервоначальнуюНастройкуРасширеннаяПодсказка" id="5"/>
+			</Button>
+			<Button name="ФормаОтмена" id="6">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<ExtendedTooltip name="ФормаОтменаРасширеннаяПодсказка" id="7"/>
+			</Button>
+			<Button name="ФормаСправка" id="11">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="12"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ДекорацияПодсказка" id="8">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При первом запуске программы рекомендуется выполнить первоначальную установку прав и настроек.
+В дальнейшем изменить настройки можно в меню Администрирование --&gt; Настройки программы --&gt; Установка прав и настроек.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>When you first launch the program, we recommend performing an initial setup of permissions and settings.
+You can subsequently change the settings in Administration --&gt; Program Settings --&gt; Setup Permissions and Settings.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияПодсказкаКонтекстноеМеню" id="9"/>
+			<ExtendedTooltip name="ДекорацияПодсказкаРасширеннаяПодсказка" id="10"/>
+		</LabelDecoration>
+		<CheckBoxField name="ПервоначальнаяНастройкаВыполнена" id="1">
+			<DataPath>ПервоначальнаяНастройкаВыполнена</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Больше не показывать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Do not show again</v8:content>
+				</v8:item>
+			</Title>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПервоначальнаяНастройкаВыполненаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПервоначальнаяНастройкаВыполненаРасширеннаяПодсказка" id="3"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.уатУстановкаПравИНастроек</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПервоначальнаяНастройкаВыполнена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Первоначальная настройка выполнена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Initial setup completed</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьПервоначальнуюНастройку" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить первоначальную настройку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Perform initial setup</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить первоначальную настройку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Perform initial setup</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьПервоначальнуюНастройку</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+	</Commands>
+</Form>

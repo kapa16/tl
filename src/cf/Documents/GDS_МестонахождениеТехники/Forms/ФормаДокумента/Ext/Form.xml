@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗагрузкаИнформации" id="42">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗагрузкаИнформации</CommandName>
+				<ExtendedTooltip name="ФормаЗагрузкаИнформацииРасширеннаяПодсказка" id="43"/>
+			</Button>
+			<Button name="ФормаВыгрузитьВБухгалтерию" id="72">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВыгрузитьВБухгалтерию</CommandName>
+				<ExtendedTooltip name="ФормаВыгрузитьВБухгалтериюРасширеннаяПодсказка" id="73"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="32">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<CheckBoxField name="Отправлен" id="74">
+					<DataPath>Объект.Отправлен</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтправленКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="ОтправленРасширеннаяПодсказка" id="76"/>
+				</CheckBoxField>
+				<UsualGroup name="Группа3" id="100">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="101"/>
+					<ChildItems>
+						<CheckBoxField name="СторонняяТехника" id="94">
+							<DataPath>Объект.СторонняяТехника</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СторонняяТехникаКонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="СторонняяТехникаРасширеннаяПодсказка" id="96"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ТЧ" id="7">
+			<Representation>List</Representation>
+			<Footer>true</Footer>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ТЧ</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТЧКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="ТЧКоманднаяПанель" id="9">
+				<ChildItems>
+					<Button name="ТЧПоказатьОшибки" id="58">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоказатьОшибки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Показать ошибки по загрузке</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ТЧПоказатьОшибкиРасширеннаяПодсказка" id="59"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ТЧРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="ТЧСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>ТЧ</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТЧСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТЧСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТЧСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>ТЧ</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТЧСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ТЧСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТЧУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>ТЧ</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТЧУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ТЧУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ТЧНомерСтроки" id="20">
+					<DataPath>Объект.ТЧ.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧНомерСтрокиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТЧНомерСтрокиРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<PictureField name="ТЧЕстьОшибки" id="60">
+					<DataPath>Объект.ТЧ.ЕстьОшибки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ShowInHeader>false</ShowInHeader>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.ВажностьНовостиВажнаяПрочтенная</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<ShowInFooter>false</ShowInFooter>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.ВажностьНовостиВажная</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="ТЧЕстьОшибкиКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="ТЧЕстьОшибкиРасширеннаяПодсказка" id="62"/>
+				</PictureField>
+				<InputField name="ТЧТС" id="23">
+					<DataPath>Объект.ТЧ.ТС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧТСКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТЧТСРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<InputField name="ТЧОписаниеОшибки" id="55">
+					<DataPath>Объект.ТЧ.ОписаниеОшибки</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧОписаниеОшибкиКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ТЧОписаниеОшибкиРасширеннаяПодсказка" id="57"/>
+				</InputField>
+				<InputField name="ТЧОС" id="105">
+					<DataPath>Объект.ТЧ.ОС</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧОСКонтекстноеМеню" id="106"/>
+					<ExtendedTooltip name="ТЧОСРасширеннаяПодсказка" id="107"/>
+				</InputField>
+				<InputField name="ТЧID_Автограф" id="102">
+					<DataPath>Объект.ТЧ.ID_Автограф</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧID_АвтографКонтекстноеМеню" id="103"/>
+					<ExtendedTooltip name="ТЧID_АвтографРасширеннаяПодсказка" id="104"/>
+				</InputField>
+				<InputField name="ТЧБаза" id="36">
+					<DataPath>Объект.ТЧ.База</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧБазаКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="ТЧБазаРасширеннаяПодсказка" id="38"/>
+				</InputField>
+				<InputField name="ТЧПУ" id="108">
+					<DataPath>Объект.ТЧ.ПУ</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧПУКонтекстноеМеню" id="109"/>
+					<ExtendedTooltip name="ТЧПУРасширеннаяПодсказка" id="110"/>
+				</InputField>
+				<InputField name="ТЧМесторождение" id="26">
+					<DataPath>Объект.ТЧ.Месторождение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧМесторождениеКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТЧМесторождениеРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ТЧКуст" id="29">
+					<DataPath>Объект.ТЧ.Куст</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧКустКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТЧКустРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<ColumnGroup name="ТЧГруппаВремя" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ТЧГруппа время</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ТЧГруппаВремяРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<InputField name="ТЧВходВГеозону" id="46">
+							<DataPath>Объект.ТЧ.ВходВГеозону</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТЧВходВГеозонуКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ТЧВходВГеозонуРасширеннаяПодсказка" id="48"/>
+						</InputField>
+						<InputField name="ТЧВыходИзГеозоны" id="49">
+							<DataPath>Объект.ТЧ.ВыходИзГеозоны</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТЧВыходИзГеозоныКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ТЧВыходИзГеозоныРасширеннаяПодсказка" id="51"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ТЧВремяВГеозоне" id="39">
+					<DataPath>Объект.ТЧ.ВремяВГеозоне</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧВремяВГеозонеКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="ТЧВремяВГеозонеРасширеннаяПодсказка" id="41"/>
+				</InputField>
+				<InputField name="ТЧСколькоТопливаПотрачено" id="63">
+					<DataPath>Объект.ТЧ.СколькоТопливаПотрачено</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧСколькоТопливаПотраченоКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="ТЧСколькоТопливаПотраченоРасширеннаяПодсказка" id="65"/>
+				</InputField>
+				<InputField name="ТЧМотоЧасы" id="69">
+					<DataPath>Объект.ТЧ.МотоЧасы</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТЧМотоЧасыКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="ТЧМотоЧасыРасширеннаяПодсказка" id="71"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Группа2" id="77">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="78"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="82">
+					<DataPath>Объект.Комментарий</DataPath>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="83"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="84"/>
+				</InputField>
+				<PictureDecoration name="Декорация1" id="85">
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="87"/>
+				</PictureDecoration>
+				<InputField name="Ответственный" id="79">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="80"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="81"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.GDS_МестонахождениеТехники</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+			<Columns>
+				<AdditionalColumns table="Объект.ТЧ">
+					<Column name="ОС" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ОС</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.ОсновныеСредства</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="НоваяТЗ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новая ТЗ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ТС" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ТС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатТС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПУ" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПУ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатКолонны</v8:Type>
+					</Type>
+				</Column>
+				<Column name="База" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>База</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Месторождение" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Месторождение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.GDS_Месторождения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Куст" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Куст</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.GDS_Кусты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВходВГеозону" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вход в геозону</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВыходИзГеозоны" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выход из геозоны</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВремяВГеозоне" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Время в геозоне</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Time</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТЧ_Месторождений" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Т ч месторождений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Месторождение" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Месторождение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.GDS_Месторождения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗагрузкаИнформации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузка информации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузка информации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузкаИнформации</Action>
+		</Command>
+		<Command name="ПоказатьОшибки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать ошибки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьОшибки</Action>
+		</Command>
+		<Command name="ВыгрузитьВБухгалтерию" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить в бухгалтерию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить в бухгалтерию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыгрузитьВБухгалтерию</Action>
+		</Command>
+	</Commands>
+</Form>

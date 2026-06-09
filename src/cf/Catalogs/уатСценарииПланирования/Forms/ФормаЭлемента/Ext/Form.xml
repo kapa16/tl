@@ -1,0 +1,1205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="57"/>
+		</InputField>
+		<InputField name="Родитель" id="77">
+			<DataPath>Объект.Parent</DataPath>
+			<ContextMenu name="РодительКонтекстноеМеню" id="78"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="79"/>
+		</InputField>
+		<UsualGroup name="ГруппаПланированиеРаботыТС" id="110">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Планирование работы ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning of vehicle work</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Планирование работы ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning of vehicle work</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<United>false</United>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПланированиеРаботыТСРасширеннаяПодсказка" id="111"/>
+			<ChildItems>
+				<InputField name="ВидПланирования" id="142">
+					<DataPath>Объект.ВидПланирования</DataPath>
+					<ContextMenu name="ВидПланированияКонтекстноеМеню" id="143"/>
+					<ExtendedTooltip name="ВидПланированияРасширеннаяПодсказка" id="144"/>
+					<Events>
+						<Event name="OnChange">ВидПланированияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ВедущийСценарий" id="145">
+					<DataPath>Объект.ВедущийСценарий</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ВедущийСценарийКонтекстноеМеню" id="146"/>
+					<ExtendedTooltip name="ВедущийСценарийРасширеннаяПодсказка" id="147"/>
+					<Events>
+						<Event name="OnChange">ВедущийСценарийПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Раздел" id="148">
+					<DataPath>Объект.Раздел</DataPath>
+					<ContextMenu name="РазделКонтекстноеМеню" id="149"/>
+					<ExtendedTooltip name="РазделРасширеннаяПодсказка" id="150"/>
+					<Events>
+						<Event name="OnChange">РазделПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГруппаПолучательУслугВалюта" id="159">
+					<Group>AlwaysHorizontal</Group>
+					<HorizontalSpacing>Single</HorizontalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПолучательУслугВалютаРасширеннаяПодсказка" id="160"/>
+					<ChildItems>
+						<InputField name="ПолучательУслуг" id="248">
+							<DataPath>Объект.ПолучательУслуг</DataPath>
+							<Width>22</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПолучательУслугКонтекстноеМеню" id="249"/>
+							<ExtendedTooltip name="ПолучательУслугРасширеннаяПодсказка" id="250"/>
+						</InputField>
+						<InputField name="Валюта" id="164">
+							<DataPath>Объект.Валюта</DataPath>
+							<Width>6</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<DropListButton>true</DropListButton>
+							<OpenButton>false</OpenButton>
+							<ContextMenu name="ВалютаКонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="166"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Периодичность" id="161">
+					<DataPath>Объект.Периодичность</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<MaxWidth>52</MaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.Год</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.Полугодие</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.Квартал</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.Месяц</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.Декада</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ПериодичностьКонтекстноеМеню" id="162"/>
+					<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="163"/>
+					<Events>
+						<Event name="OnChange">ПериодичностьПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ПараметрВыработки" id="268">
+					<DataPath>Объект.ПараметрВыработки</DataPath>
+					<ContextMenu name="ПараметрВыработкиКонтекстноеМеню" id="269"/>
+					<ExtendedTooltip name="ПараметрВыработкиРасширеннаяПодсказка" id="270"/>
+				</InputField>
+				<CheckBoxField name="ПланированиеОбъемовВПроцентах" id="271">
+					<DataPath>Объект.ПланированиеОбъемовВПроцентах</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование объемов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Volume planning</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>БЛ='In absolute units'; БИ='In percentages'</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='В абсолютных единицах'; БИ='В процентах'</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="ПланированиеОбъемовВПроцентахКонтекстноеМеню" id="272"/>
+					<ExtendedTooltip name="ПланированиеОбъемовВПроцентахРасширеннаяПодсказка" id="273"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПланированиеВДнях" id="274">
+					<DataPath>Объект.ПланированиеВДнях</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Planning</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>БЛ='In hours'; БИ='In days'</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='В часах'; БИ='В днях'</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="ПланированиеВДняхКонтекстноеМеню" id="275"/>
+					<ExtendedTooltip name="ПланированиеВДняхРасширеннаяПодсказка" id="276"/>
+				</CheckBoxField>
+				<UsualGroup name="ГруппаИспользоватьКраткосрочноеПланирование" id="151">
+					<Group>Vertical</Group>
+					<HorizontalSpacing>Half</HorizontalSpacing>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьКраткосрочноеПланированиеРасширеннаяПодсказка" id="152"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаИспользоватьКраткосрочноеПланированиеОснова" id="256">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьКраткосрочноеПланированиеОсноваРасширеннаяПодсказка" id="257"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьКраткосрочноеПланирование" id="153">
+									<DataPath>Объект.ИспользоватьКраткосрочноеПланирование</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<TitleHeight>1</TitleHeight>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьКраткосрочноеПланированиеКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="ИспользоватьКраткосрочноеПланированиеРасширеннаяПодсказка" id="155"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьКраткосрочноеПланированиеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="ПериодичностьКраткосрочногоПланирования" id="156">
+									<DataPath>Объект.ПериодичностьКраткосрочногоПланирования</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>24</Width>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<DropListButton>true</DropListButton>
+									<ListChoiceMode>true</ListChoiceMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПериодичностьКраткосрочногоПланированияКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="ПериодичностьКраткосрочногоПланированияРасширеннаяПодсказка" id="158"/>
+									<Events>
+										<Event name="OnChange">ПериодичностьКраткосрочногоПланированияПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтображатьПериод" id="167">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отображать период</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Display period</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтображатьПериодРасширеннаяПодсказка" id="168"/>
+							<ChildItems>
+								<RadioButtonField name="ОтображениеПериода" id="169">
+									<DataPath>ОтображениеПериода</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отображение периода</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Display period</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Влияет на отображение периода в колонках документов и печатных форм.
+Если "Диапазон дат" — заголовок периода для периодичности "Неделя" будет "08.07—14.07".
+Если "Номер периода (в пределах года)" — заголовок будет "28 неделя".</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Influences how the period is displayed in columns of documents and print forms.
+If "Range of dates" - the period title for the "Week" frequency will be "07/08-07/14". 
+If "Period number (within a year)" - the title will be "28th week".</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Диапазон дат</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Range of dates</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Номер периода (в пределах года)</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Period number (within a year)</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ОтображениеПериодаКонтекстноеМеню" id="170"/>
+									<ExtendedTooltip name="ОтображениеПериодаРасширеннаяПодсказка" id="171">
+										<AutoMaxWidth>false</AutoMaxWidth>
+									</ExtendedTooltip>
+									<Events>
+										<Event name="OnChange">ОтображениеПериодаПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьОперативноеПланированиеНастройки" id="266">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьОперативноеПланированиеНастройкиРасширеннаяПодсказка" id="267"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьОперативноеПланирование" id="172">
+							<DataPath>Объект.ИспользоватьОперативноеПланирование</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьОперативноеПланированиеКонтекстноеМеню" id="173"/>
+							<ExtendedTooltip name="ИспользоватьОперативноеПланированиеРасширеннаяПодсказка" id="174"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьОперативноеПланированиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="НастройкиСозданияЗаказа" id="251">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки создания</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Creation settings</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки создания заказа</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Order creation settings</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>PopUp</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="НастройкиСозданияЗаказаРасширеннаяПодсказка" id="252"/>
+							<ChildItems>
+								<InputField name="Номенклатура" id="253">
+									<DataPath>Объект.Номенклатура</DataPath>
+									<ContextMenu name="НоменклатураКонтекстноеМеню" id="254"/>
+									<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="255"/>
+								</InputField>
+								<RadioButtonField name="РежимРаспределенияКоличества" id="258">
+									<DataPath>Объект.РежимЗаполненияВесаОбъемаГруза</DataPath>
+									<TitleLocation>Left</TitleLocation>
+									<TitleHeight>2</TitleHeight>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<RadioButtonType>Tumbler</RadioButtonType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Копировать из плана</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Copy from plan</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Распределять равномерно по дням</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Distribute evenly throughout the days</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="РежимРаспределенияКоличестваКонтекстноеМеню" id="259"/>
+									<ExtendedTooltip name="РежимРаспределенияКоличестваРасширеннаяПодсказка" id="260"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьОперативноеПланирование" id="175">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать оперативное планирование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Use operational planning</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать оперативное планирование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Use operational planning</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьОперативноеПланированиеРасширеннаяПодсказка" id="176"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаАвтоматическиСоздаватьЗаказыНаТС" id="177">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Автоматически создавать заказы на ТС</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Automatically create orders for vehicles</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаАвтоматическиСоздаватьЗаказыНаТСРасширеннаяПодсказка" id="178"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация" id="179">
+									<Width>1</Width>
+									<Height>1</Height>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ДекорацияКонтекстноеМеню" id="180"/>
+									<ExtendedTooltip name="ДекорацияРасширеннаяПодсказка" id="181"/>
+								</PictureDecoration>
+								<CheckBoxField name="АвтоматическиСоздаватьЗаказыНаТС" id="182">
+									<DataPath>Объект.АвтоматическиСоздаватьЗаказыНаТС</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="АвтоматическиСоздаватьЗаказыНаТСКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="АвтоматическиСоздаватьЗаказыНаТСРасширеннаяПодсказка" id="184"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаАвтоматическиСоздаватьРазнарядкиНаВыпускТС" id="185">
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаАвтоматическиСоздаватьРазнарядкиНаВыпускТСРасширеннаяПодсказка" id="186"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация1" id="187">
+									<Width>1</Width>
+									<Height>1</Height>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="188"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="189"/>
+								</PictureDecoration>
+								<CheckBoxField name="АвтоматическиСоздаватьРазнарядкиНаВыпускТС" id="190">
+									<DataPath>Объект.АвтоматическиСоздаватьРазнарядкиНаВыпускТС</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="АвтоматическиСоздаватьРазнарядкиНаВыпускТСКонтекстноеМеню" id="191"/>
+									<ExtendedTooltip name="АвтоматическиСоздаватьРазнарядкиНаВыпускТСРасширеннаяПодсказка" id="192"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<Pages name="ГруппаСтраницы" id="193">
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="194"/>
+					<ChildItems>
+						<Page name="ГруппаРазрезыПланирования" id="195">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Разрезы планирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Planning sections</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Разрезы планирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Planning sections</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаРазрезыПланированияРасширеннаяПодсказка" id="196"/>
+							<ChildItems>
+								<Table name="РазрезыПланирования" id="197">
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.РазрезыПланирования</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="РазрезыПланированияКонтекстноеМеню" id="198"/>
+									<AutoCommandBar name="РазрезыПланированияКоманднаяПанель" id="199"/>
+									<ExtendedTooltip name="РазрезыПланированияРасширеннаяПодсказка" id="200"/>
+									<SearchStringAddition name="РазрезыПланированияСтрокаПоиска" id="201">
+										<AdditionSource>
+											<Item>РазрезыПланирования</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="РазрезыПланированияСтрокаПоискаКонтекстноеМеню" id="202"/>
+										<ExtendedTooltip name="РазрезыПланированияСтрокаПоискаРасширеннаяПодсказка" id="203"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="РазрезыПланированияСостояниеПросмотра" id="204">
+										<AdditionSource>
+											<Item>РазрезыПланирования</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="РазрезыПланированияСостояниеПросмотраКонтекстноеМеню" id="205"/>
+										<ExtendedTooltip name="РазрезыПланированияСостояниеПросмотраРасширеннаяПодсказка" id="206"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="РазрезыПланированияУправлениеПоиском" id="207">
+										<AdditionSource>
+											<Item>РазрезыПланирования</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="РазрезыПланированияУправлениеПоискомКонтекстноеМеню" id="208"/>
+										<ExtendedTooltip name="РазрезыПланированияУправлениеПоискомРасширеннаяПодсказка" id="209"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="РазрезыПланированияРазрезПланирования" id="210">
+											<DataPath>Объект.РазрезыПланирования.РазрезПланирования</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ContextMenu name="РазрезыПланированияРазрезПланированияКонтекстноеМеню" id="211"/>
+											<ExtendedTooltip name="РазрезыПланированияРазрезПланированияРасширеннаяПодсказка" id="212"/>
+											<Events>
+												<Event name="OnChange">РазрезыПланированияРазрезПланированияПриИзменении</Event>
+												<Event name="StartChoice">РазрезыПланированияРазрезПланированияНачалоВыбора</Event>
+												<Event name="ChoiceProcessing">РазрезыПланированияРазрезПланированияОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+										<CheckBoxField name="РазрезыПланированияПланированиеПоГруппам" id="213">
+											<DataPath>Объект.РазрезыПланирования.ПланированиеПоГруппам</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выбор групп</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Select groups</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="РазрезыПланированияПланированиеПоГруппамКонтекстноеМеню" id="214"/>
+											<ExtendedTooltip name="РазрезыПланированияПланированиеПоГруппамРасширеннаяПодсказка" id="215"/>
+										</CheckBoxField>
+										<InputField name="РазрезыПланированияВариантАналитикиПредставление" id="216">
+											<DataPath>Объект.РазрезыПланирования.ВариантАналитики</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ListChoiceMode>true</ListChoiceMode>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="РазрезыПланированияВариантАналитикиПредставлениеКонтекстноеМеню" id="217"/>
+											<ExtendedTooltip name="РазрезыПланированияВариантАналитикиПредставлениеРасширеннаяПодсказка" id="218"/>
+											<Events>
+												<Event name="StartChoice">РазрезыПланированияВариантАналитикиПредставлениеНачалоВыбора</Event>
+												<Event name="ChoiceProcessing">РазрезыПланированияВариантАналитикиПредставлениеОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="ГруппаПредупреждение" id="219">
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПредупреждениеРасширеннаяПодсказка" id="220"/>
+									<ChildItems>
+										<PictureDecoration name="ДекорацияИнформация" id="221">
+											<Width>2</Width>
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Декорация информация</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration информация1</v8:content>
+												</v8:item>
+											</Title>
+											<PictureSize>AutoSize</PictureSize>
+											<Picture>
+												<xr:Ref>CommonPicture.Информация32</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ДекорацияИнформацияКонтекстноеМеню" id="222"/>
+											<ExtendedTooltip name="ДекорацияИнформацияРасширеннаяПодсказка" id="223"/>
+										</PictureDecoration>
+										<LabelDecoration name="ДекорацияОписание" id="224">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>По аналитикам "Организация" и "Транспортное средсво" и "Колонна" планирование и сбор факта производится всегда.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>According to the analysts "Organization", "Vehicle" and "Column", planning and fact collection are always carried out.</v8:content>
+												</v8:item>
+											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<ContextMenu name="ДекорацияОписаниеКонтекстноеМеню" id="225"/>
+											<ExtendedTooltip name="ДекорацияОписаниеРасширеннаяПодсказка" id="226"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаПоказателиПланирования" id="227">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели планирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Planning indicators</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели планирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Planning indicators</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаПоказателиПланированияРасширеннаяПодсказка" id="228"/>
+							<ChildItems>
+								<Table name="ПоказателиПланирования" id="229">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ПоказателиПланирования</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПоказателиПланированияКонтекстноеМеню" id="230"/>
+									<AutoCommandBar name="ПоказателиПланированияКоманднаяПанель" id="231"/>
+									<ExtendedTooltip name="ПоказателиПланированияРасширеннаяПодсказка" id="232"/>
+									<SearchStringAddition name="ПоказателиПланированияСтрокаПоиска" id="233">
+										<AdditionSource>
+											<Item>ПоказателиПланирования</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПоказателиПланированияСтрокаПоискаКонтекстноеМеню" id="234"/>
+										<ExtendedTooltip name="ПоказателиПланированияСтрокаПоискаРасширеннаяПодсказка" id="235"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПоказателиПланированияСостояниеПросмотра" id="236">
+										<AdditionSource>
+											<Item>ПоказателиПланирования</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПоказателиПланированияСостояниеПросмотраКонтекстноеМеню" id="237"/>
+										<ExtendedTooltip name="ПоказателиПланированияСостояниеПросмотраРасширеннаяПодсказка" id="238"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПоказателиПланированияУправлениеПоиском" id="239">
+										<AdditionSource>
+											<Item>ПоказателиПланирования</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПоказателиПланированияУправлениеПоискомКонтекстноеМеню" id="240"/>
+										<ExtendedTooltip name="ПоказателиПланированияУправлениеПоискомРасширеннаяПодсказка" id="241"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ПоказателиПланированияПараметрВыработки" id="242">
+											<DataPath>ПоказателиПланирования.ПараметрВыработки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ChoiceParameters>
+												<app:item name="Отбор.ИспользоватьПриПланировании">
+													<app:value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xs:boolean">true</Value>
+													</app:value>
+												</app:item>
+											</ChoiceParameters>
+											<ContextMenu name="ПоказателиПланированияПараметрВыработкиКонтекстноеМеню" id="243"/>
+											<ExtendedTooltip name="ПоказателиПланированияПараметрВыработкиРасширеннаяПодсказка" id="244"/>
+											<Events>
+												<Event name="OnChange">ПоказателиПланированияПараметрВыработкиПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПоказателиПланированияРазрезыПланирования" id="245">
+											<DataPath>ПоказателиПланирования.РазрезыПланирования</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ListChoiceMode>true</ListChoiceMode>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="ПоказателиПланированияРазрезыПланированияКонтекстноеМеню" id="246"/>
+											<ExtendedTooltip name="ПоказателиПланированияРазрезыПланированияРасширеннаяПодсказка" id="247"/>
+											<Events>
+												<Event name="StartChoice">ПоказателиПланированияРазрезыПланированияНачалоВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="ГруппаПредупреждение1" id="277">
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПредупреждение1РасширеннаяПодсказка" id="278"/>
+									<ChildItems>
+										<PictureDecoration name="ДекорацияИнформация1" id="279">
+											<Width>2</Width>
+											<Height>1</Height>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Декорация информация</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Decoration информация1</v8:content>
+												</v8:item>
+											</Title>
+											<PictureSize>AutoSize</PictureSize>
+											<Picture>
+												<xr:Ref>CommonPicture.Информация32</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ДекорацияИнформация1КонтекстноеМеню" id="280"/>
+											<ExtendedTooltip name="ДекорацияИнформация1РасширеннаяПодсказка" id="281"/>
+										</PictureDecoration>
+										<LabelDecoration name="ДекорацияОписание1" id="282">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры выработки используются для планирования. Автоматический сбор факта предусмотрен для следующих параметров выработки: Вес, Объем, Количество вагонов</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>According to the analysts "Organization", "Vehicle" and "Column", planning and fact collection are always carried out.</v8:content>
+												</v8:item>
+											</Title>
+											<GroupVerticalAlign>Center</GroupVerticalAlign>
+											<ContextMenu name="ДекорацияОписание1КонтекстноеМеню" id="283"/>
+											<ExtendedTooltip name="ДекорацияОписание1РасширеннаяПодсказка" id="284"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Комментарий" id="129">
+			<DataPath>Объект.Комментарий</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="130"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="131"/>
+			<Events>
+				<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+			</Events>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.уатСценарииПланирования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ВалютаРеглУчета" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта регл учета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Currency of local accounting</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказателиПланирования" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатели планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Planning indicators</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="ПараметрВыработки" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметр выработки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Production parameter</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПараметрыВыработки</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РазрезыПланирования" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрезы планирования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Planning sections</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СводныйПоказатель" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сводный показатель</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Order for trucking, Order for carrier (by orders for trucking), Need for the carriage</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтображениеПериода" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображение периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Display period</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РазрезыПоказателейПланирования" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрезы показателей планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sections of planning indicators</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="ПараметрВыработки" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметр выработки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Production parameter</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатПараметрыВыработки</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПланированиеПоГруппам" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование по группам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Planning by groups</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВариантАналитики" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант аналитики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Analytics option</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.уатВариантыАналитик</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РазрезПланирования" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез планирования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Planning section</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.уатРазрезыПланирования</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПоказателиПланированияРазрезыПланирования</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПоказателиПланирования.СводныйПоказатель</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РазрезыПланированияПланированиеПоГруппам</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Подразделение</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ПараметрВыработки</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Договор</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Статья</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ВидПеревозки</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ВидПеревозки</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.НоменклатураТО</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ТС</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.ВариантАналитики</dcsset:left>
+								<dcsset:comparisonType>Equal</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВариантыАналитик.ПринадлежностьТС</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РазрезыПланированияВариантАналитикиПредставление</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Подразделение</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ПараметрВыработки</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Договор</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ОбъектСтроительства</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Колонна</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.ВидПеревозки</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.НаправлениеПеревозки</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.НоменклатураГруза</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.Услуга</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.РазрезыПланирования.РазрезПланирования</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатРазрезыПланирования.НоменклатураТО</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

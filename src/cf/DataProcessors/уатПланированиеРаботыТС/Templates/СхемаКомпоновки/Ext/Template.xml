@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДопИндекс</dataPath>
+			<field>ДопИндекс</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Основание</dataPath>
+			<field>Основание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Basis</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНачало</dataPath>
+			<field>ПериодНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период начало</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Beginning of period</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодОкончание</dataPath>
+			<field>ПериодОкончание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период окончание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period end</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>State</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Колонна</dataPath>
+			<field>Колонна</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипТС</dataPath>
+			<field>ТипТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСостояния</dataPath>
+			<field>ВидСостояния</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид состояния</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>State type</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидМоделиТС</dataPath>
+			<field>ВидМоделиТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Представление</dataPath>
+			<field>Представление</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Performance</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатТС.Ссылка КАК ТС,
+	уатТС.Наименование КАК Представление,
+	уатТС.ВидМоделиТС КАК ВидМоделиТС,
+	уатТС.Колонна КАК Колонна,
+	уатТС.ТипТС КАК ТипТС,
+	уатСостояниеТС.Период КАК Период,
+	уатСостояниеТС.Регистратор КАК Основание,
+	уатСостояниеТС.Состояние КАК Состояние,
+	уатСостояниеТС.Состояние.ВидСостояния КАК ВидСостояния,
+	уатСостояниеТС.Период КАК ПериодНачало,
+	ВЫБОР
+		КОГДА уатСостояниеТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ДАТАВРЕМЯ(2099, 12, 31)
+		ИНАЧЕ уатСостояниеТС.ДатаОкончания
+	КОНЕЦ КАК ПериодОкончание,
+	ВЫБОР
+		КОГДА уатСостояниеТС.ТС ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК ДопИндекс
+ПОМЕСТИТЬ втСостояния
+ИЗ
+	Справочник.уатТС КАК уатТС
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			уатСостояниеТС.Период КАК Период,
+			уатСостояниеТС.ТС КАК ТС,
+			уатСостояниеТС.Регистратор КАК Регистратор,
+			ВЫБОР
+				КОГДА уатСостояниеТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+					ТОГДА ДАТАВРЕМЯ(2099, 12, 31)
+				ИНАЧЕ уатСостояниеТС.ДатаОкончания
+			КОНЕЦ КАК ДатаОкончания,
+			уатСостояниеТС.Состояние КАК Состояние
+		ИЗ
+			РегистрСведений.уатСостояниеТС КАК уатСостояниеТС
+		ГДЕ
+			уатСостояниеТС.Период &lt;= &amp;ДатаКон
+			И ВЫБОР
+					КОГДА уатСостояниеТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+						ТОГДА ДАТАВРЕМЯ(2099, 12, 31)
+					ИНАЧЕ уатСостояниеТС.ДатаОкончания
+				КОНЕЦ &gt;= &amp;ДатаНач
+			И уатСостояниеТС.ТС.Организация = &amp;Организация
+			И уатСостояниеТС.ТС.ВидМоделиТС В(&amp;ВидыМоделейТС)) КАК уатСостояниеТС
+		ПО уатТС.Ссылка = уатСостояниеТС.ТС
+ГДЕ
+	(НЕ уатСостояниеТС.ТС ЕСТЬ NULL
+				И НЕ уатСостояниеТС.Состояние.ПометкаУдаления
+			ИЛИ уатСостояниеТС.ТС ЕСТЬ NULL
+				И &amp;ОтображатьНеактивныеТС
+				И НЕ уатТС.ЭтоГруппа
+				И уатТС.ВидМоделиТС В(&amp;ВидыМоделейТС)
+				И уатТС.Организация = &amp;Организация)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатМестонахождениеТССрезПоследних.ТС КАК ТС,
+	ВЫБОР
+		КОГДА уатМестонахождениеТССрезПоследних.ТС.ДатаВыбытия = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА уатМестонахождениеТССрезПоследних.ТС.Наименование
+		ИНАЧЕ уатМестонахождениеТССрезПоследних.ТС.Наименование + " (выбыло)"
+	КОНЕЦ КАК Представление
+ПОМЕСТИТЬ втВыбывшиеТС
+ИЗ
+	РегистрСведений.уатМестонахождениеТС.СрезПоследних КАК уатМестонахождениеТССрезПоследних
+ГДЕ
+	&amp;ОтображатьВыбывшиеТС
+	И уатМестонахождениеТССрезПоследних.ТС.ДатаВыбытия &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втВыбывшиеТС.ТС КАК ТС,
+	втВыбывшиеТС.Представление КАК Представление,
+	втВыбывшиеТС.ТС.ВидМоделиТС КАК ВидМоделиТС,
+	втВыбывшиеТС.ТС.Колонна КАК Колонна,
+	втВыбывшиеТС.ТС.ТипТС КАК ТипТС,
+	уатСостояниеТС.Период КАК Период,
+	уатСостояниеТС.Регистратор КАК Основание,
+	уатСостояниеТС.Состояние КАК Состояние,
+	уатСостояниеТС.Состояние.ВидСостояния КАК СостояниеВидСостояния,
+	уатСостояниеТС.Период КАК ПериодНачало,
+	ВЫБОР
+		КОГДА уатСостояниеТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ДАТАВРЕМЯ(2099, 12, 31)
+		ИНАЧЕ уатСостояниеТС.ДатаОкончания
+	КОНЕЦ КАК ПериодОкончание,
+	ВЫБОР
+		КОГДА уатСостояниеТС.ТС ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ 1
+	КОНЕЦ КАК ДопИндекс
+ПОМЕСТИТЬ втВыбывшиеТССостояния
+ИЗ
+	втВыбывшиеТС КАК втВыбывшиеТС
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			уатСостояниеТС.Период КАК Период,
+			уатСостояниеТС.ТС КАК ТС,
+			уатСостояниеТС.Регистратор КАК Регистратор,
+			ВЫБОР
+				КОГДА уатСостояниеТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+					ТОГДА ДАТАВРЕМЯ(2099, 12, 31)
+				ИНАЧЕ уатСостояниеТС.ДатаОкончания
+			КОНЕЦ КАК ДатаОкончания,
+			уатСостояниеТС.Состояние КАК Состояние
+		ИЗ
+			РегистрСведений.уатСостояниеТС КАК уатСостояниеТС
+		ГДЕ
+			уатСостояниеТС.Период &lt;= &amp;ДатаКон
+			И ВЫБОР
+					КОГДА уатСостояниеТС.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)
+						ТОГДА ДАТАВРЕМЯ(2099, 12, 31)
+					ИНАЧЕ уатСостояниеТС.ДатаОкончания
+				КОНЕЦ &gt;= &amp;ДатаНач
+			И уатСостояниеТС.ТС.ВидМоделиТС В(&amp;ВидыМоделейТС)) КАК уатСостояниеТС
+		ПО (уатСостояниеТС.ТС = втВыбывшиеТС.ТС)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втСостояния.ТС КАК ТС,
+	втСостояния.Представление КАК Представление,
+	втСостояния.ВидМоделиТС КАК ВидМоделиТС,
+	втСостояния.Колонна КАК Колонна,
+	втСостояния.ТипТС КАК ТипТС,
+	втСостояния.Период КАК Период,
+	втСостояния.Основание КАК Основание,
+	втСостояния.Состояние КАК Состояние,
+	втСостояния.ВидСостояния КАК ВидСостояния,
+	втСостояния.ПериодНачало КАК ПериодНачало,
+	втСостояния.ПериодОкончание КАК ПериодОкончание,
+	втСостояния.ДопИндекс КАК ДопИндекс
+ИЗ
+	втСостояния КАК втСостояния
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	втВыбывшиеТССостояния.ТС,
+	втВыбывшиеТССостояния.Представление,
+	втВыбывшиеТССостояния.ВидМоделиТС,
+	втВыбывшиеТССостояния.Колонна,
+	втВыбывшиеТССостояния.ТипТС,
+	втВыбывшиеТССостояния.Период,
+	втВыбывшиеТССостояния.Основание,
+	втВыбывшиеТССостояния.Состояние,
+	втВыбывшиеТССостояния.СостояниеВидСостояния,
+	втВыбывшиеТССостояния.ПериодНачало,
+	втВыбывшиеТССостояния.ПериодОкончание,
+	втВыбывшиеТССостояния.ДопИндекс
+ИЗ
+	втВыбывшиеТССостояния КАК втВыбывшиеТССостояния
+
+УПОРЯДОЧИТЬ ПО
+	ДопИндекс</query>
+	</dataSet>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата кон</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата нач</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Start date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Company</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтображатьНеактивныеТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать неактивные ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Show inactive vehicle</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВидыМоделейТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Виды моделей ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Types of vehicle models</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.уатВидыМоделейТС</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтображатьВыбывшиеТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать выбывшие ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Show decommissioning vehicles</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Основание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Состояние</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПериодНачало</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПериодОкончание</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ВидМоделиТС</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.Автотранспорт</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.Прицеп</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.Оборудование</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.ЖДТранспорт</dcsset:right>
+					<dcsset:userSettingID>03175adf-5d7b-4dc0-bb6e-940fe5f4ac71</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСостояния</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>5b881166-455f-40b9-a4be-a40dd0711dd8</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Колонна</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>f060dce7-6131-4ad1-9d1c-affcab2e9b08</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>317fcdff-0bcc-4322-94bf-32eb3818f6a0</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>59318601-cdba-4b43-a0c9-5d79ff686390</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ОтображатьВыбывшиеТС</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Состояние</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>БезИерархии</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Без иерархии</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Without hierarchy</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Основание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Состояние</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПериодНачало</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПериодОкончание</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ВидМоделиТС</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.Автотранспорт</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.Прицеп</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатВидыМоделейТС.Оборудование</dcsset:right>
+					<dcsset:userSettingID>d8331d7b-ca3e-4efd-b571-99a03c969382</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСостояния</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b06f7e3a-2028-4946-8388-c4495a212f98</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Колонна</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>ba15b8a7-fb0b-41bc-a7f4-208175b9178f</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2f6d6af8-06af-4cac-9024-27a2700f1a39</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>c6244c49-0f4e-4799-b6e9-99487742fd4d</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Состояние</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

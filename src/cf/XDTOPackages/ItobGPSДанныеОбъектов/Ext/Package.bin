@@ -1,0 +1,50 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.itob.ru/csm/gpsdata">
+	<objectType name="ИнтервалыДвижения">
+		<property name="ОбщийПробег" type="xs:double"/>
+		<property xmlns:d3p1="http://www.itob.ru/csm/gpsdata" name="Состав" type="d3p1:ЭлементИнтервалДвижения" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ЭлементИнтервалДвижения">
+		<property name="ВремяНач" type="xs:dateTime"/>
+		<property name="ВремяКон" type="xs:dateTime"/>
+		<property name="Состояние" type="xs:string"/>
+		<property name="Длительность" type="xs:int"/>
+		<property name="СредняяСкорость" type="xs:int"/>
+		<property name="МаксимальнаяСкорость" type="xs:int"/>
+		<property name="Пробег" type="xs:double"/>
+		<property name="МестоСтоянки" type="xs:string"/>
+		<property xmlns:d3p1="http://www.itob.ru/csm/gpsdata" name="ДанныеТерминала" type="d3p1:ЭлементДанныеТерминала" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ЭлементДанныеТерминала">
+		<property name="Период" type="xs:dateTime"/>
+		<property name="Широта" type="xs:double"/>
+		<property name="Долгота" type="xs:double"/>
+		<property name="Скорость" type="xs:int"/>
+		<property name="Направление" type="xs:int"/>
+		<property name="ДанныеДатчика1" type="xs:int"/>
+		<property name="ДанныеДатчика2" type="xs:int"/>
+		<property name="ДанныеДатчика3" type="xs:int"/>
+		<property name="ДанныеДатчика4" type="xs:int"/>
+		<property name="ДанныеДатчика5" type="xs:int"/>
+		<property name="Терминал" type="xs:int"/>
+		<property name="ГосНомер" type="xs:string"/>
+		<property name="ТекстОшибки" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="ДанныеПоТС">
+		<property name="ПробегGPS" type="xs:double" nillable="true"/>
+		<property name="ПробегCAN" type="xs:double" nillable="true"/>
+		<property name="СпидометрВыездаCAN" type="xs:double" nillable="true"/>
+		<property name="СпидометрВозвращенияCAN" type="xs:double" nillable="true"/>
+		<property name="ВремяРаботыДвигателя" type="xs:double" nillable="true"/>
+		<property name="УровеньТопливаНачало" type="xs:double" nillable="true"/>
+		<property name="УровеньТопливаКонец" type="xs:double" nillable="true"/>
+		<property name="РасходТоплива" type="xs:double" nillable="true"/>
+		<property name="ОбъемЗаправок" type="xs:double" nillable="true"/>
+		<property name="ТекстОшибки" type="xs:string" nillable="true"/>
+		<property name="ПараметрыВыработки" type="xs:string" nillable="true"/>
+		<property name="ВремяВДвиженииСВклДВС" type="xs:int" nillable="true"/>
+		<property name="ВремяВПростоеСВклДВС" type="xs:int" nillable="true"/>
+	</objectType>
+	<objectType name="ЭлементыДанныеТерминала" open="true">
+		<property xmlns:d3p1="http://www.itob.ru/csm/gpsdata" name="Состав" type="d3p1:ЭлементДанныеТерминала" lowerBound="0" upperBound="-1" localName="Состав"/>
+	</objectType>
+</package>

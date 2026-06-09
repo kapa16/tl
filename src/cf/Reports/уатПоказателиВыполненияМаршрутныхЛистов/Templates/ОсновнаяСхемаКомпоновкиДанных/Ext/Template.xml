@@ -1,0 +1,4033 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetObject">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаршрутныйЛист</dataPath>
+			<field>МаршрутныйЛист</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрутный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Routing list</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатМаршрутныйЛист</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перевозчик</dataPath>
+			<field>Перевозчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевозчик</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Carrier</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Сотрудники</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ФизическиеЛица</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выполнен</dataPath>
+			<field>Выполнен</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнено</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Completed</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыполненПроцент</dataPath>
+			<field>ВыполненПроцент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнено (%)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Completed (%)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пункт</dataPath>
+			<field>Пункт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Point</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.уатПунктыНазначения</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибытиеПлан</dataPath>
+			<field>ПрибытиеПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибытие план</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival plan</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибытиеФакт</dataPath>
+			<field>ПрибытиеФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибытие факт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival fact</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УбытиеПлан</dataPath>
+			<field>УбытиеПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Убытие план</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure plan</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УбытиеФакт</dataPath>
+			<field>УбытиеФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Убытие факт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure fact</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Counterparty</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказГрузоотправителя</dataPath>
+			<field>ЗаказГрузоотправителя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Order for trucking</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтоянкаПлан</dataPath>
+			<field>СтоянкаПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоянка план (мин.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parking plan (min.)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтклонениеВремениПрибытия</dataPath>
+			<field>ОтклонениеВремениПрибытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение времени прибытия (мин.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Arrival time deviation (min.)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтклонениеВремениУбытия</dataPath>
+			<field>ОтклонениеВремениУбытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение времени убытия (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Departure time deviation (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтоянкаФакт</dataPath>
+			<field>СтоянкаФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоянка факт (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parking actual (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтклонениеСтоянки</dataPath>
+			<field>ОтклонениеСтоянки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение времени стоянки (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parking time deviation (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОжиданиеПлан</dataPath>
+			<field>ОжиданиеПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ожидание план (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Waiting plan (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОкноС</dataPath>
+			<field>ОкноС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Окно с</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Window with</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОкноПо</dataPath>
+			<field>ОкноПо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Окно по</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Window by</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПопаданиеВоВременноеОкно</dataPath>
+			<field>ПопаданиеВоВременноеОкно</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Попадание во временное окно</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Hitting the time window</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПопаданиеВоВременноеОкноПроцент</dataPath>
+			<field>ПопаданиеВоВременноеОкноПроцент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Попадание во временное окно (%)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Hit within time window (%)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтклонениеОтВременногоОкна</dataPath>
+			<field>ОтклонениеОтВременногоОкна</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение факт. времени прибытия от временного окна (мин.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deviation of actual arrival time from the time window (min.)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОпозданий</dataPath>
+			<field>КоличествоОпозданий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Опозданий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Lateness</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентОпозданий</dataPath>
+			<field>ПроцентОпозданий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Опозданий (%)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delays (%)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦелевойПоказательОпозданий</dataPath>
+			<field>ЦелевойПоказательОпозданий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>KPI опозданий (%)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>KPI of delays (%)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтклонениеОпозданий</dataPath>
+			<field>ОтклонениеОпозданий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонение от KPI опозданий (%)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deviation from KPI delays (%)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОпозданиеФакт</dataPath>
+			<field>ОпозданиеФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Опоздание факт (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Actual delay (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПростойФакт</dataPath>
+			<field>ПростойФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Простой факт (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Simple fact (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОжиданиеФакт</dataPath>
+			<field>ОжиданиеФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ожидание факт (мин)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Actual waiting time (min)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ТабДанныхПоМЛ</objectName>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ВременноеОкно</dataPath>
+		<expression>Формат(ОкноС,"ДФ=ЧЧ:мм") + " - " + Формат(ОкноПо, "ДФ=ЧЧ:мм")</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Временное окно</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Time window</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоянкаФактПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоянка факт (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking actual (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоянкаПланПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоянка план (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking plan (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеСтоянкиПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени стоянки (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking time deviation (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеВремениПрибытияПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени прибытия (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Arrival time deviation (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеВремениУбытияПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени убытия (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Departure time deviation (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КоличествоСтрок</dataPath>
+		<expression>1</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество строк</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Line quantity</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоянкаФактПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоянка факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking fact</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоянкаПланПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоянка план</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking plan</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеСтоянкиПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени стоянки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking time deviation</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени прибытия</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Arrival time deviation</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеВремениУбытияПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени убытия</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Departure time deviation</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОжиданиеПланЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Плановое ожидание</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Planned waiting</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоянкаФактЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоянка факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking fact</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СтоянкаПланЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Стоянка план</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking plan</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеВремениПрибытияЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени прибытия</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Arrival time deviation</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеСтоянкиЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени стоянки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Parking time deviation</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеВремениУбытияЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение времени убытия</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Departure time deviation</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОтклонениеОтВременногоОкнаЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение факт. времени прибытия от временного окна</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Deviation of actual arrival time from the time window</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОпозданиеФактЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Опоздание факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Being late is a fact</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПростойФактЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Простой факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Simple fact</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОпозданиеФактПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Опоздание факт (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Actual delay (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПростойФактПоПунктам</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Простой факт (мин.)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Simple fact (min.)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОпозданиеФактПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Опоздание факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Being late is a fact</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПростойФактПоПунктамЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Простой факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Simple fact</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОжиданиеФактЧЧММ</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ожидание факт</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Expectation is a fact</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>Выполнен</dataPath>
+		<expression>Сумма(Выполнен)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВыполненПроцент</dataPath>
+		<expression>Среднее(ВыполненПроцент)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениПрибытия</dataPath>
+		<expression>Сумма(ОтклонениеВремениПрибытия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениУбытия</dataPath>
+		<expression>Сумма(ОтклонениеВремениУбытия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеСтоянки</dataPath>
+		<expression>Сумма(ОтклонениеСтоянки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПопаданиеВоВременноеОкно</dataPath>
+		<expression>Сумма(ПопаданиеВоВременноеОкно)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПопаданиеВоВременноеОкноПроцент</dataPath>
+		<expression>ВЫБОР КОГДА Сумма(Выполнен) = 0 Тогда 0 Иначе 100 * Сумма(ПопаданиеВоВременноеОкно) / Сумма(Выполнен) Конец</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеОтВременногоОкна</dataPath>
+		<expression>Сумма(ОтклонениеОтВременногоОкна)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаФактПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(СтоянкаФакт)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаФакт</dataPath>
+		<expression>Сумма(СтоянкаФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаПланПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(СтоянкаПлан)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаПлан</dataPath>
+		<expression>Сумма(СтоянкаПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениПрибытияПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(ОтклонениеВремениПрибытия)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениУбытияПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(ОтклонениеВремениУбытия)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеСтоянкиПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(ОтклонениеСтоянки)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоСтрок</dataPath>
+		<expression>Сумма(КоличествоСтрок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаФактПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаПланПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениУбытияПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеСтоянкиПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаПланЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоянкаФактЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениПрибытияЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеВремениУбытияЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеСтоянкиЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеОтВременногоОкнаЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОпозданий</dataPath>
+		<expression>Сумма(КоличествоОпозданий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентОпозданий</dataPath>
+		<expression>ВЫБОР КОГДА Сумма(Выполнен) = 0 Тогда 0 Иначе  Сумма(ПроцентОпозданий) / Сумма(Выполнен) Конец</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтклонениеОпозданий</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЦелевойПоказательОпозданий</dataPath>
+		<expression>Минимум(ЦелевойПоказательОпозданий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОпозданиеФакт</dataPath>
+		<expression>Сумма(ОпозданиеФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОпозданиеФактЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПростойФакт</dataPath>
+		<expression>Сумма(ПростойФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПростойФактЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПростойФактПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(ПростойФакт)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПростойФактПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОпозданиеФактПоПунктам</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Максимум(ОпозданиеФакт)", "ПрибытиеПлан, Пункт, МаршрутныйЛист"))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОпозданиеФактПоПунктамЧЧММ</dataPath>
+		<expression>0</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Organization</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Водитель</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Водитель</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Driver</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ФизическиеЛица</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Перевозчик</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Перевозчик</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Carrier</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>ВыводитьВремяВФорматеЧЧММ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выводить время в формате ЧЧ:ММ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Display the time in the format HH:MM</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Выполнен</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2, ЧН=0</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> из </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> из </v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2, ЧН=0</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">КоличествоСтрок</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2, ЧН=0</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>, </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>, </v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2, ЧН=0</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ВыполненПроцент</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2, ЧН=0</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> %</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> %</v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2, ЧН=0</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Выполнен</dcsat:name>
+			<dcsat:expression>Формат(Выполнен, "ЧН=0")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>КоличествоСтрок</dcsat:name>
+			<dcsat:expression>КоличествоСтрок</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ВыполненПроцент</dcsat:name>
+			<dcsat:expression>Формат(ВыполненПроцент, "ЧН=0; ЧДЦ=2")</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПопаданиеВоВременноеОкно</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> из </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> из </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Выполнен</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>, </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>, </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПопаданиеВоВременноеОкноПроцент</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> %</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> %</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПопаданиеВоВременноеОкно</dcsat:name>
+			<dcsat:expression>Формат(ПопаданиеВоВременноеОкно, "ЧН=0")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Выполнен</dcsat:name>
+			<dcsat:expression>Выполнен</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПопаданиеВоВременноеОкноПроцент</dcsat:name>
+			<dcsat:expression>Формат(ПопаданиеВоВременноеОкноПроцент, "ЧН=0; ЧДЦ=2")</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет3</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СтоянкаФактПоПунктамЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СтоянкаФактПоПунктамЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(СтоянкаФактПоПунктам/60) + (СтоянкаФактПоПунктам - Цел(СтоянкаФактПоПунктам/60)*60)/100
+Иначе
+СтоянкаФактПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет4</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СтоянкаПланПоПунктамЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СтоянкаПланПоПунктамЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(СтоянкаПланПоПунктам/60) + (СтоянкаПланПоПунктам - Цел(СтоянкаПланПоПунктам/60)*60)/100
+Иначе
+СтоянкаПланПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет5</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеСтоянкиПоПунктамЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеСтоянкиПоПунктам/60) + (ОтклонениеСтоянкиПоПунктам - Цел(ОтклонениеСтоянкиПоПунктам/60)*60)/100
+Иначе
+ОтклонениеСтоянкиПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет6</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеВремениУбытияПоПунктам/60) + (ОтклонениеВремениУбытияПоПунктам - Цел(ОтклонениеВремениУбытияПоПунктам/60)*60)/100
+Иначе
+ОтклонениеВремениУбытияПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет8</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОжиданиеПланЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОжиданиеПланЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОжиданиеПлан/60) + (ОжиданиеПлан - Цел(ОжиданиеПлан/60)*60)/100
+Иначе
+ОжиданиеПлан/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет9</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеВремениПрибытияПоПунктам/60) + (ОтклонениеВремениПрибытияПоПунктам - Цел(ОтклонениеВремениПрибытияПоПунктам/60)*60)/100
+Иначе
+ОтклонениеВремениПрибытияПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет10</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеВремениПрибытияЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеВремениПрибытияЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеВремениПрибытия/60) + (ОтклонениеВремениПрибытия - Цел(ОтклонениеВремениПрибытия/60)*60)/100
+Иначе
+ОтклонениеВремениПрибытия/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет11</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеВремениУбытияЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеВремениУбытияЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеВремениУбытия/60) + (ОтклонениеВремениУбытия - Цел(ОтклонениеВремениУбытия/60)*60)/100
+Иначе
+ОтклонениеВремениУбытия/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет12</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеСтоянкиЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеСтоянкиЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеСтоянки/60) + (ОтклонениеСтоянки - Цел(ОтклонениеСтоянки/60)*60)/100
+Иначе
+ОтклонениеСтоянки/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет13</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СтоянкаПланЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СтоянкаПланЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(СтоянкаПлан/60) + (СтоянкаПлан - Цел(СтоянкаПлан/60)*60)/100
+Иначе
+СтоянкаПлан/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет14</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СтоянкаФактЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СтоянкаФактЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(СтоянкаФакт/60) + (СтоянкаФакт - Цел(СтоянкаФакт/60)*60)/100
+Иначе
+СтоянкаФакт/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет15</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеОтВременногоОкнаЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеОтВременногоОкнаЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОтклонениеОтВременногоОкна/60) + (ОтклонениеОтВременногоОкна - Цел(ОтклонениеОтВременногоОкна/60)*60)/100
+Иначе
+ОтклонениеОтВременногоОкна/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет16</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">КоличествоОпозданий</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> of </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> из </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Выполнен</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>, </v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>, </v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПроцентОпозданий</dcsat:value>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content> %</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content> %</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>КоличествоОпозданий</dcsat:name>
+			<dcsat:expression>Формат(КоличествоОпозданий, "ЧН=0")</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Выполнен</dcsat:name>
+			<dcsat:expression>Выполнен</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПроцентОпозданий</dcsat:name>
+			<dcsat:expression>Формат(ПроцентОпозданий, "ЧН=0; ЧДЦ=2")</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет17</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОтклонениеОпозданий</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОтклонениеОпозданий</dcsat:name>
+			<dcsat:expression>Формат(ПроцентОпозданий - ЦелевойПоказательОпозданий, "ЧН=0; ЧДЦ=2") </dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет18</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПростойФактЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПростойФактЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ПростойФакт/60) + (ПростойФакт - Цел(ПростойФакт/60)*60)/100
+Иначе
+ПростойФакт/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет19</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОпозданиеФактЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОпозданиеФактЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОпозданиеФакт/60) + (ОпозданиеФакт - Цел(ОпозданиеФакт/60)*60)/100
+Иначе
+ОпозданиеФакт/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет20</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОпозданиеФактПоПунктам</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧРД=:</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОпозданиеФактПоПунктам</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОпозданиеФактПоПунктам/60) + (ОпозданиеФактПоПунктам - Цел(ОпозданиеФактПоПунктам/60)*60)/100
+Иначе
+ОпозданиеФактПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет21</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПростойФактПоПунктам</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧРД=:</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПростойФактПоПунктам</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ПростойФактПоПунктам/60) + (ПростойФактПоПунктам - Цел(ПростойФактПоПунктам/60)*60)/100
+Иначе
+ПростойФактПоПунктам/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет22</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОжиданиеФактЧЧММ</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОжиданиеФактЧЧММ</dcsat:name>
+			<dcsat:expression>Выбор Когда ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ Тогда Цел(ОжиданиеФакт/60) + (ОжиданиеФакт - Цел(ОжиданиеФакт/60)*60)/100
+Иначе
+ОжиданиеФакт/60
+Конец</dcsat:expression>
+		</parameter>
+	</template>
+	<fieldTemplate>
+		<field>Выполнен</field>
+		<template>Макет1</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ПопаданиеВоВременноеОкно</field>
+		<template>Макет2</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>СтоянкаФактПоПунктамЧЧММ</field>
+		<template>Макет3</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>СтоянкаПланПоПунктамЧЧММ</field>
+		<template>Макет4</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</field>
+		<template>Макет9</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеВремениУбытияПоПунктамЧЧММ</field>
+		<template>Макет6</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеСтоянкиПоПунктамЧЧММ</field>
+		<template>Макет5</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОжиданиеПланЧЧММ</field>
+		<template>Макет8</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеВремениПрибытияЧЧММ</field>
+		<template>Макет10</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеВремениУбытияЧЧММ</field>
+		<template>Макет11</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеСтоянкиЧЧММ</field>
+		<template>Макет12</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>СтоянкаПланЧЧММ</field>
+		<template>Макет13</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>СтоянкаФактЧЧММ</field>
+		<template>Макет14</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеОтВременногоОкнаЧЧММ</field>
+		<template>Макет15</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>КоличествоОпозданий</field>
+		<template>Макет16</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОтклонениеОпозданий</field>
+		<template>Макет17</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ПростойФактЧЧММ</field>
+		<template>Макет18</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОпозданиеФактЧЧММ</field>
+		<template>Макет19</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОпозданиеФактПоПунктамЧЧММ</field>
+		<template>Макет20</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ПростойФактПоПунктамЧЧММ</field>
+		<template>Макет21</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОжиданиеФактЧЧММ</field>
+		<template>Макет22</template>
+	</fieldTemplate>
+	<settingsVariant>
+		<dcsset:name>Показатели выполнения Маршрутных листов (без группировок)</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Показатели выполнения Маршрутных листов</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Indicators of routing lists execution</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаршрутныйЛист</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Перевозчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пункт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказГрузоотправителя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выполнен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ВыполненПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПопаданиеВоВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеОтВременногоОкна</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениПрибытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОпозданиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениУбытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПростойФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеСтоянки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦелевойПоказательОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОпозданий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Пункт</dcsset:left>
+					<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>83e5b4cc-c741-4d78-8594-246ac049355b</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>17a4169b-c369-49d6-a7b7-9d74cffcf84d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Водитель</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>a602e188-58e7-46eb-986e-2ac9470cf231</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Перевозчик</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>f7a37d00-d734-4cfc-8616-f5e158627448</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ВыполненПроцент</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Показатели выполнения Маршрутных листов (по перевозчикам и водителям)</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Показатели выполнения Маршрутных листов (по перевозчикам и водителям)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пункт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выполнен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ВыполненПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПопаданиеВоВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеОтВременногоОкна</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОжиданиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОжиданиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаПланПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаФактПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеСтоянкиПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениУбытияПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПростойФактПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениПрибытияПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОпозданиеФактПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦелевойПоказательОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОпозданий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Пункт</dcsset:left>
+					<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>16d9bd3b-a507-4b3e-8ac0-55655c33195c</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>8d7dbc96-43fa-40a5-b896-170cd180b645</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Водитель</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>c05fea09-1fa6-4168-9f1c-935c6f5abd83</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Перевозчик</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>2f3de358-c7db-4c63-b632-557cae7fc68f</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ВыполненПроцент</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Перевозчик</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Водитель</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>МаршрутныйЛист</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Пункт</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ПрибытиеПлан</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ПрибытиеФакт</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>УбытиеПлан</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>УбытиеФакт</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ОжиданиеПлан</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ОжиданиеФакт</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemField">
+									<dcsset:field>ПрибытиеПлан</dcsset:field>
+									<dcsset:orderType>Asc</dcsset:orderType>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Показатели выполнения Маршрутных листов (по пунктам назначения)</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Показатели выполнения Маршрутных листов (по пунктам назначения)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Performance of Route Sheets (by destination)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выполнен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ВыполненПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПопаданиеВоВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеОтВременногоОкна</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениПрибытияПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОпозданиеФактПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениУбытияПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПростойФактПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОжиданиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОжиданиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаПланПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаФактПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеСтоянкиПоПунктам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦелевойПоказательОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОпозданий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Пункт</dcsset:left>
+					<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>025fc528-dc1f-4142-bc88-57d16cf73f76</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>3040f18f-bb94-4b35-b54c-5896fada03da</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Водитель</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>25d6c9c1-663d-4698-8704-6aed51e05de4</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Перевозчик</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>d54100ba-7f5c-448b-acde-8fb79e901467</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ВыполненПроцент</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Пункт</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>МаршрутныйЛист</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Водитель</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Перевозчик</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ПрибытиеПлан</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ПрибытиеФакт</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>УбытиеПлан</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>УбытиеФакт</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ОжиданиеПлан</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ОжиданиеФакт</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>ПрибытиеПлан</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Показатели выполнения Маршрутных листов (по контрагентам и заказам на ТС)</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Показатели выполнения Маршрутных листов (по контрагентам и заказам на ТС)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Performance indicators for Route Sheets (by counterparties and vehicle orders)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пункт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выполнен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ВыполненПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПопаданиеВоВременноеОкно</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеОтВременногоОкна</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениПрибытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОпозданиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УбытиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеВремениУбытия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПростойФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжиданиеФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоянкаФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОтклонениеСтоянки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказГрузоотправителя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаршрутныйЛист</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Перевозчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦелевойПоказательОпозданий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтклонениеОпозданий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Пункт</dcsset:left>
+					<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>416155cd-5af3-4b2f-80d0-55fe172abe7a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>a266fd99-5e23-46dc-9725-f5ac0f0398e5</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Водитель</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>875e795e-fdaf-4b42-8da7-537e82e21402</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Перевозчик</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>4c00a9f5-3631-4b0d-91c0-84d8ad845cf8</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ВыполненПроцент</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПопаданиеВоВременноеОкноПроцент</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Контрагент</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;Контрагент не заполнен&gt;</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>&lt;Counterparty not filled in&gt;</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ЗаказГрузоотправителя</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЗаказГрузоотправителя</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;Заказ не заполнен&gt;</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>&lt;Order not filled&gt;</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2; ЧРД=:</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжиданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОпозданиеФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениПрибытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеВремениУбытияЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеОтВременногоОкнаЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОтклонениеСтоянкиЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПростойФактЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаПланЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактПоПунктамЧЧММ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтоянкаФактЧЧММ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ВыводитьВремяВФорматеЧЧММ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Контрагент</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ЗаказГрузоотправителя</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>МаршрутныйЛист</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Водитель</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Перевозчик</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

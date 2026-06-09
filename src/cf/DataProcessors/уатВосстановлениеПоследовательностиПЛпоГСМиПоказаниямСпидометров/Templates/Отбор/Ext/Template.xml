@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТранспортноеСредство</dataPath>
+			<field>ТранспортноеСредство</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПутевойЛист.Оборудование</dataPath>
+			<field>ПутевойЛист.Оборудование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путевой лист.Оборудование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Waybill. Equipment</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldNestedDataSet">
+			<dataPath>ПутевойЛист</dataPath>
+			<field>ПутевойЛист</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыезда</dataPath>
+			<field>ДатаВыезда</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата выезда</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date of departure</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВозвращения</dataPath>
+			<field>ДатаВозвращения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата возвращения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date of return</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатПутевойЛист.Ссылка КАК Ссылка,
+	уатПутевойЛист.ТранспортноеСредство КАК ТранспортноеСредство,
+	уатПутевойЛист.Водитель1 КАК Водитель
+ПОМЕСТИТЬ тблПЛ
+ИЗ
+	Документ.уатПутевойЛист КАК уатПутевойЛист
+ГДЕ
+	уатПутевойЛист.Дата МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+	И уатПутевойЛист.Организация = &amp;Организация
+	И уатПутевойЛист.Проведен
+	И уатПутевойЛист.Рассчитан
+	И &amp;ИспользоватьПЛ
+{ГДЕ
+	уатПутевойЛист.Ссылка.Прицепы.(
+		(ТС).* КАК Оборудование
+	)  КАК ПутевойЛист}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	уатТехнологическийПутевойЛист.Ссылка,
+	уатТехнологическийПутевойЛист.ТС,
+	уатТехнологическийПутевойЛист.Водитель
+ИЗ
+	Документ.уатТехнологическийПутевойЛист КАК уатТехнологическийПутевойЛист
+ГДЕ
+	уатТехнологическийПутевойЛист.Дата МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+	И уатТехнологическийПутевойЛист.Организация = &amp;Организация
+	И уатТехнологическийПутевойЛист.Проведен
+	И уатТехнологическийПутевойЛист.Рассчитан
+	И &amp;ИспользоватьТПЛ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	тблПЛ.Ссылка КАК Документ,
+	тблПЛ.ТранспортноеСредство КАК ТранспортноеСредство,
+	тблПЛ.Водитель КАК Водитель
+{ВЫБРАТЬ
+	Документ.* КАК Документ}
+ИЗ
+	тблПЛ КАК тблПЛ
+{ГДЕ
+	тблПЛ.Ссылка.* КАК Документ,
+	тблПЛ.ТранспортноеСредство.*,
+	тблПЛ.Водитель.*,
+	тблПЛ.Ссылка.ДатаВыезда КАК ДатаВыезда,
+	тблПЛ.Ссылка.ДатаВозвращения КАК ДатаВозвращения}
+
+УПОРЯДОЧИТЬ ПО
+	тблПЛ.Ссылка.ДатаВыезда</query>
+	</dataSet>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания периода ПЛ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала периода ПЛ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Start date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Company</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ИспользоватьПЛ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Использовать ПЛ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Use PL</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ИспользоватьТПЛ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Использовать ТПЛ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Use TPL</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Документ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

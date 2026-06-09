@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерМаршрута</dataPath>
+			<field>НомерМаршрута</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПометкаУдаления</dataPath>
+			<field>ПометкаУдаления</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Родитель</dataPath>
+			<field>Родитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВПути</dataPath>
+			<field>ВремяВПути</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расстояние</dataPath>
+			<field>Расстояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИспользоватьДляПланированияВАРМЛогиста</dataPath>
+			<field>ИспользоватьДляПланированияВАРМЛогиста</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УсловиеРаботы</dataPath>
+			<field>УсловиеРаботы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяОтправления</dataPath>
+			<field>ВремяОтправления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Маршрут</dataPath>
+			<field>Маршрут</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Route</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатМаршруты.Ссылка КАК Маршрут,
+	уатМаршруты.ПометкаУдаления КАК ПометкаУдаления,
+	уатМаршруты.Родитель КАК Родитель,
+	уатМаршруты.Наименование КАК Наименование,
+	уатМаршруты.ВремяВПути КАК ВремяВПути,
+	уатМаршруты.НомерМаршрута КАК НомерМаршрута,
+	уатМаршруты.Расстояние КАК Расстояние,
+	уатМаршруты.ИспользоватьДляПланированияВАРМЛогиста КАК ИспользоватьДляПланированияВАРМЛогиста,
+	уатМаршруты.УсловиеРаботы КАК УсловиеРаботы,
+	уатМаршруты.Статус КАК Статус,
+	уатМаршруты.ВремяОтправления КАК ВремяОтправления,
+	уатМаршрутыТранспортныеСредства.ТС КАК ТС
+ИЗ
+	Справочник.уатМаршруты КАК уатМаршруты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.уатМаршруты.ТранспортныеСредства КАК уатМаршрутыТранспортныеСредства
+		ПО уатМаршруты.Ссылка = уатМаршрутыТранспортныеСредства.Ссылка
+ГДЕ
+	уатМаршруты.ПометкаУдаления = ЛОЖЬ
+	И уатМаршруты.ИспользоватьДляПланированияВАРМЛогиста = ИСТИНА
+	И уатМаршруты.Статус = ЗНАЧЕНИЕ(Перечисление.уатСтатусыДействия.Действует)</query>
+	</dataSet>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Маршрут</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Маршрут</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТС</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

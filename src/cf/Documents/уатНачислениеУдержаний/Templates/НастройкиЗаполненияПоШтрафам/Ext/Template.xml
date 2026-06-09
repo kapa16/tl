@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаШтрафа</dataPath>
+			<field>СуммаШтрафа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма штрафа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fine amount</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерПостановления</dataPath>
+			<field>НомерПостановления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПринадлежностьШтрафа</dataPath>
+			<field>ПринадлежностьШтрафа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принадлежность штрафа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Ownership of the fine</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ШтрафПроверен</dataPath>
+			<field>ШтрафПроверен</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	уатНачислениеУдержанийУдержания.Основание КАК Основание
+ПОМЕСТИТЬ втУдержанныеШтрафы
+ИЗ
+	Документ.уатНачислениеУдержаний.Удержания КАК уатНачислениеУдержанийУдержания
+ГДЕ
+	НЕ уатНачислениеУдержанийУдержания.Ссылка.ПометкаУдаления
+	И НЕ уатНачислениеУдержанийУдержания.Основание = ЗНАЧЕНИЕ(Документ.уатШтраф.ПустаяСсылка)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	уатШтраф.Ссылка КАК Ссылка,
+	уатШтраф.Организация КАК Организация,
+	уатШтраф.Водитель КАК Водитель,
+	уатШтраф.ТС КАК ТС,
+	ВЫБОР
+		КОГДА уатШтраф.ОплатаСоСкидкой
+			ТОГДА уатШтраф.СуммаШтрафа * (1 - уатШтраф.РазмерСкидки / 100)
+		ИНАЧЕ уатШтраф.СуммаШтрафа
+	КОНЕЦ КАК СуммаШтрафа,
+	уатШтраф.НомерПостановления КАК НомерПостановления
+ИЗ
+	Документ.уатШтраф КАК уатШтраф
+ГДЕ
+	НЕ уатШтраф.ПометкаУдаления
+	И уатШтраф.ДатаПостановления МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+	И НЕ уатШтраф.Ссылка В
+				(ВЫБРАТЬ
+					втУдержанныеШтрафы.Основание
+				ИЗ
+					втУдержанныеШтрафы)
+{ГДЕ
+	уатШтраф.Организация.*,
+	уатШтраф.Водитель.*,
+	уатШтраф.ПринадлежностьШтрафа.*,
+	уатШтраф.ШтрафПроверен}</query>
+	</dataSet>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата кон</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Date end</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата нач</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Start date</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерПостановления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаШтрафа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Водитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПринадлежностьШтрафа</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ШтрафПроверен</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

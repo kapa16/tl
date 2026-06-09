@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Укажите упаковку/базовую единицу измерения номенклатуры</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаВидУпаковки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидУпаковкиРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<RadioButtonField name="ВидУпаковки" id="3">
+					<DataPath>ВидУпаковки</DataPath>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ColumnsCount>2</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xs:string">Упаковка</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xs:string">Разупаковка</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВидУпаковкиКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ВидУпаковкиРасширеннаяПодсказка" id="5"/>
+					<Events>
+						<Event name="OnChange">ВидУпаковкиПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<Pages name="СтраницыВидовУпаковки" id="55">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы видов упаковки</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыВидовУпаковкиРасширеннаяПодсказка" id="56"/>
+					<ChildItems>
+						<Page name="СтраницаУпаковка" id="57">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница упаковка</v8:content>
+								</v8:item>
+							</Title>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="СтраницаУпаковкаРасширеннаяПодсказка" id="58"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаУпаковки" id="6">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа упаковки</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаУпаковкиРасширеннаяПодсказка" id="7"/>
+									<ChildItems>
+										<UsualGroup name="Группа" id="86">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="87"/>
+											<ChildItems>
+												<InputField name="КоличествоУпаковок" id="83">
+													<DataPath>КоличествоУпаковок</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Right</HorizontalAlign>
+													<ContextMenu name="КоличествоУпаковокКонтекстноеМеню" id="84"/>
+													<ExtendedTooltip name="КоличествоУпаковокРасширеннаяПодсказка" id="85"/>
+												</InputField>
+												<InputField name="НаименованиеУпаковки" id="26">
+													<DataPath>НаименованиеУпаковки</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Укажите упаковку</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="НаименованиеУпаковкиКонтекстноеМеню" id="27"/>
+													<ExtendedTooltip name="НаименованиеУпаковкиРасширеннаяПодсказка" id="28"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="ДекорацияСостоитИз" id="32">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>состоит из</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияСостоитИзКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="ДекорацияСостоитИзРасширеннаяПодсказка" id="34"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаБазоваяЕдиницаИзмерения" id="35">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа базовая единица измерения</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаБазоваяЕдиницаИзмеренияРасширеннаяПодсказка" id="36"/>
+									<ChildItems>
+										<InputField name="КоличествоБазовойЕдиницыИзмерения" id="29">
+											<DataPath>КоличествоБазовойЕдиницыИзмерения</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ChoiceButton>false</ChoiceButton>
+											<ContextMenu name="КоличествоБазовойЕдиницыИзмеренияКонтекстноеМеню" id="30"/>
+											<ExtendedTooltip name="КоличествоБазовойЕдиницыИзмеренияРасширеннаяПодсказка" id="31"/>
+										</InputField>
+										<InputField name="НаименованиеБазовойЕдиницыИзмерения" id="40">
+											<DataPath>НаименованиеБазовойЕдиницыИзмерения</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>30</MaxWidth>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Укажите базовую единицу измерения</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="НаименованиеБазовойЕдиницыИзмеренияКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="НаименованиеБазовойЕдиницыИзмеренияРасширеннаяПодсказка" id="42"/>
+										</InputField>
+										<InputField name="КодПоОКЕИ" id="43">
+											<DataPath>КодПоОКЕИ</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>8</Width>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Код по ОКЕИ</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="КодПоОКЕИКонтекстноеМеню" id="44"/>
+											<ExtendedTooltip name="КодПоОКЕИРасширеннаяПодсказка" id="45"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="СтраницаРазупаковка" id="59">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница разупаковка</v8:content>
+								</v8:item>
+							</Title>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="СтраницаРазупаковкаРасширеннаяПодсказка" id="60"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаРазупаковки" id="96">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа разупаковки</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаРазупаковкиРасширеннаяПодсказка" id="97"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаДанныеУпаковки" id="98">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа данные упаковки</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДанныеУпаковкиРасширеннаяПодсказка" id="99"/>
+											<ChildItems>
+												<InputField name="КоличествоДанныхУпаковки" id="100">
+													<DataPath>КоличествоУпаковок</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ChoiceButton>false</ChoiceButton>
+													<ContextMenu name="КоличествоДанныхУпаковкиКонтекстноеМеню" id="101"/>
+													<ExtendedTooltip name="КоличествоДанныхУпаковкиРасширеннаяПодсказка" id="102"/>
+												</InputField>
+												<InputField name="НаименованиеДанныхУпаковки" id="103">
+													<DataPath>НаименованиеУпаковки</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Укажите упаковку</v8:content>
+														</v8:item>
+													</InputHint>
+													<ContextMenu name="НаименованиеДанныхУпаковкиКонтекстноеМеню" id="104"/>
+													<ExtendedTooltip name="НаименованиеДанныхУпаковкиРасширеннаяПодсказка" id="105"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="ДекорацияСодержится" id="106">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>содержится</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияСодержитсяКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="ДекорацияСодержитсяРасширеннаяПодсказка" id="108"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаБазоваяЕдиницаИзмеренияРазупаковки" id="88">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа базовая единица измерения</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаБазоваяЕдиницаИзмеренияРазупаковкиРасширеннаяПодсказка" id="89"/>
+									<ChildItems>
+										<InputField name="КоличествоБазовойЕдиницыИзмеренияРазупаковки" id="109">
+											<DataPath>КоличествоБазовойЕдиницыИзмерения</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<ContextMenu name="КоличествоБазовойЕдиницыИзмеренияРазупаковкиКонтекстноеМеню" id="110"/>
+											<ExtendedTooltip name="КоличествоБазовойЕдиницыИзмеренияРазупаковкиРасширеннаяПодсказка" id="111"/>
+										</InputField>
+										<InputField name="НаименованиеБазовойЕдиницыИзмеренияРазупаковки" id="90">
+											<DataPath>НаименованиеБазовойЕдиницыИзмерения</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>30</MaxWidth>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Укажите базовую единицу измерения</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="НаименованиеБазовойЕдиницыИзмеренияРазупаковкиКонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="НаименованиеБазовойЕдиницыИзмеренияРазупаковкиРасширеннаяПодсказка" id="92"/>
+										</InputField>
+										<InputField name="КодПоОКЕИРазупаковки" id="93">
+											<DataPath>КодПоОКЕИ</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>8</Width>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Код по ОКЕИ</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="КодПоОКЕИРазупаковкиКонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="КодПоОКЕИРазупаковкиРасширеннаяПодсказка" id="95"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКнопок" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок</v8:content>
+				</v8:item>
+			</Title>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<Button name="СохранитьИзменения" id="49">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.СохранитьИзменения</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОК</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СохранитьИзмененияРасширеннаяПодсказка" id="50"/>
+				</Button>
+				<Button name="Отмена" id="53">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отмена</CommandName>
+					<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="54"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаименованиеУпаковки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="КоличествоУпаковок" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество упаковок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ВидУпаковки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КодПоОКЕИ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код по ОКЕИ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НаименованиеБазовойЕдиницыИзмерения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование базовой единицы измерения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="КоличествоБазовойЕдиницыИзмерения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество базовой единицы измерения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СохранитьИзменения" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить изменения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить изменения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьИзменения</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+	</Commands>
+</Form>

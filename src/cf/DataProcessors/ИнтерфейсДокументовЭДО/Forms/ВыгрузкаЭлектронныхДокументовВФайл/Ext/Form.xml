@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<ButtonGroup name="ГруппаКнопок" id="157">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа кнопок</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГруппаКнопокРасширеннаяПодсказка" id="177"/>
+				<ChildItems>
+					<Button name="КнопкаВыполнить" id="143">
+						<Type>CommandBarButton</Type>
+						<DefaultButton>true</DefaultButton>
+						<CommandName>Form.Command.Выполнить</CommandName>
+						<ExtendedTooltip name="КнопкаВыполнитьРасширеннаяПодсказка" id="178"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Панель" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="179"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьИнформация" id="197">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>65</MaxWidth>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выгружаемые документы не являются юридически значимыми, используются только для информационного обмена с учетной программой контрагента, т.е. носят уведомительный характер.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьИнформацияКонтекстноеМеню" id="198"/>
+					<ExtendedTooltip name="НадписьИнформацияРасширеннаяПодсказка" id="199"/>
+				</LabelDecoration>
+				<RadioButtonField name="СпособВыгрузки" id="132">
+					<DataPath>СпособВыгрузки</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ColumnsCount>1</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>На диск</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ЧерезКаталог</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Вложение в эл. письмо</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ЧерезЭлектроннуюПочту</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="СпособВыгрузкиКонтекстноеМеню" id="133"/>
+					<ExtendedTooltip name="СпособВыгрузкиРасширеннаяПодсказка" id="183"/>
+					<Events>
+						<Event name="OnChange">СпособВыгрузкиПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<Pages name="СтраницыПолучателей" id="134">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы получателей</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="СтраницыПолучателейРасширеннаяПодсказка" id="184"/>
+					<ChildItems>
+						<Page name="ЕстьДоступ" id="166">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Есть доступ</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ЕстьДоступРасширеннаяПодсказка" id="188"/>
+							<ChildItems>
+								<InputField name="АдресПолучателя" id="139">
+									<DataPath>АдресПолучателя</DataPath>
+									<Width>31</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ChooseType>false</ChooseType>
+									<ContextMenu name="АдресПолучателяКонтекстноеМеню" id="140"/>
+									<ExtendedTooltip name="АдресПолучателяРасширеннаяПодсказка" id="189"/>
+								</InputField>
+								<InputField name="УчетнаяЗапись" id="141">
+									<DataPath>УчетнаяЗапись</DataPath>
+									<ContextMenu name="УчетнаяЗаписьКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="УчетнаяЗаписьРасширеннаяПодсказка" id="190"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="НетДоступа" id="171">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Нет доступа</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="НетДоступаРасширеннаяПодсказка" id="191"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаПредупреждения" id="172">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа предупреждения</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПредупрежденияРасширеннаяПодсказка" id="192"/>
+									<ChildItems>
+										<PictureDecoration name="ПредупреждениеКартинка" id="173">
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Предупреждение картинка</v8:content>
+												</v8:item>
+											</Title>
+											<Picture>
+												<xr:Ref>CommonPicture.Предупреждение</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ПредупреждениеКартинкаКонтекстноеМеню" id="174"/>
+											<ExtendedTooltip name="ПредупреждениеКартинкаРасширеннаяПодсказка" id="193"/>
+										</PictureDecoration>
+										<LabelDecoration name="ТекстПредупреждения" id="175">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нет прав на использование электронной почты</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ТекстПредупрежденияКонтекстноеМеню" id="176"/>
+											<ExtendedTooltip name="ТекстПредупрежденияРасширеннаяПодсказка" id="194"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<UsualGroup name="ГруппаГиперссылка" id="160">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа гиперссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаГиперссылкаРасширеннаяПодсказка" id="195"/>
+					<ChildItems>
+						<LabelDecoration name="ПредварительныйПросмотрДокумента" id="161">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>&lt;&gt;</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ПредварительныйПросмотрДокументаКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="ПредварительныйПросмотрДокументаРасширеннаяПодсказка" id="196"/>
+							<Events>
+								<Event name="Click">ПросмотрДокументовНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СпособВыгрузки" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ выгрузки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>СпособВыгрузки</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="АдресПолучателя" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес эл. почты контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КонтрагентБЭД</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="УчетнаяЗапись" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись эл. почты организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.УчетныеЗаписиЭлектроннойПочты</v8:Type>
+			</Type>
+			<Save>
+				<Field>УчетнаяЗапись</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ТаблицаДанных" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ПолноеИмяФайла" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полное имя файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяФайла" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НаправлениеЭД" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.НаправленияЭДО</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Контрагент" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.КонтрагентБЭД</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="УникальныйИдентификатор" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уникальный идентификатор</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВладелецЭД" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Владелец ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="АдресХранилищаПакета" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес хранилища пакета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПолноеИмяДопФайла" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полное имя доп файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторДопФайла" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор доп файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="АдресХранилищаФайла" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес хранилища файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="АдресХранилища" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторЗадания" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РезультатВыполненияЗадания" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат выполнения задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="КонтекстОперации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контекст операции</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Ошибки" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выполнить" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьДействие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelImportant</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

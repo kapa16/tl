@@ -1,0 +1,2299 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыезда</dataPath>
+			<field>ДатаВыезда</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТабельныйНомер</dataPath>
+			<field>ТабельныйНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Табельный номер</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Personnel number</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель</dataPath>
+			<field>Водитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Driver</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГаражныйНомер</dataPath>
+			<field>ГаражныйНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гаражный номер</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Garage number</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерДокумента</dataPath>
+			<field>НомерДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер документа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document number</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПЛ</dataPath>
+			<field>ВидПЛ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТабельныйНомер2</dataPath>
+			<field>ТабельныйНомер2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Табельный номер2</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Personnel index2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Водитель2</dataPath>
+			<field>Водитель2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Журнал</dataPath>
+			<field>Журнал</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатПутевойЛист.Ссылка КАК Документ,
+	уатПутевойЛист.Номер КАК НомерДокумента,
+	уатПутевойЛист.ДатаВыезда КАК ДатаВыезда,
+	уатПутевойЛист.Организация КАК Организация,
+	уатПутевойЛист.ВидПЛ КАК ВидПЛ,
+	уатПутевойЛист.ТранспортноеСредство КАК ТС,
+	уатПутевойЛист.ТранспортноеСредство.ГаражныйНомер КАК ГаражныйНомер,
+	уатПутевойЛист.Водитель1 КАК Водитель,
+	уатПутевойЛист.Водитель1.Код КАК ТабельныйНомер,
+	уатПутевойЛист.Водитель2 КАК Водитель2,
+	уатПутевойЛист.Водитель2.Код КАК ТабельныйНомер2,
+	уатПутевойЛист.Подразделение КАК Подразделение,
+	уатПутевойЛист.Журнал КАК Журнал
+ИЗ
+	Документ.уатПутевойЛист КАК уатПутевойЛист
+ГДЕ
+	НЕ уатПутевойЛист.ПометкаУдаления
+	И уатПутевойЛист.ДатаВыезда МЕЖДУ &amp;ДатаНач И &amp;ДатаКон
+	И (&amp;ОтображатьВыбывшиеТС
+			ИЛИ уатПутевойЛист.ТранспортноеСредство.ДатаВыбытия = ДАТАВРЕМЯ(1, 1, 1))</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных2</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Колонна</dataPath>
+			<field>Колонна</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодСрез</dataPath>
+			<field>ПериодСрез</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период срез</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period cut</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	&amp;ПериодСрез КАК ПериодСрез,
+	уатМестонахождениеТССрезПоследних.ТС КАК ТС,
+	уатМестонахождениеТССрезПоследних.Колонна КАК Колонна
+ИЗ
+	РегистрСведений.уатМестонахождениеТС.СрезПоследних(&amp;ПериодСрез, ТС = &amp;ТС) КАК уатМестонахождениеТССрезПоследних</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>ТС</sourceExpression>
+		<destinationExpression>ТС</destinationExpression>
+		<parameter>ТС</parameter>
+		<parameterListAllowed>false</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>ДатаВыезда</sourceExpression>
+		<destinationExpression>ПериодСрез</destinationExpression>
+		<parameter>ПериодСрез</parameter>
+		<parameterListAllowed>false</parameterListAllowed>
+	</dataSetLink>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПечататьОбложку</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Печатать обложку</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Print cover</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ОтображатьВыбывшиеТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать выбывшие ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Show decommissioning vehicles</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодСрез</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период срез</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period cut</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Vehicle</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.уатТС</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Номер</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">Документ</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ДатаВыезда</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">Документ</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ВодительФИО</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">Водитель</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ТабельныйНомер</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">Водитель</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ГаражныйНомер</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">ТС</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Номер</dcsat:name>
+			<dcsat:expression>Номер</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ДатаВыезда</dcsat:name>
+			<dcsat:expression>ДатаВыезда</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ВодительФИО</dcsat:name>
+			<dcsat:expression>ВодительФИО</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ГаражныйНомер</dcsat:name>
+			<dcsat:expression>ГаражныйНомер</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>ТС</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>ТС</dcsat:field>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>Водитель</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>Водитель</dcsat:field>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ТабельныйНомер</dcsat:name>
+			<dcsat:expression>ТабельныйНомер</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>Документ</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>Документ</dcsat:field>
+			</dcsat:fieldExpression>
+			<dcsat:mainAction>OpenValue</dcsat:mainAction>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Сверху</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Сверху</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Водитель</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Driver</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Сверху</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="11.3" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Сверху</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подпись</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Signature</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Сверху</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="11.3" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Сверху</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">18.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номер путевого листа</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Waybill number</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дата выдачи путевого листа</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Issue date of waybill</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>фамилия, имя, отчество</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>last name, name, patronymic name</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>табельный номер</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>personnel number</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Гаражный номер</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Garage number</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>водителя в получении путевого листа</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>driver get waybill</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>диспетчера и дата приемки путевого листа и документов от водителя</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>dispatch operator and date of acceptance of waybill and documents from driver</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>бухгалтера и дата приемки путевого листа</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>accountant and waybill receipt date</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Примечание</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Note</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">42.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>1</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>1</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>2</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>2</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>3</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>3</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>4</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>4</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>5</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>5</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>6</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>6</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>7</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>7</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>8</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>8</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>9</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>9</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>СтильГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Line" width="0" gap="false">
+								<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+							</dcscor:value>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Слева</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item>
+								<dcscor:parameter>СтильГраницы.Снизу</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Line" width="1" gap="false">
+									<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Double</v8ui:style>
+								</dcscor:value>
+							</dcscor:item>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">14.25</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ОбъединятьПоГоризонтали</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+	</template>
+	<groupTemplate>
+		<groupName>Строка</groupName>
+		<templateType>Header</templateType>
+		<template>Макет1</template>
+	</groupTemplate>
+	<groupHeaderTemplate>
+		<groupName>Строка</groupName>
+		<templateType>Header</templateType>
+		<template>Макет2</template>
+	</groupHeaderTemplate>
+	<settingsVariant>
+		<dcsset:name>Журнал путевых листов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Журнал путевых листов</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Waybill register</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Документ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВыезда</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГаражныйНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТабельныйНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Водитель2</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТабельныйНомер2</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>ba9409a5-b468-49ce-9adc-aa9d99d2d770</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Журнал</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидПЛ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Водитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Водитель2</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Колонна</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b53b7b40-e42c-40e9-9ded-eb20e4c1adcd</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНач</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>b945fc15-70f8-4160-a46b-fdbb8eb4b28f</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаКон</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>cc8b8a50-a348-4f78-939e-7bc24836802c</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПечататьОбложку</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>b16b9210-6b8a-4441-850d-99a50a3122b3</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>208b24ec-0c73-4375-b09a-7313eb3beed6</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>bc6c165d-8da8-423b-bc55-149aeb3af64b</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Журнал путевых листов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Waybill register</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

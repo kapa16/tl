@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВладелецТС</dataPath>
+			<field>ВладелецТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Владелец ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle owner</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Грузоподъемность</dataPath>
+			<field>Грузоподъемность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузоподъемность</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Carrying capacity</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемКузова</dataPath>
+			<field>ОбъемКузова</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем кузова</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Bulk volume</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СобственныйВес</dataPath>
+			<field>СобственныйВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Собственный вес</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Dead weight:</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕстьЭкипаж</dataPath>
+			<field>ЕстьЭкипаж</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть экипаж</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>There is a crew</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИндексКартинки</dataPath>
+			<field>ИндексКартинки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс картинки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Image index</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатТС.Ссылка КАК ТС,
+	уатТС.Модель КАК Модель,
+	уатТС.Модель.ОбъемКузова КАК ОбъемКузова,
+	уатТС.Модель.Грузоподъемность КАК Грузоподъемность,
+	ВЫБОР
+		КОГДА уатТС.СобственныйВес &lt;&gt; 0
+			ТОГДА уатТС.СобственныйВес
+		ИНАЧЕ уатТС.Модель.СобственныйВес
+	КОНЕЦ КАК СобственныйВес,
+	ВЫБОР
+		КОГДА уатТС.ПринадлежностьТС = ЗНАЧЕНИЕ(Перечисление.уатПринадлежностьТС.Привлеченное)
+			ТОГДА 4
+		КОГДА уатТС.ПринадлежностьТС = ЗНАЧЕНИЕ(Перечисление.уатПринадлежностьТС.Виртуальное)
+			ТОГДА 6
+		ИНАЧЕ 3
+	КОНЕЦ КАК ИндексКартинки,
+	ВЫБОР
+		КОГДА уатТС.ПринадлежностьТС = ЗНАЧЕНИЕ(Перечисление.уатПринадлежностьТС.Собственное)
+			ТОГДА уатТС.Организация
+		ИНАЧЕ уатТС.ВладелецТС
+	КОНЕЦ КАК ВладелецТС
+ПОМЕСТИТЬ ВТ_ТС
+ИЗ
+	Справочник.уатТС КАК уатТС
+ГДЕ
+	НЕ уатТС.ЭтоГруппа
+	И НЕ уатТС.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатЭкипажТС.ТС КАК ТС,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ уатЭкипажТС.Сотрудник) КАК ЕстьЭкипаж1
+ПОМЕСТИТЬ ВТ_Экипаж
+ИЗ
+	РегистрСведений.уатЭкипажТС КАК уатЭкипажТС
+ГДЕ
+	уатЭкипажТС.ЧленЭкипажа = ЗНАЧЕНИЕ(Перечисление.уатЧленыЭкипажа.ОсновнойВодитель)
+
+СГРУППИРОВАТЬ ПО
+	уатЭкипажТС.ТС
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатСостояниеТС.ТС КАК ТС,
+	уатСостояниеТС.Состояние КАК СостояниеТС
+ПОМЕСТИТЬ ВТ_Состояние
+ИЗ
+	РегистрСведений.уатСостояниеТС КАК уатСостояниеТС
+ГДЕ
+	уатСостояниеТС.Период &lt;= КОНЕЦПЕРИОДА(&amp;Период, ДЕНЬ)
+	И уатСостояниеТС.ДатаОкончания &gt;= НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ТС.ТС КАК ТС,
+	ВТ_ТС.Модель КАК Модель,
+	ВТ_ТС.ОбъемКузова КАК ОбъемКузова,
+	ВТ_ТС.Грузоподъемность КАК Грузоподъемность,
+	ВТ_ТС.СобственныйВес КАК СобственныйВес,
+	ВТ_ТС.ИндексКартинки КАК ИндексКартинки,
+	ВТ_ТС.ВладелецТС КАК ВладелецТС,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТ_Экипаж.ЕстьЭкипаж1, 0) = 0
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьЭкипаж
+ПОМЕСТИТЬ ВТ_Экипаж2
+ИЗ
+	ВТ_ТС КАК ВТ_ТС
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Экипаж КАК ВТ_Экипаж
+		ПО ВТ_ТС.ТС = ВТ_Экипаж.ТС
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Экипаж2.ТС КАК ТС,
+	ВТ_Экипаж2.Модель КАК Модель,
+	ВТ_Экипаж2.ОбъемКузова КАК ОбъемКузова,
+	ВТ_Экипаж2.Грузоподъемность КАК Грузоподъемность,
+	ВТ_Экипаж2.СобственныйВес КАК СобственныйВес,
+	ВТ_Экипаж2.ИндексКартинки КАК ИндексКартинки,
+	ВТ_Экипаж2.ВладелецТС КАК ВладелецТС,
+	ВТ_Экипаж2.ЕстьЭкипаж КАК ЕстьЭкипаж,
+	ЕСТЬNULL(ВТ_Состояние.СостояниеТС, ЗНАЧЕНИЕ(Справочник.уатСостояниеТС.ПустаяСсылка)) КАК Состояние
+ИЗ
+	ВТ_Экипаж2 КАК ВТ_Экипаж2
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Состояние КАК ВТ_Состояние
+		ПО ВТ_Экипаж2.ТС = ВТ_Состояние.ТС</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВладелецТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Грузоподъемность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕстьЭкипаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИндексКартинки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъемКузова</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СобственныйВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Состояние</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>6d15ae7c-fcd3-4798-ade4-4dbf37683e91</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

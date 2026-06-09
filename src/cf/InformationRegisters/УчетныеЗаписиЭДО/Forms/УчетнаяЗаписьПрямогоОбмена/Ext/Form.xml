@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandSet>
+		<ExcludedCommand>Delete</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаУдалить" id="83">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Удалить</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаУдалитьРасширеннаяПодсказка" id="84"/>
+			</Button>
+			<Popup name="ГруппаКонтекстныхПодсказок" id="108">
+				<ExtendedTooltip name="ГруппаКонтекстныхПодсказокРасширеннаяПодсказка" id="109"/>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ПанельКонтекстныхНовостей" id="85">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новости</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ToolTipBackColor</BackColor>
+			<ExtendedTooltip name="ПанельКонтекстныхНовостейРасширеннаяПодсказка" id="86"/>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<Page name="СтраницаОсновное" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаОсновноеРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<InputField name="СпособОбменаЭД" id="7">
+							<DataPath>Запись.СпособОбменаЭД</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Способ обмена</v8:content>
+								</v8:item>
+							</Title>
+							<ListChoiceMode>true</ListChoiceMode>
+							<TextEdit>false</TextEdit>
+							<BackColor>style:ФонУправляющегоПоля</BackColor>
+							<ContextMenu name="СпособОбменаЭДКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="СпособОбменаЭДРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">СпособОбменаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Организация" id="69">
+							<DataPath>Запись.Организация</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Организация</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="71"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Наименование" id="4">
+							<DataPath>Запись.НаименованиеУчетнойЗаписи</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+							<Events>
+								<Event name="OnChange">НаименованиеПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИдентификаторЭДО" id="1">
+							<DataPath>Запись.ИдентификаторЭДО</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификатор ЭДО</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ИдентификаторЭДОКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ИдентификаторЭДОРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<UsualGroup name="ГруппаОбменЧерезКаталог" id="74">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен через каталог</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОбменЧерезКаталогРасширеннаяПодсказка" id="75"/>
+							<ChildItems>
+								<InputField name="КаталогОбмена" id="10">
+									<DataPath>Запись.КаталогОбмена</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Каталог обмена</v8:content>
+										</v8:item>
+									</Title>
+									<ChoiceButton>true</ChoiceButton>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="КаталогОбменаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="КаталогОбменаРасширеннаяПодсказка" id="12"/>
+									<Events>
+										<Event name="OnChange">КаталогОбменаПриИзменении</Event>
+										<Event name="StartChoice">КаталогОбменаНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбменЧерезПочту" id="76">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен через почту</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОбменЧерезПочтуРасширеннаяПодсказка" id="77"/>
+							<ChildItems>
+								<InputField name="УчетнаяЗаписьЭлектроннойПочты" id="25">
+									<DataPath>Запись.УчетнаяЗаписьЭлектроннойПочты</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Учетная запись
+электронной почты</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="УчетнаяЗаписьЭлектроннойПочтыКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="УчетнаяЗаписьЭлектроннойПочтыРасширеннаяПодсказка" id="27"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбменЧерезFTP" id="78">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа обмен через FTP</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОбменЧерезFTPРасширеннаяПодсказка" id="79"/>
+							<ChildItems>
+								<InputField name="ПутьFTP" id="22">
+									<DataPath>Запись.ПутьFTP</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Путь к каталогу</v8:content>
+										</v8:item>
+									</Title>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ПутьFTPКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ПутьFTPРасширеннаяПодсказка" id="24"/>
+									<Events>
+										<Event name="OnChange">ПутьFTPПриИзменении</Event>
+									</Events>
+								</InputField>
+								<UsualGroup name="ГруппаПортПассивноеСоединение" id="72">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа порт пассивное соединение</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПортПассивноеСоединениеРасширеннаяПодсказка" id="73"/>
+									<ChildItems>
+										<InputField name="ПортFTP" id="19">
+											<DataPath>Запись.ПортFTP</DataPath>
+											<ContextMenu name="ПортFTPКонтекстноеМеню" id="20"/>
+											<ExtendedTooltip name="ПортFTPРасширеннаяПодсказка" id="21"/>
+										</InputField>
+										<CheckBoxField name="ПассивноеСоединениеFTP" id="13">
+											<DataPath>Запись.ПассивноеСоединениеFTP</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПассивноеСоединениеFTPКонтекстноеМеню" id="14"/>
+											<ExtendedTooltip name="ПассивноеСоединениеFTPРасширеннаяПодсказка" id="15"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="ЛогинFTP" id="16">
+									<DataPath>ЛогинFTP</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пользователь (логин)</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ЛогинFTPКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ЛогинFTPРасширеннаяПодсказка" id="18"/>
+									<Events>
+										<Event name="OnChange">ЛогинFTPПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПарольFTP" id="80">
+									<DataPath>ПарольFTP</DataPath>
+									<PasswordMode>true</PasswordMode>
+									<ContextMenu name="ПарольFTPКонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="ПарольFTPРасширеннаяПодсказка" id="82"/>
+									<Events>
+										<Event name="OnChange">ПарольFTPПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаСертификаты" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификаты</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>ЗаголовокСтраницыСертификаты</TitleDataPath>
+					<ExtendedTooltip name="СтраницаСертификатыРасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<Table name="СписокСертификатов" id="42">
+							<Representation>List</Representation>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<AutoAddIncomplete>false</AutoAddIncomplete>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокСертификатов</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Список сертификатов</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокСертификатовКонтекстноеМеню" id="43"/>
+							<AutoCommandBar name="СписокСертификатовКоманднаяПанель" id="44"/>
+							<ExtendedTooltip name="СписокСертификатовРасширеннаяПодсказка" id="45"/>
+							<SearchStringAddition name="СписокСертификатовСтрокаПоиска" id="46">
+								<AdditionSource>
+									<Item>СписокСертификатов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСертификатовСтрокаПоискаКонтекстноеМеню" id="47"/>
+								<ExtendedTooltip name="СписокСертификатовСтрокаПоискаРасширеннаяПодсказка" id="48"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСертификатовСостояниеПросмотра" id="49">
+								<AdditionSource>
+									<Item>СписокСертификатов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="СписокСертификатовСостояниеПросмотраКонтекстноеМеню" id="50"/>
+								<ExtendedTooltip name="СписокСертификатовСостояниеПросмотраРасширеннаяПодсказка" id="51"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокСертификатовУправлениеПоиском" id="52">
+								<AdditionSource>
+									<Item>СписокСертификатов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСертификатовУправлениеПоискомКонтекстноеМеню" id="53"/>
+								<ExtendedTooltip name="СписокСертификатовУправлениеПоискомРасширеннаяПодсказка" id="54"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">СписокСертификатовПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">СписокСертификатовПередУдалением</Event>
+								<Event name="BeforeRowChange">СписокСертификатовПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокСертификатовСертификат" id="55">
+									<DataPath>СписокСертификатов.Представление</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сертификат</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СписокСертификатовСертификатКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="СписокСертификатовСертификатРасширеннаяПодсказка" id="57"/>
+								</LabelField>
+								<ColumnGroup name="СписокСертификатовГруппаСрок" id="58">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список сертификатов группа срок</v8:content>
+										</v8:item>
+									</Title>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="СписокСертификатовГруппаСрокРасширеннаяПодсказка" id="59"/>
+									<ChildItems>
+										<LabelField name="СписокСертификатовДействителенДо" id="60">
+											<DataPath>СписокСертификатов.ДействителенДо</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Срок действия</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="СписокСертификатовДействителенДоКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="СписокСертификатовДействителенДоРасширеннаяПодсказка" id="62"/>
+										</LabelField>
+										<LabelField name="СписокСертификатовСрокДействия" id="63">
+											<DataPath>СписокСертификатов.СрокДействия</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Срок действия</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<ContextMenu name="СписокСертификатовСрокДействияКонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="СписокСертификатовСрокДействияРасширеннаяПодсказка" id="65"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="СписокСертификатовКемВыдан" id="66">
+									<DataPath>СписокСертификатов.КемВыдан</DataPath>
+									<ContextMenu name="СписокСертификатовКемВыданКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="СписокСертификатовКемВыданРасширеннаяПодсказка" id="68"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.УчетныеЗаписиЭДО</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СписокСертификатов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список сертификатов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Ссылка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СертификатыКлючейЭлектроннойПодписиИШифрования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДействителенДо" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действителен до</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="СрокДействия" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок действия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="КемВыдан" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кем выдан</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТребуетсяСинхронизация" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Требуется синхронизация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Скрыть" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Скрыть</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СрокДействияВДнях" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок действия в днях</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СертификатДействителен" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификат действителен</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПарольFTP" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АвтоНаименование" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авто наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзмененСоставСертификатов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменен состав сертификатов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаголовокСтраницыСертификаты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок страницы сертификаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсходныйСпособОбмена" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходный способ обмена</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СпособыОбменаЭД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЛогинFTP" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логин FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЛогинИзменен" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логин изменен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПарольИзменен" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль изменен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Удалить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Удалить</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

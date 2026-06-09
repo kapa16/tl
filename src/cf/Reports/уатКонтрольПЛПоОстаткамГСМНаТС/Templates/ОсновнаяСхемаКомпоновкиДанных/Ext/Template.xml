@@ -1,0 +1,975 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГСМ</dataPath>
+			<field>ГСМ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыезда</dataPath>
+			<field>ДатаВыезда</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата выезда</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date of departure</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокПриВозвращении</dataPath>
+			<field>ОстатокПриВозвращении</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток по документу (возврат)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Remains by document (return)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=1</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокПриВыезде</dataPath>
+			<field>ОстатокПриВыезде</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток по документу (выезд)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Remain by document (departure)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=1</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПутевойЛист</dataPath>
+			<field>ПутевойЛист</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер путевого листа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Waybill number</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ПутевойЛист.Номер</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВозвращения</dataPath>
+			<field>ДатаВозвращения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>уатПраваИНастройкиЗначение</dataPath>
+			<field>уатПраваИНастройкиЗначение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точность</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Accuracy</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	уатПутевойЛистРасходГСМ.Ссылка.ДатаВыезда КАК ДатаВыезда,
+	уатПутевойЛистРасходГСМ.Ссылка.ДатаВозвращения КАК ДатаВозвращения,
+	уатПутевойЛистРасходГСМ.Ссылка.Организация КАК Организация,
+	уатПутевойЛистРасходГСМ.Ссылка КАК ПутевойЛист,
+	уатПутевойЛистРасходГСМ.ТС КАК ТС,
+	уатПутевойЛистРасходГСМ.ГСМ КАК ГСМ,
+	ЕСТЬNULL(уатПраваИНастройки.Значение, 0) КАК уатПраваИНастройкиЗначение,
+	уатПутевойЛистРасходГСМ.ОстатокПриВыезде КАК ОстатокПриВыезде,
+	уатПутевойЛистРасходГСМ.ОстатокПриВозвращении КАК ОстатокПриВозвращении
+ПОМЕСТИТЬ тблВрем
+ИЗ
+	Документ.уатПутевойЛист.РасходГСМ КАК уатПутевойЛистРасходГСМ
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.уатПраваИНастройки КАК уатПраваИНастройки
+		ПО уатПутевойЛистРасходГСМ.Ссылка.Организация = уатПраваИНастройки.Объект
+			И (уатПраваИНастройки.ПравоНастройка = ЗНАЧЕНИЕ(ПланВидовХарактеристик.уатПраваИНастройки.ТочностьОстатковТоплива))
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.уатНоменклатураГСМ КАК уатНоменклатураГСМ
+		ПО уатПутевойЛистРасходГСМ.ГСМ = уатНоменклатураГСМ.Номенклатура
+			И (уатНоменклатураГСМ.ГруппаГСМ = ЗНАЧЕНИЕ(Перечисление.уатГруппыГСМ.Топливо)
+				ИЛИ уатНоменклатураГСМ.ГруппаГСМ = ЗНАЧЕНИЕ(Перечисление.уатГруппыГСМ.Электроэнергия))
+ГДЕ
+	&amp;УчитыватьТПЛ &lt;&gt; "Технологические путевые листы"
+	И уатПутевойЛистРасходГСМ.Ссылка.Проведен
+	И уатПутевойЛистРасходГСМ.Ссылка.Рассчитан
+	И уатПутевойЛистРасходГСМ.Ссылка.ДатаВыезда МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И (&amp;ОтображатьВыбывшиеТС
+			ИЛИ уатПутевойЛистРасходГСМ.ТС.ДатаВыбытия = ДАТАВРЕМЯ(1, 1, 1))
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	уатПутевойЛистРасходГСМ.Ссылка.ДатаВыезда,
+	уатПутевойЛистРасходГСМ.Ссылка.ДатаВозвращения,
+	уатПутевойЛистРасходГСМ.Ссылка.Организация,
+	уатПутевойЛистРасходГСМ.Ссылка,
+	уатПутевойЛистРасходГСМ.ТС,
+	уатПутевойЛистРасходГСМ.ГСМ,
+	ЕСТЬNULL(уатПраваИНастройки.Значение, 0),
+	уатПутевойЛистРасходГСМ.ОстатокПриВыезде,
+	уатПутевойЛистРасходГСМ.ОстатокПриВозвращении
+ИЗ
+	Документ.уатТехнологическийПутевойЛист.РасходГСМ КАК уатПутевойЛистРасходГСМ
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.уатПраваИНастройки КАК уатПраваИНастройки
+		ПО уатПутевойЛистРасходГСМ.Ссылка.Организация = уатПраваИНастройки.Объект
+			И (уатПраваИНастройки.ПравоНастройка = ЗНАЧЕНИЕ(ПланВидовХарактеристик.уатПраваИНастройки.ТочностьОстатковТоплива))
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.уатНоменклатураГСМ КАК уатНоменклатураГСМ
+		ПО уатПутевойЛистРасходГСМ.ГСМ = уатНоменклатураГСМ.Номенклатура
+			И (уатНоменклатураГСМ.ГруппаГСМ = ЗНАЧЕНИЕ(Перечисление.уатГруппыГСМ.Топливо)
+				ИЛИ уатНоменклатураГСМ.ГруппаГСМ = ЗНАЧЕНИЕ(Перечисление.уатГруппыГСМ.Электроэнергия))
+ГДЕ
+	&amp;УчитыватьТПЛ &lt;&gt; "Путевые листы"
+	И уатПутевойЛистРасходГСМ.Ссылка.Проведен
+	И уатПутевойЛистРасходГСМ.Ссылка.Рассчитан
+	И уатПутевойЛистРасходГСМ.Ссылка.ДатаВыезда МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И (&amp;ОтображатьВыбывшиеТС
+			ИЛИ уатПутевойЛистРасходГСМ.ТС.ДатаВыбытия = ДАТАВРЕМЯ(1, 1, 1))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	тблВрем.ДатаВыезда КАК ДатаВыезда,
+	тблВрем.ДатаВозвращения КАК ДатаВозвращения,
+	тблВрем.Организация КАК Организация,
+	тблВрем.ПутевойЛист КАК ПутевойЛист,
+	тблВрем.ТС КАК ТС,
+	тблВрем.ГСМ КАК ГСМ,
+	тблВрем.уатПраваИНастройкиЗначение КАК уатПраваИНастройкиЗначение,
+	тблВрем.ОстатокПриВыезде КАК ОстатокПриВыезде,
+	тблВрем.ОстатокПриВозвращении КАК ОстатокПриВозвращении
+ИЗ
+	тблВрем КАК тблВрем
+
+УПОРЯДОЧИТЬ ПО
+	ДатаВыезда</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>КоличествоНачальныйОстаток</dataPath>
+		<expression>ВЫБОР
+		КОГДА уатПраваИНастройкиЗначение = 0
+			ТОГДА ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВыезда, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 0)")
+		ИНАЧЕ ВЫБОР
+				КОГДА уатПраваИНастройкиЗначение = 1
+					ТОГДА ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВыезда, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 1)")
+				ИНАЧЕ ВЫБОР
+						КОГДА уатПраваИНастройкиЗначение = 2
+							ТОГДА ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВыезда, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 2)")
+						ИНАЧЕ ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВыезда, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 3)")
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остаток ГСМ при выезде (данные учета)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuels remains at departure (accounting data)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=1</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВремяВыезда</dataPath>
+		<expression>ДатаВыезда</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Время выезда</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Time of departure</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КоличествоКонечныйОстаток</dataPath>
+		<expression>ВЫБОР
+        КОГДА уатПраваИНастройкиЗначение = 0
+            ТОГДА ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВозвращения, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 0)")
+        ИНАЧЕ ВЫБОР
+                КОГДА уатПраваИНастройкиЗначение = 1
+                    ТОГДА ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВозвращения, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 1)")
+                ИНАЧЕ ВЫБОР
+                        КОГДА уатПраваИНастройкиЗначение = 2
+                            ТОГДА ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВозвращения, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 2)")
+                        ИНАЧЕ ВЫРАЗИТЬ(уатОбщегоНазначения.уатОстатокГСМнаТС(ДатаВозвращения, ТС, ГСМ, ПутевойЛист), "ЧИСЛО(15, 3)")
+                    КОНЕЦ
+            КОНЕЦ
+    КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остаток ГСМ при возвращении (данные учета)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuels remains at return (accounting data)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=1</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОстатокПриВыезде</dataPath>
+		<expression>ВЫБОР
+		КОГДА уатПраваИНастройкиЗначение = 0
+			ТОГДА ВЫРАЗИТЬ(ОстатокПриВыезде, "ЧИСЛО(15, 0)")
+		ИНАЧЕ ВЫБОР
+				КОГДА уатПраваИНастройкиЗначение = 1
+					ТОГДА ВЫРАЗИТЬ(ОстатокПриВыезде, "ЧИСЛО(15, 1)")
+				ИНАЧЕ ВЫБОР
+						КОГДА уатПраваИНастройкиЗначение = 2
+							ТОГДА ВЫРАЗИТЬ(ОстатокПриВыезде, "ЧИСЛО(15, 2)")
+						ИНАЧЕ ВЫРАЗИТЬ(ОстатокПриВыезде, "ЧИСЛО(15, 3)")
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остаток ГСМ при выезде (путевой лист)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuels remains at departure (waybill)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=1</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ОстатокПриВозвращении</dataPath>
+		<expression>ВЫБОР
+		КОГДА уатПраваИНастройкиЗначение = 0
+			ТОГДА ВЫРАЗИТЬ(ОстатокПриВозвращении, "ЧИСЛО(15, 0)")
+		ИНАЧЕ ВЫБОР
+				КОГДА уатПраваИНастройкиЗначение = 1
+					ТОГДА ВЫРАЗИТЬ(ОстатокПриВозвращении, "ЧИСЛО(15, 1)")
+				ИНАЧЕ ВЫБОР
+						КОГДА уатПраваИНастройкиЗначение = 2
+							ТОГДА ВЫРАЗИТЬ(ОстатокПриВозвращении, "ЧИСЛО(15, 2)")
+						ИНАЧЕ ВЫРАЗИТЬ(ОстатокПриВозвращении, "ЧИСЛО(15, 3)")
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остаток ГСМ при возвращении (путевой лист)</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fuels remains at return (waybill)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=1</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>ОстатокПриВыезде</dataPath>
+		<expression>Сумма(ОстатокПриВыезде)</expression>
+		<group>ТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокПриВозвращении</dataPath>
+		<expression>Сумма(ОстатокПриВозвращении)</expression>
+		<group>ТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоКонечныйОстаток</dataPath>
+		<expression>Сумма(КоличествоКонечныйОстаток)</expression>
+		<group>ТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНачальныйОстаток</dataPath>
+		<expression>Сумма(КоличествоНачальныйОстаток)</expression>
+		<group>ТС</group>
+	</totalField>
+	<totalField>
+		<dataPath>уатПраваИНастройкиЗначение</dataPath>
+		<expression>Максимум(уатПраваИНастройкиЗначение)</expression>
+		<group>ТС</group>
+	</totalField>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ОтображатьВыбывшиеТС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать выбывшие ТС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Show decommissioning vehicles</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТолькоРасхождения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать только расхождения</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Snow only differences</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>УчитыватьТПЛ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображение технологических ПЛ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Display of technological PL</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:string">Путевые листы и технологические путевые листы</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Путевые листы</value>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:string">Технологические путевые листы</value>
+		</availableValue>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Контроль путевых листов по ГСМ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Control of waybills by fuels</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Контроль путевых листов по ГСМ</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПриВыезде</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток ГСМ при выезде (данные учета)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fuels remains at departure (accounting data)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток ГСМ при возвращении (данные учета)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fuels remains at return (accounting data)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>601d4497-fee6-4f6a-913c-51d8613c25e7</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>c6734992-ccae-4d7c-9607-f8e51133498e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemGroup">
+					<dcsset:groupType>OrGroup</dcsset:groupType>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.ТолькоРасхождения</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстатокПриВыезде</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">КоличествоНачальныйОстаток</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстатокПриВозвращении</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:Field">КоличествоКонечныйОстаток</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ГСМ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>96d36de2-767f-48fe-be70-67109bc72a15</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2ed5e872-e6bb-4493-87cd-53116813b050</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>8b5a35eb-afa8-4ecb-8bf9-ff3c8f427174</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>cd4ed1bf-b854-41f2-aaf4-b7c31d50c8f1</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>9057c936-b359-40e7-a8d4-565bf394bc69</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>415f09dc-be2c-425d-9913-e954f0df11f9</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ОтображатьВыбывшиеТС</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>0f7a385c-ec44-411c-81db-c7af4dab5b87</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТолькоРасхождения</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:userSettingID>b835b3fb-9310-4dce-9003-e5e6259c3d2d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>УчитыватьТПЛ</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Путевые листы и технологические путевые листы</dcscor:value>
+					<dcsset:userSettingID>06c5199b-a725-4bb4-99fc-470f0d3c2b6c</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ПутевойЛист.ДатаВыезда</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>4c518316-8ea2-4e07-b789-70e9e27071e2</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВыезде</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">уатПраваИНастройкиЗначение</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=0; ЧН=0</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=0; ЧН=0</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВыезде</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">уатПраваИНастройкиЗначение</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=1; ЧН=0</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ЧДЦ=1; ЧН=0</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВыезде</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">уатПраваИНастройкиЗначение</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧН=0</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>NFD=2; NZ=0</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВыезде</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">уатПраваИНастройкиЗначение</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">3</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=3; ЧН=0</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>NFD=3; NZ=0</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВыезде</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ОстатокПриВыезде</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">КоличествоНачальныйОстаток</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ОстатокПриВозвращении</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">КоличествоКонечныйОстаток</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВозвращении</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОстатокПриВыезде</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>1b669d27-6071-44db-8087-bb0912dc3550</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контроль путевых листов по ГСМ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Control of waybills by fuels</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ДатаВыезда</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ВремяВыезда</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ПутевойЛист</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ГСМ</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>3baa7342-d8c6-42b0-8984-a90e901c2bb5</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

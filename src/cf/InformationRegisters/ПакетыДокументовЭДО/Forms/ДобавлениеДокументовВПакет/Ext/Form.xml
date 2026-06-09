@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выбор документа</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="26">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="27"/>
+			</Button>
+			<Button name="ФормаДобавитьДругойДокумент" id="28">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ДобавитьДругойДокумент</CommandName>
+				<ExtendedTooltip name="ФормаДобавитьДругойДокументРасширеннаяПодсказка" id="29"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ДеревоДокументов" id="1">
+			<Representation>Tree</Representation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
+			<Header>false</Header>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<DataPath>ДеревоДокументов</DataPath>
+			<ContextMenu name="ДеревоДокументовКонтекстноеМеню" id="3"/>
+			<AutoCommandBar name="ДеревоДокументовКоманднаяПанель" id="2">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДеревоДокументовРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ДеревоДокументовСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ДеревоДокументов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоДокументовСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ДеревоДокументовСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДеревоДокументовСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>ДеревоДокументов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоДокументовСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ДеревоДокументовСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДеревоДокументовУправлениеПоиском" id="8">
+				<AdditionSource>
+					<Item>ДеревоДокументов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоДокументовУправлениеПоискомКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ДеревоДокументовУправлениеПоискомРасширеннаяПодсказка" id="10"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДеревоДокументовВыбор</Event>
+			</Events>
+			<ChildItems>
+				<ColumnGroup name="ДеревоДокументовГруппа1" id="40">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дерево документов</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ДеревоДокументовГруппа1РасширеннаяПодсказка" id="41"/>
+					<ChildItems>
+						<PictureField name="ДеревоДокументовКартинка" id="23">
+							<DataPath>ДеревоДокументов.Картинка</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>5</Width>
+							<ContextMenu name="ДеревоДокументовКартинкаКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="ДеревоДокументовКартинкаРасширеннаяПодсказка" id="25"/>
+						</PictureField>
+						<PictureField name="ДеревоДокументовПиктограммаФайла" id="30">
+							<DataPath>ДеревоДокументов.ПиктограммаФайла</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>7</Width>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.КоллекцияПиктограммФайлов</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="ДеревоДокументовПиктограммаФайлаКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="ДеревоДокументовПиктограммаФайлаРасширеннаяПодсказка" id="32"/>
+						</PictureField>
+						<InputField name="ДеревоДокументовПредставлениеДокумента" id="20">
+							<DataPath>ДеревоДокументов.ПредставлениеДокумента</DataPath>
+							<HeaderHorizontalAlign>Auto</HeaderHorizontalAlign>
+							<ContextMenu name="ДеревоДокументовПредставлениеДокументаКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ДеревоДокументовПредставлениеДокументаРасширеннаяПодсказка" id="22"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ИдентификаторПакета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор пакета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДеревоДокументов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ОбъектУчета" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:DefinedType.ОснованияЭлектронныхДокументовЭДО</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ВидФормирования" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид формирования</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПредставлениеДокумента" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПиктограммаФайла" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пиктограмма файла</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Picture</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЭтоГруппа" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДанныеФормирования" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные формирования</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="Размер" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Размер</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КлючНастроекОтправки" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ключ настроек отправки</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЭлектронныйДокумент" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронный документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЭлектронныйДокументИсходящийЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.КонтрагентБЭД</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Договор" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ДоговорСКонтрагентомЭДО</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтключитьТранслитерацию" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить транслитерацию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОграниченияОбъемаПакетаДокументов" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничения объема пакета документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ОбъемПакетаДокументов" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем пакета документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СозданиеНовогоПакета" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создание нового пакета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭлектронныеДокументыПоОбъектуУчета" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронные документы по объекту учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Выбрать</Action>
+		</Command>
+		<Command name="ДобавитьДругойДокумент" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить другой</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ДобавитьДругойДокумент</Action>
+		</Command>
+	</Commands>
+</Form>

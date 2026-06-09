@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Электронные документы</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoURL>false</AutoURL>
+	<Customizable>false</Customizable>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПояснение" id="38">
+			<HorizontalStretch>true</HorizontalStretch>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:ToolTipBackColor</BackColor>
+			<ExtendedTooltip name="ГруппаПояснениеРасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<PictureDecoration name="ПояснениеКартинка" id="40">
+					<Picture>
+						<xr:Ref>CommonPicture.ИнформацияБЭД</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<ContextMenu name="ПояснениеКартинкаКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ПояснениеКартинкаРасширеннаяПодсказка" id="42"/>
+				</PictureDecoration>
+				<LabelDecoration name="ПояснениеНадпись" id="43">
+					<HorizontalStretch>true</HorizontalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для документа %1 уже имеются сформированные документы ЭДО. Перед отправкой нового документа убедитесь, что не произойдет дублирования документов.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПояснениеНадписьКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ПояснениеНадписьРасширеннаяПодсказка" id="45"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Документы" id="5">
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<Width>67</Width>
+			<Height>6</Height>
+			<MaxHeight>6</MaxHeight>
+			<HeightControlVariant>UseContentHeight</HeightControlVariant>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<DataPath>Документы</DataPath>
+			<RowPictureDataPath>~Документы.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+				<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+			</CommandSet>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="ДокументыКонтекстноеМеню" id="6"/>
+			<AutoCommandBar name="ДокументыКоманднаяПанель" id="7">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ФормаПросмотреть" id="1">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Просмотреть</CommandName>
+						<ExtendedTooltip name="ФормаПросмотретьРасширеннаяПодсказка" id="2"/>
+					</Button>
+					<Button name="ДокументыСтандартныеНастройкиДинамическогоСписка" id="34">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Документы.StandardCommand.DynamicListStandardSettings</CommandName>
+						<ExtendedTooltip name="ДокументыСтандартныеНастройкиДинамическогоСпискаРасширеннаяПодсказка" id="35"/>
+					</Button>
+					<Button name="ДокументыОбновить" id="36">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Документы.StandardCommand.Refresh</CommandName>
+						<ExtendedTooltip name="ДокументыОбновитьРасширеннаяПодсказка" id="37"/>
+					</Button>
+					<Button name="ДокументыНастройкаСписка" id="32">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Документы.StandardCommand.ListSettings</CommandName>
+						<ExtendedTooltip name="ДокументыНастройкаСпискаРасширеннаяПодсказка" id="33"/>
+					</Button>
+					<Button name="ДокументыНайти" id="30">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Документы.StandardCommand.Find</CommandName>
+						<ExtendedTooltip name="ДокументыНайтиРасширеннаяПодсказка" id="31"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДокументыРасширеннаяПодсказка" id="8"/>
+			<SearchStringAddition name="ДокументыСтрокаПоиска" id="9">
+				<AdditionSource>
+					<Item>Документы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДокументыСтрокаПоискаКонтекстноеМеню" id="10"/>
+				<ExtendedTooltip name="ДокументыСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДокументыСостояниеПросмотра" id="12">
+				<AdditionSource>
+					<Item>Документы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="ДокументыСостояниеПросмотраКонтекстноеМеню" id="13"/>
+				<ExtendedTooltip name="ДокументыСостояниеПросмотраРасширеннаяПодсказка" id="14"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДокументыУправлениеПоиском" id="15">
+				<AdditionSource>
+					<Item>Документы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДокументыУправлениеПоискомКонтекстноеМеню" id="16"/>
+				<ExtendedTooltip name="ДокументыУправлениеПоискомРасширеннаяПодсказка" id="17"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДокументыВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДокументыВидДокумента" id="18">
+					<DataPath>Документы.ВидДокумента</DataPath>
+					<Width>16</Width>
+					<MaxWidth>16</MaxWidth>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДокументыВидДокументаКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ДокументыВидДокументаРасширеннаяПодсказка" id="20"/>
+				</LabelField>
+				<LabelField name="ДокументыДата" id="21">
+					<DataPath>Документы.Дата</DataPath>
+					<Width>7</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="ДокументыДатаКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="ДокументыДатаРасширеннаяПодсказка" id="23"/>
+				</LabelField>
+				<InputField name="ДокументыСостояние" id="27">
+					<DataPath>Документы.Состояние</DataPath>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДокументыСостояниеКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ДокументыСостояниеРасширеннаяПодсказка" id="29"/>
+				</InputField>
+				<LabelField name="ДокументыКомментарий" id="24">
+					<DataPath>Документы.Комментарий</DataPath>
+					<ContextMenu name="ДокументыКомментарийКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ДокументыКомментарийРасширеннаяПодсказка" id="26"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаКомандныеПанели" id="56">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа1</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомандныеПанелиРасширеннаяПодсказка" id="57"/>
+			<ChildItems>
+				<CommandBar name="ПанельЛево" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа1</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПанельЛевоРасширеннаяПодсказка" id="59"/>
+					<ChildItems>
+						<Button name="ОтправитьПоУмолчанию" id="46">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОтправитьПоУмолчанию</CommandName>
+							<ExtendedTooltip name="ОтправитьПоУмолчаниюРасширеннаяПодсказка" id="47"/>
+						</Button>
+						<Popup name="ОтправитьКакПодменю" id="48">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправить как ...</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ОтправитьКакПодменюРасширеннаяПодсказка" id="49"/>
+						</Popup>
+					</ChildItems>
+				</CommandBar>
+				<CommandBar name="ПанельПраво" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа1</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ПанельПравоРасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<Button name="Отмена" id="50">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.Отмена</CommandName>
+							<ExtendedTooltip name="ОтменаРасширеннаяПодсказка" id="51"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОбменСКонтрагентами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Документы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>Документы.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ОбъектыУчетаДокументовЭДО.ЭлектронныйДокумент.ВидДокумента КАК ВидДокумента,
+	СостоянияЭДО.Состояние КАК Состояние,
+	ОбъектыУчетаДокументовЭДО.ЭлектронныйДокумент.ДатаДокумента КАК Дата,
+	ОбъектыУчетаДокументовЭДО.ЭлектронныйДокумент.Комментарий КАК Комментарий,
+	ОбъектыУчетаДокументовЭДО.ЭлектронныйДокумент КАК Ссылка,
+	ОбъектыУчетаДокументовЭДО.ОбъектУчета КАК ДокументОснование
+ИЗ
+	РегистрСведений.ОбъектыУчетаДокументовЭДО КАК ОбъектыУчетаДокументовЭДО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияДокументовЭДО КАК СостоянияЭДО
+		ПО ОбъектыУчетаДокументовЭДО.ЭлектронныйДокумент = СостоянияЭДО.ЭлектронныйДокумент
+ГДЕ ОбъектыУчетаДокументовЭДО.ЭлектронныйДокумент ССЫЛКА Документ.ЭлектронныйДокументИсходящийЭДО</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДокументОснование" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ основание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.ОснованияЭлектронныхДокументовЭДО</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтекстОтправки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контекст отправки</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИмяОбъектаМетаданныхОснования" id="5">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоллекцияКомандПечатиОснования" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коллекция команд печати основания</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Просмотреть" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотреть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотреть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Посмотреть</Action>
+		</Command>
+		<Command name="ОтправитьПоУмолчанию" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить как "%1"</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОтправитьПоУмолчанию</Action>
+		</Command>
+		<Command name="Отмена" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Отмена</Action>
+		</Command>
+	</Commands>
+</Form>

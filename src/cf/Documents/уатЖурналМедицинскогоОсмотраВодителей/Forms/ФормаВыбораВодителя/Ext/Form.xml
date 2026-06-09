@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Создание записей журнала по водителям</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Creating driver log entries</v8:content>
+		</v8:item>
+	</Title>
+	<Width>70</Width>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОК" id="33">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="34"/>
+			</Button>
+			<ButtonGroup name="ГруппаФлажки" id="60">
+				<Representation>Compact</Representation>
+				<ExtendedTooltip name="ГруппаФлажкиРасширеннаяПодсказка" id="61"/>
+				<ChildItems>
+					<Button name="ФормаУстановитьФлажки" id="62">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<ExtendedTooltip name="ФормаУстановитьФлажкиРасширеннаяПодсказка" id="63"/>
+					</Button>
+					<Button name="ФормаСнятьФлажки" id="64">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<ExtendedTooltip name="ФормаСнятьФлажкиРасширеннаяПодсказка" id="65"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Водители" id="35">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<HeightInTableRows>3</HeightInTableRows>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Водители</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВодителиКонтекстноеМеню" id="36"/>
+			<AutoCommandBar name="ВодителиКоманднаяПанель" id="37"/>
+			<ExtendedTooltip name="ВодителиРасширеннаяПодсказка" id="38"/>
+			<SearchStringAddition name="ВодителиСтрокаПоиска" id="39">
+				<AdditionSource>
+					<Item>Водители</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВодителиСтрокаПоискаКонтекстноеМеню" id="40"/>
+				<ExtendedTooltip name="ВодителиСтрокаПоискаРасширеннаяПодсказка" id="41"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВодителиСостояниеПросмотра" id="42">
+				<AdditionSource>
+					<Item>Водители</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВодителиСостояниеПросмотраКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="ВодителиСостояниеПросмотраРасширеннаяПодсказка" id="44"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВодителиУправлениеПоиском" id="45">
+				<AdditionSource>
+					<Item>Водители</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВодителиУправлениеПоискомКонтекстноеМеню" id="46"/>
+				<ExtendedTooltip name="ВодителиУправлениеПоискомРасширеннаяПодсказка" id="47"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ВодителиВыбор</Event>
+				<Event name="BeforeAddRow">ВодителиПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ВодителиПередУдалением</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="ВодителиПометка" id="48">
+					<DataPath>Водители.Пометка</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВодителиПометкаКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="ВодителиПометкаРасширеннаяПодсказка" id="50"/>
+				</CheckBoxField>
+				<InputField name="ВодителиВодитель" id="51">
+					<DataPath>Водители.Водитель</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВодителиВодительКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ВодителиВодительРасширеннаяПодсказка" id="53"/>
+				</InputField>
+				<LabelField name="ВодителиПредрейсовый" id="54">
+					<DataPath>Водители.ПредрейсовыйСтрока</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CellHyperlink>true</CellHyperlink>
+					<Width>20</Width>
+					<ContextMenu name="ВодителиПредрейсовыйКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ВодителиПредрейсовыйРасширеннаяПодсказка" id="56"/>
+				</LabelField>
+				<LabelField name="ВодителиПослерейсовый" id="57">
+					<DataPath>Водители.ПослерейсовыйСтрока</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CellHyperlink>true</CellHyperlink>
+					<Width>20</Width>
+					<ContextMenu name="ВодителиПослерейсовыйКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ВодителиПослерейсовыйРасширеннаяПодсказка" id="59"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПутевойЛист" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путевой лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Basis document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатПутевойЛист</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Водители" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Водители</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Drivers</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пометка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Note</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Водитель" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Водитель</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Driver</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Предрейсовый" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предрейсовый</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Pre-trip medical examination</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатЖурналМедицинскогоОсмотраВодителей</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Послерейсовый" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Послерейсовый</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Post-trip medical examination</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.уатЖурналМедицинскогоОсмотраВодителей</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПредрейсовыйСтрока" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предрейсовый</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Pre-trip medical examination</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПослерейсовыйСтрока" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Послерейсовый</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Post-trip medical examination</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ВыбраныСтроки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбраны строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selected rows</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ВодителиПредрейсовый</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Водители.Предрейсовый</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветГиперссылки</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ВодителиПослерейсовый</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Водители.Послерейсовый</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветГиперссылки</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОК</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьФлажки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear check boxes</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clear check boxes</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьФлажки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select check boxes</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select check boxes</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,4077 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Подбор документов</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Pick documents</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКоманднаяПанель" id="873">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКоманднаяПанельРасширеннаяПодсказка" id="874"/>
+			<ChildItems>
+				<Button name="ФормаВыбратьДокументы" id="824">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ВыбратьДокументы</CommandName>
+					<ExtendedTooltip name="ФормаВыбратьДокументыРасширеннаяПодсказка" id="825"/>
+				</Button>
+				<Button name="ФормаСоздатьДокументы" id="839">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.СоздатьДокументы</CommandName>
+					<ExtendedTooltip name="ФормаСоздатьДокументыРасширеннаяПодсказка" id="840"/>
+				</Button>
+				<RadioButtonField name="ОтборСозданЭПД" id="723">
+					<DataPath>ОтборСозданЭПД</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЭПД</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Electronic payment document</v8:content>
+						</v8:item>
+					</Title>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Создан</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Created</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Создан</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Не создан</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Not created</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Не создан</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Все</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>All</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Все</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ОтборСозданЭПДКонтекстноеМеню" id="724"/>
+					<ExtendedTooltip name="ОтборСозданЭПДРасширеннаяПодсказка" id="725"/>
+					<Events>
+						<Event name="OnChange">ОтборСозданЭПДПриИзменении</Event>
+					</Events>
+				</RadioButtonField>
+				<CommandBar name="КомандыЭДО" id="691">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЭДО</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>EDI</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команды ЭДО</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>EDI commands</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="КомандыЭДОРасширеннаяПодсказка" id="692"/>
+				</CommandBar>
+				<CommandBar name="КомандыФормы" id="875">
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="КомандыФормыРасширеннаяПодсказка" id="876"/>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОсновное" id="804">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основное</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Main</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основное</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group main</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="805"/>
+			<ChildItems>
+				<Pages name="ГруппаОтборы" id="887">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отборы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filters group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="888"/>
+					<ChildItems>
+						<Page name="ГруппаОтборыЭТрН" id="664">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отборы э тр Н</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group selections e tr N</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отборы э тр Н</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group selections e tr N</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<ExtendedTooltip name="ГруппаОтборыЭТрНРасширеннаяПодсказка" id="665"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОтборыЭТрНЛевая" id="702">
+									<Group>Vertical</Group>
+									<HorizontalSpacing>Half</HorizontalSpacing>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборыЭТрНЛеваяРасширеннаяПодсказка" id="703"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаОтборГрузоотправитель" id="726">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборГрузоотправительРасширеннаяПодсказка" id="727"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборГрузоотправитель" id="732">
+													<DataPath>флагОтборГрузоотправитель</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборГрузоотправительКонтекстноеМеню" id="733"/>
+													<ExtendedTooltip name="флагОтборГрузоотправительРасширеннаяПодсказка" id="734"/>
+													<Events>
+														<Event name="OnChange">флагОтборГрузоотправительПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборГрузоотправитель" id="741">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грузоотправитель:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Consignor:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборГрузоотправительКонтекстноеМеню" id="742"/>
+													<ExtendedTooltip name="ДекорацияОтборГрузоотправительРасширеннаяПодсказка" id="743"/>
+												</LabelDecoration>
+												<InputField name="ОтборГрузоотправитель" id="699">
+													<DataPath>ОтборГрузоотправитель</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грузоотправитель</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>10</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборГрузоотправительКонтекстноеМеню" id="700"/>
+													<ExtendedTooltip name="ОтборГрузоотправительРасширеннаяПодсказка" id="701"/>
+													<Events>
+														<Event name="OnChange">ОтборГрузоотправительПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборГрузополучатель" id="728">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборГрузополучательРасширеннаяПодсказка" id="729"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборГрузополучатель" id="735">
+													<DataPath>флагОтборГрузополучатель</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборГрузополучательКонтекстноеМеню" id="736"/>
+													<ExtendedTooltip name="флагОтборГрузополучательРасширеннаяПодсказка" id="737"/>
+													<Events>
+														<Event name="OnChange">флагОтборГрузополучательПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборГрузополучатель" id="744">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грузополучатель:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Consignee:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборГрузополучательКонтекстноеМеню" id="745"/>
+													<ExtendedTooltip name="ДекорацияОтборГрузополучательРасширеннаяПодсказка" id="746"/>
+												</LabelDecoration>
+												<InputField name="ОтборГрузополучатель" id="706">
+													<DataPath>ОтборГрузополучатель</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>9</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборГрузополучательКонтекстноеМеню" id="707"/>
+													<ExtendedTooltip name="ОтборГрузополучательРасширеннаяПодсказка" id="708"/>
+													<Events>
+														<Event name="OnChange">ОтборГрузополучательПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборПеревозчик" id="730">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборПеревозчикРасширеннаяПодсказка" id="731"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборПеревозчик" id="738">
+													<DataPath>флагОтборПеревозчик</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборПеревозчикКонтекстноеМеню" id="739"/>
+													<ExtendedTooltip name="флагОтборПеревозчикРасширеннаяПодсказка" id="740"/>
+													<Events>
+														<Event name="OnChange">флагОтборПеревозчикПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборПеревозчик" id="747">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Перевозчик:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Carrier:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборПеревозчикКонтекстноеМеню" id="748"/>
+													<ExtendedTooltip name="ДекорацияОтборПеревозчикРасширеннаяПодсказка" id="749"/>
+												</LabelDecoration>
+												<InputField name="ОтборПеревозчик" id="709">
+													<DataPath>ОтборПеревозчик</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>9</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборПеревозчикКонтекстноеМеню" id="710"/>
+													<ExtendedTooltip name="ОтборПеревозчикРасширеннаяПодсказка" id="711"/>
+													<Events>
+														<Event name="OnChange">ОтборПеревозчикПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборСтатус" id="774">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборСтатусРасширеннаяПодсказка" id="775"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборСтатус" id="776">
+													<DataPath>флагОтборСтатус</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборСтатусКонтекстноеМеню" id="777"/>
+													<ExtendedTooltip name="флагОтборСтатусРасширеннаяПодсказка" id="778"/>
+													<Events>
+														<Event name="OnChange">флагОтборСтатусПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборСтатус" id="779">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Статус:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Status:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборСтатусКонтекстноеМеню" id="780"/>
+													<ExtendedTooltip name="ДекорацияОтборСтатусРасширеннаяПодсказка" id="781"/>
+												</LabelDecoration>
+												<InputField name="ОтборСтатус" id="672">
+													<DataPath>ОтборСтатус</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Статус</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>9</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборСтатусКонтекстноеМеню" id="673"/>
+													<ExtendedTooltip name="ОтборСтатусРасширеннаяПодсказка" id="674"/>
+													<Events>
+														<Event name="OnChange">ОтборСтатусПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОтборыЭТрНПравая" id="721">
+									<Group>Vertical</Group>
+									<HorizontalSpacing>Half</HorizontalSpacing>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборыЭТрНПраваяРасширеннаяПодсказка" id="722"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаОтборТС" id="782">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборТСРасширеннаяПодсказка" id="783"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаТС" id="841">
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа ТС</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Group of TD</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаТСРасширеннаяПодсказка" id="842"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборТС" id="787">
+															<DataPath>флагОтборТС</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборТСКонтекстноеМеню" id="788"/>
+															<ExtendedTooltip name="флагОтборТСРасширеннаяПодсказка" id="789"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборТС" id="790">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Vehicle:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборТСКонтекстноеМеню" id="791"/>
+															<ExtendedTooltip name="ДекорацияОтборТСРасширеннаяПодсказка" id="792"/>
+														</LabelDecoration>
+														<InputField name="ОтборТС" id="784">
+															<DataPath>ОтборТС1С</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="ОтборТСКонтекстноеМеню" id="785"/>
+															<ExtendedTooltip name="ОтборТСРасширеннаяПодсказка" id="786"/>
+															<Events>
+																<Event name="OnChange">ОтборТСПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаТСЭПД" id="843">
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаТСЭПДРасширеннаяПодсказка" id="844"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборТС1" id="1036">
+															<DataPath>флагОтборТС</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборТС1КонтекстноеМеню" id="1037"/>
+															<ExtendedTooltip name="флагОтборТС1РасширеннаяПодсказка" id="1038"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборТСЭПД" id="861">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ТС в ЭПД:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>TS in EPD:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборТСЭПДКонтекстноеМеню" id="862"/>
+															<ExtendedTooltip name="ДекорацияОтборТСЭПДРасширеннаяПодсказка" id="863"/>
+														</LabelDecoration>
+														<InputField name="ОтборТСЭПД" id="858">
+															<DataPath>ОтборТС</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>false</ChoiceButton>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборТСЭПДКонтекстноеМеню" id="859"/>
+															<ExtendedTooltip name="ОтборТСЭПДРасширеннаяПодсказка" id="860"/>
+															<Events>
+																<Event name="Opening">ОтборТСЭПДОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборВодитель" id="826">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборВодительРасширеннаяПодсказка" id="827"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаВодитель" id="851">
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаВодительРасширеннаяПодсказка" id="852"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборВодитель" id="828">
+															<DataPath>флагОтборВодитель</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборВодительКонтекстноеМеню" id="829"/>
+															<ExtendedTooltip name="флагОтборВодительРасширеннаяПодсказка" id="830"/>
+															<Events>
+																<Event name="OnChange">флагОтборВодительПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборВодитель" id="831">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Водители:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Drivers:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборВодительКонтекстноеМеню" id="832"/>
+															<ExtendedTooltip name="ДекорацияОтборВодительРасширеннаяПодсказка" id="833"/>
+														</LabelDecoration>
+														<InputField name="ОтборВодитель" id="834">
+															<DataPath>ОтборВодитель1С</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборВодительКонтекстноеМеню" id="835"/>
+															<ExtendedTooltip name="ОтборВодительРасширеннаяПодсказка" id="836"/>
+															<Events>
+																<Event name="OnChange">ОтборВодительПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаВодителиЭПД" id="853">
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаВодителиЭПДРасширеннаяПодсказка" id="854"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборВодитель1" id="1039">
+															<DataPath>флагОтборВодитель</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборВодитель1КонтекстноеМеню" id="1040"/>
+															<ExtendedTooltip name="флагОтборВодитель1РасширеннаяПодсказка" id="1041"/>
+															<Events>
+																<Event name="OnChange">флагОтборВодительПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборВодителиЭПД" id="864">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Водители в ЭПД:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Drivers in the EPD:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборВодителиЭПДКонтекстноеМеню" id="865"/>
+															<ExtendedTooltip name="ДекорацияОтборВодителиЭПДРасширеннаяПодсказка" id="866"/>
+														</LabelDecoration>
+														<InputField name="ОтборВодительЭПД" id="867">
+															<DataPath>ОтборВодитель</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>false</ChoiceButton>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборВодительЭПДКонтекстноеМеню" id="868"/>
+															<ExtendedTooltip name="ОтборВодительЭПДРасширеннаяПодсказка" id="869"/>
+															<Events>
+																<Event name="Opening">ОтборВодительЭПДОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОтборыЭТрНДаты" id="704">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборыЭТрНДатыРасширеннаяПодсказка" id="705"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаИсточникДат" id="880">
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаИсточникДатРасширеннаяПодсказка" id="881"/>
+											<ChildItems>
+												<LabelDecoration name="ДекорацияИсточникДат" id="882">
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Источник получения дат:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Source of dates:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияИсточникДатКонтекстноеМеню" id="883"/>
+													<ExtendedTooltip name="ДекорацияИсточникДатРасширеннаяПодсказка" id="884"/>
+												</LabelDecoration>
+												<RadioButtonField name="ИсточникДат" id="877">
+													<DataPath>ИсточникДат</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Источник получения дат</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Source of obtaining dates</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Источник получения дат для отбора заказов на ТС</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Source for obtaining dates for selecting orders for TS</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<RadioButtonType>Tumbler</RadioButtonType>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Т1 оформление</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>T1 design</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыЭлементовРегламентаЭДО.EnumValue.ЭТрН_Титул1</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Т2 Погрузка</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>T2 Loading</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыЭлементовРегламентаЭДО.EnumValue.ЭТрН_Титул2</Value>
+															</xr:Value>
+														</xr:Item>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Т3 Приемка</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>T3 Acceptance</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xr:DesignTimeRef">Enum.ТипыЭлементовРегламентаЭДО.EnumValue.ЭТрН_Титул3</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ИсточникДатКонтекстноеМеню" id="878"/>
+													<ExtendedTooltip name="ИсточникДатРасширеннаяПодсказка" id="879"/>
+													<Events>
+														<Event name="OnChange">ИсточникДатПриИзменении</Event>
+													</Events>
+												</RadioButtonField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаДаты" id="885">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДатыРасширеннаяПодсказка" id="886"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаОтборДатаВремяПодачи" id="750">
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаОтборДатаВремяПодачиРасширеннаяПодсказка" id="751"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборДатаВремяПодачи" id="759">
+															<DataPath>флагОтборДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборДатаВремяПодачиКонтекстноеМеню" id="760"/>
+															<ExtendedTooltip name="флагОтборДатаВремяПодачиРасширеннаяПодсказка" id="761"/>
+															<Events>
+																<Event name="OnChange">флагОтборДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборДатаВремяПодачи" id="765">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>План. дата и время подачи ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Planned date and time for vehicle submission:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборДатаВремяПодачиКонтекстноеМеню" id="766"/>
+															<ExtendedTooltip name="ДекорацияОтборДатаВремяПодачиРасширеннаяПодсказка" id="767"/>
+														</LabelDecoration>
+														<InputField name="ОтборДатаВремяПодачи" id="712">
+															<DataPath>ОтборДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<ContextMenu name="ОтборДатаВремяПодачиКонтекстноеМеню" id="713"/>
+															<ExtendedTooltip name="ОтборДатаВремяПодачиРасширеннаяПодсказка" id="714"/>
+															<Events>
+																<Event name="OnChange">ОтборДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаОтборФактическиеДатаВремяПодачи" id="752">
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаОтборФактическиеДатаВремяПодачиРасширеннаяПодсказка" id="753"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборФактическиеДатаВремяПодачи" id="762">
+															<DataPath>флагОтборФактическиеДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборФактическиеДатаВремяПодачиКонтекстноеМеню" id="763"/>
+															<ExtendedTooltip name="флагОтборФактическиеДатаВремяПодачиРасширеннаяПодсказка" id="764"/>
+															<Events>
+																<Event name="OnChange">флагОтборФактическиеДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборФактическиеДатаВремяПодачи" id="768">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Факт. дата и время подачи ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Actual date and time of vehicle submission:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборФактическиеДатаВремяПодачиКонтекстноеМеню" id="769"/>
+															<ExtendedTooltip name="ДекорацияОтборФактическиеДатаВремяПодачиРасширеннаяПодсказка" id="770"/>
+														</LabelDecoration>
+														<InputField name="ОтборФактическиеДатаВремяПодачи" id="715">
+															<DataPath>ОтборФактическиеДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<ContextMenu name="ОтборФактическиеДатаВремяПодачиКонтекстноеМеню" id="716"/>
+															<ExtendedTooltip name="ОтборФактическиеДатаВремяПодачиРасширеннаяПодсказка" id="717"/>
+															<Events>
+																<Event name="OnChange">ОтборФактическиеДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаОтборДатаВремяУбытия" id="754">
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаОтборДатаВремяУбытияРасширеннаяПодсказка" id="755"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборДатаВремяУбытия" id="756">
+															<DataPath>флагОтборДатаВремяУбытия</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборДатаВремяУбытияКонтекстноеМеню" id="757"/>
+															<ExtendedTooltip name="флагОтборДатаВремяУбытияРасширеннаяПодсказка" id="758"/>
+															<Events>
+																<Event name="OnChange">флагОтборОтборДатаВремяУбытияПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборДатаВремяУбытия" id="771">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Факт. дата и время убытия:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Actual date and time of departure:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборДатаВремяУбытияКонтекстноеМеню" id="772"/>
+															<ExtendedTooltip name="ДекорацияОтборДатаВремяУбытияРасширеннаяПодсказка" id="773"/>
+														</LabelDecoration>
+														<InputField name="ОтборДатаВремяУбытия" id="718">
+															<DataPath>ОтборДатаВремяУбытия</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<ContextMenu name="ОтборДатаВремяУбытияКонтекстноеМеню" id="719"/>
+															<ExtendedTooltip name="ОтборДатаВремяУбытияРасширеннаяПодсказка" id="720"/>
+															<Events>
+																<Event name="OnChange">ОтборДатаВремяУбытияПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="ГруппаОтборыЭЗЗ" id="889">
+							<Group>AlwaysHorizontal</Group>
+							<ExtendedTooltip name="ГруппаОтборыЭЗЗРасширеннаяПодсказка" id="890"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаОтборыЭЗЗЛевая" id="891">
+									<Width>35</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Vertical</Group>
+									<HorizontalSpacing>Half</HorizontalSpacing>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборыЭЗЗЛеваяРасширеннаяПодсказка" id="892"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаОтборЭЗЗГрузоотправитель" id="893">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборЭЗЗГрузоотправительРасширеннаяПодсказка" id="894"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборГрузоотправительЭЗЗ" id="895">
+													<DataPath>флагОтборГрузоотправитель</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборГрузоотправительЭЗЗКонтекстноеМеню" id="896"/>
+													<ExtendedTooltip name="флагОтборГрузоотправительЭЗЗРасширеннаяПодсказка" id="897"/>
+													<Events>
+														<Event name="OnChange">флагОтборГрузоотправительПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборГрузоотправительЭЗЗ" id="898">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грузоотправитель:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Consignor:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборГрузоотправительЭЗЗКонтекстноеМеню" id="899"/>
+													<ExtendedTooltip name="ДекорацияОтборГрузоотправительЭЗЗРасширеннаяПодсказка" id="900"/>
+												</LabelDecoration>
+												<InputField name="ОтборГрузоотправительЭЗЗ" id="901">
+													<DataPath>ОтборГрузоотправитель</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Грузоотправитель</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>10</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборГрузоотправительЭЗЗКонтекстноеМеню" id="902"/>
+													<ExtendedTooltip name="ОтборГрузоотправительЭЗЗРасширеннаяПодсказка" id="903"/>
+													<Events>
+														<Event name="OnChange">ОтборГрузоотправительПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборСоставитель" id="904">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборСоставительРасширеннаяПодсказка" id="905"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборСоставитель" id="906">
+													<DataPath>флагОтборСоставитель</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборСоставительКонтекстноеМеню" id="907"/>
+													<ExtendedTooltip name="флагОтборСоставительРасширеннаяПодсказка" id="908"/>
+													<Events>
+														<Event name="OnChange">флагОтборСоставительПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборСоставитель" id="909">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Составитель:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Author:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборСоставительКонтекстноеМеню" id="910"/>
+													<ExtendedTooltip name="ДекорацияОтборСоставительРасширеннаяПодсказка" id="911"/>
+												</LabelDecoration>
+												<InputField name="ОтборСоставитель" id="912">
+													<DataPath>ОтборСоставитель</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>9</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборСоставительКонтекстноеМеню" id="913"/>
+													<ExtendedTooltip name="ОтборСоставительРасширеннаяПодсказка" id="914"/>
+													<Events>
+														<Event name="OnChange">ОтборСоставительПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборПеревозчикЭЗЗ" id="915">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборПеревозчикЭЗЗРасширеннаяПодсказка" id="916"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборПеревозчикЭЗЗ" id="917">
+													<DataPath>флагОтборПеревозчик</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборПеревозчикЭЗЗКонтекстноеМеню" id="918"/>
+													<ExtendedTooltip name="флагОтборПеревозчикЭЗЗРасширеннаяПодсказка" id="919"/>
+													<Events>
+														<Event name="OnChange">флагОтборПеревозчикПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборПеревозчикЭЗЗ" id="920">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Перевозчик:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Carrier:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборПеревозчикЭЗЗКонтекстноеМеню" id="921"/>
+													<ExtendedTooltip name="ДекорацияОтборПеревозчикЭЗЗРасширеннаяПодсказка" id="922"/>
+												</LabelDecoration>
+												<InputField name="ОтборПеревозчикЭЗЗ" id="923">
+													<DataPath>ОтборПеревозчик</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>9</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборПеревозчикЭЗЗКонтекстноеМеню" id="924"/>
+													<ExtendedTooltip name="ОтборПеревозчикЭЗЗРасширеннаяПодсказка" id="925"/>
+													<Events>
+														<Event name="OnChange">ОтборПеревозчикПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборСтатусЭЗЗ" id="926">
+											<Group>AlwaysHorizontal</Group>
+											<HorizontalSpacing>Half</HorizontalSpacing>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборСтатусЭЗЗРасширеннаяПодсказка" id="927"/>
+											<ChildItems>
+												<CheckBoxField name="флагОтборСтатусЭЗЗ" id="928">
+													<DataPath>флагОтборСтатус</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="флагОтборСтатусЭЗЗКонтекстноеМеню" id="929"/>
+													<ExtendedTooltip name="флагОтборСтатусЭЗЗРасширеннаяПодсказка" id="930"/>
+													<Events>
+														<Event name="OnChange">флагОтборСтатусПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<LabelDecoration name="ДекорацияОтборСтатусЭЗЗ" id="931">
+													<Width>11</Width>
+													<TextColor>style:ButtonTextColor</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Статус:</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Status:</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ДекорацияОтборСтатусЭЗЗКонтекстноеМеню" id="932"/>
+													<ExtendedTooltip name="ДекорацияОтборСтатусЭЗЗРасширеннаяПодсказка" id="933"/>
+												</LabelDecoration>
+												<InputField name="ОтборСтатусЭЗЗ" id="934">
+													<DataPath>ОтборСтатус</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Статус</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Department</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>None</TitleLocation>
+													<Width>9</Width>
+													<DropListButton>false</DropListButton>
+													<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+													<ClearButton>true</ClearButton>
+													<OpenButton>false</OpenButton>
+													<CreateButton>false</CreateButton>
+													<ChoiceParameters>
+														<app:item name="Отбор.ДействуетНаЗаказыГрузоотправителей">
+															<app:value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation/>
+																<Value xsi:type="xs:boolean">true</Value>
+															</app:value>
+														</app:item>
+													</ChoiceParameters>
+													<ContextMenu name="ОтборСтатусЭЗЗКонтекстноеМеню" id="935"/>
+													<ExtendedTooltip name="ОтборСтатусЭЗЗРасширеннаяПодсказка" id="936"/>
+													<Events>
+														<Event name="OnChange">ОтборСтатусПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОтборыЭЗЗПравая" id="937">
+									<Group>Vertical</Group>
+									<HorizontalSpacing>Half</HorizontalSpacing>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборыЭЗЗПраваяРасширеннаяПодсказка" id="938"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаОтборТСЭЗЗ" id="939">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборТСЭЗЗРасширеннаяПодсказка" id="940"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаТСЭЗЗ" id="941">
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа ТС</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Group of TD</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаТСЭЗЗРасширеннаяПодсказка" id="942"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборТСЭЗЗ" id="943">
+															<DataPath>флагОтборТС</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборТСЭЗЗКонтекстноеМеню" id="944"/>
+															<ExtendedTooltip name="флагОтборТСЭЗЗРасширеннаяПодсказка" id="945"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборТСЭЗЗ" id="946">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Vehicle:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборТСЭЗЗКонтекстноеМеню" id="947"/>
+															<ExtendedTooltip name="ДекорацияОтборТСЭЗЗРасширеннаяПодсказка" id="948"/>
+														</LabelDecoration>
+														<InputField name="ОтборТСЭЗЗ" id="949">
+															<DataPath>ОтборТС1С</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="ОтборТСЭЗЗКонтекстноеМеню" id="950"/>
+															<ExtendedTooltip name="ОтборТСЭЗЗРасширеннаяПодсказка" id="951"/>
+															<Events>
+																<Event name="OnChange">ОтборТСПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаТСЭПДЭЗЗ" id="952">
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаТСЭПДЭЗЗРасширеннаяПодсказка" id="953"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборТСЭЗЗ1" id="1048">
+															<DataPath>флагОтборТС</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборТСЭЗЗ1КонтекстноеМеню" id="1049"/>
+															<ExtendedTooltip name="флагОтборТСЭЗЗ1РасширеннаяПодсказка" id="1050"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборТСЭПДЭЗЗ" id="954">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ТС в ЭПД:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>TS in EPD:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборТСЭПДЭЗЗКонтекстноеМеню" id="955"/>
+															<ExtendedTooltip name="ДекорацияОтборТСЭПДЭЗЗРасширеннаяПодсказка" id="956"/>
+														</LabelDecoration>
+														<InputField name="ОтборТСЭПДЭЗЗ" id="957">
+															<DataPath>ОтборТС</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>false</ChoiceButton>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборТСЭПДЭЗЗКонтекстноеМеню" id="958"/>
+															<ExtendedTooltip name="ОтборТСЭПДЭЗЗРасширеннаяПодсказка" id="959"/>
+															<Events>
+																<Event name="Opening">ОтборТСЭПДОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборВодительЭЗЗ" id="960">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборВодительЭЗЗРасширеннаяПодсказка" id="961"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаВодительЭЗЗ" id="962">
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаВодительЭЗЗРасширеннаяПодсказка" id="963"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборВодительЭЗЗ" id="964">
+															<DataPath>флагОтборВодитель</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборВодительЭЗЗКонтекстноеМеню" id="965"/>
+															<ExtendedTooltip name="флагОтборВодительЭЗЗРасширеннаяПодсказка" id="966"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборВодительЭЗЗ" id="967">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Водители:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Drivers:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборВодительЭЗЗКонтекстноеМеню" id="968"/>
+															<ExtendedTooltip name="ДекорацияОтборВодительЭЗЗРасширеннаяПодсказка" id="969"/>
+														</LabelDecoration>
+														<InputField name="ОтборВодительЭЗЗ" id="970">
+															<DataPath>ОтборВодитель1С</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборВодительЭЗЗКонтекстноеМеню" id="971"/>
+															<ExtendedTooltip name="ОтборВодительЭЗЗРасширеннаяПодсказка" id="972"/>
+															<Events>
+																<Event name="OnChange">ОтборВодительПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаВодителиЭПДЭЗЗ" id="973">
+													<Group>AlwaysHorizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаВодителиЭПДЭЗЗРасширеннаяПодсказка" id="974"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборВодительЭЗЗ1" id="1045">
+															<DataPath>флагОтборВодитель</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборВодительЭЗЗ1КонтекстноеМеню" id="1046"/>
+															<ExtendedTooltip name="флагОтборВодительЭЗЗ1РасширеннаяПодсказка" id="1047"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборВодителиЭПДЭЗЗ" id="975">
+															<Width>11</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Водители в ЭПД:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Drivers in the EPD:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборВодителиЭПДЭЗЗКонтекстноеМеню" id="976"/>
+															<ExtendedTooltip name="ДекорацияОтборВодителиЭПДЭЗЗРасширеннаяПодсказка" id="977"/>
+														</LabelDecoration>
+														<InputField name="ОтборВодительЭПДЭЗЗ" id="978">
+															<DataPath>ОтборВодитель</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>false</ChoiceButton>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборВодительЭПДЭЗЗКонтекстноеМеню" id="979"/>
+															<ExtendedTooltip name="ОтборВодительЭПДЭЗЗРасширеннаяПодсказка" id="980"/>
+															<Events>
+																<Event name="Opening">ОтборВодительЭПДОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаОтборыЭЗЗДаты" id="981">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборыЭЗЗДатыРасширеннаяПодсказка" id="982"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаДатыЭЗЗ" id="991">
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДатыЭЗЗРасширеннаяПодсказка" id="992"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаОтборДатаВремяПодачиЭЗЗ" id="993">
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаОтборДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="994"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборДатаВремяПодачиЭЗЗ" id="995">
+															<DataPath>флагОтборДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборДатаВремяПодачиЭЗЗКонтекстноеМеню" id="996"/>
+															<ExtendedTooltip name="флагОтборДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="997"/>
+															<Events>
+																<Event name="OnChange">флагОтборДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборДатаВремяПодачиЭЗЗ" id="998">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата подачи ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Date of submission of the TS:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборДатаВремяПодачиЭЗЗКонтекстноеМеню" id="999"/>
+															<ExtendedTooltip name="ДекорацияОтборДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="1000"/>
+														</LabelDecoration>
+														<InputField name="ОтборДатаВремяПодачиЭЗЗ" id="1001">
+															<DataPath>ОтборДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<ContextMenu name="ОтборДатаВремяПодачиЭЗЗКонтекстноеМеню" id="1002"/>
+															<ExtendedTooltip name="ОтборДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="1003"/>
+															<Events>
+																<Event name="OnChange">ОтборДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаОтборПредельнаяДатаВремяПодачиЭЗЗ" id="1004">
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаОтборПредельнаяДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="1005"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборПредельнаяДатаВремяПодачиЭЗЗ" id="1006">
+															<DataPath>флагОтборПредельнаяДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборПредельнаяДатаВремяПодачиЭЗЗКонтекстноеМеню" id="1007"/>
+															<ExtendedTooltip name="флагОтборПредельнаяДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="1008"/>
+															<Events>
+																<Event name="OnChange">флагОтборПредельнаяДатаВремяПодачиЭЗЗПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборПредельнаяДатаВремяПодачиЭЗЗ" id="1009">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Предельная дата подачи ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Deadline for submitting TS:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборПредельнаяДатаВремяПодачиЭЗЗКонтекстноеМеню" id="1010"/>
+															<ExtendedTooltip name="ДекорацияОтборПредельнаяДатаВремяПодачиЭЗЗРасширеннаяПодсказка" id="1011"/>
+														</LabelDecoration>
+														<InputField name="ОтборПредельнаяДатаВремяПодачи" id="1012">
+															<DataPath>ОтборПредельнаяДатаВремяПодачи</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<ContextMenu name="ОтборПредельнаяДатаВремяПодачиКонтекстноеМеню" id="1013"/>
+															<ExtendedTooltip name="ОтборПредельнаяДатаВремяПодачиРасширеннаяПодсказка" id="1014"/>
+															<Events>
+																<Event name="OnChange">ОтборПредельнаяДатаВремяПодачиПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаОтборТипТСЭЗЗ" id="1015">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа отбор тип ТСЭЗЗ</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Selection group type TSEZZ</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа отбор тип ТСЭЗЗ</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Selection group type TSEZZ</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>40</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтборТипТСЭЗЗРасширеннаяПодсказка" id="1016"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаТипТСЭЗЗ" id="1017">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа тип ТСЭЗЗ</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Group type TSZZ</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа ТС</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Group of TD</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаТипТСЭЗЗРасширеннаяПодсказка" id="1018"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборТипТС" id="1019">
+															<DataPath>флагОтборТипТС</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборТипТСКонтекстноеМеню" id="1020"/>
+															<ExtendedTooltip name="флагОтборТипТСРасширеннаяПодсказка" id="1021"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборТипТСЭЗЗ" id="1022">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Требование к типу ТС:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Vehicle type requirement:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборТипТСЭЗЗКонтекстноеМеню" id="1023"/>
+															<ExtendedTooltip name="ДекорацияОтборТипТСЭЗЗРасширеннаяПодсказка" id="1024"/>
+														</LabelDecoration>
+														<InputField name="ОтборТипТСЭЗЗ" id="1025">
+															<DataPath>ОтборТипТС1С</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<ContextMenu name="ОтборТипТСЭЗЗКонтекстноеМеню" id="1026"/>
+															<ExtendedTooltip name="ОтборТипТСЭЗЗРасширеннаяПодсказка" id="1027"/>
+															<Events>
+																<Event name="OnChange">ОтборТипТСПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаТипТСЭПДЭЗЗ" id="1028">
+													<Group>AlwaysHorizontal</Group>
+													<HorizontalSpacing>Half</HorizontalSpacing>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаТипТСЭПДЭЗЗРасширеннаяПодсказка" id="1029"/>
+													<ChildItems>
+														<CheckBoxField name="флагОтборТипТС1" id="1042">
+															<DataPath>флагОтборТипТС</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="флагОтборТипТС1КонтекстноеМеню" id="1043"/>
+															<ExtendedTooltip name="флагОтборТипТС1РасширеннаяПодсказка" id="1044"/>
+															<Events>
+																<Event name="OnChange">флагОтборТСПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<LabelDecoration name="ДекорацияОтборТипТСЭПДЭЗЗ" id="1030">
+															<Width>19</Width>
+															<TextColor>style:ButtonTextColor</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Тип ТС в ЭПД:</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Vehicle type in EPD:</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ДекорацияОтборТипТСЭПДЭЗЗКонтекстноеМеню" id="1031"/>
+															<ExtendedTooltip name="ДекорацияОтборТипТСЭПДЭЗЗРасширеннаяПодсказка" id="1032"/>
+														</LabelDecoration>
+														<InputField name="ОтборТипТСЭПДЭЗЗ" id="1033">
+															<DataPath>ОтборТипТС</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<Width>10</Width>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>false</ChoiceButton>
+															<OpenButton>true</OpenButton>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ОтборТипТСЭПДЭЗЗКонтекстноеМеню" id="1034"/>
+															<ExtendedTooltip name="ОтборТипТСЭПДЭЗЗРасширеннаяПодсказка" id="1035"/>
+															<Events>
+																<Event name="Opening">ОтборТипТСЭПДОткрытие</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа пользовательских настроек</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>User settings group</v8:content>
+						</v8:item>
+					</Title>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+				</UsualGroup>
+				<Table name="Список" id="3">
+					<Representation>List</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<RowSelectionMode>Row</RowSelectionMode>
+					<InitialTreeView>ExpandTopLevel</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Список</DataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+					<SearchStringAddition name="СписокСтрокаПоиска" id="37">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="38"/>
+						<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="39"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокСостояниеПросмотра" id="40">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="41"/>
+						<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="42"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокУправлениеПоиском" id="43">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="44"/>
+						<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="45"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СписокВыбор</Event>
+						<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+						<Event name="OnChange">СписокПриИзменении</Event>
+					</Events>
+					<ChildItems>
+						<ColumnGroup name="ГруппаНомер" id="180">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Number</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Number</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ГруппаНомерРасширеннаяПодсказка" id="181"/>
+							<ChildItems>
+								<PictureField name="СтатусПроведенияДокумента" id="182">
+									<DataPath>Список.СтатусПроведенияДокумента</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Status of document posting</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус проведения документа</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ShowInHeader>false</ShowInHeader>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатСостоянияДокумента</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатСостоянияДокумента</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="СтатусПроведенияДокументаКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="СтатусПроведенияДокументаРасширеннаяПодсказка" id="184"/>
+								</PictureField>
+								<PictureField name="ВидМультимодальногоЗаказа" id="177">
+									<DataPath>Список.ВидМультимодальногоЗаказа</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Multimodal order type</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид мультимодального заказа</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ShowInHeader>false</ShowInHeader>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатВидыМультимодальныхЗаказов</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатВидМультимодальногоЗаказа</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ВидМультимодальногоЗаказаКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="ВидМультимодальногоЗаказаРасширеннаяПодсказка" id="179"/>
+								</PictureField>
+								<PictureField name="ДетализацияЗакрытия" id="58">
+									<DataPath>Список.ДетализацияЗакрытия</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Closing details</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Детализация закрытия</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ShowInHeader>false</ShowInHeader>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатВидыДетализацийЗаказов</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатВидДетализацииЗаказа</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ДетализацияЗакрытияКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="ДетализацияЗакрытияРасширеннаяПодсказка" id="60"/>
+								</PictureField>
+								<PictureField name="СтатусОбработкиСопроводительныхДокументов" id="168">
+									<DataPath>Список.СтатусОбработкиСопроводительныхДокументов</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Execution status of documents</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус обработки сопроводительных документов</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Числовое представление статусов СД:
+0 - документы не введены
+1 - документы введены, ни один не обработан
+2 - документы частично обработаны
+2 - все документы обработаны</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Numerical representation of SD statuses:
+0 - documents not entered
+1 - documents entered, none processed
+2 - documents partially processed
+2 - all documents processed</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowInHeader>false</ShowInHeader>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатСтатусыВыполненияДокументов</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатСтатусВыполненияДокументов</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="СтатусОбработкиСопроводительныхДокументовКонтекстноеМеню" id="169"/>
+									<ExtendedTooltip name="СтатусОбработкиСопроводительныхДокументовРасширеннаяПодсказка" id="170"/>
+								</PictureField>
+								<PictureField name="КартинкаЕстьРасхождения" id="574">
+									<DataPath>Список.ЕстьРасхождения</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При отгрузке или приемке грузов по данному заказу есть расхождения</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>There are discrepancies in the shipment or acceptance of goods for this order.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowInHeader>false</ShowInHeader>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатРасхожденияВАктах</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатРасхожденияВАктах</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<ContextMenu name="КартинкаЕстьРасхожденияКонтекстноеМеню" id="575"/>
+									<ExtendedTooltip name="КартинкаЕстьРасхожденияРасширеннаяПодсказка" id="576"/>
+								</PictureField>
+								<PictureField name="ПрисоединенныйФайл" id="577">
+									<DataPath>Список.ПрисоединенныйФайл</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Имеются присоединённые файлы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>There are attachments</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ShowInHeader>false</ShowInHeader>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.уатПрисоединенныйФайл</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатПрисоединенныйФайл</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<ContextMenu name="ПрисоединенныйФайлКонтекстноеМеню" id="578"/>
+									<ExtendedTooltip name="ПрисоединенныйФайлРасширеннаяПодсказка" id="579"/>
+								</PictureField>
+								<LabelField name="Номер" id="10">
+									<DataPath>Список.Номер</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Number</v8:content>
+										</v8:item>
+									</Title>
+									<ShowInHeader>false</ShowInHeader>
+									<Width>11</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="НомерКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="12"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="Дата" id="7">
+							<DataPath>Список.Дата</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="9"/>
+						</LabelField>
+						<LabelField name="ВидДоставки" id="449">
+							<DataPath>Список.ВидДоставки</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ВидДоставкиКонтекстноеМеню" id="450"/>
+							<ExtendedTooltip name="ВидДоставкиРасширеннаяПодсказка" id="451"/>
+						</LabelField>
+						<LabelField name="СтатусЗаказа" id="34">
+							<DataPath>Список.СтатусЗаказа</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Статус</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Status</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Статус заказа</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Order status</v8:content>
+								</v8:item>
+							</ToolTip>
+							<CellHyperlink>true</CellHyperlink>
+							<Width>15</Width>
+							<ContextMenu name="СтатусЗаказаКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="СтатусЗаказаРасширеннаяПодсказка" id="36"/>
+						</LabelField>
+						<ColumnGroup name="ЗаказыСписокГруппаСостояние" id="686">
+							<Group>InCell</Group>
+							<ExtendedTooltip name="ЗаказыСписокГруппаСостояниеРасширеннаяПодсказка" id="687"/>
+							<ChildItems>
+								<PictureField name="СостояниеВыполненияКартинка" id="688">
+									<DataPath>Список.СостояниеВыполненияКартинка</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>1</Width>
+									<Height>1</Height>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.уатСостоянияВыполненияЗаказов</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<ContextMenu name="СостояниеВыполненияКартинкаКонтекстноеМеню" id="689"/>
+									<ExtendedTooltip name="СостояниеВыполненияКартинкаРасширеннаяПодсказка" id="690"/>
+								</PictureField>
+								<LabelField name="Состояние" id="693">
+									<DataPath>Список.Состояние</DataPath>
+									<ContextMenu name="СостояниеКонтекстноеМеню" id="694"/>
+									<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="695"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="СвязанныйДокумент" id="793">
+							<DataPath>Список.СвязанныйДокумент</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Рейс</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Trip</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СвязанныйДокументКонтекстноеМеню" id="794"/>
+							<ExtendedTooltip name="СвязанныйДокументРасширеннаяПодсказка" id="795"/>
+						</LabelField>
+						<LabelField name="ТС" id="796">
+							<DataPath>Список.ТС</DataPath>
+							<ContextMenu name="ТСКонтекстноеМеню" id="797"/>
+							<ExtendedTooltip name="ТСРасширеннаяПодсказка" id="798"/>
+						</LabelField>
+						<LabelField name="Водитель" id="799">
+							<DataPath>Список.Водитель</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Водитель 1</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Driver 1</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ВодительКонтекстноеМеню" id="800"/>
+							<ExtendedTooltip name="ВодительРасширеннаяПодсказка" id="801"/>
+						</LabelField>
+						<LabelField name="Водитель2" id="870">
+							<DataPath>Список.ВодительВторой</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Водитель 2</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Driver 2</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Водитель2КонтекстноеМеню" id="871"/>
+							<ExtendedTooltip name="Водитель2РасширеннаяПодсказка" id="872"/>
+						</LabelField>
+						<LabelField name="ОтправлениеС" id="67">
+							<DataPath>Список.ОтправлениеС</DataPath>
+							<Width>9</Width>
+							<Format>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+							</Format>
+							<ContextMenu name="ОтправлениеСКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ОтправлениеСРасширеннаяПодсказка" id="69"/>
+						</LabelField>
+						<LabelField name="ОтправлениеПо" id="70">
+							<DataPath>Список.ОтправлениеПо</DataPath>
+							<Width>9</Width>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+							</Format>
+							<ContextMenu name="ОтправлениеПоКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="ОтправлениеПоРасширеннаяПодсказка" id="72"/>
+						</LabelField>
+						<LabelField name="ДоставкаС" id="73">
+							<DataPath>Список.ДоставкаС</DataPath>
+							<Width>9</Width>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+							</Format>
+							<ContextMenu name="ДоставкаСКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ДоставкаСРасширеннаяПодсказка" id="75"/>
+						</LabelField>
+						<LabelField name="ДоставкаПо" id="76">
+							<DataPath>Список.ДоставкаПо</DataPath>
+							<Width>9</Width>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ДФ='dd.MM.yy HH:mm'</v8:content>
+								</v8:item>
+							</Format>
+							<ContextMenu name="ДоставкаПоКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="ДоставкаПоРасширеннаяПодсказка" id="78"/>
+						</LabelField>
+						<LabelField name="Контрагент" id="19">
+							<DataPath>Список.Контрагент</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Counterpartу</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контрагент</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="КонтрагентКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="21"/>
+						</LabelField>
+						<LabelField name="СуммаДокумента" id="22">
+							<DataPath>Список.СуммаДокумента</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Incomes</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Доходы</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="24"/>
+						</LabelField>
+						<LabelField name="СуммаДоходовПлан" id="580">
+							<DataPath>Список.СуммаДоходовПлан</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СуммаДоходовПланКонтекстноеМеню" id="581"/>
+							<ExtendedTooltip name="СуммаДоходовПланРасширеннаяПодсказка" id="582"/>
+						</LabelField>
+						<LabelField name="СуммаЗатрат" id="165">
+							<DataPath>Список.СуммаЗатрат</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СуммаЗатратКонтекстноеМеню" id="166"/>
+							<ExtendedTooltip name="СуммаЗатратРасширеннаяПодсказка" id="167"/>
+						</LabelField>
+						<LabelField name="СуммаРасходовПлан" id="583">
+							<DataPath>Список.СуммаРасходовПлан</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СуммаРасходовПланКонтекстноеМеню" id="584"/>
+							<ExtendedTooltip name="СуммаРасходовПланРасширеннаяПодсказка" id="585"/>
+						</LabelField>
+						<LabelField name="ВалютаДокумента" id="547">
+							<DataPath>Список.ВалютаДокумента</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Валюта</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Currency</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ВалютаДокументаКонтекстноеМеню" id="548"/>
+							<ExtendedTooltip name="ВалютаДокументаРасширеннаяПодсказка" id="549"/>
+						</LabelField>
+						<LabelField name="ДатаЗакрытия" id="395">
+							<DataPath>Список.ДатаЗакрытия</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ДатаЗакрытияКонтекстноеМеню" id="396"/>
+							<ExtendedTooltip name="ДатаЗакрытияРасширеннаяПодсказка" id="397"/>
+						</LabelField>
+						<LabelField name="АдресОтправления" id="25">
+							<DataPath>Список.АдресОтправления</DataPath>
+							<ContextMenu name="АдресОтправленияКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="АдресОтправленияРасширеннаяПодсказка" id="27"/>
+						</LabelField>
+						<LabelField name="АдресНазначения" id="28">
+							<DataPath>Список.АдресНазначения</DataPath>
+							<ContextMenu name="АдресНазначенияКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="АдресНазначенияРасширеннаяПодсказка" id="30"/>
+						</LabelField>
+						<LabelField name="ТребованиеКТС" id="49">
+							<DataPath>Список.ТребованиеКТС</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Vehicle request (model)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Треб. ТС (модель)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ТребованиеКТСКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ТребованиеКТСРасширеннаяПодсказка" id="51"/>
+						</LabelField>
+						<LabelField name="ТребованиеКТСТипТС" id="52">
+							<DataPath>Список.ТребованиеКТСТипТС</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Vehicle request (type)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Треб. ТС (тип)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ТребованиеКТСТипТСКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ТребованиеКТСТипТСРасширеннаяПодсказка" id="54"/>
+						</LabelField>
+						<LabelField name="Приоритет" id="64">
+							<DataPath>Список.Приоритет</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Приоритет</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Priority</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПриоритетКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ПриоритетРасширеннаяПодсказка" id="66"/>
+						</LabelField>
+						<LabelField name="Организация" id="436">
+							<DataPath>Список.Организация</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="437"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="438"/>
+						</LabelField>
+						<LabelField name="Подразделение" id="439">
+							<DataPath>Список.Подразделение</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="440"/>
+							<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="441"/>
+						</LabelField>
+						<LabelField name="Ответственный" id="442">
+							<DataPath>Список.Ответственный</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="443"/>
+							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="444"/>
+						</LabelField>
+						<LabelField name="ОбъектСтроительства" id="524">
+							<DataPath>Список.ОбъектСтроительства</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ОбъектСтроительстваКонтекстноеМеню" id="525"/>
+							<ExtendedTooltip name="ОбъектСтроительстваРасширеннаяПодсказка" id="526"/>
+						</LabelField>
+						<LabelField name="Маршрут" id="521">
+							<DataPath>Список.Маршрут</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="МаршрутКонтекстноеМеню" id="522"/>
+							<ExtendedTooltip name="МаршрутРасширеннаяПодсказка" id="523"/>
+						</LabelField>
+						<LabelField name="ВидПеревозки" id="515">
+							<DataPath>Список.ВидПеревозки</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="ВидПеревозкиКонтекстноеМеню" id="516"/>
+							<ExtendedTooltip name="ВидПеревозкиРасширеннаяПодсказка" id="517"/>
+						</LabelField>
+						<LabelField name="НаправлениеПеревозки" id="518">
+							<DataPath>Список.НаправлениеПеревозки</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="НаправлениеПеревозкиКонтекстноеМеню" id="519"/>
+							<ExtendedTooltip name="НаправлениеПеревозкиРасширеннаяПодсказка" id="520"/>
+						</LabelField>
+						<LabelField name="Комментарий" id="31">
+							<DataPath>Список.Комментарий</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Comment</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Комментарий</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="33"/>
+						</LabelField>
+						<LabelField name="СостояниеЭДО" id="696">
+							<DataPath>Список.СостояниеЭДО</DataPath>
+							<ContextMenu name="СостояниеЭДОКонтекстноеМеню" id="697"/>
+							<ExtendedTooltip name="СостояниеЭДОРасширеннаяПодсказка" id="698"/>
+						</LabelField>
+						<LabelField name="Ссылка" id="61">
+							<DataPath>Список.Ссылка</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СсылкаКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="63"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.Ref</Field>
+				<Field>~Список.СостояниеВыполнения</Field>
+				<Field>Список.Мультимодальный</Field>
+				<Field>Список.НаличиеСопроводительныхДокументов</Field>
+				<Field>Список.Перевозчик</Field>
+				<Field>Список.ПроцентВыполнения</Field>
+				<Field>Список.СвязанныйДокумент</Field>
+				<Field>Список.Состояние</Field>
+				<Field>Список.СостояниеВыполненияСтрока</Field>
+				<Field>Список.Ссылка</Field>
+				<Field>Список.СтатусЗаказа</Field>
+				<Field>Список.СтатусОбработкиСопроводительныхДокументов</Field>
+				<Field>Список.ЭтоШаблонПеревозки</Field>
+				<Field>Список.ЭтоЭтап</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументуатЗаказГрузоотправителя.Ссылка КАК Ссылка,
+	ДокументуатЗаказГрузоотправителя.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументуатЗаказГрузоотправителя.Номер КАК Номер,
+	ДокументуатЗаказГрузоотправителя.Дата КАК Дата,
+	ДокументуатЗаказГрузоотправителя.Проведен КАК Проведен,
+	ДокументуатЗаказГрузоотправителя.АдресНазначения КАК АдресНазначения,
+	ДокументуатЗаказГрузоотправителя.АдресОтправления КАК АдресОтправления,
+	ДокументуатЗаказГрузоотправителя.ВалютаДокумента КАК ВалютаДокумента,
+	ДокументуатЗаказГрузоотправителя.ВалютаТоваров КАК ВалютаТоваров,
+	ДокументуатЗаказГрузоотправителя.ВесБрутто КАК ВесБрутто,
+	ДокументуатЗаказГрузоотправителя.ВидОперации КАК ВидОперации,
+	ДокументуатЗаказГрузоотправителя.ВидДоставки КАК ВидДоставки,
+	ДокументуатЗаказГрузоотправителя.Грузоотправитель КАК Грузоотправитель,
+	ДокументуатЗаказГрузоотправителя.Грузополучатель КАК Грузополучатель,
+	ДокументуатЗаказГрузоотправителя.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	ДокументуатЗаказГрузоотправителя.ДокументОснование КАК ДокументОснование,
+	ДокументуатЗаказГрузоотправителя.ДоставкаПо КАК ДоставкаПо,
+	ДокументуатЗаказГрузоотправителя.ДоставкаС КАК ДоставкаС,
+	ДокументуатЗаказГрузоотправителя.КоличествоМест КАК КоличествоМест,
+	ВЫРАЗИТЬ(ДокументуатЗаказГрузоотправителя.Комментарий КАК СТРОКА(500)) КАК Комментарий,
+	ДокументуатЗаказГрузоотправителя.КонтактноеЛицоГрузоотправителя КАК КонтактноеЛицоГрузоотправителя,
+	ДокументуатЗаказГрузоотправителя.КонтактноеЛицоГрузополучателя КАК КонтактноеЛицоГрузополучателя,
+	ДокументуатЗаказГрузоотправителя.Контрагент КАК Контрагент,
+	ДокументуатЗаказГрузоотправителя.КратностьВзаиморасчетов КАК КратностьВзаиморасчетов,
+	ДокументуатЗаказГрузоотправителя.КурсВзаиморасчетов КАК КурсВзаиморасчетов,
+	ВЫРАЗИТЬ(ДокументуатЗаказГрузоотправителя.НазваниеГруза КАК СТРОКА(500)) КАК НазваниеГруза,
+	ДокументуатЗаказГрузоотправителя.НомерПоУчетуЗаказчика КАК НомерПоУчетуЗаказчика,
+	ДокументуатЗаказГрузоотправителя.Объем КАК Объем,
+	ДокументуатЗаказГрузоотправителя.Организация КАК Организация,
+	ДокументуатЗаказГрузоотправителя.Подразделение КАК Подразделение,
+	ДокументуатЗаказГрузоотправителя.Ответственный КАК Ответственный,
+	ДокументуатЗаказГрузоотправителя.ОтправлениеПо КАК ОтправлениеПо,
+	ДокументуатЗаказГрузоотправителя.ОтправлениеС КАК ОтправлениеС,
+	ДокументуатЗаказГрузоотправителя.СтоянкаПунктНазначения КАК СтоянкаПунктНазначения,
+	ДокументуатЗаказГрузоотправителя.СтоянкаПунктОтправления КАК СтоянкаПунктОтправления,
+	ДокументуатЗаказГрузоотправителя.СуммаВключаетНДС КАК СуммаВключаетНДС,
+	ДокументуатЗаказГрузоотправителя.СуммаДокумента КАК СуммаДокумента,
+	ДокументуатЗаказГрузоотправителя.ВидПеревозки КАК ВидПеревозки,
+	ДокументуатЗаказГрузоотправителя.НаправлениеПеревозки КАК НаправлениеПеревозки,
+	ДокументуатЗаказГрузоотправителя.ТипЦен КАК ТипЦен,
+	ДокументуатЗаказГрузоотправителя.ТребованиеКТС КАК ТребованиеКТС,
+	ДокументуатЗаказГрузоотправителя.ТребованиеКТСТипТС КАК ТребованиеКТСТипТС,
+	ДокументуатЗаказГрузоотправителя.УчитыватьНДС КАК УчитыватьНДС,
+	ДокументуатЗаказГрузоотправителя.Мультимодальный КАК Мультимодальный,
+	ДокументуатЗаказГрузоотправителя.ЭтоЭтап КАК ЭтоЭтап,
+	ДокументуатЗаказГрузоотправителя.РодительскийЗаказ КАК РодительскийЗаказ,
+	ДокументуатЗаказГрузоотправителя.МоментВремени КАК МоментВремени,
+	ВЫБОР
+		КОГДА ДокументуатЗаказГрузоотправителя.ДетализацияЗакрытия = ЗНАЧЕНИЕ(Перечисление.уатДетализацияЗаказаГрузоотправителя_уэ.ПоГрузовымМестам)
+			ТОГДА 1
+		КОГДА ДокументуатЗаказГрузоотправителя.ДетализацияЗакрытия = ЗНАЧЕНИЕ(Перечисление.уатДетализацияЗаказаГрузоотправителя_уэ.ПоТоварам)
+			ТОГДА 2
+		ИНАЧЕ 0
+	КОНЕЦ КАК ДетализацияЗакрытия,
+	ДокументуатЗаказГрузоотправителя.Приоритет КАК Приоритет,
+	ДокументуатЗаказГрузоотправителя.СуммаЗатрат КАК СуммаЗатрат,
+	ВЫБОР
+		КОГДА ДокументуатЗаказГрузоотправителя.Мультимодальный
+				И ДокументуатЗаказГрузоотправителя.ЭтоЭтап
+			ТОГДА ВЫБОР
+					КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.Авиационная)
+						ТОГДА 6
+					КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.АвтомобильнаяПассажирская)
+						ТОГДА 8
+					КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.Железнодорожная)
+						ТОГДА 9
+					КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.Морская)
+						ТОГДА 10
+					ИНАЧЕ 7
+				КОНЕЦ
+		КОГДА ДокументуатЗаказГрузоотправителя.Мультимодальный
+				И НЕ ДокументуатЗаказГрузоотправителя.ЭтоЭтап
+			ТОГДА 5
+		ИНАЧЕ ВЫБОР
+				КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.Авиационная)
+					ТОГДА 0
+				КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.АвтомобильнаяПассажирская)
+					ТОГДА 2
+				КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.Железнодорожная)
+					ТОГДА 3
+				КОГДА ДокументуатЗаказГрузоотправителя.ВидПеревозки = ЗНАЧЕНИЕ(Справочник.уатВидыПеревозок.Морская)
+					ТОГДА 4
+				ИНАЧЕ 1
+			КОНЕЦ
+	КОНЕЦ КАК ВидМультимодальногоЗаказа,
+	ВЫБОР
+		КОГДА ДокументуатЗаказГрузоотправителя.Проведен
+			ТОГДА 1
+		КОГДА ДокументуатЗаказГрузоотправителя.ПометкаУдаления
+			ТОГДА 2
+		ИНАЧЕ 0
+	КОНЕЦ КАК СтатусПроведенияДокумента,
+	ДокументуатЗаказГрузоотправителя.ДатаЗакрытия КАК ДатаЗакрытия,
+	ДокументуатЗаказГрузоотправителя.ОбъектСтроительства КАК ОбъектСтроительства,
+	ДокументуатЗаказГрузоотправителя.Маршрут КАК Маршрут,
+	ДокументуатЗаказГрузоотправителя.ЕстьРасхождения КАК ЕстьРасхождения,
+	ДокументуатЗаказГрузоотправителя.СуммаДоходовПлан КАК СуммаДоходовПлан,
+	ДокументуатЗаказГрузоотправителя.СуммаРасходовПлан КАК СуммаРасходовПлан,
+	ЗНАЧЕНИЕ(Справочник.уатСтатусы_уэ.ПустаяСсылка) КАК СтатусЗаказа,
+	ВЫБОР
+		КОГДА НЕ ДокументуатЗаказГрузоотправителя.Проведен
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Новый)
+		ИНАЧЕ уатТекущееСостояниеВыполненияЗаказов.Состояние
+	КОНЕЦ КАК Состояние,
+	уатТекущееСостояниеЭДО.СостояниеЭДО КАК СостояниеЭДО,
+	ЛОЖЬ КАК НаличиеСопроводительныхДокументов,
+	0 КАК СтатусОбработкиСопроводительныхДокументов,
+	ВЫБОР
+		КОГДА НаличиеФайлов.ЕстьФайлы ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ НаличиеФайлов.ЕстьФайлы
+	КОНЕЦ КАК ПрисоединенныйФайл,
+	ДокументуатЗаказГрузоотправителя.ЭтоШаблонПеревозки КАК ЭтоШаблонПеревозки,
+	ДокументуатЗаказГрузоотправителя.НаименованиеШаблона КАК НаименованиеШаблона,
+	уатТекущееСостояниеВыполненияЗаказов.ПроцентВыполнения КАК ПроцентВыполнения,
+	ВЫРАЗИТЬ("" КАК СТРОКА(100)) КАК СостояниеВыполненияСтрока,
+	ВЫБОР
+		КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Новый)
+			ТОГДА 0
+		ИНАЧЕ ВЫБОР
+				КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Открыт)
+					ТОГДА 1
+				ИНАЧЕ ВЫБОР
+						КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.ЧастичноВыполнен)
+							ТОГДА 2
+						ИНАЧЕ ВЫБОР
+								КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Выполнен)
+									ТОГДА 3
+								ИНАЧЕ ВЫБОР
+										КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Отклонен)
+											ТОГДА 4
+										ИНАЧЕ ВЫБОР
+												КОГДА НЕ ДокументуатЗаказГрузоотправителя.Проведен
+													ТОГДА 0
+												ИНАЧЕ -1
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК СостояниеВыполненияКартинка,
+	СвязанныеДокументы.СвязанныйДокумент КАК СвязанныйДокумент,
+	ВЫБОР
+		КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА СвязанныеДокументы.СвязанныйДокумент.ТС
+		ИНАЧЕ ВЫБОР
+				КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатПутевойЛист
+					ТОГДА СвязанныеДокументы.СвязанныйДокумент.ТранспортноеСредство
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.уатТС.ПустаяСсылка)
+			КОНЕЦ
+	КОНЕЦ КАК ТС,
+	ВЫБОР
+		КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель1
+		ИНАЧЕ ВЫБОР
+				КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатПутевойЛист
+					ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель1
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+			КОНЕЦ
+	КОНЕЦ КАК Водитель,
+	ВЫБОР
+		КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель2
+		ИНАЧЕ ВЫБОР
+				КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатПутевойЛист
+					ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель2
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+			КОНЕЦ
+	КОНЕЦ КАК ВодительВторой,
+	МАКСИМУМ(ВЫБОР
+			КОГДА уатСвязанныеДокументыЭПД.ЭПД ЕСТЬ NULL
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ) КАК ЕстьЭПД,
+	СвязанныеДокументы.СвязанныйДокумент.Контрагент КАК Перевозчик
+ИЗ
+	Документ.уатЗаказГрузоотправителя КАК ДокументуатЗаказГрузоотправителя
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеФайлов КАК НаличиеФайлов
+		ПО ДокументуатЗаказГрузоотправителя.Ссылка = НаличиеФайлов.ОбъектСФайлами
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.уатТекущееСостояниеВыполненияЗаказов КАК уатТекущееСостояниеВыполненияЗаказов
+		ПО ДокументуатЗаказГрузоотправителя.Ссылка = уатТекущееСостояниеВыполненияЗаказов.Заказ
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.уатТекущееСостояниеЭДО КАК уатТекущееСостояниеЭДО
+		ПО ДокументуатЗаказГрузоотправителя.Ссылка = уатТекущееСостояниеЭДО.ДокументПеревозки
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
+			уатМаршрутныйЛистЗаказы.Ссылка КАК СвязанныйДокумент,
+			уатМаршрутныйЛистЗаказы.ЗаказГрузоотправителя КАК ЗаказГрузоотправителя
+		ИЗ
+			Документ.уатМаршрутныйЛист.Заказы КАК уатМаршрутныйЛистЗаказы
+		ГДЕ
+			НЕ уатМаршрутныйЛистЗаказы.Ссылка.ПометкаУдаления
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			уатПутевойЛистЗадание.Ссылка,
+			уатПутевойЛистЗадание.ЗаказНаТС
+		ИЗ
+			Документ.уатПутевойЛист.Задание КАК уатПутевойЛистЗадание
+		ГДЕ
+			НЕ уатПутевойЛистЗадание.Ссылка.ПометкаУдаления
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			уатЗаказПеревозчику_уэГрузы.Ссылка,
+			уатЗаказПеревозчику_уэГрузы.Заказ
+		ИЗ
+			Документ.уатЗаказПеревозчику_уэ.Грузы КАК уатЗаказПеревозчику_уэГрузы) КАК СвязанныеДокументы
+		ПО ДокументуатЗаказГрузоотправителя.Ссылка = СвязанныеДокументы.ЗаказГрузоотправителя
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.уатСвязанныеДокументыЭПД КАК уатСвязанныеДокументыЭПД
+		ПО ДокументуатЗаказГрузоотправителя.Ссылка = уатСвязанныеДокументыЭПД.ЗаказНаТС
+			И (СвязанныеДокументы.ЗаказГрузоотправителя = уатСвязанныеДокументыЭПД.Рейс)
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;ВключенОтбор
+				ТОГДА ДокументуатЗаказГрузоотправителя.Ссылка В (&amp;МассивЗаказов)
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ДокументуатЗаказГрузоотправителя.Проведен
+	И НЕ ДокументуатЗаказГрузоотправителя.ЭтоШаблонПеревозки
+
+СГРУППИРОВАТЬ ПО
+	ДокументуатЗаказГрузоотправителя.Ссылка,
+	СвязанныеДокументы.СвязанныйДокумент,
+	ДокументуатЗаказГрузоотправителя.ПометкаУдаления,
+	ДокументуатЗаказГрузоотправителя.Номер,
+	ДокументуатЗаказГрузоотправителя.Дата,
+	ДокументуатЗаказГрузоотправителя.Проведен,
+	ДокументуатЗаказГрузоотправителя.АдресНазначения,
+	ДокументуатЗаказГрузоотправителя.АдресОтправления,
+	ДокументуатЗаказГрузоотправителя.ВалютаДокумента,
+	ДокументуатЗаказГрузоотправителя.ВалютаТоваров,
+	ДокументуатЗаказГрузоотправителя.ВесБрутто,
+	ДокументуатЗаказГрузоотправителя.ВидОперации,
+	ДокументуатЗаказГрузоотправителя.ВидДоставки,
+	ДокументуатЗаказГрузоотправителя.Грузоотправитель,
+	ДокументуатЗаказГрузоотправителя.Грузополучатель,
+	ДокументуатЗаказГрузоотправителя.ДоговорКонтрагента,
+	ДокументуатЗаказГрузоотправителя.ДокументОснование,
+	ДокументуатЗаказГрузоотправителя.ДоставкаПо,
+	ДокументуатЗаказГрузоотправителя.ДоставкаС,
+	ДокументуатЗаказГрузоотправителя.КоличествоМест,
+	ДокументуатЗаказГрузоотправителя.КонтактноеЛицоГрузоотправителя,
+	ДокументуатЗаказГрузоотправителя.КонтактноеЛицоГрузополучателя,
+	ДокументуатЗаказГрузоотправителя.Контрагент,
+	ДокументуатЗаказГрузоотправителя.КратностьВзаиморасчетов,
+	ДокументуатЗаказГрузоотправителя.КурсВзаиморасчетов,
+	ДокументуатЗаказГрузоотправителя.НомерПоУчетуЗаказчика,
+	ДокументуатЗаказГрузоотправителя.Объем,
+	ДокументуатЗаказГрузоотправителя.Организация,
+	ДокументуатЗаказГрузоотправителя.Подразделение,
+	ДокументуатЗаказГрузоотправителя.Ответственный,
+	ДокументуатЗаказГрузоотправителя.ОтправлениеПо,
+	ДокументуатЗаказГрузоотправителя.ОтправлениеС,
+	ДокументуатЗаказГрузоотправителя.СтоянкаПунктНазначения,
+	ДокументуатЗаказГрузоотправителя.СтоянкаПунктОтправления,
+	ДокументуатЗаказГрузоотправителя.СуммаВключаетНДС,
+	ДокументуатЗаказГрузоотправителя.СуммаДокумента,
+	ДокументуатЗаказГрузоотправителя.ВидПеревозки,
+	ДокументуатЗаказГрузоотправителя.НаправлениеПеревозки,
+	ДокументуатЗаказГрузоотправителя.ТипЦен,
+	ДокументуатЗаказГрузоотправителя.ТребованиеКТС,
+	ДокументуатЗаказГрузоотправителя.ТребованиеКТСТипТС,
+	ДокументуатЗаказГрузоотправителя.УчитыватьНДС,
+	ДокументуатЗаказГрузоотправителя.Мультимодальный,
+	ДокументуатЗаказГрузоотправителя.ЭтоЭтап,
+	ДокументуатЗаказГрузоотправителя.РодительскийЗаказ,
+	ДокументуатЗаказГрузоотправителя.МоментВремени,
+	ДокументуатЗаказГрузоотправителя.Приоритет,
+	ДокументуатЗаказГрузоотправителя.СуммаЗатрат,
+	ДокументуатЗаказГрузоотправителя.ДатаЗакрытия,
+	ДокументуатЗаказГрузоотправителя.ОбъектСтроительства,
+	ДокументуатЗаказГрузоотправителя.Маршрут,
+	ДокументуатЗаказГрузоотправителя.ЕстьРасхождения,
+	ДокументуатЗаказГрузоотправителя.СуммаДоходовПлан,
+	ДокументуатЗаказГрузоотправителя.СуммаРасходовПлан,
+	уатТекущееСостояниеЭДО.СостояниеЭДО,
+	ДокументуатЗаказГрузоотправителя.ЭтоШаблонПеревозки,
+	ДокументуатЗаказГрузоотправителя.НаименованиеШаблона,
+	уатТекущееСостояниеВыполненияЗаказов.ПроцентВыполнения,
+	ВЫРАЗИТЬ(ДокументуатЗаказГрузоотправителя.Комментарий КАК СТРОКА(500)),
+	ВЫРАЗИТЬ(ДокументуатЗаказГрузоотправителя.НазваниеГруза КАК СТРОКА(500)),
+	ВЫБОР
+		КОГДА ДокументуатЗаказГрузоотправителя.ДетализацияЗакрытия = ЗНАЧЕНИЕ(Перечисление.уатДетализацияЗаказаГрузоотправителя_уэ.ПоГрузовымМестам)
+			ТОГДА 1
+		КОГДА ДокументуатЗаказГрузоотправителя.ДетализацияЗакрытия = ЗНАЧЕНИЕ(Перечисление.уатДетализацияЗаказаГрузоотправителя_уэ.ПоТоварам)
+			ТОГДА 2
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА НЕ ДокументуатЗаказГрузоотправителя.Проведен
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Новый)
+		ИНАЧЕ уатТекущееСостояниеВыполненияЗаказов.Состояние
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА НаличиеФайлов.ЕстьФайлы ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ НаличиеФайлов.ЕстьФайлы
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Новый)
+			ТОГДА 0
+		ИНАЧЕ ВЫБОР
+				КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Открыт)
+					ТОГДА 1
+				ИНАЧЕ ВЫБОР
+						КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.ЧастичноВыполнен)
+							ТОГДА 2
+						ИНАЧЕ ВЫБОР
+								КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Выполнен)
+									ТОГДА 3
+								ИНАЧЕ ВЫБОР
+										КОГДА уатТекущееСостояниеВыполненияЗаказов.Состояние = ЗНАЧЕНИЕ(Перечисление.уатСостоянияВыполненияЗаказов.Отклонен)
+											ТОГДА 4
+										ИНАЧЕ ВЫБОР
+												КОГДА НЕ ДокументуатЗаказГрузоотправителя.Проведен
+													ТОГДА 0
+												ИНАЧЕ -1
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель1
+		ИНАЧЕ ВЫБОР
+				КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатПутевойЛист
+					ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель1
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель2
+		ИНАЧЕ ВЫБОР
+				КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатПутевойЛист
+					ТОГДА СвязанныеДокументы.СвязанныйДокумент.Водитель2
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+			КОНЕЦ
+	КОНЕЦ,
+	СвязанныеДокументы.СвязанныйДокумент.Контрагент,
+	ВЫБОР
+		КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатМаршрутныйЛист
+			ТОГДА СвязанныеДокументы.СвязанныйДокумент.ТС
+		ИНАЧЕ ВЫБОР
+				КОГДА СвязанныеДокументы.СвязанныйДокумент ССЫЛКА Документ.уатПутевойЛист
+					ТОГДА СвязанныеДокументы.СвязанныйДокумент.ТранспортноеСредство
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.уатТС.ПустаяСсылка)
+			КОНЕЦ
+	КОНЕЦ</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Номер</dcssch:dataPath>
+					<dcssch:field>Номер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КоличествоМест</dcssch:dataPath>
+					<dcssch:field>КоличествоМест</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проведен</dcssch:dataPath>
+					<dcssch:field>Проведен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерПоУчетуЗаказчика</dcssch:dataPath>
+					<dcssch:field>НомерПоУчетуЗаказчика</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Дата</dcssch:dataPath>
+					<dcssch:field>Дата</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АдресНазначения</dcssch:dataPath>
+					<dcssch:field>АдресНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПрисоединенныйФайл</dcssch:dataPath>
+					<dcssch:field>ПрисоединенныйФайл</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Присоединенный файл</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеВыполненияСтрока</dcssch:dataPath>
+					<dcssch:field>СостояниеВыполненияСтрока</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние выполнения строка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДетализацияЗакрытия</dcssch:dataPath>
+					<dcssch:field>ДетализацияЗакрытия</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Детализация закрытия</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьРасхождения</dcssch:dataPath>
+					<dcssch:field>ЕстьРасхождения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидМультимодальногоЗаказа</dcssch:dataPath>
+					<dcssch:field>ВидМультимодальногоЗаказа</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид мультимодального заказа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>АдресОтправления</dcssch:dataPath>
+					<dcssch:field>АдресОтправления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВалютаТоваров</dcssch:dataPath>
+					<dcssch:field>ВалютаТоваров</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаДоходовПлан</dcssch:dataPath>
+					<dcssch:field>СуммаДоходовПлан</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВалютаДокумента</dcssch:dataPath>
+					<dcssch:field>ВалютаДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДоставкаС</dcssch:dataPath>
+					<dcssch:field>ДоставкаС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Контрагент</dcssch:dataPath>
+					<dcssch:field>Контрагент</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВесБрутто</dcssch:dataPath>
+					<dcssch:field>ВесБрутто</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидОперации</dcssch:dataPath>
+					<dcssch:field>ВидОперации</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаЗакрытия</dcssch:dataPath>
+					<dcssch:field>ДатаЗакрытия</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидДоставки</dcssch:dataPath>
+					<dcssch:field>ВидДоставки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Грузоотправитель</dcssch:dataPath>
+					<dcssch:field>Грузоотправитель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоЭтап</dcssch:dataPath>
+					<dcssch:field>ЭтоЭтап</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Грузополучатель</dcssch:dataPath>
+					<dcssch:field>Грузополучатель</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>УчитыватьНДС</dcssch:dataPath>
+					<dcssch:field>УчитыватьНДС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДоговорКонтрагента</dcssch:dataPath>
+					<dcssch:field>ДоговорКонтрагента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДокументОснование</dcssch:dataPath>
+					<dcssch:field>ДокументОснование</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДоставкаПо</dcssch:dataPath>
+					<dcssch:field>ДоставкаПо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОбъектСтроительства</dcssch:dataPath>
+					<dcssch:field>ОбъектСтроительства</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтатусЗаказа</dcssch:dataPath>
+					<dcssch:field>СтатусЗаказа</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус заказа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КонтактноеЛицоГрузоотправителя</dcssch:dataPath>
+					<dcssch:field>КонтактноеЛицоГрузоотправителя</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>РодительскийЗаказ</dcssch:dataPath>
+					<dcssch:field>РодительскийЗаказ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КонтактноеЛицоГрузополучателя</dcssch:dataPath>
+					<dcssch:field>КонтактноеЛицоГрузополучателя</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НаименованиеШаблона</dcssch:dataPath>
+					<dcssch:field>НаименованиеШаблона</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КратностьВзаиморасчетов</dcssch:dataPath>
+					<dcssch:field>КратностьВзаиморасчетов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>КурсВзаиморасчетов</dcssch:dataPath>
+					<dcssch:field>КурсВзаиморасчетов</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипЦен</dcssch:dataPath>
+					<dcssch:field>ТипЦен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НазваниеГруза</dcssch:dataPath>
+					<dcssch:field>НазваниеГруза</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Название груза</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЭтоШаблонПеревозки</dcssch:dataPath>
+					<dcssch:field>ЭтоШаблонПеревозки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Объем</dcssch:dataPath>
+					<dcssch:field>Объем</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ответственный</dcssch:dataPath>
+					<dcssch:field>Ответственный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОтправлениеПо</dcssch:dataPath>
+					<dcssch:field>ОтправлениеПо</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОтправлениеС</dcssch:dataPath>
+					<dcssch:field>ОтправлениеС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтоянкаПунктНазначения</dcssch:dataPath>
+					<dcssch:field>СтоянкаПунктНазначения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтоянкаПунктОтправления</dcssch:dataPath>
+					<dcssch:field>СтоянкаПунктОтправления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаВключаетНДС</dcssch:dataPath>
+					<dcssch:field>СуммаВключаетНДС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаРасходовПлан</dcssch:dataPath>
+					<dcssch:field>СуммаРасходовПлан</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаДокумента</dcssch:dataPath>
+					<dcssch:field>СуммаДокумента</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВидПеревозки</dcssch:dataPath>
+					<dcssch:field>ВидПеревозки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НаправлениеПеревозки</dcssch:dataPath>
+					<dcssch:field>НаправлениеПеревозки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТребованиеКТС</dcssch:dataPath>
+					<dcssch:field>ТребованиеКТС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТребованиеКТСТипТС</dcssch:dataPath>
+					<dcssch:field>ТребованиеКТСТипТС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Мультимодальный</dcssch:dataPath>
+					<dcssch:field>Мультимодальный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МоментВремени</dcssch:dataPath>
+					<dcssch:field>МоментВремени</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Приоритет</dcssch:dataPath>
+					<dcssch:field>Приоритет</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СуммаЗатрат</dcssch:dataPath>
+					<dcssch:field>СуммаЗатрат</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтатусПроведенияДокумента</dcssch:dataPath>
+					<dcssch:field>СтатусПроведенияДокумента</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус проведения документа</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Маршрут</dcssch:dataPath>
+					<dcssch:field>Маршрут</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Состояние</dcssch:dataPath>
+					<dcssch:field>Состояние</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеЭДО</dcssch:dataPath>
+					<dcssch:field>СостояниеЭДО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НаличиеСопроводительныхДокументов</dcssch:dataPath>
+					<dcssch:field>НаличиеСопроводительныхДокументов</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наличие сопроводительных документов</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтатусОбработкиСопроводительныхДокументов</dcssch:dataPath>
+					<dcssch:field>СтатусОбработкиСопроводительныхДокументов</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус обработки сопроводительных документов</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПроцентВыполнения</dcssch:dataPath>
+					<dcssch:field>ПроцентВыполнения</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СостояниеВыполненияКартинка</dcssch:dataPath>
+					<dcssch:field>СостояниеВыполненияКартинка</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние выполнения картинка</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СвязанныйДокумент</dcssch:dataPath>
+					<dcssch:field>СвязанныйДокумент</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Связанный документ</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТС</dcssch:dataPath>
+					<dcssch:field>ТС</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ТС</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Водитель</dcssch:dataPath>
+					<dcssch:field>Водитель</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Водитель</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ВодительВторой</dcssch:dataPath>
+					<dcssch:field>ВодительВторой</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Водитель второй</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьЭПД</dcssch:dataPath>
+					<dcssch:field>ЕстьЭПД</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть ЭПД</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Перевозчик</dcssch:dataPath>
+					<dcssch:field>Перевозчик</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перевозчик</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЗаказГрузоотправителя</dcssch:dataPath>
+					<dcssch:field>ЗаказГрузоотправителя</dcssch:field>
+				</Field>
+				<Parameter>
+					<dcssch:name>ВключенОтбор</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Включен отбор</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>xs:boolean</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:type="xs:boolean">false</dcssch:value>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+				</Parameter>
+				<Parameter>
+					<dcssch:name>МассивЗаказов</dcssch:name>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Массив заказов</v8:content>
+						</v8:item>
+					</dcssch:title>
+					<dcssch:valueType>
+						<v8:Type>cfg:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+					</dcssch:valueType>
+					<dcssch:value xsi:nil="true"/>
+					<dcssch:useRestriction>true</dcssch:useRestriction>
+					<dcssch:valueListAllowed>true</dcssch:valueListAllowed>
+				</Parameter>
+				<KeyField>Ссылка</KeyField>
+				<KeyField>СвязанныйДокумент</KeyField>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>МассивЗаказов</dcscor:parameter>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СостояниеВыполнения</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>AndGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Проведен</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">СостояниеВыполнения</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:string">Открыт</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:LightYellow</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СостояниеВыполнения</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>AndGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Проведен</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">СостояниеВыполнения</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:string">Частично выполнен</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#FFEECD</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СостояниеВыполнения</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>AndGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Проведен</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">СостояниеВыполнения</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:string">Выполнен</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#DBE8F4</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДопПараметрыОткрытие" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры, используемые для инициализации подсистемы УАТ при открытии формы в объединенных решениях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional parameters used to initialize the subsystem FMS when the form is opened in the joint solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИспользоватьПодключаемоеОборудование" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать подключаемое оборудование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use peripherals</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоддерживаемыеТипыПодключаемогоОборудования" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддерживаемые типы подключаемого оборудования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supported peripheral types</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПараметрыПодключаемыхКоманд" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры подключаемых команды</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Plug-in settings commands</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПравоРедактированияДокумента" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Право редактирования документа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Right to edit document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборСтатус" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор статус</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter department</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатСтатусы_уэ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборСозданЭПД" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ЭПД</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Electronic payment document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборГрузоотправитель" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузоотправитель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Shipper</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборГрузополучатель" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Грузополучатель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Consignee</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПеревозчик" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевозчик</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Carrier</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборДатаВремяПодачи" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявленные дата и время подачи ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Заявленные дата и время подачи ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборФактическиеДатаВремяПодачи" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фактические дата и время подачи ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Фактические дата и время подачи ТС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборДатаВремяУбытия" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фактические дата и время убытия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Фактические дата и время убытия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборТС" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС (ЭПД)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>TS (EPD)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ХранимыеДанныеЭПД</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборГрузоотправитель" id="11">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборГрузополучатель" id="17">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборПеревозчик" id="18">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборДатаВремяПодачи" id="19">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборФактическиеДатаВремяПодачи" id="20">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборДатаВремяУбытия" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флаг отбор дата время убытия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Flag selection date time of departure</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборСтатус" id="22">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборТС" id="23">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭПД" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ЭПД</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Electronic payment document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЭлектронныйЗаказНаряд</v8:Type>
+				<v8:Type>cfg:DocumentRef.ЭлектронныйЗаказЗаявка</v8:Type>
+				<v8:Type>cfg:DocumentRef.ЭлектроннаяТранспортнаяНакладная</v8:Type>
+				<v8:Type>cfg:DocumentRef.ЭлектроннаяСопроводительнаяВедомость</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураРеквизитов" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура реквизитов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Structure of details</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="флагОтборВодитель" id="28">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборВодитель" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о транспортном средстве</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle details</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ХранимыеДанныеЭПД</v8:Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗакрытиеЗаказовНаТСПутевымиЛистами" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрытие заказов на ТСПутевыми листами</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Closing orders on TSP with key sheets</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаказНаТС" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Order for trucking</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Рейс" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рейс</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Trip</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатМаршрутныйЛист</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатПутевойЛист</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатЗаказПеревозчику_уэ</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборТС1С" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о транспортном средстве</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle details</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборВодитель1С" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о транспортном средстве</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle details</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+				<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипЭПД" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип ЭПД</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>EPD type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсточникДат" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Источник получения дат для отбора заказов на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Source for obtaining dates for selecting orders for TS</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ТипыЭлементовРегламентаЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборСоставитель" id="35">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборСоставитель" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Составитель документа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document author</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборПредельнаяДатаВремяПодачи" id="37">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборПредельнаяДатаВремяПодачи" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предельная дата и время подачи ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deadline and time for submitting the vehicle</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборТипТС1С" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требование к типу ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle type requirement</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатТипыТС</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборТипТС" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требование к типу ТС (ЭПД)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Requirements for the type of vehicle (EPD)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ХранимыеДанныеЭПД</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="флагОтборТипТС" id="41">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОтправлениеС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ОтправлениеПо</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДоставкаС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДоставкаПо</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.ЭтоШаблонПеревозки</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ДФ=Ч:мм</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>DF=H:mm</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СостояниеВыполнения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.СостояниеВыполнения</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.уатСостоянияВыполненияЗаказов.ЧастичноВыполнен</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:Field">Список.СостояниеВыполненияСтрока</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ВыбратьДокументы" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьДокументы</Action>
+		</Command>
+		<Command name="СоздатьДокументы" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Create</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Create documents</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДокументы</Action>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:2baf6d7a-12ed-4f22-ad96-92bb31b747ff</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

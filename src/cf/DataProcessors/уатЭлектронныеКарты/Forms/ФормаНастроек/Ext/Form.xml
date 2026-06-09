@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаОК" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаОК</CommandName>
+				<ExtendedTooltip name="ФормаКомандаОКРасширеннаяПодсказка" id="5"/>
+			</Button>
+			<Button name="ФормаНастроитьШаблонИнформацииПоГрузу" id="40">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НастроитьШаблонИнформацииПоГрузу</CommandName>
+				<ExtendedTooltip name="ФормаНастроитьШаблонИнформацииПоГрузуРасширеннаяПодсказка" id="41"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ПунктФокусировкиПриОткрытии" id="23">
+			<DataPath>ПунктФокусировкиПриОткрытии</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт, который будет отображен на карте при открытии, если не выбран ни один объект для отображения.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Point that will be displayed on map when opened, if no objects are selected for display.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<Width>24</Width>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="ПунктФокусировкиПриОткрытииКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="ПунктФокусировкиПриОткрытииРасширеннаяПодсказка" id="25"/>
+		</InputField>
+		<InputField name="КаталогПунктовНаКарте" id="37">
+			<DataPath>КаталогПунктовНаКарте</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа для новых пунктов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group for new items</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Каталог куда будут записаны новые пункты созданные на карте</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The directory where new points created on the map will be recorded</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<ChoiceFoldersAndItems>Folders</ChoiceFoldersAndItems>
+			<ContextMenu name="КаталогПунктовНаКартеКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="КаталогПунктовНаКартеРасширеннаяПодсказка" id="39"/>
+		</InputField>
+		<RadioButtonField name="НастройкаПостроенияМаршрута" id="42">
+			<DataPath>НастройкаПостроенияМаршрута</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрут</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Route</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим отображения маршрутов. Используется для ускорения открытия формы карты в таких режимах, при которых может отображаться одновременно несколько маршрутов - Маршрутные листы при открытии карты из АРМ Логиста и АРМ Диспетчера и мультимодальные Заказы на ТС.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Route display mode. Used to speed up map form opening in modes where multiple routes can be displayed simultaneously—Route Sheets when opening a map from the Logistician Workstation and Dispatcher Workstation, and multimodal Vehicle Orders.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По дорогам</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>On the roads</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ПоДорогам</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прямые линии</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Straight lines</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:string">ПрямыеЛинии</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="НастройкаПостроенияМаршрутаКонтекстноеМеню" id="43"/>
+			<ExtendedTooltip name="НастройкаПостроенияМаршрутаРасширеннаяПодсказка" id="44"/>
+		</RadioButtonField>
+		<InputField name="НачальныйМасштаб" id="26">
+			<DataPath>НачальныйМасштаб</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштаб карты при открытии.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Scale of map at opening.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<Width>5</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChooseType>false</ChooseType>
+			<TextEdit>false</TextEdit>
+			<ContextMenu name="НачальныйМасштабКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="НачальныйМасштабРасширеннаяПодсказка" id="28"/>
+		</InputField>
+		<InputField name="ПериодАвтоматическогоОбновления" id="1">
+			<DataPath>ПериодАвтоматическогоОбновления</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период обновления карты (сек.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update period of maps (sec.)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период автоматического обновления карты. Автоматическое обновление выключено, если указано значение 0.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period of the automatic map update. Automatic update is disabled if 0 is specified.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<Width>5</Width>
+			<SpinButton>true</SpinButton>
+			<ContextMenu name="ПериодАвтоматическогоОбновленияКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодАвтоматическогоОбновленияРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ДопустимоеОтклонениеОтВремениПрибытия" id="17">
+			<DataPath>ДопустимоеОтклонениеОтВремениПрибытия</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется для индикации отклонений (опоздание, опережение) в списке пунктов назначения (подробное описание в справочной информации).</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Used to indicate the deviations (delay, advance) in the list of destination (detailed description in reference).</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<Width>5</Width>
+			<ContextMenu name="ДопустимоеОтклонениеОтВремениПрибытияКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="ДопустимоеОтклонениеОтВремениПрибытияРасширеннаяПодсказка" id="19"/>
+		</InputField>
+		<UsualGroup name="ГруппаКластер" id="35">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКластерРасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<CheckBoxField name="КластеризацияМаркеровНаКарте" id="14">
+					<DataPath>КластеризацияМаркеровНаКарте</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объединение группы близко расположенных маркеров на карте в один.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Combine a group of closely located markers on the map into one.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="КластеризацияМаркеровНаКартеКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="КластеризацияМаркеровНаКартеРасширеннаяПодсказка" id="16"/>
+					<Events>
+						<Event name="OnChange">КластеризацияМаркеровНаКартеПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="МаксимальныйРадиусКластера" id="32">
+					<DataPath>МаксимальныйРадиусКластера</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Максимальный радиус, который будет охватывать кластер.
+Используется только в Open street map</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The maximum radius that the cluster will cover.
+Only used in Open Street Map.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<Width>5</Width>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="МаксимальныйРадиусКластераКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="МаксимальныйРадиусКластераРасширеннаяПодсказка" id="34"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ИспользоватьАвтомасштабирование" id="29">
+			<DataPath>ИспользоватьАвтомасштабирование</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Если установлено, после автоматического обновления карты будет выполнено масштабирование карты таким образом, чтобы все выбранные объекты оказались в центре.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>If set, after the map is automatically updated, the map will be scaled so that all selected objects are in the center.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИспользоватьАвтомасштабированиеКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="ИспользоватьАвтомасштабированиеРасширеннаяПодсказка" id="31"/>
+		</CheckBoxField>
+		<CheckBoxField name="ОтображатьЗаправкиПЦ" id="45">
+			<DataPath>ОтображатьЗаправкиПЦ</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Позволяет вывести на карту в режиме "Путевой лист" или "Маршрутный лист" данные по заправкам из документа "Отчет поставщиков ПЦ"</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allows you to display data on refuelling from the document "PC Supplier Report" on the map in the "Waysheet" or "Route Sheet" mode.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОтображатьЗаправкиПЦКонтекстноеМеню" id="46"/>
+			<ExtendedTooltip name="ОтображатьЗаправкиПЦРасширеннаяПодсказка" id="47"/>
+		</CheckBoxField>
+		<CheckBoxField name="ОтображатьЗаправкиССМ" id="48">
+			<DataPath>ОтображатьЗаправкиССМ</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Позволяет вывести на карту в режиме "Путевой лист" или "Маршрутный лист" данные по заправкам из мониторинга</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allows you to display data on refueling from monitoring on the map in the "Waysheet" or "Route Sheet" mode</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОтображатьЗаправкиССМКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="ОтображатьЗаправкиССМРасширеннаяПодсказка" id="50"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПериодАвтоматическогоОбновления" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период автоматического обновления, с</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Automatic update period, sec</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КластеризацияМаркеровНаКарте" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кластеризация маркеров на карте</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Clustering of markers on the map</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДопустимоеОтклонениеОтВремениПрибытия" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Допустимое отклонение от времени прибытия (мин.)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Allowable deviation from the arrival time (min.)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПунктФокусировкиПриОткрытии" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать пункт при открытии</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Display point while opening</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НачальныйМасштаб" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Масштаб карты при открытии</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Scale of map while opening</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьАвтомасштабирование" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать автомасштабирование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use autoscaling</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МаксимальныйРадиусКластера" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальный радиус кластера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Maximum cluster radius</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КаталогПунктовНаКарте" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Каталог пунктов на карте</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Directory of points on the map</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.уатПунктыНазначения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаПостроенияМаршрута" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка построения маршрута</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Setting up route building</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтображатьЗаправкиПЦ" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать заправки ПЦ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Display PC refills</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтображатьЗаправкиССМ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать заправки ССМ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Display SSM gas stations</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Command OK</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаОК</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастроитьШаблонИнформацииПоГрузу" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон информации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Information template</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка шаблонов отображения информации для объектов карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Setting up information display templates for map objects</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.уатНастроитьШаблон</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НастроитьШаблонИнформацииПоГрузу</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

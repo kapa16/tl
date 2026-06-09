@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСохранить" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="3">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="11">
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="152"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРеквизиты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРеквизитыРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРеквизитаСсылкаДОПОГ" id="14">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДОПОГ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаСсылкаДОПОГРасширеннаяПодсказка" id="15"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокСсылкаДОПОГ" id="16">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДОПОГ:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокСсылкаДОПОГКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ЗаголовокСсылкаДОПОГРасширеннаяПодсказка" id="18"/>
+						</LabelDecoration>
+						<InputField name="СсылкаДОПОГ" id="19">
+							<DataPath>СсылкаДОПОГ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>30</Width>
+							<ContextMenu name="СсылкаДОПОГКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="СсылкаДОПОГРасширеннаяПодсказка" id="21"/>
+							<Events>
+								<Event name="OnChange">СсылкаДОПОГПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаТехническоеНаименование" id="22">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Техническое наименование</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаТехническоеНаименованиеРасширеннаяПодсказка" id="23"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокТехническоеНаименование" id="24">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Техническое наименование:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокТехническоеНаименованиеКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ЗаголовокТехническоеНаименованиеРасширеннаяПодсказка" id="26"/>
+						</LabelDecoration>
+						<InputField name="ТехническоеНаименование" id="27">
+							<DataPath>ТехническоеНаименование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Техническое наименование</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ТехническоеНаименованиеКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ТехническоеНаименованиеРасширеннаяПодсказка" id="29"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаОписание" id="30">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаОписаниеРасширеннаяПодсказка" id="31"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокОписание" id="32">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокОписаниеКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ЗаголовокОписаниеРасширеннаяПодсказка" id="34"/>
+						</LabelDecoration>
+						<InputField name="Описание" id="35">
+							<DataPath>Описание</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ОписаниеКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаНазваниеИлиСимволКаждогоРадионуклида" id="38">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Название или символ каждого радионуклида</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаНазваниеИлиСимволКаждогоРадионуклидаРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокНазваниеИлиСимволКаждогоРадионуклида" id="40">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Название или символ каждого радионуклида:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокНазваниеИлиСимволКаждогоРадионуклидаКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ЗаголовокНазваниеИлиСимволКаждогоРадионуклидаРасширеннаяПодсказка" id="42"/>
+						</LabelDecoration>
+						<InputField name="НазваниеИлиСимволКаждогоРадионуклида" id="43">
+							<DataPath>НазваниеИлиСимволКаждогоРадионуклида</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Название или символ каждого радионуклида</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="НазваниеИлиСимволКаждогоРадионуклидаКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="НазваниеИлиСимволКаждогоРадионуклидаРасширеннаяПодсказка" id="45"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаОписаниеФизическойИХимическойФормы" id="46">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание физической и химической формы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаОписаниеФизическойИХимическойФормыРасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокОписаниеФизическойИХимическойФормы" id="48">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание физической и химической формы:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокОписаниеФизическойИХимическойФормыКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ЗаголовокОписаниеФизическойИХимическойФормыРасширеннаяПодсказка" id="50"/>
+						</LabelDecoration>
+						<InputField name="ОписаниеФизическойИХимическойФормы" id="51">
+							<DataPath>ОписаниеФизическойИХимическойФормы</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание физической и химической формы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ОписаниеФизическойИХимическойФормыКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ОписаниеФизическойИХимическойФормыРасширеннаяПодсказка" id="53"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаМаксимальнаяАктивностьРадиоактивногоСодержимого" id="54">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Максимальная активность радиоактивного содержимого</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаМаксимальнаяАктивностьРадиоактивногоСодержимогоРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокМаксимальнаяАктивностьРадиоактивногоСодержимого" id="56">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Максимальная активность радиоактивного содержимого:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокМаксимальнаяАктивностьРадиоактивногоСодержимогоКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ЗаголовокМаксимальнаяАктивностьРадиоактивногоСодержимогоРасширеннаяПодсказка" id="58"/>
+						</LabelDecoration>
+						<InputField name="МаксимальнаяАктивностьРадиоактивногоСодержимого" id="59">
+							<DataPath>МаксимальнаяАктивностьРадиоактивногоСодержимого</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Максимальная активность радиоактивного содержимого во время перевозки, выраженная в беккерелях (Бк) или масса делящегося материала, выраженная в граммах (г) или соответствующих кратных грамму единицах</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="МаксимальнаяАктивностьРадиоактивногоСодержимогоКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="МаксимальнаяАктивностьРадиоактивногоСодержимогоРасширеннаяПодсказка" id="61"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаКатегорияУпаковкиТранспортногоПакетаИлиКонтейнера" id="62">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Категория упаковки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаКатегорияУпаковкиТранспортногоПакетаИлиКонтейнераРасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокКатегорияУпаковкиТранспортногоПакетаИлиКонтейнера" id="64">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Категория упаковки:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокКатегорияУпаковкиТранспортногоПакетаИлиКонтейнераКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ЗаголовокКатегорияУпаковкиТранспортногоПакетаИлиКонтейнераРасширеннаяПодсказка" id="66"/>
+						</LabelDecoration>
+						<InputField name="КатегорияУпаковкиТранспортногоПакетаИлиКонтейнера" id="67">
+							<DataPath>КатегорияУпаковкиТранспортногоПакетаИлиКонтейнера</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Категория упаковки, транспортного пакета или контейнера</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="КатегорияУпаковкиТранспортногоПакетаИлиКонтейнераКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="КатегорияУпаковкиТранспортногоПакетаИлиКонтейнераРасширеннаяПодсказка" id="69"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаТранспортныйИндекс" id="70">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транспортный индекс</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаТранспортныйИндексРасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокТранспортныйИндекс" id="72">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Транспортный индекс:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокТранспортныйИндексКонтекстноеМеню" id="73"/>
+							<ExtendedTooltip name="ЗаголовокТранспортныйИндексРасширеннаяПодсказка" id="74"/>
+						</LabelDecoration>
+						<InputField name="ТранспортныйИндекс" id="75">
+							<DataPath>ТранспортныйИндекс</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Транспортный индекс</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ТранспортныйИндексКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ТранспортныйИндексРасширеннаяПодсказка" id="77"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериал" id="78">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс безопасности по критичности для грузов, содержащих делящийся материал</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериалРасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериал" id="80">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Индекс безопасности по критичности для грузов, содержащих делящийся материал:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериалКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ЗаголовокИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериалРасширеннаяПодсказка" id="82"/>
+						</LabelDecoration>
+						<InputField name="ИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериал" id="83">
+							<DataPath>ИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериал</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Индекс безопасности по критичности для грузов, содержащих делящийся материал</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериалКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериалРасширеннаяПодсказка" id="85"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаОпознавательныйЗнакДляКаждогоСертификата" id="86">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Опознавательный знак для каждого сертификата</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаОпознавательныйЗнакДляКаждогоСертификатаРасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокОпознавательныйЗнакДляКаждогоСертификата" id="88">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Опознавательный знак для каждого сертификата:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокОпознавательныйЗнакДляКаждогоСертификатаКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="ЗаголовокОпознавательныйЗнакДляКаждогоСертификатаРасширеннаяПодсказка" id="90"/>
+						</LabelDecoration>
+						<InputField name="ОпознавательныйЗнакДляКаждогоСертификата" id="91">
+							<DataPath>ОпознавательныйЗнакДляКаждогоСертификата</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Опознавательный знак для каждого сертификата об утверждении компетентного органа, применимый для данного груза</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ОпознавательныйЗнакДляКаждогоСертификатаКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ОпознавательныйЗнакДляКаждогоСертификатаРасширеннаяПодсказка" id="93"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаПолнаяАктивностьГруза" id="94">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полная активность груза</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаПолнаяАктивностьГрузаРасширеннаяПодсказка" id="95"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокПолнаяАктивностьГруза" id="96">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Полная активность груза:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокПолнаяАктивностьГрузаКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="ЗаголовокПолнаяАктивностьГрузаРасширеннаяПодсказка" id="98"/>
+						</LabelDecoration>
+						<InputField name="ПолнаяАктивностьГруза" id="99">
+							<DataPath>ПолнаяАктивностьГруза</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Полная активность груза</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ПолнаяАктивностьГрузаКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="ПолнаяАктивностьГрузаРасширеннаяПодсказка" id="101"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаМассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООН" id="102">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общая масса нетто взрывчатого содержимого, кг</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаМассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООНРасширеннаяПодсказка" id="103"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокМассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООН" id="104">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общая масса нетто взрывчатого содержимого, кг:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокМассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООНКонтекстноеМеню" id="105"/>
+							<ExtendedTooltip name="ЗаголовокМассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООНРасширеннаяПодсказка" id="106"/>
+						</LabelDecoration>
+						<InputField name="МассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООН" id="107">
+							<DataPath>МассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООН</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общая масса нетто взрывчатого содержимого в килограммах для каждого вещества или изделия, имеющего отдельный номер ООН</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="МассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООНКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="МассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООНРасширеннаяПодсказка" id="109"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаМассаВзрывчатогоСодержимогоДляВсехВеществ" id="110">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общая масса нетто взрывчатого содержимого, кг</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаМассаВзрывчатогоСодержимогоДляВсехВеществРасширеннаяПодсказка" id="111"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокМассаВзрывчатогоСодержимогоДляВсехВеществ" id="112">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общая масса нетто взрывчатого содержимого, кг:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокМассаВзрывчатогоСодержимогоДляВсехВеществКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ЗаголовокМассаВзрывчатогоСодержимогоДляВсехВеществРасширеннаяПодсказка" id="114"/>
+						</LabelDecoration>
+						<InputField name="МассаВзрывчатогоСодержимогоДляВсехВеществ" id="115">
+							<DataPath>МассаВзрывчатогоСодержимогоДляВсехВеществ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Общая масса нетто взрывчатого содержимого в килограммах для всех веществ и изделий, которых касается сопроводительная ведомость</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="МассаВзрывчатогоСодержимогоДляВсехВеществКонтекстноеМеню" id="116"/>
+							<ExtendedTooltip name="МассаВзрывчатогоСодержимогоДляВсехВеществРасширеннаяПодсказка" id="117"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаПроцентныйПоОбъемуИлиМассеСоставСмеси" id="118">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Процентный состав смеси</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаПроцентныйПоОбъемуИлиМассеСоставСмесиРасширеннаяПодсказка" id="119"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокПроцентныйПоОбъемуИлиМассеСоставСмеси" id="120">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Процентный состав смеси:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокПроцентныйПоОбъемуИлиМассеСоставСмесиКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="ЗаголовокПроцентныйПоОбъемуИлиМассеСоставСмесиРасширеннаяПодсказка" id="122"/>
+						</LabelDecoration>
+						<InputField name="ПроцентныйПоОбъемуИлиМассеСоставСмеси" id="123">
+							<DataPath>ПроцентныйПоОбъемуИлиМассеСоставСмеси</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Процентный (по объему или массе) состав смеси</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ПроцентныйПоОбъемуИлиМассеСоставСмесиКонтекстноеМеню" id="124"/>
+							<ExtendedTooltip name="ПроцентныйПоОбъемуИлиМассеСоставСмесиРасширеннаяПодсказка" id="125"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаДатаИстеченияВремениУдержания" id="126">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата истечения времени удержания</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаДатаИстеченияВремениУдержанияРасширеннаяПодсказка" id="127"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокДатаИстеченияВремениУдержания" id="128">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата истечения времени удержания:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокДатаИстеченияВремениУдержанияКонтекстноеМеню" id="129"/>
+							<ExtendedTooltip name="ЗаголовокДатаИстеченияВремениУдержанияРасширеннаяПодсказка" id="130"/>
+						</LabelDecoration>
+						<InputField name="ДатаИстеченияВремениУдержания" id="131">
+							<DataPath>ДатаИстеченияВремениУдержания</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата истечения времени удержания</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>8</Width>
+							<ContextMenu name="ДатаИстеченияВремениУдержанияКонтекстноеМеню" id="132"/>
+							<ExtendedTooltip name="ДатаИстеченияВремениУдержанияРасширеннаяПодсказка" id="133"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаКонтрольнаяТемператураВГрадусахЦельсия" id="134">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрольная температура, С</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаКонтрольнаяТемператураВГрадусахЦельсияРасширеннаяПодсказка" id="135"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокКонтрольнаяТемператураВГрадусахЦельсия" id="136">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контрольная температура, С:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокКонтрольнаяТемператураВГрадусахЦельсияКонтекстноеМеню" id="137"/>
+							<ExtendedTooltip name="ЗаголовокКонтрольнаяТемператураВГрадусахЦельсияРасширеннаяПодсказка" id="138"/>
+						</LabelDecoration>
+						<InputField name="КонтрольнаяТемператураВГрадусахЦельсия" id="139">
+							<DataPath>КонтрольнаяТемператураВГрадусахЦельсия</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контрольная температура, в градусах Цельсия</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<ContextMenu name="КонтрольнаяТемператураВГрадусахЦельсияКонтекстноеМеню" id="140"/>
+							<ExtendedTooltip name="КонтрольнаяТемператураВГрадусахЦельсияРасширеннаяПодсказка" id="141"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРеквизитаАварийнаяТемператураВГрадусахЦельсия" id="142">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Аварийная температура, С</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>18</Width>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<United>false</United>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРеквизитаАварийнаяТемператураВГрадусахЦельсияРасширеннаяПодсказка" id="143"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокАварийнаяТемператураВГрадусахЦельсия" id="144">
+							<TextColor>style:ButtonTextColor</TextColor>
+							<Font ref="style:NormalTextFont" height="9" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аварийная температура, С:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ЗаголовокАварийнаяТемператураВГрадусахЦельсияКонтекстноеМеню" id="145"/>
+							<ExtendedTooltip name="ЗаголовокАварийнаяТемператураВГрадусахЦельсияРасширеннаяПодсказка" id="146"/>
+						</LabelDecoration>
+						<InputField name="АварийнаяТемператураВГрадусахЦельсия" id="147">
+							<DataPath>АварийнаяТемператураВГрадусахЦельсия</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аварийная температура, в градусах Цельсия</v8:content>
+								</v8:item>
+							</ToolTip>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<ContextMenu name="АварийнаяТемператураВГрадусахЦельсияКонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="АварийнаяТемператураВГрадусахЦельсияРасширеннаяПодсказка" id="149"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТаблицы" id="150">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТаблицыРасширеннаяПодсказка" id="151"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СсылкаДОПОГ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДОПОГ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.КлассификаторДОПОГЭПД</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>250</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерООН" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер ООН</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадлежащееОтгрузочноеНаименование" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надлежащее отгрузочное наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Класс" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Класс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>3</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КлассификационныйКод" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Классификационный код</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ГруппаУпаковки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗнакОпасности" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Знак опасности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КодОграниченияПроездаЧерезТуннели" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код ограничения проезда через туннели</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТехническоеНаименование" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Техническое наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Описание" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НазваниеИлиСимволКаждогоРадионуклида" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Название или символ каждого радионуклида</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОписаниеФизическойИХимическойФормы" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание физической и химической формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="МаксимальнаяАктивностьРадиоактивногоСодержимого" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальная активность радиоактивного содержимого</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КатегорияУпаковкиТранспортногоПакетаИлиКонтейнера" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Категория упаковки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТранспортныйИндекс" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортный индекс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндексБезопасностиПоКритичностиДляГрузовСодержащихДелящийсяМатериал" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс безопасности по критичности для грузов, содержащих делящийся материал</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОпознавательныйЗнакДляКаждогоСертификата" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Опознавательный знак для каждого сертификата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолнаяАктивностьГруза" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полная активность груза</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="МассаВзрывчатогоСодержимогоИмеющегоОтдельныйНомерООН" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая масса нетто взрывчатого содержимого, кг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="МассаВзрывчатогоСодержимогоДляВсехВеществ" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая масса нетто взрывчатого содержимого, кг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроцентныйПоОбъемуИлиМассеСоставСмеси" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процентный состав смеси</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаИстеченияВремениУдержания" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата истечения времени удержания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтрольнаяТемператураВГрадусахЦельсия" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрольная температура, С</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>10</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АварийнаяТемператураВГрадусахЦельсия" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аварийная температура, С</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>10</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сохранить</Action>
+		</Command>
+	</Commands>
+</Form>

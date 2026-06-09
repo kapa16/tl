@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭлементПроверки</dataPath>
+			<field>ЭлементПроверки</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Замечания</dataPath>
+			<field>Замечания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредСостояние</dataPath>
+			<field>ПредСостояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пред состояние</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредЗамечания</dataPath>
+			<field>ПредЗамечания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пред замечания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СостояниеИсправноБезИзменений</dataPath>
+			<field>СостояниеИсправноБезИзменений</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние исправно без изменений</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:boolean</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредПериод</dataPath>
+			<field>ПредПериод</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пред период</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИзменениеСостояние</dataPath>
+			<field>ИзменениеСостояние</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменение состояние</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:boolean</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СостояниеИсправноИзменено</dataPath>
+			<field>СостояниеИсправноИзменено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние исправно изменено</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:boolean</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГосударственныйНомер</dataPath>
+			<field>ГосударственныйНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Государственный номер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	GDS_ЭлементыПроверкиСрезПоследних.ТС КАК ТС,
+	GDS_ЭлементыПроверкиСрезПоследних.ЭлементПроверки КАК ЭлементПроверки,
+	GDS_ЭлементыПроверкиСрезПоследних.Состояние КАК Состояние,
+	ВЫРАЗИТЬ(GDS_ЭлементыПроверкиСрезПоследних.Замечания КАК СТРОКА(150)) КАК Замечания,
+	МАКСИМУМ(GDS_ЭлементыПроверки.Период) КАК ПредПериод,
+	GDS_ЭлементыПроверкиСрезПоследних.Период КАК Период
+ПОМЕСТИТЬ ВТ_Осмотр
+ИЗ
+	РегистрСведений.GDS_ЭлементыПроверки.СрезПоследних(&amp;НаДату, ) КАК GDS_ЭлементыПроверкиСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.GDS_ЭлементыПроверки КАК GDS_ЭлементыПроверки
+		ПО GDS_ЭлементыПроверкиСрезПоследних.ТС = GDS_ЭлементыПроверки.ТС
+			И GDS_ЭлементыПроверкиСрезПоследних.ЭлементПроверки = GDS_ЭлементыПроверки.ЭлементПроверки
+			И GDS_ЭлементыПроверкиСрезПоследних.Период &lt;&gt; GDS_ЭлементыПроверки.Период
+			И (GDS_ЭлементыПроверки.Период &lt; &amp;НаДату)
+
+СГРУППИРОВАТЬ ПО
+	GDS_ЭлементыПроверкиСрезПоследних.Состояние,
+	GDS_ЭлементыПроверкиСрезПоследних.ЭлементПроверки,
+	GDS_ЭлементыПроверкиСрезПоследних.ТС,
+	ВЫРАЗИТЬ(GDS_ЭлементыПроверкиСрезПоследних.Замечания КАК СТРОКА(150)),
+	GDS_ЭлементыПроверкиСрезПоследних.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Осмотр.ТС КАК ТС,
+	ВТ_Осмотр.ЭлементПроверки КАК ЭлементПроверки,
+	ВТ_Осмотр.Период КАК Период,
+	ВТ_Осмотр.Состояние КАК Состояние,
+	ВТ_Осмотр.Замечания КАК Замечания,
+	ВТ_Осмотр.ПредПериод КАК ПредПериод,
+	GDS_ЭлементыПроверки.Состояние КАК ПредСостояние,
+	ВЫРАЗИТЬ(GDS_ЭлементыПроверки.Замечания КАК СТРОКА(150)) КАК ПредЗамечания
+ПОМЕСТИТЬ ВТ_Итог
+ИЗ
+	ВТ_Осмотр КАК ВТ_Осмотр
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.GDS_ЭлементыПроверки КАК GDS_ЭлементыПроверки
+		ПО ВТ_Осмотр.ТС = GDS_ЭлементыПроверки.ТС
+			И ВТ_Осмотр.ЭлементПроверки = GDS_ЭлементыПроверки.ЭлементПроверки
+			И ВТ_Осмотр.ПредПериод = GDS_ЭлементыПроверки.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Итог.ТС.ГосударственныйНомер КАК ГосударственныйНомер,
+	ВТ_Итог.ТС КАК ТС,
+	ВТ_Итог.ЭлементПроверки КАК ЭлементПроверки,
+	ВТ_Итог.Период КАК Период,
+	ВТ_Итог.Состояние КАК Состояние,
+	ВТ_Итог.Замечания КАК Замечания,
+	ВТ_Итог.ПредПериод КАК ПредПериод,
+	ВТ_Итог.ПредСостояние КАК ПредСостояние,
+	ВТ_Итог.ПредЗамечания КАК ПредЗамечания,
+	ВЫБОР
+		КОГДА ВТ_Итог.Состояние = ЗНАЧЕНИЕ(Перечисление.GDS_СостоянияПроверкиАПП.Исправно)
+				И ВТ_Итог.ПредСостояние = ЗНАЧЕНИЕ(Перечисление.GDS_СостоянияПроверкиАПП.Исправно)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК СостояниеИсправноБезИзменений,
+	ВЫБОР
+		КОГДА ВТ_Итог.Состояние &lt;&gt; ВТ_Итог.ПредСостояние
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ИзменениеСостояние,
+	ВЫБОР
+		КОГДА ВТ_Итог.Состояние = ЗНАЧЕНИЕ(Перечисление.GDS_СостоянияПроверкиАПП.Исправно)
+				И ВТ_Итог.ПредСостояние &lt;&gt; ЗНАЧЕНИЕ(Перечисление.GDS_СостоянияПроверкиАПП.Исправно)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК СостояниеИсправноИзменено
+ИЗ
+	ВТ_Итог КАК ВТ_Итог</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НаДату</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>На дату</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГосударственныйНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЭлементПроверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущий осмотр</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Состояние</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Замечания</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Предыдущий осмотр</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПредСостояние</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПредЗамечания</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СостояниеИсправноБезИзменений</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние исправно без изменений</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>0541111e-56aa-4878-823d-cc7941a84943</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СостояниеИсправноИзменено</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние исправно изменено</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>44c52fe2-8e2b-4a82-be31-09c655223c0c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ИзменениеСостояние</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Изменение состояние</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>f7bb32fb-bb27-4139-8d11-09facd297307</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>e521d018-9804-4b40-9b91-90b41d25eb99</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПредСостояние</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>24d7e3d4-2d9d-4f5c-8487-27db5b0b1e3f</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НаДату</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>fc0c5777-ade4-48b6-bf27-ddff0ea7d5a8</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ГосударственныйНомер</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

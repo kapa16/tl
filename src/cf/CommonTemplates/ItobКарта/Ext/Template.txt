@@ -1,0 +1,1830 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Map data</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+	<link rel="stylesheet" href="$MapServerName/theme/default/style.css" type="text/css" />
+	<link rel="stylesheet" href="$MapServerName/style.css" type="text/css" />
+	<style type="text/css">
+	<!--
+	html, body {                                                                                                                                                                            
+		margin:0;
+		padding:0;
+		width:100%;
+		height:100%;
+	}
+	#map {
+		position: relative;
+		min-height: 100%;
+		/*background-color:#FF0000;*/
+	}
+	* html #map {
+		height: 100%;
+	}
+	#footer {
+	  position: relative;
+	  margin-top: -2.5em;
+	  /*height: 2.5em;*/
+	}
+	div.olControlPointsInfoPanel {
+		bottom: 5px;
+		left: 5px;
+		display: block;
+		position: absolute;
+		font-family: Arial;
+		font-size: 8px;
+		font-weight: bold;
+		/* background: rgba(255,255,255,0.7); */
+		background: rgb(255,255,255);
+		border-color: red; 
+		border-style: solid;
+		border-width: 1px;
+		padding: 3px;
+	}
+	.olControlLayerSwitcher .layersDiv {
+       padding-top: 5px;
+       padding-left: 10px;
+       padding-bottom: 5px;
+       padding-right: 65px;
+       background-color: #eae5d8;
+       width: 100%;
+       height: 100%;
+	   color:black;
+	}
+	.olControlOverviewMapElement {
+	    padding: 10px 18px 10px 10px;
+	    background-color: #eae5d8; /*#00008B; */
+    	-moz-border-radius: 1em 0 0 0;
+		border-style:solid;
+		border-width:1px;
+		border-color:#898477;	
+	}
+	#tooltip {
+		position: absolute;
+		font-size: 10px;		
+		background-color: #FCFAEB;
+		width: auto;
+		padding: 0px;		
+		filter:alpha(opacity=90);
+		-moz-opacity: 0.9;
+		opacity: 0.9;
+		font-family:Tahoma, Geneva, sans-serif;
+		z-index: 30000;
+	}
+
+	#tooltip h3, #tooltip div, #tooltip td {
+		margin: 0;		
+		font-size: 11px;
+	}
+
+	#tooltip td {
+		padding: 2px 10px 2px 5px;		
+		vertical-align:top;
+	}	
+	-->
+	</style>
+	
+    <script type="text/javascript" src="$MapServerName/OpenLayers.js"></script>
+    <script type="text/javascript" src="$MapServerName/Custom.js"></script>
+    <script type="text/javascript" src="$MapServerName/jquery.js"></script>
+	
+    <!-- // $HEAD -->
+    
+	<script type="text/javascript">
+        
+			var m_map;
+			var firstLat = 57;
+			var firstLon = 84;
+			var firstZoom = 4;
+			var firstLayerName = "";
+			var geozones_control;
+			var mapLoaded = false;
+			var disable_double_click = false;
+			var disable_double_click_control = null;
+			var LayersWithBackingLayers = [];
+			var geometryLayer = null;
+			var historyLayer = null;
+			var playRouteLayer = null;
+			var geozonesLayer = null;
+			var markersLayer = null;
+			var routes_list = null;
+			var routes_list_pos = null;
+			var play_route_sec = null;
+			var play_route_max = 0;
+			var play_route_k = 1000;
+			var play_route_intervalid = null;
+			var play_route_start_date = null;
+			var play_route_pause = false;
+			var play_route_progress = 0; 
+			var polygon_control = null;
+			var measure_control = null;
+			var infopanel_control = null;
+			var path_control = null;
+			var select_box_control = null;
+			// Point circle manage.
+			var pointcircle_control = null;
+			var vectorLayerDraggable = null;
+			// Индекс последнего векторного слоя, после которого идут маркерные слои.
+			var indexLayerMarker = 0;
+			// Отображение точек в РМЛ
+			var points_control = null;
+			var waypoints_control = null;
+			var points_layer = null;
+			var waypoints_layer = null;			
+			var historymarker = null;
+			// On-line monitoring
+			var monitoring_layer = null;
+			var selectbox_monitoring = null;
+			var selectclick_monitoring = null;			
+			// Create path by points-draw
+			var DrawpointsforPath_layer = null;
+			var DrawPath_layer = null;
+			var DrawpointsforPath_control = null;
+			var dragpoint_control = null;
+			// clastering pic's for registration_of_driving_violations
+			var cluster_layer = null;
+			var cluster_features = [];
+			var cluster_stylemap = null;
+			var cluster_select = null;
+			var cluster_popup = null;
+
+			// $VARIABLES
+			
+			// Добавляем в класс маркера идентификатор.
+			//
+			OpenLayers.MarkerExt = OpenLayers.Class(OpenLayers.Marker, 
+				{
+					id: "",
+					
+					initialize: function(lonlat, icon, id)
+					{
+						OpenLayers.Marker.prototype.initialize.apply(this, [lonlat, icon]);
+						this.id	= id;
+					},
+					CLASS_NAME: "OpenLayers.MarkerExt"
+				}
+			);
+			
+			OpenLayers.Control.MouseClickControl = OpenLayers.Class(OpenLayers.Control, {                
+                defaultHandlerOptions: {
+                    'single': false,
+                    'double': true,
+                    'pixelTolerance': 0,
+                    'stopSingle': false,
+                    'stopDouble': true
+                },
+                initialize: function(options) {
+                    this.handlerOptions = OpenLayers.Util.extend(
+                        {}, this.defaultHandlerOptions
+                    );
+                    OpenLayers.Control.prototype.initialize.apply(
+                        this, arguments
+                    ); 
+                    this.handler = new OpenLayers.Handler.Click(
+                        this, {                            
+                            'dblclick': this.onDblclick 
+                        }, this.handlerOptions
+                    );
+                },
+                onDblclick: function(evt) {
+					CreateEventProcess('ondblclick_event,'+evt.clientX+','+evt.clientY);					
+                }
+            });
+			
+			function makeInjection(injection) {				
+				try {
+					new Function(injection)();
+				} catch(err) {}
+			}
+			
+            function webgis_map_options(opts) {
+				if (typeof opts != 'object') opts = new Object;
+				opts.maxExtent = new OpenLayers.Bounds( - 20037508.3427892, -20037508.3427892, 20037508.3427892, 20037508.3427892);
+				opts.numZoomLevels = 19;
+				opts.maxResolution = 156543.0339;
+				opts.units = 'm';
+				opts.projection = "EPSG:900913";
+				opts.displayProjection = new OpenLayers.Projection("EPSG:4326");				
+				return opts;
+			}
+			
+			function init(){
+                
+				var map_options = webgis_map_options({
+					controls: [],
+					theme: null,
+					eventListeners: {                     
+                        "changebaselayer": mapBaseLayerChanged
+                    }
+				});
+				m_map = new OpenLayers.Map('map', map_options);
+				
+				var layers = new Array;				
+				
+				// $MAPS
+								
+				m_map.addLayers(layers);
+																				
+				m_map.addControl(new OpenLayers.Control.MousePosition());
+				var cScaleLine = new OpenLayers.Control.ScaleLine();
+				cScaleLine.geodesic = true;
+				m_map.addControl(cScaleLine);
+				m_map.addControl(new OpenLayers.Control.Navigation());				
+				m_map.addControl(new OpenLayers.Control.LayerSwitcher({roundedCorner: true, roundedCornerColor: "#eae5d8"}));
+								
+				var opt = webgis_map_options({
+					controls: [],
+					theme: null
+				});	
+				var overviewControl = new OpenLayers.Control.OverviewMap({
+					mapOptions: opt
+				});				
+				m_map.addControl(overviewControl);
+			    
+				/* +++ On-line monitoring +++ */
+				
+			    var stylemap = new OpenLayers.StyleMap({
+			        'default': new OpenLayers.Style({
+			            pointRadius: 15,
+	                    fillColor: "#ffcc66",
+	                    fillOpacity: 0.8,
+	                    strokeColor: "#cc6633",
+	                    strokeWidth: 2,
+	                    strokeOpacity: 0.8,
+	                    label: "${getLabel}",
+			            fontSize: "12px",
+			            labelOutlineColor: "#ffcc66",
+			            labelOutlineWidth: 2,
+			            fontWeight: "bolder",
+			            labelAlign: "cm"
+					}, {context: {
+						getLabel: function(feature) {
+						if (feature.cluster) {
+							if (feature.cluster.length > 1) {
+								return feature.cluster.length;
+							}
+						}
+							return '';
+						}
+					}}),
+			        'select' : new OpenLayers.Style({
+			            fillColor: "#ffcc66",
+                        strokeColor: "#cc6633"
+			        })
+			    });
+				
+				var strategies = [];
+								 
+				strategies.push(new OpenLayers.Strategy.Cluster(
+					{
+						distance: 25,
+						threshold: 2
+					}
+				));
+				
+				monitoring_layer = new OpenLayers.Layer.Vector("Monitoring", {displayInLayerSwitcher: false, styleMap: stylemap, strategies: strategies});
+				m_map.addLayer(monitoring_layer);
+				monitoring_layer.strategies[0].deactivate();
+				
+				selectclick_monitoring = new OpenLayers.Control.SelectFeature(monitoring_layer,
+					{	onSelect: function(f) {
+							var ids = '';
+							if(f.cluster && f.cluster.length > 1){
+								f.cluster.forEach(function (clustered_f) {
+									if (ids == ''&& clustered_f.attributes.id) {ids = clustered_f.attributes.id;}
+									else if(clustered_f.attributes.id) {ids = ids + ',' + clustered_f.attributes.id;}
+								})
+							}								
+							CreateEventProcess('SelectBoxResult,'+ids);
+							this.unselectAll();								
+						} 	
+                    }
+				);
+				selectclick_monitoring.handlers.feature.stopDown = false;
+		        m_map.addControl(selectclick_monitoring);
+		        				
+				selectbox_monitoring = new OpenLayers.Control.SelectFeature(
+                    monitoring_layer,
+                    {
+                        clickout: false, toggle: false,
+                        multiple: false, hover: false,
+                        box: true,
+						eventListeners: {
+							boxselectionend: function(e) {
+								var ids = '';
+								for (i = 0; i < monitoring_layer.selectedFeatures.length; ++i) {
+									f = monitoring_layer.selectedFeatures[i];
+									if (f.attributes.id != null) {
+										if (ids == '') {ids = f.attributes.id;}
+										else {ids = ids + ',' + f.attributes.id;}										
+									}else if(f.cluster && f.cluster.length > 1){
+										f.cluster.forEach(function (clustered_f) {
+											if (ids == ''&& clustered_f.attributes.id) {ids = clustered_f.attributes.id;}
+											else if(clustered_f.attributes.id) {ids = ids + ',' + clustered_f.attributes.id;}
+										})
+									}
+								};
+								this.unselectAll();								
+								CreateEventProcess('SelectBoxResult,'+ids);
+								selectbox_monitoring.deactivate();
+							}
+						} 	
+                    }
+                );
+				m_map.addControl(selectbox_monitoring);
+
+				/* --- On-line monitoring --- */
+
+				geometryLayer = new OpenLayers.Layer.Vector("Geometry", {displayInLayerSwitcher: false});
+				m_map.addLayer(geometryLayer);
+				
+				// Point circle manage.
+				vectorLayerDraggable = new OpenLayers.Layer.Vector("Geometry_draggable", {displayInLayerSwitcher: false});
+				m_map.addLayer(vectorLayerDraggable);
+				
+				historyLayer = new OpenLayers.Layer.Vector("History", {displayInLayerSwitcher: false});
+				m_map.addLayer(historyLayer);
+				
+				playRouteLayer = new OpenLayers.Layer.Vector("PlayRouteFeatures", {displayInLayerSwitcher: false});
+				m_map.addLayer(playRouteLayer);
+				
+				geozonesLayer = new OpenLayers.Layer.Vector("AllGeozonLayer", {displayInLayerSwitcher: false});
+				m_map.addLayer(geozonesLayer);               
+				
+				indexLayerMarker = m_map.layers.length; // Далее добавляем маркерные слои.
+
+				markersLayer = new OpenLayers.Layer.Markers("Markers" , {displayInLayerSwitcher: false});			
+				m_map.addLayer(markersLayer);
+
+                select_box_control = new OpenLayers.Control.SelectFeature(
+                    geometryLayer,
+                    {
+                        clickout: false, toggle: false,
+                        multiple: false, hover: false,
+                        box: true,
+						eventListeners: {
+							boxselectionend: function(e) {
+								var ids = '';
+								for (i = 0; i < geometryLayer.selectedFeatures.length; ++i) {
+									f = geometryLayer.selectedFeatures[i];
+									if (f.attributes.id != null) {
+										if (ids == '') {ids = f.attributes.id;}
+										else {ids = ids + ',' + f.attributes.id;}										
+									}
+								}								
+								CreateEventProcess('SelectBoxResult,'+ids);
+								select_box_control.deactivate();								
+							}
+						} 	
+                    }
+                );
+				m_map.addControl(select_box_control);
+				
+				disable_double_click_control = new OpenLayers.Control.MouseClickControl({
+                        handlerOptions: {
+                            'single': false,
+							'double': true,
+							'pixelTolerance': 0,
+							'stopSingle': false,
+							'stopDouble': true
+                        }
+                    });
+				m_map.addControl(disable_double_click_control);
+				disable_double_click_control.deactivate();
+				
+				// $ATTRIBUTES
+				
+				setCenterMap(firstLat, firstLon, firstZoom);
+				
+				if (firstLayerName != "") {
+					var find_lays = m_map.getLayersByName(firstLayerName);
+					if (find_lays.length > 0) {
+						m_map.setBaseLayer(find_lays[0]);
+					}
+				}
+				
+				mapLoaded = true;
+												
+				if (disable_double_click) {
+					disable_double_click_control.activate();
+				}				
+				
+            }			
+			
+			function mapBaseLayerChanged(event) {				
+				
+				for (var i = 0, len = LayersWithBackingLayers.length; i < len; i++) {
+					if (m_map.baseLayer == LayersWithBackingLayers[i]) {
+						m_map.baseLayer.top_layer.setVisibility(true);
+					} else if (LayersWithBackingLayers[i].top_layer.getVisibility()==true) {
+						LayersWithBackingLayers[i].top_layer.setVisibility(false);
+					}					
+				}
+				
+				if (mapLoaded) {
+					CreateEventProcess('BaseLayerChanged,'+(m_map.baseLayer.name));
+				}	
+			
+            }			
+			
+            // Центрирует карту по заданным координатам и высоте.
+            //
+            function setCenterMap(lat, lon, zoom)
+            {
+            	var pt = new OpenLayers.LonLat(lon, lat);
+				pt.transform(m_map.displayProjection, m_map.getProjectionObject());
+				m_map.setCenter(pt, zoom);
+            }
+            
+            // Автомасштаб.
+            //
+            function autoZoom()
+ 	        {
+                var Features = geometryLayer.features;
+				var CurArBounds = null;
+				if (Features.length > 0){
+					var ArBounds = Features[0].geometry.getBounds().toArray();
+					for (var i = 1; i < Features.length-1; i++) {
+						CurArBounds = Features[i].geometry.getBounds().toArray();
+						ArBounds[0] = Math.min(ArBounds[0],CurArBounds[0]);
+						ArBounds[1] = Math.min(ArBounds[1],CurArBounds[1]);
+						ArBounds[2] = Math.max(ArBounds[2],CurArBounds[2]);
+						ArBounds[3] = Math.max(ArBounds[3],CurArBounds[3]);
+					}
+					var NewBounds = new OpenLayers.Bounds(ArBounds[0],ArBounds[1],ArBounds[2],ArBounds[3]);
+					m_map.zoomToExtent(NewBounds);
+					if (m_map.getZoom() > 15) { m_map.zoomTo(15); }
+				}
+            }
+            
+            // Автомасштаб по определенному слою.
+            //
+            function autoZoomLayerName(layerName)
+ 	        {
+                var layerFind = m_map.getLayersByName(layerName);
+	            if(layerFind.length > 0)
+	            {
+	            	var Features = layerFind[0].features;
+					var CurArBounds = null;
+					if (Features.length > 0){
+						var ArBounds = Features[0].geometry.getBounds().toArray();
+						for (var i = 1; i < Features.length-1; i++) {
+							CurArBounds = Features[i].geometry.getBounds().toArray();
+							ArBounds[0] = Math.min(ArBounds[0],CurArBounds[0]);
+							ArBounds[1] = Math.min(ArBounds[1],CurArBounds[1]);
+							ArBounds[2] = Math.max(ArBounds[2],CurArBounds[2]);
+							ArBounds[3] = Math.max(ArBounds[3],CurArBounds[3]);
+						}
+						var NewBounds = new OpenLayers.Bounds(ArBounds[0],ArBounds[1],ArBounds[2],ArBounds[3]);
+						m_map.zoomToExtent(NewBounds);
+						if (m_map.getZoom() > 15) { m_map.zoomTo(15); }
+					}
+				}
+            }
+
+			
+			/* +++ Работа со слоями в РМД +++ */
+			
+			//// Установка видимости слоев.
+			
+			// Функция для установки видимости векторного и маркерного слоя.
+			//
+			function layerVisible(vectorLayerName, markerLayerName, visible)
+			{
+	            var vectorLayerFind = m_map.getLayersByName(vectorLayerName);
+	            if(vectorLayerFind.length > 0)
+	            {
+		            vectorLayerFind[0].setVisibility(visible);
+				}
+				
+				var markerLayerFind = m_map.getLayersByName(markerLayerName);
+				if(markerLayerFind.length > 0)
+	            {
+		        	var markerLayerFindMarkers = markerLayerFind[0].markers;
+					for (index = 0; index < markerLayerFindMarkers.length; ++index)
+					{
+					    markerLayerFindMarkers[index].display(visible);
+					}
+				}
+			}
+
+			// Включение видимости векторного и маркерного слоя.
+			//
+			function showLayer(vectorLayerName, markerLayerName)
+			{
+	            layerVisible(vectorLayerName, markerLayerName, true);
+			}
+			
+			// Отключение видимости векторного и маркерного слоя.
+			//
+			function hideLayer(vectorLayerName, markerLayerName)
+			{
+	            layerVisible(vectorLayerName, markerLayerName, false);
+			}
+			
+			//// Создание/удаление слоев.
+			
+			// Создание векторного слоя.
+			//
+			function addLayerVector(layerName)
+			{
+		        var layerVector = new OpenLayers.Layer.Vector(layerName, {displayInLayerSwitcher: false});
+				m_map.addLayer(layerVector);
+				m_map.setLayerIndex(layerVector, ++indexLayerMarker);
+				return layerVector;
+			}
+			
+			// Создание маркерного слоя.
+			//
+			function addLayerMarker(layerName)
+			{
+		        var layerMarker = new OpenLayers.Layer.Markers(layerName, {displayInLayerSwitcher: false});
+				m_map.addLayer(layerMarker);
+				return layerMarker;
+			}
+			
+			// Создание векторного и маркерного слоя.
+			//
+			function addLayerVectorMarker(vectorLayerName, markerLayerName)
+			{
+		        addLayerVector(vectorLayerName);
+		        addLayerMarker(markerLayerName);
+			}
+			
+			// Удаление слоя.
+			//
+			function removeLayer(layerName)
+			{
+		        var layerFind = m_map.getLayersByName(layerName);
+	            if(layerFind.length > 0)
+	            {
+					m_map.removeLayer(layerFind[0]);
+					return true;
+				}
+				return false
+			}
+			
+			// Удаление векторного слоя.
+			// При удалении векторного слоя необходимо использовать эту функцию, что бы откатить индекс векторного слоя.
+			// Остается так, пока не найдется новое решение.
+			//
+			function removeLayerVector(layerName)
+			{
+		    	if (removeLayer(layerName))
+		    	{
+		    		indexLayerMarker--;
+		    	}
+			}
+			
+			//// Установка видимости расширенных маркеров.
+			
+			// Функция для установки видимости расширенного маркера.
+			//
+			function markerVisible(markerId, visible)
+			{
+	            var marker = null;
+	            for (index = 0; index < markersLayer.markers.length; ++index)
+				{
+					marker =  markersLayer.markers[index];
+					if (marker.id == markerId)
+					{
+						marker.display(visible);
+					}
+				}
+			}
+
+			// Включение видимости расширенного маркера.
+			//
+			function showMarker(markerId)
+			{
+	            markerVisible(markerId, true);
+			}
+			
+			// Отключение видимости расширенного маркера.
+			//
+			function hideMarker(markerId)
+			{
+	            markerVisible(markerId, false);
+			}
+			
+			/* --- Работа со слоями в РМД --- */
+			
+			
+			/* +++ Рефакторинг кода +++ */
+			
+			// Создание нового элемента класса OpenLayers.LonLat .
+			//
+			function newLonLat(lon, lat)
+			{
+				var pt = new OpenLayers.LonLat(lon, lat);
+				pt.transform(m_map.displayProjection, m_map.getProjectionObject());
+				return pt;
+			}
+			
+			// Создание нового элемента класса OpenLayers.Geometry.Point .
+			//
+			function newPoint(pt)
+			{
+				return new OpenLayers.Geometry.Point(pt.lon, pt.lat)
+			}
+			
+			/* --- Рефакторинг кода --- */
+			
+			
+			/* Point circle manage */
+			function create_pointcircle_control(pointLat, pointLon, radius)
+			{
+				var radiusAdd = radius/227150;
+				disable_double_click = true;
+				
+				var pt = new OpenLayers.LonLat(pointLon, pointLat);
+				pt.transform(m_map.displayProjection, m_map.getProjectionObject());
+				var g_point0 = new OpenLayers.Geometry.Point(pt.lon, pt.lat);
+				var pointFeature = new OpenLayers.Feature.Vector(g_point0,null,
+				{
+									graphicWidth: 16,
+									graphicHeight: 16,
+									graphicXOffset: -8,
+									graphicYOffset: -8,
+									externalGraphic: '$MapServerName/images/unit.png',
+									graphicOpacity: 1
+				});			
+				vectorLayerDraggable.addFeatures([pointFeature]);
+				
+				var g_point = new OpenLayers.Geometry.Point(pt.lon, pt.lat);
+				var mycircle = OpenLayers.Geometry.Polygon.createRegularPolygon(g_point, radius, 40, 0);
+				var featurecircle = new OpenLayers.Feature.Vector(mycircle);
+				geometryLayer.addFeatures([featurecircle]);
+				
+				// Край круга
+				var pt2 = new OpenLayers.LonLat(pointLon+radiusAdd, pointLat+radiusAdd);
+				pt2.transform(m_map.displayProjection, m_map.getProjectionObject());
+				var g_point2 = new OpenLayers.Geometry.Point(pt2.lon, pt2.lat);				
+				var pointFeature2 = new OpenLayers.Feature.Vector(g_point2,null,
+				{
+									graphicWidth: 10,
+									graphicHeight: 10,
+									graphicXOffset: -5,
+									graphicYOffset: -5,
+									externalGraphic: '$MapServerName/images/unit.png',
+									graphicOpacity: 1
+				});			
+				vectorLayerDraggable.addFeatures([pointFeature2]);
+				
+				//alert(g_point2.distanceTo(g_point));
+				
+				pointcircle_control = new OpenLayers.Control.DragFeature(vectorLayerDraggable, 
+				{
+					p0: g_point0,
+					p1: g_point2,
+					pf1:pointFeature2,
+					p0x:g_point0.x,
+					p0y:g_point0.y,
+					circle: featurecircle,
+					vl: geometryLayer,
+					v2: vectorLayerDraggable,
+					autoActivate: true,
+					ifBool:false,
+					onDrag: function() 
+					{
+						ifBool = (this.p0x != this.p0.x || this.p0y != this.p0.y);
+						if(ifBool)
+						{
+							var xAdd = this.p0x-this.p0.x;
+							var yAdd = this.p0y-this.p0.y;
+							this.p1.x = this.p1.x-xAdd;
+							this.p1.y = this.p1.y-yAdd;
+							this.p0x = this.p0.x;
+							this.p0y = this.p0.y;
+							
+							this.v2.removeFeatures([this.pf1]);
+							this.pf1 = new OpenLayers.Feature.Vector(this.p1,null,{
+										graphicWidth: 10,
+										graphicHeight: 10,
+										graphicXOffset: -5,
+										graphicYOffset: -5,
+										externalGraphic: '$MapServerName/images/unit.png',
+										graphicOpacity: 1
+							});
+							this.v2.addFeatures([this.pf1]);
+						};
+						
+						this.vl.removeFeatures([this.circle]);
+						var radius = this.p0.distanceTo(this.p1);
+						this.circle = new OpenLayers.Feature.Vector(OpenLayers.Geometry.Polygon.createRegularPolygon
+						(
+							this.p0,radius,40,0
+						));
+						this.vl.addFeatures([this.circle]);
+						
+						// Возвращаем результат в 1С.
+						if(!ifBool)
+						{
+							// Радиус.
+							var line = new OpenLayers.Geometry.LineString([this.p0, this.p1]);
+							var dist = line.getGeodesicLength();
+							CreateEventProcess('PointRadiusResult,'+(this.p0.distanceTo(this.p1)));
+						}
+					},
+					onComplete: function() {  
+						if(ifBool)
+						{
+							var mouseEvt = this.handlers.feature.evt;
+							CreateEventProcess('ondblclick_event,'+mouseEvt.x+','+mouseEvt.y);
+							ifBool = false;
+						}	
+					}
+				});
+				m_map.addControl(pointcircle_control);
+				
+			}
+		
+			function destroy_pointcircle_control() 
+			{
+				if (pointcircle_control) 
+				{
+					pointcircle_control.deactivate();
+					m_map.removeControl(pointcircle_control);
+					pointcircle_control = null;
+				}				
+				vectorLayerDraggable.removeAllFeatures();
+				geometryLayer.removeAllFeatures();
+			}
+			
+			function move_pointcircle(lat, lon, radius)
+			{
+				destroy_pointcircle_control();
+				create_pointcircle_control(lat, lon, radius);
+			}
+			
+			/* Path */
+			function create_path_control() {
+				
+				disable_double_click = true;
+				disable_double_click_control.activate();
+								
+				var path_layer = new OpenLayers.Layer.Vector("Path creation", {displayInLayerSwitcher: true});
+				m_map.addLayer(path_layer);
+								
+				var default_style = {
+        			fillColor: "#197B30",
+			        fillOpacity: 0.4,
+			        hoverFillColor: "white",
+			        hoverFillOpacity: 0.8,
+			        strokeColor: "#F00",
+			        strokeOpacity: 0.9,
+			        strokeWidth: 3,
+			        strokeLinecap: "round",
+			        hoverStrokeColor: "#FDC689",
+			        hoverStrokeOpacity: 0.5,
+			        hoverStrokeWidth: 0.2,
+			        pointRadius: 4,
+			        hoverPointRadius: 1,
+			        hoverPointUnit: "%",
+			        pointerEvents: "visiblePainted"
+			    }
+								
+				var path_style = OpenLayers.Util.extend({}, default_style);				
+	            
+				var path_last_style = OpenLayers.Util.extend({}, default_style);				
+	            path_last_style.fillColor = "#FF0000";
+	            path_last_style.fillOpacity = 0.9;
+	            path_last_style.hoverFillColor = "red";
+	            path_last_style.pointRadius = 4;
+	            path_last_style.strokeColor = "#FF0000";
+	            path_last_style.strokeWidth = 1; 
+				
+				var polyOptions = {
+                    handlerOptions: {
+                        style: path_style,
+                        lastStyle: path_last_style
+                    }
+                }; 				
+            	path_control = new OpenLayers.Control.DrawFeature(path_layer,
+                                            OpenLayers.Handler.PathRouteEx,
+                                            polyOptions);
+				m_map.addControl(path_control);
+				
+				m_map.events.register('zoomend', this, function() {
+            		if (path_layer && path_control && path_control.handler) { 															
+						path_control.handler.drawFeature();
+					}
+					
+        		});
+				
+				path_control.activate();
+			}
+			
+			function destroy_path_control() {
+				if (path_control) {
+					path_control.deactivate();
+					m_map.removeControl(path_control);
+					path_control = null;
+				}
+				var find_lays = m_map.getLayersByName("Path creation");
+				if (find_lays.length > 0) {
+					m_map.removeLayer(find_lays[0]);
+				}
+			}
+			
+			/* Geozone manage */			
+			function create_geozones_control() {
+				
+				var default_style = {
+        			fillColor: "#197B30",
+			        fillOpacity: 0.4,
+			        hoverFillColor: "white",
+			        hoverFillOpacity: 0.8,
+			        strokeColor: "#004A80",
+			        strokeOpacity: 0.5,
+			        strokeWidth: 1,
+			        strokeLinecap: "round",
+			        hoverStrokeColor: "#FDC689",
+			        hoverStrokeOpacity: 0.5,
+			        hoverStrokeWidth: 0.2,
+			        pointRadius: 4,
+			        hoverPointRadius: 1,
+			        hoverPointUnit: "%",
+			        pointerEvents: "visiblePainted"
+			    }
+								
+				var geozone_style = OpenLayers.Util.extend({}, default_style);				
+	            
+				var geozone_last_style = OpenLayers.Util.extend({}, default_style);				
+	            geozone_last_style.fillColor = "#FF0000";
+	            geozone_last_style.fillOpacity = 0.9;
+	            geozone_last_style.hoverFillColor = "red";
+	            geozone_last_style.pointRadius = 4;
+	            geozone_last_style.strokeColor = "#FF0000";
+	            geozone_last_style.strokeWidth = 1; 
+				
+				var polyOptions = {
+                    handlerOptions: {
+                        style: geozone_style,
+                        lastStyle: geozone_last_style
+                    }
+                }; 				
+            	geozones_control = new OpenLayers.Control.DrawFeature(geozonesLayer,
+                                            OpenLayers.Handler.PolygonEx,
+                                            polyOptions);
+				m_map.addControl(geozones_control);
+				
+				m_map.events.register('zoomend', this, function() {
+            		if (geozonesLayer && geozones_control) geozone_redraw();
+        		});
+				
+				geozones_control.activate();
+			}
+			
+			function destroy_geozones_control() {
+				if (geozones_control) {
+					geozones_control.deactivate();
+					m_map.removeControl(geozones_control);
+					geozones_control = null;
+				}				
+				geozonesLayer.removeAllFeatures();
+			}
+			
+			function geozone_redraw() {
+				if (geozones_control.handler) {
+                	geozones_control.handler.drawFeature();
+            	}
+			}
+			
+			/* Play routes */
+			function PlayRouteHandlier() {
+				var CurPos;
+				
+				if (play_route_pause != true) {				
+				
+					play_route_sec = play_route_sec+play_route_k/10;
+					
+					var current_route_progress = Math.round(play_route_sec/play_route_max*100);
+					if (current_route_progress > play_route_progress) {
+						play_route_progress = current_route_progress;
+						CreateEventProcess('PlayRouteProgress,'+play_route_progress);
+					}
+					
+					var CurDate = new Date(play_route_start_date.getTime() + 1000*play_route_sec);
+					var CurDateStr = ""+CurDate.getDate()+"."+(CurDate.getMonth()+1)+"."+CurDate.getFullYear()+" "+CurDate.getHours()+":"+CurDate.getMinutes();//+":"+CurDate.getSeconds();
+					
+					if (play_route_sec > play_route_max) {
+						StopPlayRoute();
+					}
+					
+					for (var i = 0, len = routes_list.length; i < len; i++) {
+						CurPos = routes_list_pos[i][0];
+						OldPos = CurPos;
+						
+						if (routes_list[i].length <= CurPos+1) {
+							continue;
+						}	
+						
+						while(CurPos < routes_list[i].length && routes_list[i][CurPos][1] < play_route_sec) {
+							CurPos = CurPos+1;
+						}
+						
+						if (CurPos > 0) {
+							CurPos = CurPos-1;
+						}	
+						routes_list_pos[i][0] = CurPos;
+						
+						pointFeature = routes_list_pos[i][1];
+						
+						if (OldPos != CurPos) {
+							pt = routes_list[i][CurPos][0];
+							pointFeature.move(pt);
+												
+							if (routes_list.length == 1) {
+								m_map.setCenter(pt, m_map.getZoom());
+							}
+							
+						}
+						
+						pointFeature.style.label = CurDateStr;
+						// update
+						pointFeature.layer.drawFeature(pointFeature);
+											
+					}
+				}
+				
+			}
+			
+			function StopPlayRoute() {
+				clearInterval(play_route_intervalid);
+				play_route_intervalid = null;
+				play_route_pause = false;
+
+			}
+			
+			/* Measuring */
+			
+			function StartMeasuring() {
+				// Disable double click
+				if (!disable_double_click_control.active) {
+					disable_double_click_control.activate();
+				}
+				
+				if (!measure_control) {
+				
+					// style the sketch fancy
+					var sketchSymbolizers = {
+						"Point": {
+							pointRadius: 4,
+							graphicName: "square",
+							fillColor: "white",
+							fillOpacity: 1,
+							strokeWidth: 1,
+							strokeOpacity: 1,
+							strokeColor: "#333333"
+						},
+						"Line": {
+							strokeWidth: 3,
+							strokeOpacity: 1,
+							strokeColor: "#666666",
+							strokeDashstyle: "dash"
+						},
+						"Polygon": {
+							strokeWidth: 2,
+							strokeOpacity: 1,
+							strokeColor: "#666666",
+							fillColor: "red",
+							fillOpacity: 0.3
+						}
+					};
+					var style = new OpenLayers.Style();
+					style.addRules([
+						new OpenLayers.Rule({symbolizer: sketchSymbolizers})
+					]);
+					var styleMap = new OpenLayers.StyleMap({"default": style});
+					
+					measure_control = new OpenLayers.Control.Measure(
+						OpenLayers.Handler.Path, {
+							persist: true,
+							handlerOptions: {
+								layerOptions: {styleMap: styleMap}
+							}
+						}
+					);
+					
+					measure_control.geodesic = true;
+					
+					measure_control.events.on({
+						"measure": handleMeasuring,
+						"measurepartial": handleMeasuring
+					});
+					m_map.addControl(measure_control);
+				}
+				
+				if (!infopanel_control) {
+					infopanel_control = new OpenLayers.Control.InfoPanel();
+					m_map.addControl(infopanel_control);
+				}
+				
+				measure_control.activate();
+				infopanel_control.activate();
+
+			}
+			
+			function StopMeasuring() {
+				
+				if (!disable_double_click) {
+					disable_double_click_control.deactivate();
+				}
+				
+				infopanel_control.div.innerHTML = "";
+				
+				measure_control.deactivate();				
+				infopanel_control.deactivate();
+				
+			}
+
+			function handleMeasuring(event) {
+				var geometry = event.geometry;
+				var units = event.units;
+				var units_rus;
+				var measure = event.measure;
+				if (units == "m") {
+					units_rus = "м";
+				} else {					
+					units_rus = "км";
+				}
+				var out = "<b>Длина: " + measure.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ")
+					+ " " + units_rus;
+				
+				infopanel_control.div.innerHTML = out;				
+			}
+			
+			/* Area measuring */
+			
+			function StartMeasuringArea() {
+				// Disable double click
+				if (!disable_double_click_control.active) {
+					disable_double_click_control.activate();
+				}
+				
+				if (!polygon_control) {
+				
+					// style the sketch fancy
+					var sketchSymbolizers = {
+						"Point": {
+							pointRadius: 4,
+							graphicName: "square",
+							fillColor: "white",
+							fillOpacity: 1,
+							strokeWidth: 1,
+							strokeOpacity: 1,
+							strokeColor: "#333333"
+						},
+						"Line": {
+							strokeWidth: 3,
+							strokeOpacity: 1,
+							strokeColor: "#666666",
+							strokeDashstyle: "dash"
+						},
+						"Polygon": {
+							strokeWidth: 2,
+							strokeOpacity: 1,
+							strokeColor: "#666666",
+							fillColor: "red",
+							fillOpacity: 0.3
+						}
+					};
+					var style = new OpenLayers.Style();
+					style.addRules([
+						new OpenLayers.Rule({symbolizer: sketchSymbolizers})
+					]);
+					var styleMap = new OpenLayers.StyleMap({"default": style});
+					
+					polygon_control = new OpenLayers.Control.Measure(
+						OpenLayers.Handler.Polygon, {
+							persist: true,
+							handlerOptions: {
+								layerOptions: {styleMap: styleMap}
+							}
+						}
+					);
+					polygon_control.geodesic = true;
+					
+					polygon_control.events.on({
+						"measure": handleMeasurements,
+						"measurepartial": handleMeasurements
+					});
+					m_map.addControl(polygon_control);
+				}
+				
+				if (!infopanel_control) {
+					infopanel_control = new OpenLayers.Control.InfoPanel();
+					m_map.addControl(infopanel_control);
+				}
+				
+				polygon_control.activate();
+				infopanel_control.activate();
+
+			}
+			
+			function StopMeasuringArea() {
+				
+				if (!disable_double_click) {
+					disable_double_click_control.deactivate();
+				}
+				
+				infopanel_control.div.innerHTML = "";
+				
+				polygon_control.deactivate();				
+				infopanel_control.deactivate();
+				
+			}
+
+			function handleMeasurements(event) {
+				var geometry = event.geometry;
+				var units = event.units;
+				var units_rus;
+				var measure = event.measure;
+				var measure_ga = 0;
+				if (units == "m") {
+					measure_ga = measure/10000;
+					units_rus = "м";
+				} else {
+					measure_ga = measure*100;
+					units_rus = "км";
+				}
+				var out = "<b>Площадь фигуры: " + measure.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ") 
+					+ " " + units_rus + "<sup>2</sup><br />" + measure_ga.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ") + " га</b>";
+				
+				infopanel_control.div.innerHTML = out;				
+			}
+			
+			/* Events */
+						
+			function CreateEventProcess(value) {
+				
+				var input = document.getElementById('event_to_1c');
+				input.value = value;
+								  
+				if(document.createEvent)  // В нормальных браузерах
+				{
+					var evt = document.createEvent('MouseEvents');
+					evt.initMouseEvent('click', true, true, window, 1, 5, 5, 5, 5, false, false, false, false, 0, null);
+					input.dispatchEvent(evt);
+				}
+				else if(document.createEventObject) // Реализация события в IE
+				{
+					var evt = document.createEventObject();
+					input.fireEvent('onclick', evt);
+				}
+				
+				input.value = "";
+
+			}
+			
+			/* Waypoints */
+			
+		    function AddUniqueWaypoints(addedWaypoints){
+				if(!waypoints_layer){
+					waypoints_layer = new OpenLayers.Layer.Vector('waypoints layer', {displayInLayerSwitcher: false});
+					m_map.addLayer(waypoints_layer);
+				}
+				var markersLayerIndex = m_map.layers.indexOf(markersLayer, 0);
+				var waypointsLayerIndex = m_map.layers.indexOf(waypoints_layer, 0);
+			    if(markersLayerIndex < waypointsLayerIndex){
+			    	m_map.layers.splice(markersLayerIndex, 0, m_map.layers.splice(waypointsLayerIndex, 1)[0]);
+				}
+			    if(cluster_layer){
+				    clusterLayerIndex = m_map.layers.indexOf(cluster_layer, 0);
+					waypointsLayerIndex = m_map.layers.indexOf(waypoints_layer, 0);
+				    if(clusterLayerIndex < waypointsLayerIndex){
+				    	m_map.layers.splice(clusterLayerIndex, 0, m_map.layers.splice(waypointsLayerIndex, 1)[0]);
+					}; 
+			    }
+				m_map.resetLayersZIndex();
+				if (!disable_double_click_control.active) {
+					disable_double_click_control.activate();
+			    }
+				if(!waypoints_control){					
+					waypoints_control = new OpenLayers.Control.DrawFeature(waypoints_layer, OpenLayers.Handler.wayPointshandler);
+					m_map.addControl(waypoints_control);
+					waypoints_control.activate();
+				}
+				waypoints_control.handler.setuniqpoints(addedWaypoints);
+			};
+	
+			function Stopwaypointstracking (){  				
+				if (waypoints_control){
+					waypoints_control.handler.deactivate();
+					m_map.removeControl(waypoints_control);
+					waypoints_control = null;
+				};
+				if (disable_double_click_control.active) {
+					disable_double_click_control.deactivate();
+				}; 
+			};
+
+			OpenLayers.Handler.wayPointshandler = OpenLayers.Class(OpenLayers.Handler, {
+				points: [],
+				mousdownPosition: null,
+				activePointIndex: -1,
+				activeHoverIndex: -1,
+				activePointPopup: null,
+				pointSelected: false,
+				offset: 7,
+				HIT_NONE: 0,
+				HIT_POINT: 1,
+				initialize: function (control, callbacks, options) {
+					if (!(options && options.layerOptions && options.layerOptions.styleMap)) {
+						this.style = OpenLayers.Util.extend(OpenLayers.Feature.Vector.style['default'], {});
+					}
+					OpenLayers.Handler.prototype.initialize.apply(this, arguments);
+				},
+				activate: function () {
+					if (!OpenLayers.Handler.prototype.activate.apply(this, arguments)) {
+						return false;
+					};			
+					return true;
+				},
+				deactivate: function () {
+					if (!this.active) {
+						return false;
+					};
+					if (!OpenLayers.Handler.prototype.deactivate.apply(this, arguments)) {
+						return false;
+					};
+					if (this.activePointPopup) {
+						this.reset_hover();
+					};
+					if(waypoints_layer){
+						waypoints_layer.removeAllFeatures();
+						m_map.removeLayer(waypoints_layer);
+						waypoints_layer = null;						
+					}
+					return true;
+				},    
+				mousemove: function (evt) {
+					var lonlat = this.map.getLonLatFromPixel(evt.xy);
+					res = this.hittestPoint(evt.xy);
+					if (res == this.HIT_NONE) {
+						this.setCursor("default");					
+						waypoints_layer.removeAllFeatures();
+						this.pointSelected = false;
+					} else if (res == this.HIT_POINT) {
+						this.setCursor("pointer");
+						var pt = this.points[this.activePointIndex].lonlat;
+						var Waypointfeature = new OpenLayers.Feature.Vector(
+							new OpenLayers.Geometry.Point(pt.lon, pt.lat),
+							{
+								'pointid': this.points[this.activePointIndex].wpid
+							},
+							{
+								fill: true,
+								fillColor: this.points[this.activePointIndex].pointcolor,
+								strokeColor: "#ffffff",
+								fillOpacity: 1,
+								pointRadius: 8,
+								strokeOpacity: 1,
+								graphic: true
+							}
+							
+						);
+						waypoints_layer.removeAllFeatures();
+						waypoints_layer.addFeatures(Waypointfeature);
+						this.pointSelected = true;
+					}
+					return true;
+				},
+				setCursor: function (cur) {
+					if (this.map.div.style.cursor != cur) this.map.div.style.cursor = (cur == "" ? "default" : cur);
+				},
+				hittestPoint: function (px) {
+					var res = this.HIT_NONE;
+					var vetrex_px = null;
+					var bounds = null;
+					var distancetopoint = null;
+					var min = 99;
+					this.activePointIndex = -1;
+					if (!this.points) return res;
+					for (var i = 0; i < this.points.length; i++) {						
+						vetrex_px = this.map.getPixelFromLonLat(this.points[i].lonlat);
+						bounds = new OpenLayers.Bounds(vetrex_px.x - this.offset, vetrex_px.y - this.offset, vetrex_px.x + this.offset, vetrex_px.y + this.offset);
+						if (bounds.containsPixel(px)) {
+							res = this.HIT_POINT;
+							distancetopoint = Math.sqrt(Math.pow((px.x - vetrex_px.x), 2) + Math.pow((px.y - vetrex_px.y), 2));
+							if (distancetopoint < min){
+								min = distancetopoint; 
+								this.activePointIndex = i;
+							}
+						};						
+					};
+					return res;
+				},
+				get_waypointsdata: function () {
+					if (!(this.activePointIndex == -1)){
+						CreateEventProcess('SelectedWaypoint,'+ this.points[this.activePointIndex].wpid);
+					};
+				},				
+				show_waypointspopup: function (JsonPointData) {
+					if(this.activePointPopup && JsonPointData.updatepopup &&this.activeHoverIndex != -1 && this.points[this.activeHoverIndex].wpid == JsonPointData.PointID){
+						var HTMLcontent = SetHTMLContenForWaypointPopup(JsonPointData);
+						this.activePointPopup.setContentHTML(HTMLcontent);
+					}else if(!JsonPointData.updatepopup){
+						if(this.points[this.activePointIndex].wpid == JsonPointData.PointID){
+							if (this.activePointIndex == -1) return;
+							this.activeHoverIndex = this.activePointIndex;
+							if (this.activePointPopup) {
+								this.map.removePopup(this.activePointPopup);
+								this.activePointPopup.destroy();
+								this.activePointPopup = null;
+							};
+							this.activePointPopup = new OpenLayers.Popup.FramedCloud(
+								"popup",
+								this.points[this.activePointIndex].lonlat,
+								new OpenLayers.Size(300,200),
+								SetHTMLContenForWaypointPopup(JsonPointData),
+								null
+							);						
+							this.activePointPopup.autoSize = true;
+							this.activePointPopup.panMapIfOutOfView = false;
+							this.activePointPopup.keepInMap = false;	
+							this.activePointPopup.events.register('mousedown', this.activePointPopup, function(evt) {
+								var evtxy = new OpenLayers.Pixel(evt.x, evt.y);
+								waypoints_control.handler.mousdownPosition = evtxy;
+								return true;
+							});
+							this.activePointPopup.events.register('mouseup', this.activePointPopup, function(evt) {
+								if(!evt.xy){
+									var evtxy = new OpenLayers.Pixel(evt.x, evt.y);
+								};
+								if(waypoints_control.handler.mousdownPosition && waypoints_control.handler.mousdownPosition.equals(evtxy)){							
+									waypoints_control.handler.mousdownPosition = null;
+									if(waypoints_control.handler.pointSelected){
+										if (waypoints_control.handler.activePointPopup && waypoints_control.handler.activeHoverIndex != waypoints_control.handler.activePointIndex) {
+											waypoints_control.handler.map.removePopup(waypoints_control.handler.activePointPopup);
+											waypoints_control.handler.activePointPopup.destroy();
+											waypoints_control.handler.activePointPopup = null;
+											waypoints_control.handler.get_waypointsdata();
+										}else if(waypoints_control.handler.activePointPopup && waypoints_control.handler.activeHoverIndex == waypoints_control.handler.activePointIndex){
+											waypoints_control.handler.map.removePopup(waypoints_control.handler.activePointPopup);
+											waypoints_control.handler.activePointPopup.destroy();
+											waypoints_control.handler.activePointPopup = null;	
+										}else{
+											waypoints_control.handler.get_waypointsdata();
+										}				
+									}else{
+										waypoints_control.handler.reset_hover();	
+									}
+								};
+								return true;
+							});						
+							this.map.addPopup(this.activePointPopup);
+						};
+					};
+				},				
+				reset_hover: function () {
+					if (this.activePointPopup) {
+						this.map.removePopup(this.activePointPopup);
+						this.activePointPopup.destroy();
+						this.activePointPopup = null;
+					}
+					if (this.activeHoverIndex != -1) {
+						if (this.event_disp && typeof this.event_disp.on_point_hover == "function") this.event_disp.on_point_hover(-1);
+						this.activeHoverIndex = -1;
+					}
+					waypoints_layer.removeAllFeatures();
+				},
+				mousedown: function(evt){
+					this.mousdownPosition = evt.xy;
+					return true;
+				},
+				mouseup: function(evt){
+					if(this.mousdownPosition && this.mousdownPosition.equals(evt.xy)){
+						this.mousdownPosition = null;
+						if(this.pointSelected){
+							if (this.activePointPopup && this.activeHoverIndex != this.activePointIndex) {
+								this.map.removePopup(this.activePointPopup);
+								this.activePointPopup.destroy();
+								this.activePointPopup = null;
+								this.get_waypointsdata();
+							}else if(this.activePointPopup && this.activeHoverIndex == this.activePointIndex){
+								this.map.removePopup(this.activePointPopup);
+								this.activePointPopup.destroy();
+								this.activePointPopup = null;	
+							}else{
+								this.get_waypointsdata();
+							}				
+						}else{
+							this.reset_hover();	
+						}
+					};
+					return true;
+				},
+				setuniqpoints: function(addedWaypoints){
+					this.points = [];
+					var uniqpoints = this.points;
+					addedWaypoints.forEach(function (Waypoint) {
+						var ptcoordinates = new OpenLayers.LonLat(Waypoint.Lon, Waypoint.Lat);
+						ptcoordinates.transform(m_map.displayProjection, m_map.getProjectionObject());
+						uniqpoints.push({"lonlat": ptcoordinates , "wpid": Waypoint.pointid, "pointcolor": Waypoint.color});
+					});
+					
+				},		
+				CLASS_NAME: "OpenLayers.Handler.wayPoints"
+			});
+	
+			function SetHTMLContenForWaypointPopup(JsonPointData){			
+				var AddressCell = "";
+				var Htmltabl = "";
+				if (!JsonPointData.Parking){
+					if (!JsonPointData.Geocoded){
+						AddressCell = JsonPointData.Coordinates;
+					} else if (JsonPointData.Geocoded) {
+						AddressCell = JsonPointData.Address;
+					}
+					Htmltabl = "<table style=\"BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: auto auto auto; BORDER-COLLAPSE: collapse; BORDER-TOP: medium none; BORDER-RIGHT: medium none\" border=\"1\" cellspacing=\"0\" cellpadding=\"0\" width=\"300\">" +
+						"<tbody><tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\"width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\"><b>" + JsonPointData.TrackingObject + "</b></font></span>" +
+						"</td></tr><tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 0pt solid; BORDER-LEFT: windowtext 0pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0pt solid; BORDER-RIGHT: windowtext 0pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\"> </font></span>" +
+						"</td></tr>";				
+					Htmltabl = Htmltabl + "<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + AddressCell + "</font></span>" +
+						"</td></tr><tr><td style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.Speed + "</font></span></td>" +
+						"<td style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.Direction + "</font></span></td>" +
+						"</tr><tr><td style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.Mileage + "</font></span></td>" +
+						"<td style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.Date + "</font></span></td></tr>";
+				} else{
+					Htmltabl = "<table style=\"BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: auto auto auto; BORDER-COLLAPSE: collapse; BORDER-TOP: medium none; BORDER-RIGHT: medium none\" border=\"1\" cellspacing=\"0\" cellpadding=\"0\" width=\"220\">" +
+						"<tbody><tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.TrackingObject + "</font></span></td></tr>" +
+						"<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 0pt solid; BORDER-LEFT: windowtext 0pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0pt solid; BORDER-RIGHT: windowtext 0pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\"> </font></span></td></tr>";	
+					Htmltabl = Htmltabl + "<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\"><b>" + JsonPointData.Parkingnumber + "</b></font></span></td></tr>";
+					if (JsonPointData.Geocoded){
+						Htmltabl = Htmltabl + "<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.Address + "</font></span></td></tr>";
+					}											
+					Htmltabl = Htmltabl + "<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + JsonPointData.Period + "</font></span></td></tr>";						
+				};					
+				var Sensors = JsonPointData.Sensors;
+				if (Sensors.length > 0){
+					Htmltabl = Htmltabl + "<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 0pt solid; BORDER-LEFT: windowtext 0pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 0pt solid; BORDER-RIGHT: windowtext 0pt solid; PADDING-TOP: 1.65pt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri ','serif'\"><font size=\"2\"> </font></span></td></tr>" +
+						"<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND: #fafafa; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65pt\" valign=\"center\" align=\"center\" width=\"85\"> <p style=\"TEXT-ALIGN: center;\" ><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\"><b>" + JsonPointData.SensorsHead + "</b></font></span></p></td></tr>"; 
+					Sensors.forEach(function (Sensor) {
+						Htmltabl = Htmltabl + "<tr><td colspan=\"2\" style=\"BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; PADDING-BOTTOM: 1.65pt; PADDING-LEFT: 5.4pt; WIDTH: 63.8pt; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; PADDING-TOP: 1.65ptt\" valign=\"top\" width=\"85\"><span style=\"FONT-FAMILY: 'Calibri','serif'\"><font size=\"2\">" + Sensor + "</font></span></td></tr>";
+					});	
+				}	
+				Htmltabl = Htmltabl + "</tbody></table>";
+
+				return Htmltabl;				
+			};
+			
+			/* Draw - points for path */
+			
+			OpenLayers.Handler.drawpath = OpenLayers.Class(OpenLayers.Handler, {
+				points: [],
+				mousdownPosition: null,
+				activePointIndex: -1,
+				lonlatsstring: "",
+				pointSelected: false,
+				offset: 10,
+				HIT_NONE: 0,
+				HIT_POINT: 1,
+				initialize: function (control, callbacks, options) {
+					if (!(options && options.layerOptions && options.layerOptions.styleMap)) {
+						this.style = OpenLayers.Util.extend(OpenLayers.Feature.Vector.style['default'], {});
+					}
+					OpenLayers.Handler.prototype.initialize.apply(this, arguments);
+				},
+				activate: function () {
+					if (!OpenLayers.Handler.prototype.activate.apply(this, arguments)) {
+						return false;
+					};
+					this.points = [];
+					this.activePointIndex = 1;
+			
+					return true;
+				},
+				deactivate: function () {
+					if (!this.active) {
+						return false;
+					};
+					if (!OpenLayers.Handler.prototype.deactivate.apply(this, arguments)) {
+						return false;
+					};
+					if(DrawpointsforPath_layer){
+						DrawpointsforPath_layer.removeAllFeatures();
+						m_map.removeLayer(DrawpointsforPath_layer);
+						DrawpointsforPath_layer = null;						
+					};
+					if(DrawPath_layer){
+						DrawPath_layer.removeAllFeatures();
+						m_map.removeLayer(DrawPath_layer);
+						DrawPath_layer = null;						
+					};
+					this.points = [];
+					return true;
+				},
+				mousemove: function (evt) {
+					var lonlat = this.map.getLonLatFromPixel(evt.xy);
+					res = this.hittestPoint(evt.xy);
+					if (res == this.HIT_NONE) {
+						this.pointSelected = false;
+						if(dragpoint_control.feature){dragpoint_control.outFeature(dragpoint_control.feature)};
+					} else if (res == this.HIT_POINT) {
+						this.pointSelected = true;
+					}
+					return true;
+				},				
+				hittestPoint: function (px) {
+					var res = this.HIT_NONE;
+					var vetrex_px = null;
+					var bounds = null;
+					var distancetopoint = null;
+					var min = 99;
+					this.activePointIndex = -1;
+					if (!this.points) return res;
+					for (var i = 0; i < this.points.length; i++) {
+						var curlonlat = new OpenLayers.LonLat(this.points[i].geometry.x, this.points[i].geometry.y); 						
+						vetrex_px = this.map.getPixelFromLonLat(curlonlat);
+						bounds = new OpenLayers.Bounds(vetrex_px.x - this.offset, vetrex_px.y - this.offset, vetrex_px.x + this.offset, vetrex_px.y + this.offset);
+						if (bounds.containsPixel(px)) {
+							res = this.HIT_POINT;
+							distancetopoint = Math.sqrt(Math.pow((px.x - vetrex_px.x), 2) + Math.pow((px.y - vetrex_px.y), 2));
+							if (distancetopoint < min){
+								min = distancetopoint; 
+								this.activePointIndex = i;
+							}
+						};						
+					};
+					return res;
+				},
+				mousedown: function(evt){
+					this.mousdownPosition = evt.xy;
+					return true;
+				},
+				mouseup: function(evt){
+					if(this.mousdownPosition && this.mousdownPosition.equals(evt.xy)){
+						if(this.pointSelected){
+							this.pointSelected = false;
+							DrawpointsforPath_layer.removeFeatures(this.points[this.activePointIndex]);
+							this.points.splice(this.activePointIndex, 1);
+							if(dragpoint_control.feature){dragpoint_control.outFeature(dragpoint_control.feature)};
+							if(!(this.activePointIndex == this.points.length)){ 
+								for (var i = 0; i < this.points.length; i++) {
+									DrawpointsforPath_layer.features[i].style.label = String(i+1);
+								}
+								DrawpointsforPath_layer.redraw()
+							};				
+						}else{				
+							var pt = this.map.getLonLatFromPixel(evt.xy);
+							var getLabel = String(DrawpointsforPath_layer.features.length + 1);
+							var newpoint = new OpenLayers.Feature.Vector(
+								new OpenLayers.Geometry.Point(pt.lon, pt.lat),
+								{},
+								{	fill: true,
+									fillColor: "#a6e66c",
+									strokeColor: "#ffffff",
+									fillOpacity: 1,
+									pointRadius: 10,
+									strokeOpacity: 1,
+									graphic: true,
+									label: getLabel,
+						            fontSize: "12px",
+						            fontWeight: "bolder",
+						            labelAlign: "cm"									 
+								}							
+							);
+							DrawpointsforPath_layer.addFeatures(newpoint);
+							this.points.push(newpoint);
+							DrawpointsforPath_layer.redraw();
+							dragpoint_control.overFeature(newpoint);
+							this.pointSelected = true;
+							this.activePointIndex = this.points.length - 1;
+						}
+						this.draw_path_frompoints();
+					}			
+					return true;		
+				},
+				draw_path_frompoints: function(){
+					if (this.points.length>1){
+						var lonlatsstring = "";
+						this.points.forEach(function (cur_point) {
+							var cur_ll = new OpenLayers.LonLat(cur_point.geometry.x, cur_point.geometry.y);
+							cur_ll.transform(m_map.getProjectionObject(),m_map.displayProjection);
+							lonlatsstring = lonlatsstring + String(cur_ll.lat) + ";" + String(cur_ll.lon) + "%";
+						});
+						this.lonlatsstring = lonlatsstring;
+						Send_points_to1c(this.lonlatsstring);
+					} else {this.lonlatsstring = "";DrawPath_layer.removeAllFeatures();infopanel_control.div.innerHTML = "";}					
+				},
+				CLASS_NAME: "OpenLayers.Handler.drawpath"
+			});
+			function Send_points_to1c(lonlatsstring){
+			    CreateEventProcess('DrawPath,' + lonlatsstring);
+			};
+			function startDrawpointsforPath(){
+				if(!DrawPath_layer){
+					DrawPath_layer = new OpenLayers.Layer.Vector('draw path layer', {displayInLayerSwitcher: false});
+					m_map.addLayer(DrawPath_layer);
+				}
+				if(!DrawpointsforPath_layer){
+					DrawpointsforPath_layer = new OpenLayers.Layer.Vector('draw points layer', {displayInLayerSwitcher: false});
+					m_map.addLayer(DrawpointsforPath_layer);
+				}
+
+				if(!DrawpointsforPath_control){					
+					DrawpointsforPath_control = new OpenLayers.Control.DrawFeature(DrawpointsforPath_layer, OpenLayers.Handler.drawpath);
+					m_map.addControl(DrawpointsforPath_control);
+					DrawpointsforPath_control.activate();
+				}
+			    if(!dragpoint_control){
+					var geotypes = [];
+					geotypes.push("OpenLayers.Geometry.Point");
+			    	dragpoint_control = new OpenLayers.Control.DragFeature(DrawpointsforPath_layer,
+			    		{   geometryTypes: geotypes, 
+			    			downFeature: function(a){
+			    				DrawpointsforPath_control.handler.mousdownPosition = a;
+			    				this.lastPixel=a;
+			    				this.onStart(this.feature,a)
+			    			},
+			    			doneDragging: function(a){
+			    				DrawpointsforPath_control.handler.draw_path_frompoints();
+			    				this.onComplete(this.feature,a)			    				
+			    			} 
+			    		});
+					m_map.addControl(dragpoint_control);
+					dragpoint_control.activate();
+				}
+				if (!disable_double_click_control.active) {
+					disable_double_click = true;
+					disable_double_click_control.activate();
+			    }
+				if (!infopanel_control) {
+					infopanel_control = new OpenLayers.Control.InfoPanel();
+					m_map.addControl(infopanel_control);
+				}
+			};
+			function stopDrawpointsforPath(){  				
+				if (DrawpointsforPath_control){
+					DrawpointsforPath_control.handler.deactivate();
+					m_map.removeControl(DrawpointsforPath_control);
+					DrawpointsforPath_control = null;
+				};
+				if (DrawpointsforPath_layer){DrawpointsforPath_layer.removeAllFeatures();m_map.removeLayer(DrawpointsforPath_layer);DrawpointsforPath_layer=null};
+				if (DrawPath_layer){DrawPath_layer.removeAllFeatures();m_map.removeLayer(DrawPath_layer);DrawPath_layer=null};
+				if (dragpoint_control){
+						dragpoint_control.deactivate();
+						m_map.removeControl(dragpoint_control);
+						dragpoint_control = null
+					};
+				if (disable_double_click_control.active) {
+					disable_double_click = false;
+					disable_double_click_control.deactivate();
+				};
+				infopanel_control.div.innerHTML = "";
+				infopanel_control.deactivate();
+			};			
+				
+			OpenLayers.Strategy.AttributeCluster = OpenLayers.Class(OpenLayers.Strategy.Cluster, {
+				threshold: 2,
+			    attribute: null,
+			    shouldCluster: function(cluster, feature) {
+			        var cc_attrval = cluster.cluster[0].attributes[this.attribute];
+			        var fc_attrval = feature.attributes[this.attribute];
+			        var superProto = OpenLayers.Strategy.Cluster.prototype;
+			        return cc_attrval === fc_attrval && 
+			               superProto.shouldCluster.apply(this, arguments);
+			    },
+			    CLASS_NAME: "OpenLayers.Strategy.AttributeCluster"
+			});
+				
+			function registration_of_driving_violations(){
+				var context = {
+			        getGraph: function(feature){
+			            var pic = '';
+			            if (feature.attributes.pic) {
+			                pic = feature.attributes.pic;
+			            } else if(feature.cluster && feature.cluster[0].attributes.pic) {
+			                pic = feature.cluster[0].attributes.pic;
+			            }
+			            return pic;
+			        }
+			    }; 
+				if(!cluster_stylemap){				 
+					cluster_stylemap = new OpenLayers.StyleMap({
+				        'default': new OpenLayers.Style({
+				            pointRadius: 12,
+				            fillColor: "#ffcfcf",
+				            fillOpacity: 1,
+				            strokeColor: "#666666",
+				            strokeWidth: 1,
+				            strokeOpacity: 1,
+				            label: "",
+				            labelYOffset: 12,
+				            labelOutlineColor: "white",
+				            labelOutlineWidth: 2,
+				            graphicZIndex: 1,
+				            graphicWidth: 24,
+							graphicHeight: 24,
+							graphicXOffset: -12,
+							graphicYOffset: -12,
+							externalGraphic: "${getGraph}"
+				        }, {
+				            context: context
+				        }),
+				        'select' : new OpenLayers.Style({
+				            pointRadius: 5,
+				            fillColor: "#ffff00",
+				            fillOpacity: 1,
+				            strokeColor: "#666666",
+				            strokeWidth: 1,
+				            strokeOpacity: 1,
+				            graphicZIndex: 2
+				        })
+				    });
+			    };
+				cluster_features = [];			
+				if(!cluster_layer){
+				    cluster_layer = new OpenLayers.Layer.Vector('cluster_layer', {
+				    		displayInLayerSwitcher: false,
+				    		styleMap: cluster_stylemap, 
+				    		strategies: [new OpenLayers.Strategy.AttributeCluster({
+		            			attribute:'clazz'
+		                	})]
+					});
+					m_map.addLayer(cluster_layer);
+					var markersLayerIndex = m_map.layers.indexOf(markersLayer, 0);
+					var cluster_layerIndex = m_map.layers.indexOf(cluster_layer, 0);
+				    if(markersLayerIndex<cluster_layerIndex){m_map.layers.splice(markersLayerIndex, 0, m_map.layers.splice(cluster_layerIndex, 1)[0]);
+					m_map.resetLayersZIndex();};
+					if(waypoints_layer){
+					    clusterLayerIndex = m_map.layers.indexOf(cluster_layer, 0);
+						waypointsLayerIndex = m_map.layers.indexOf(waypoints_layer, 0);
+					    if(clusterLayerIndex < waypointsLayerIndex){
+					    	m_map.layers.splice(clusterLayerIndex, 0, m_map.layers.splice(waypointsLayerIndex, 1)[0]);
+							m_map.resetLayersZIndex();
+						};
+					}
+				}else{
+					cluster_layer.removeAllFeatures();
+					m_map.resetLayersZIndex();
+				};
+				
+				var showInformation = function(evt){
+					var contentHtml = "";
+					var cur_x = evt.feature.geometry.x;
+					var cur_y = evt.feature.geometry.y;
+					var pt = new OpenLayers.LonLat(cur_x, cur_y);   
+		            if(evt.feature.cluster){
+		            	evt.feature.cluster.forEach(function (clustered_f) {contentHtml = contentHtml + clustered_f.attributes.content});
+		            }
+		            else{
+		            	contentHtml = evt.feature.attributes.content;
+		            };
+		            if(cluster_popup){m_map.removePopup(cluster_popup);cluster_popup=null}
+					cluster_popup =new OpenLayers.Popup(
+						"chicken",
+						pt,
+						new OpenLayers.Size(200,200),
+						contentHtml,
+						true
+					);
+					cluster_popup.autoSize = true;
+					m_map.addPopup(cluster_popup);
+					cluster_popup.show();		            
+		        };
+
+				if(!cluster_select){
+				    cluster_select = new OpenLayers.Control.SelectFeature(cluster_layer, {hover: false,toggle: true});
+					m_map.addControl(cluster_select);
+				    cluster_select.activate();
+					cluster_layer.events.on({"featureselected": showInformation});
+				};
+			};
+			function off_registration_of_driving_violations(){
+				if(cluster_layer){
+					cluster_layer.removeAllFeatures();
+					m_map.removeLayer(cluster_layer);
+					cluster_layer = null;
+				};
+				if(cluster_popup){m_map.removePopup(cluster_popup);cluster_popup=null};
+				if(cluster_select){
+				    cluster_select.deactivate();
+				    m_map.removeControl(cluster_select);
+					cluster_select = null;
+				};
+				cluster_features = [];
+			};
+			function set_behind_marker_layer(our_layer){
+				if (markersLayer){
+					var markersLayerIndex = m_map.layers.indexOf(markersLayer, 0);
+					var our_layerIndex = m_map.layers.indexOf(our_layer, 0);
+					if(markersLayerIndex < our_layerIndex){
+						m_map.layers.splice(markersLayerIndex, 0, m_map.layers.splice(our_layerIndex, 1)[0]);
+					}
+					m_map.resetLayersZIndex();		
+				}
+			}
+  </script>
+  </head>
+  <body onload="init()" >
+    <div id="map"></div>
+    <div id="footer">
+      <form name="form" method="get" style="visibility:hidden; height:0px; background-color:#FF0000;">
+        <input name="result" type="hidden" value="" />
+        <input id="event_to_1c" name="event_to_1c"  type="hidden" value="" />
+      </form>
+    </div>
+  </body>
+</html>

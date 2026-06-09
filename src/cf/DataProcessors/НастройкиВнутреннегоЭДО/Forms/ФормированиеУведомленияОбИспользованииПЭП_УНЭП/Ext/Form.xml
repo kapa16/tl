@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Формирование уведомления об использовании простой и усиленной неквалифицированной электронной подписи</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Сформировать" id="20">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СформироватьУведомления</CommandName>
+				<BackColor>style:ImportantColor</BackColor>
+				<Picture>
+					<xr:Ref>CommonPicture.СохранитьФайлКак</xr:Ref>
+					<xr:LoadTransparent>false</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="СформироватьРасширеннаяПодсказка" id="21"/>
+			</Button>
+			<Button name="СписокПользователейДобавить" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.СписокПользователей.StandardCommand.Add</CommandName>
+				<ExtendedTooltip name="СписокПользователейДобавитьРасширеннаяПодсказка" id="23"/>
+			</Button>
+			<Button name="СписокПользователейПодбор" id="24">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.СписокПользователей.StandardCommand.Pickup</CommandName>
+				<ExtendedTooltip name="СписокПользователейПодборРасширеннаяПодсказка" id="25"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ДекорацияПредупреждение" id="26">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<TextColor>style:ПоясняющийТекст</TextColor>
+			<Title formatted="true">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обратите внимание, перед подписанием уведомления должен быть издан &lt;link Приказ&gt;приказ&lt;/&gt; об использовании электронной подписи в организации.
+</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="28"/>
+			<Events>
+				<Event name="URLProcessing">ДекорацияПредупреждениеОбработкаНавигационнойСсылки</Event>
+			</Events>
+		</LabelDecoration>
+		<Table name="СписокПользователей" id="4">
+			<Representation>List</Representation>
+			<TitleLocation>Auto</TitleLocation>
+			<Header>false</Header>
+			<HorizontalLines>false</HorizontalLines>
+			<VerticalLines>false</VerticalLines>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<DataPath>СписокПользователей</DataPath>
+			<RowPictureDataPath>СписокПользователей.Picture</RowPictureDataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список лиц, использующих электронную подпись</v8:content>
+				</v8:item>
+			</Title>
+			<TitleTextColor>style:ПоясняющийТекст</TitleTextColor>
+			<ContextMenu name="СписокПользователейКонтекстноеМеню" id="5"/>
+			<AutoCommandBar name="СписокПользователейКоманднаяПанель" id="6">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокПользователейРасширеннаяПодсказка" id="7"/>
+			<SearchStringAddition name="СписокПользователейСтрокаПоиска" id="8">
+				<AdditionSource>
+					<Item>СписокПользователей</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПользователейСтрокаПоискаКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокПользователейСтрокаПоискаРасширеннаяПодсказка" id="10"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокПользователейСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>СписокПользователей</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="СписокПользователейСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокПользователейСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокПользователейУправлениеПоиском" id="14">
+				<AdditionSource>
+					<Item>СписокПользователей</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПользователейУправлениеПоискомКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокПользователейУправлениеПоискомРасширеннаяПодсказка" id="16"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="СписокПользователейЗначение" id="17">
+					<DataPath>СписокПользователей.Value</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокПользователейЗначениеКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СписокПользователейЗначениеРасширеннаяПодсказка" id="19"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОбменСКонтрагентами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СписокПользователей" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:TypeSet>cfg:DefinedType.Пользователь</v8:TypeSet>
+			</Settings>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DefinedType.Организация</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="НаименованиеОрганизации" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаВступленияВСилу" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата вступления в силу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьУведомления" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать уведомления</v8:content>
+				</v8:item>
+			</Title>
+			<Action>СформироватьЛистОзнакомления</Action>
+		</Command>
+	</Commands>
+</Form>

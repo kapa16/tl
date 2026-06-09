@@ -1,0 +1,117 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://topby.by/edi/blrapn" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="http://topby.by/edi/blrapn" name="BLRAPN" type="d2p1:Acknowledgement"/>
+	<objectType name="Acknowledgement">
+		<property name="DocumentID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+		</property>
+		<property name="FunctionCode">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="3">
+				<enumeration>6</enumeration>
+				<enumeration>27</enumeration>
+			</typeDef>
+		</property>
+		<property name="CreationDateTime">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000000000" totalDigits="14"/>
+		</property>
+		<property name="DeliveryNoteID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="DeliveryNoteDate">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000" totalDigits="8"/>
+		</property>
+		<property name="ReferenceDocument">
+			<typeDef xsi:type="ObjectType">
+				<property name="Type">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="6">
+						<enumeration>BLRWBL</enumeration>
+						<enumeration>BLRDLN</enumeration>
+						<enumeration>BLRAPN</enumeration>
+						<enumeration>BLRWBR</enumeration>
+						<enumeration>BLRDNR</enumeration>
+						<enumeration>BLRINV</enumeration>
+						<enumeration>BLRNDS</enumeration>
+						<enumeration>BLRDOC</enumeration>
+						<enumeration>BLRSPT</enumeration>
+						<enumeration>BLRADF</enumeration>
+					</typeDef>
+				</property>
+				<property name="ID">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+				</property>
+				<property name="Date">
+					<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000000000" totalDigits="14"/>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://topby.by/edi/blrapn" name="Shipper" type="d3p1:Shipper"/>
+		<property xmlns:d3p1="http://topby.by/edi/blrapn" name="Receiver" type="d3p1:Receiver"/>
+		<property xmlns:d3p1="http://topby.by/edi/blrapn" name="ErrorOrAcknowledgement" type="d3p1:ErrorOrAcknowledgement"/>
+	</objectType>
+	<objectType name="ErrorOrAcknowledgement">
+		<property name="Code">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="8">
+				<enumeration>2550</enumeration>
+				<enumeration>2551</enumeration>
+				<enumeration>2558</enumeration>
+				<enumeration>2559</enumeration>
+				<enumeration>2560</enumeration>
+				<enumeration>2570</enumeration>
+				<enumeration>2571</enumeration>
+				<enumeration>2578</enumeration>
+				<enumeration>2579</enumeration>
+				<enumeration>2650</enumeration>
+				<enumeration>2651</enumeration>
+				<enumeration>2750</enumeration>
+				<enumeration>2552</enumeration>
+				<enumeration>2562</enumeration>
+				<enumeration>2553</enumeration>
+				<enumeration>2554</enumeration>
+				<enumeration>2555</enumeration>
+				<enumeration>2556</enumeration>
+				<enumeration>2557</enumeration>
+				<enumeration>2752</enumeration>
+				<enumeration>2552</enumeration>
+			</typeDef>
+		</property>
+		<property name="Description" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="2560"/>
+		</property>
+	</objectType>
+	<objectType name="MessageHeader">
+		<property name="MessageID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="14"/>
+		</property>
+		<property name="MsgDateTime">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minExclusive="10000000000000" totalDigits="14"/>
+		</property>
+		<property name="MessageType">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="6">
+				<enumeration>BLRAPN</enumeration>
+			</typeDef>
+		</property>
+		<property name="MsgSenderID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+		</property>
+		<property name="MsgReceiverID">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+		</property>
+		<property name="TestIndicator" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1">
+				<enumeration>1</enumeration>
+			</typeDef>
+		</property>
+		<property name="UserID" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+		</property>
+	</objectType>
+	<objectType name="Receiver">
+		<property name="GLN">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+		</property>
+	</objectType>
+	<objectType name="Shipper">
+		<property name="GLN">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="13"/>
+		</property>
+	</objectType>
+</package>

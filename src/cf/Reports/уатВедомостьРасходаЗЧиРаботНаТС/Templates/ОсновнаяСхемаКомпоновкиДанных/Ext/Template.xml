@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидНоменклатурыТС</dataPath>
+			<field>ВидНоменклатурыТС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Products and services type of vehicle</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид номенклатуры ТС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Колонна</dataPath>
+			<field>Колонна</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособРемонта</dataPath>
+			<field>СпособРемонта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Repair method</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ ремонта</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Стоимость</dataPath>
+			<field>Стоимость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость без НДС (регл)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cost without VAT (compl)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТС</dataPath>
+			<field>ТС</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТСВыбыло</dataPath>
+			<field>ТСВыбыло</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС выбыло</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Decommissioning of vehicles</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТСГарНомер</dataPath>
+			<field>ТСГарНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС (гар. номер)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle (gar. number)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТСГосНомер</dataPath>
+			<field>ТСГосНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТС (гос. номер)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Vehicle (license plate number)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтоимостьУпр</dataPath>
+			<field>СтоимостьУпр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость без НДС (упр)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cost without VAT (manag)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Warehouse</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автосервис</dataPath>
+			<field>Автосервис</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Car service</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автосервис</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтоимостьСНДС</dataPath>
+			<field>СтоимостьСНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость (регл)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cost (compl)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>VAT amount</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаРегл</dataPath>
+			<field>ВалютаРегл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта (регл.)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+    уатНоменклатураТСОбороты.Период КАК Период,
+    уатНоменклатураТСОбороты.Регистратор КАК Регистратор,
+    уатНоменклатураТСОбороты.ТС КАК ТС,
+    уатНоменклатураТСОбороты.ТС.ГаражныйНомер КАК ТСГарНомер,
+    уатНоменклатураТСОбороты.ТС.ГосударственныйНомер КАК ТСГосНомер,
+    уатНоменклатураТСОбороты.ТС.Колонна КАК Колонна,
+    уатНоменклатураТСОбороты.ТС.Организация КАК Организация,
+    уатНоменклатураТСОбороты.Номенклатура КАК Номенклатура,
+    уатНоменклатураТСОбороты.КоличествоОборот КАК Количество,
+    уатНоменклатураТСОбороты.СтоимостьОборот КАК Стоимость,
+    уатНоменклатураТСОбороты.СтоимостьУпрОборот КАК СтоимостьУпр,
+    уатНоменклатураТСОбороты.СуммаНДСОборот КАК СуммаНДС,
+    уатНоменклатураТСОбороты.СтоимостьОборот + уатНоменклатураТСОбороты.СуммаНДСОборот КАК СтоимостьСНДС,
+    ВЫБОР
+        КОГДА уатНоменклатураТСОбороты.Регистратор.Контрагент ССЫЛКА Справочник.Контрагенты
+            ТОГДА уатНоменклатураТСОбороты.Регистратор.Контрагент
+        ИНАЧЕ NULL
+    КОНЕЦ КАК Автосервис,
+    ВЫБОР
+        КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатРемонтныйЛист
+                И уатНоменклатураТСОбороты.Регистратор.СпособРемонта = ЗНАЧЕНИЕ(Перечисление.уатСпособыРемонта.РемЗона)
+            ТОГДА уатНоменклатураТСОбороты.Регистратор.Контрагент
+        КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатВыдачаРасходныхМатериалов
+            ТОГДА уатНоменклатураТСОбороты.Регистратор.Склад
+        ИНАЧЕ NULL
+    КОНЕЦ КАК Склад,
+    ВЫБОР
+        КОГДА уатНоменклатураТСОбороты.Номенклатура ССЫЛКА Справочник.Номенклатура
+            ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаВидНоменклатуры.ЗапасныеЧасти)
+        ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаВидНоменклатуры.РаботыПоРемонту)
+    КОНЕЦ КАК ВидНоменклатурыТС,
+    ВЫБОР
+        КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатРемонтныйЛист
+                И уатНоменклатураТСОбороты.Регистратор.СпособРемонта = ЗНАЧЕНИЕ(Перечисление.уатСпособыРемонта.Автосервис)
+            ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.АвтоСервис)
+        КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатРемонтныйЛист
+                И уатНоменклатураТСОбороты.Регистратор.СпособРемонта = ЗНАЧЕНИЕ(Перечисление.уатСпособыРемонта.РемЗона)
+            ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.РемЗона)
+        КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатВыдачаРасходныхМатериалов
+            ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.ВыдачаРасходныхМатериалов)
+        ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.Прочее)
+    КОНЕЦ КАК СпособРемонта,
+	ВЫБОР
+		КОГДА &amp;МногострановойУчет И уатНоменклатураТСОбороты.ТС.Организация.ВалютаРегламентированногоУчета &lt;&gt; ЗНАЧЕНИЕ(Справочник.Валюты.ПустаяСсылка)
+			ТОГДА уатНоменклатураТСОбороты.ТС.Организация.ВалютаРегламентированногоУчета
+		ИНАЧЕ &amp;ВалютаРеглУчета
+	КОНЕЦ КАК ВалютаРегл
+{ВЫБРАТЬ
+    Период,
+    Регистратор.*,
+    ТСГарНомер,
+    ТСГосНомер,
+    Колонна.*,
+    Организация.*,
+    Номенклатура.*,
+    Количество,
+    Стоимость,
+    СтоимостьУпр,
+    ВидНоменклатурыТС.*,
+    СпособРемонта.*,
+    ТС.*,
+    ВалютаРегл.*}
+ИЗ
+    РегистрНакопления.уатНоменклатураТС.Обороты(, , Регистратор, ) КАК уатНоменклатураТСОбороты
+{ГДЕ
+    уатНоменклатураТСОбороты.Период,
+    уатНоменклатураТСОбороты.Регистратор.*,
+    уатНоменклатураТСОбороты.ТС.ГаражныйНомер КАК ТСГарНомер,
+    уатНоменклатураТСОбороты.ТС.ГосударственныйНомер КАК ТСГосНомер,
+    уатНоменклатураТСОбороты.ТС.Колонна.* КАК Колонна,
+    уатНоменклатураТСОбороты.ТС.Организация.* КАК Организация,
+    уатНоменклатураТСОбороты.Номенклатура.*,
+    уатНоменклатураТСОбороты.КоличествоОборот КАК Количество,
+    уатНоменклатураТСОбороты.СтоимостьОборот КАК Стоимость,
+    уатНоменклатураТСОбороты.СтоимостьУпрОборот КАК СтоимостьУпр,
+    (ВЫБОР
+            КОГДА уатНоменклатураТСОбороты.Номенклатура ССЫЛКА Справочник.Номенклатура
+                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаВидНоменклатуры.ЗапасныеЧасти)
+            ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаВидНоменклатуры.РаботыПоРемонту)
+        КОНЕЦ).* КАК ВидНоменклатурыТС,
+    (ВЫБОР
+            КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатРемонтныйЛист
+                    И уатНоменклатураТСОбороты.Регистратор.СпособРемонта = ЗНАЧЕНИЕ(Перечисление.уатСпособыРемонта.Автосервис)
+                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.АвтоСервис)
+            КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатРемонтныйЛист
+                    И уатНоменклатураТСОбороты.Регистратор.СпособРемонта = ЗНАЧЕНИЕ(Перечисление.уатСпособыРемонта.РемЗона)
+                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.РемЗона)
+            КОГДА уатНоменклатураТСОбороты.Регистратор ССЫЛКА Документ.уатВыдачаРасходныхМатериалов
+                ТОГДА ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.ВыдачаРасходныхМатериалов)
+            ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.уатПолеОтчетаСпособРемонта.Прочее)
+        КОНЕЦ).* КАК СпособРемонта,
+    уатНоменклатураТСОбороты.ТС.*,
+    (ВЫБОР
+            КОГДА уатНоменклатураТСОбороты.ТС.ДатаВыбытия &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА ИСТИНА
+            КОГДА уатНоменклатураТСОбороты.ТС.ДатаВыбытия = ДАТАВРЕМЯ(1, 1, 1)
+                ТОГДА ЛОЖЬ
+        КОНЕЦ) КАК ТСВыбыло}</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Стоимость</dataPath>
+		<expression>Сумма(Стоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьУпр</dataPath>
+		<expression>Сумма(СтоимостьУпр)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьСНДС</dataPath>
+		<expression>Сумма(СтоимостьСНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДС</dataPath>
+		<expression>Сумма(СуммаНДС)</expression>
+	</totalField>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВалютаРеглУчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Валюта регл учета</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Константы.ВалютаРегламентированногоУчета.Получить()</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>МногострановойУчет</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Многострановой учет</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<expression>уатОбщегоНазначенияТиповые.ИспользуетсяМногострановойУчет()</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Ведомость расхода з/ч и работ на ТС</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Statement of spare capacity and works on vehicle</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ведомость расхода з/ч и работ на ТС</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Стоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтоимостьУпр</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтоимостьСНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>188f0498-0161-474f-a33b-8bc634580eab</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2aaaa004-c0b7-4190-a5cd-a74db06758a4</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СпособРемонта</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>9bc27658-a744-466c-b786-2e40158cacfd</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автосервис</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>9a839b86-dc0e-472b-a698-cdba8176b3eb</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидНоменклатурыТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>eebd2728-2c8a-4ff3-b6e4-2602e556cb43</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e48b4432-0754-4004-b2fa-0c4cb3ab3ebd</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>03bc914a-ad2d-48c4-8bbd-6dfc03c2538c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТСГосНомер</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>16a84e35-186b-4a58-877a-5aa89a19b29d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ТСВыбыло</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>cd3c3eaf-0cb0-4612-9947-a74cc440abd5</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>6a56e150-6489-4ed2-b9eb-9de08f3ab9b8</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>6fd60671-e8e8-44d5-ba86-cfeee4a485f4</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c3a8f19f-9db2-4fda-aa08-0cad1b0b6052</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>59b9c20c-a69a-47b2-b021-3ce0aaec3e82</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>fd0fb32e-348a-4f86-bbc3-e40066feaefe</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>d9e697d9-81d3-4545-9fec-e937bba55f4e</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ведомость расхода з/ч и работ на ТС</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Statement of spare capacity and works on vehicle</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТС</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Номенклатура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Склад</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>Регистратор</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>e77a25f0-9ebe-4baa-867e-bc0b0c542378</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

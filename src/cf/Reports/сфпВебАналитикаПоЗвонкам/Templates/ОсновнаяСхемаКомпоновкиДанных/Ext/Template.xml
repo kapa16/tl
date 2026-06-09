@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаркетинговоеМероприятие</dataPath>
+			<field>МаркетинговоеМероприятие</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Звонок</dataPath>
+			<field>Звонок</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ответственный</dataPath>
+			<field>Ответственный</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗвоноксфпКлиент</dataPath>
+			<field>ЗвоноксфпКлиент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗвонокАбонентКонтакт</dataPath>
+			<field>ЗвонокАбонентКонтакт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КаналРекламногоВоздействия</dataPath>
+			<field>КаналРекламногоВоздействия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>utm_campaign</dataPath>
+			<field>utm_campaign</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>utm_source</dataPath>
+			<field>utm_source</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>utm_medium</dataPath>
+			<field>utm_medium</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>utm_term</dataPath>
+			<field>utm_term</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>utm_content</dataPath>
+			<field>utm_content</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quantity</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	сфпИсторияЗвонков.Звонок,
+	сфпИсторияЗвонков.Звонок.сфпКлиент,
+	сфпИсторияЗвонков.Звонок.АбонентКонтакт,
+	сфпИсторияЗвонков.Ответственный,
+	сфпИсторияЗвонков.КаналРекламногоВоздействия,
+	сфпИсторияЗвонков.МаркетинговоеМероприятие,
+	сфпИсторияЗвонков.utm_source,
+	сфпИсторияЗвонков.utm_medium,
+	сфпИсторияЗвонков.utm_campaign,
+	сфпИсторияЗвонков.utm_term,
+	сфпИсторияЗвонков.utm_content,
+	1 КАК Количество
+ИЗ
+	РегистрСведений.сфпИсторияЗвонков КАК сфпИсторияЗвонков</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Веб-аналитика по звонкам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КаналРекламногоВоздействия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаркетинговоеМероприятие</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗвоноксфпКлиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗвонокАбонентКонтакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>utm_source</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>utm_medium</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>utm_campaign</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>utm_term</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>utm_content</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КаналРекламногоВоздействия</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>МаркетинговоеМероприятие</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

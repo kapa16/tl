@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>АРМ Логиста: Отбор</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>AWP Logistician: Selection</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОК" id="109">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="110"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="111">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="112"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаГоризонталь" id="146">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа горизонталь</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group horizontal</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа горизонталь</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group horizontal</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаГоризонтальРасширеннаяПодсказка" id="147"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОтборСортировкаГрузовПоЗонам" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор по зонам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Selection by zones</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ГруппаОтборСортировкаГрузовПоЗонамРасширеннаяПодсказка" id="65"/>
+					<ChildItems>
+						<Table name="ОтборЗоны" id="66">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ОтборЗоны</DataPath>
+							<ContextMenu name="ОтборЗоныКонтекстноеМеню" id="67"/>
+							<AutoCommandBar name="ОтборЗоныКоманднаяПанель" id="68">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<ButtonGroup name="ОтборЗоныГруппаОтметитьВсе" id="156">
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="ОтборЗоныГруппаОтметитьВсеРасширеннаяПодсказка" id="157"/>
+										<ChildItems>
+											<Button name="ОтборЗоныЗоныОтметитьВсе" id="90">
+												<Type>CommandBarButton</Type>
+												<Representation>Picture</Representation>
+												<CommandName>Form.Command.ЗоныОтметитьВсе</CommandName>
+												<Picture>
+													<xr:Ref>StdPicture.CheckAll</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<ExtendedTooltip name="ОтборЗоныЗоныОтметитьВсеРасширеннаяПодсказка" id="91"/>
+											</Button>
+											<Button name="ОтборЗоныЗоныСнятьВсе" id="92">
+												<Type>CommandBarButton</Type>
+												<Representation>Picture</Representation>
+												<CommandName>Form.Command.ЗоныСнятьВсе</CommandName>
+												<Picture>
+													<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<ExtendedTooltip name="ОтборЗоныЗоныСнятьВсеРасширеннаяПодсказка" id="93"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="ОтборЗоныГруппаСвернуть" id="94">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отбор зоны группа свернуть</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Selection zone group collapse</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отбор зоны группа свернуть</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Selection zone group collapse</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Representation>Compact</Representation>
+										<ExtendedTooltip name="ОтборЗоныГруппаСвернутьРасширеннаяПодсказка" id="95"/>
+										<ChildItems>
+											<Button name="ОтборЗоныЗоныСвернутьВсе" id="96">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗоныСвернутьВсе</CommandName>
+												<ExtendedTooltip name="ОтборЗоныЗоныСвернутьВсеРасширеннаяПодсказка" id="97"/>
+											</Button>
+											<Button name="ОтборЗоныЗоныРазвернутьВсе" id="98">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗоныРазвернутьВсе</CommandName>
+												<ExtendedTooltip name="ОтборЗоныЗоныРазвернутьВсеРасширеннаяПодсказка" id="99"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="ОтборЗоныЗоныОбновить" id="100">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.ЗоныОбновить</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.Refresh</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ОтборЗоныЗоныОбновитьРасширеннаяПодсказка" id="101"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ОтборЗоныРасширеннаяПодсказка" id="69"/>
+							<SearchStringAddition name="ОтборЗоныСтрокаПоиска" id="70">
+								<AdditionSource>
+									<Item>ОтборЗоны</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтборЗоныСтрокаПоискаКонтекстноеМеню" id="71"/>
+								<ExtendedTooltip name="ОтборЗоныСтрокаПоискаРасширеннаяПодсказка" id="72"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОтборЗоныСостояниеПросмотра" id="73">
+								<AdditionSource>
+									<Item>ОтборЗоны</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтборЗоныСостояниеПросмотраКонтекстноеМеню" id="74"/>
+								<ExtendedTooltip name="ОтборЗоныСостояниеПросмотраРасширеннаяПодсказка" id="75"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОтборЗоныУправлениеПоиском" id="76">
+								<AdditionSource>
+									<Item>ОтборЗоны</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтборЗоныУправлениеПоискомКонтекстноеМеню" id="77"/>
+								<ExtendedTooltip name="ОтборЗоныУправлениеПоискомРасширеннаяПодсказка" id="78"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<ColumnGroup name="ОтборЗоныГруппаЗона" id="79">
+									<Group>InCell</Group>
+									<ExtendedTooltip name="ОтборЗоныГруппаЗонаРасширеннаяПодсказка" id="80"/>
+									<ChildItems>
+										<CheckBoxField name="ОтборЗоныИспользование" id="140">
+											<DataPath>ОтборЗоны.Использование</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ThreeState>true</ThreeState>
+											<ContextMenu name="ОтборЗоныИспользованиеКонтекстноеМеню" id="141"/>
+											<ExtendedTooltip name="ОтборЗоныИспользованиеРасширеннаяПодсказка" id="142"/>
+											<Events>
+												<Event name="OnChange">ОтборЗоныИспользованиеПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<PictureField name="ОтборЗоныКартинка" id="143">
+											<DataPath>ОтборЗоны.Картинка</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.ДополнительныеРеквизитыСведения</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="ОтборЗоныКартинкаКонтекстноеМеню" id="144"/>
+											<ExtendedTooltip name="ОтборЗоныКартинкаРасширеннаяПодсказка" id="145"/>
+										</PictureField>
+										<InputField name="ОтборЗоныЗона" id="137">
+											<DataPath>ОтборЗоны.Зона</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОтборЗоныЗонаКонтекстноеМеню" id="138"/>
+											<ExtendedTooltip name="ОтборЗоныЗонаРасширеннаяПодсказка" id="139"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+						<CheckBoxField name="ПроверкаПунктаОтправленияВЗоне" id="150">
+							<DataPath>ПроверкаПунктаОтправленияВЗоне</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<TitleHeight>2</TitleHeight>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПроверкаПунктаОтправленияВЗонеКонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="ПроверкаПунктаОтправленияВЗонеРасширеннаяПодсказка" id="152"/>
+							<Events>
+								<Event name="OnChange">ПроверкаПунктаОтправленияВЗонеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ПроверкаПунктаНазначенияВЗоне" id="153">
+							<DataPath>ПроверкаПунктаНазначенияВЗоне</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<TitleHeight>2</TitleHeight>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПроверкаПунктаНазначенияВЗонеКонтекстноеМеню" id="154"/>
+							<ExtendedTooltip name="ПроверкаПунктаНазначенияВЗонеРасширеннаяПодсказка" id="155"/>
+							<Events>
+								<Event name="OnChange">ПроверкаПунктаНазначенияВЗонеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОтборСортировкаГрузовОтборЗаказов" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор заказов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Orders selection</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ГруппаОтборСортировкаГрузовОтборЗаказовРасширеннаяПодсказка" id="2"/>
+					<ChildItems>
+						<Table name="ОтборЗаказовНастройкиОтбор" id="3">
+							<Representation>Tree</Representation>
+							<Autofill>true</Autofill>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>КомпоновщикДанныхЗаказов.Settings.Filter</DataPath>
+							<CommandSet>
+								<ExcludedCommand>UserSettingItemProperties</ExcludedCommand>
+							</CommandSet>
+							<ViewMode>All</ViewMode>
+							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+							<ContextMenu name="ОтборЗаказовНастройкиОтборКонтекстноеМеню" id="4"/>
+							<AutoCommandBar name="ОтборЗаказовНастройкиОтборКоманднаяПанель" id="5"/>
+							<ExtendedTooltip name="ОтборЗаказовНастройкиОтборРасширеннаяПодсказка" id="6"/>
+							<SearchStringAddition name="ОтборЗаказовНастройкиОтборСтрокаПоиска" id="7">
+								<AdditionSource>
+									<Item>ОтборЗаказовНастройкиОтбор</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтборЗаказовНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="8"/>
+								<ExtendedTooltip name="ОтборЗаказовНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОтборЗаказовНастройкиОтборСостояниеПросмотра" id="10">
+								<AdditionSource>
+									<Item>ОтборЗаказовНастройкиОтбор</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтборЗаказовНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="11"/>
+								<ExtendedTooltip name="ОтборЗаказовНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОтборЗаказовНастройкиОтборУправлениеПоиском" id="13">
+								<AdditionSource>
+									<Item>ОтборЗаказовНастройкиОтбор</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтборЗаказовНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="14"/>
+								<ExtendedTooltip name="ОтборЗаказовНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+							</SearchControlAddition>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВертикаль" id="148">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вертикаль</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group vertical</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вертикаль</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group vertical</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВертикальРасширеннаяПодсказка" id="149"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОтборПоСвойствамГруза" id="16">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор по свойствам грузов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Selection on cargo properties</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="ГруппаОтборПоСвойствамГрузаРасширеннаяПодсказка" id="17"/>
+							<ChildItems>
+								<Table name="ОтборПоСвойствамГруза" id="18">
+									<Representation>List</Representation>
+									<CommandBarLocation>None</CommandBarLocation>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<HeightInTableRows>3</HeightInTableRows>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ОтборПоСвойствамГруза</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ОтборПоСвойствамГрузаКонтекстноеМеню" id="19">
+										<Autofill>false</Autofill>
+									</ContextMenu>
+									<AutoCommandBar name="ОтборПоСвойствамГрузаКоманднаяПанель" id="20"/>
+									<ExtendedTooltip name="ОтборПоСвойствамГрузаРасширеннаяПодсказка" id="21"/>
+									<SearchStringAddition name="ОтборПоСвойствамГрузаСтрокаПоиска" id="22">
+										<AdditionSource>
+											<Item>ОтборПоСвойствамГруза</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборПоСвойствамГрузаСтрокаПоискаКонтекстноеМеню" id="23"/>
+										<ExtendedTooltip name="ОтборПоСвойствамГрузаСтрокаПоискаРасширеннаяПодсказка" id="24"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОтборПоСвойствамГрузаСостояниеПросмотра" id="25">
+										<AdditionSource>
+											<Item>ОтборПоСвойствамГруза</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборПоСвойствамГрузаСостояниеПросмотраКонтекстноеМеню" id="26"/>
+										<ExtendedTooltip name="ОтборПоСвойствамГрузаСостояниеПросмотраРасширеннаяПодсказка" id="27"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОтборПоСвойствамГрузаУправлениеПоиском" id="28">
+										<AdditionSource>
+											<Item>ОтборПоСвойствамГруза</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборПоСвойствамГрузаУправлениеПоискомКонтекстноеМеню" id="29"/>
+										<ExtendedTooltip name="ОтборПоСвойствамГрузаУправлениеПоискомРасширеннаяПодсказка" id="30"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">ОтборПоСвойствамГрузаПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">ОтборПоСвойствамГрузаПередУдалением</Event>
+									</Events>
+									<ChildItems>
+										<CheckBoxField name="ОтборПоСвойствамГрузаПометка" id="122">
+											<DataPath>ОтборПоСвойствамГруза.Пометка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>П</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>P</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Пометка</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Mark</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборПоСвойствамГрузаПометкаКонтекстноеМеню" id="123"/>
+											<ExtendedTooltip name="ОтборПоСвойствамГрузаПометкаРасширеннаяПодсказка" id="124"/>
+										</CheckBoxField>
+										<InputField name="ОтборПоСвойствамГрузаСвойствоПредставление" id="119">
+											<DataPath>ОтборПоСвойствамГруза.СвойствоПредставление</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтборПоСвойствамГрузаСвойствоПредставлениеКонтекстноеМеню" id="120"/>
+											<ExtendedTooltip name="ОтборПоСвойствамГрузаСвойствоПредставлениеРасширеннаяПодсказка" id="121"/>
+										</InputField>
+										<InputField name="ОтборПоСвойствамГрузаЗначение" id="116">
+											<DataPath>ОтборПоСвойствамГруза.Значение</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="ОтборПоСвойствамГрузаЗначениеКонтекстноеМеню" id="117"/>
+											<ExtendedTooltip name="ОтборПоСвойствамГрузаЗначениеРасширеннаяПодсказка" id="118"/>
+											<Events>
+												<Event name="OnChange">ОтборПоСвойствамГрузаЗначениеПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтборПоСвойствамЗаказа" id="40">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор по свойствам заказов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Selection by properties of orders</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="ГруппаОтборПоСвойствамЗаказаРасширеннаяПодсказка" id="41"/>
+							<ChildItems>
+								<Table name="ОтборПоСвойствамЗаказа" id="42">
+									<Representation>List</Representation>
+									<CommandBarLocation>None</CommandBarLocation>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<HeightInTableRows>3</HeightInTableRows>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ОтборПоСвойствамЗаказа</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ОтборПоСвойствамЗаказаКонтекстноеМеню" id="43">
+										<Autofill>false</Autofill>
+									</ContextMenu>
+									<AutoCommandBar name="ОтборПоСвойствамЗаказаКоманднаяПанель" id="44"/>
+									<ExtendedTooltip name="ОтборПоСвойствамЗаказаРасширеннаяПодсказка" id="45"/>
+									<SearchStringAddition name="ОтборПоСвойствамЗаказаСтрокаПоиска" id="46">
+										<AdditionSource>
+											<Item>ОтборПоСвойствамЗаказа</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборПоСвойствамЗаказаСтрокаПоискаКонтекстноеМеню" id="47"/>
+										<ExtendedTooltip name="ОтборПоСвойствамЗаказаСтрокаПоискаРасширеннаяПодсказка" id="48"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОтборПоСвойствамЗаказаСостояниеПросмотра" id="49">
+										<AdditionSource>
+											<Item>ОтборПоСвойствамЗаказа</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборПоСвойствамЗаказаСостояниеПросмотраКонтекстноеМеню" id="50"/>
+										<ExtendedTooltip name="ОтборПоСвойствамЗаказаСостояниеПросмотраРасширеннаяПодсказка" id="51"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОтборПоСвойствамЗаказаУправлениеПоиском" id="52">
+										<AdditionSource>
+											<Item>ОтборПоСвойствамЗаказа</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборПоСвойствамЗаказаУправлениеПоискомКонтекстноеМеню" id="53"/>
+										<ExtendedTooltip name="ОтборПоСвойствамЗаказаУправлениеПоискомРасширеннаяПодсказка" id="54"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">ОтборПоСвойствамЗаказаПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">ОтборПоСвойствамЗаказаПередУдалением</Event>
+									</Events>
+									<ChildItems>
+										<CheckBoxField name="ОтборПоСвойствамЗаказаПометка" id="131">
+											<DataPath>ОтборПоСвойствамЗаказа.Пометка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>П</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>P</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Пометка</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Mark</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтборПоСвойствамЗаказаПометкаКонтекстноеМеню" id="132"/>
+											<ExtendedTooltip name="ОтборПоСвойствамЗаказаПометкаРасширеннаяПодсказка" id="133"/>
+										</CheckBoxField>
+										<InputField name="ОтборПоСвойствамЗаказаСвойствоПредставление" id="134">
+											<DataPath>ОтборПоСвойствамЗаказа.СвойствоПредставление</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтборПоСвойствамЗаказаСвойствоПредставлениеКонтекстноеМеню" id="135"/>
+											<ExtendedTooltip name="ОтборПоСвойствамЗаказаСвойствоПредставлениеРасширеннаяПодсказка" id="136"/>
+										</InputField>
+										<InputField name="ОтборПоСвойствамЗаказаЗначение" id="128">
+											<DataPath>ОтборПоСвойствамЗаказа.Значение</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="ОтборПоСвойствамЗаказаЗначениеКонтекстноеМеню" id="129"/>
+											<ExtendedTooltip name="ОтборПоСвойствамЗаказаЗначениеРасширеннаяПодсказка" id="130"/>
+											<Events>
+												<Event name="OnChange">ОтборПоСвойствамЗаказаЗначениеПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="КомпоновщикДанныхЗаказов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Компоновщик данных заказов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Composer order data</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборЗоны" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор зоны</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selection zone</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Зона" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Зона</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Area</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.уатГеозоны_уэ</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Использование" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Use</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Picture</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоГруппа" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>This is a group</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтборПоСвойствамГруза" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по свойствам груза</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selection on cargo properties</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Свойство" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойство</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Property</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Значение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Value</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:Characteristic.ДополнительныеРеквизитыИСведения</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="СвойствоПредставление" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойство</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Property</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>75</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mark</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтборПоСвойствамЗаказа" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По свойствам заказа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>On order properties</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Свойство" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойство</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Property</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Значение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Value</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:Characteristic.ДополнительныеРеквизитыИСведения</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mark</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СвойствоПредставление" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойство</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Property</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>75</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="АдресВрХранилища" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес вр хранилища</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Address temp storage</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроверкаПунктаОтправленияВЗоне" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверка пункта отправления в зоне</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check departure point in area</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроверкаПунктаНазначенияВЗоне" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверка пункта назначения в зоне</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check destination in area</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗоныСнятьВсе" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зоны снять все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Zone remove all</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ЗоныСнятьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗоныСвернутьВсе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зоны Свернуть все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Zone Collapse all</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.CollapseAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗоныСвернутьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗоныРазвернутьВсе" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зоны развернуть все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Zones expand all</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.ExpandAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗоныРазвернутьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗоныОтметитьВсе" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зоны отметить все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Zones mark all</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зоны отметить все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Zones mark all</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗоныОтметитьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗоныОбновить" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ЗоныОбновить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

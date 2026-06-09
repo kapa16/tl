@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОперации</dataPath>
+			<field>ВидОперации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГрузовоеМесто</dataPath>
+			<field>ГрузовоеМесто</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОперацияСГрузом</dataPath>
+			<field>ОперацияСГрузом</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Операция с грузом</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cargo operation</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГрузовоеМестоКод</dataPath>
+			<field>ГрузовоеМестоКод</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Status</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоМест</dataPath>
+			<field>КоличествоМест</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВесБрутто</dataPath>
+			<field>ВесБрутто</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объем</dataPath>
+			<field>Объем</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолеДляГруппировки1</dataPath>
+			<field>ПолеДляГруппировки1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле для группировки1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Grouping field1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолеДляГруппировки2</dataPath>
+			<field>ПолеДляГруппировки2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле для группировки2</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Grouping field2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	уатОперацияСГрузом_уэ.Ссылка КАК ОперацияСГрузом,
+	уатОперацияСГрузом_уэ.ВидОперации КАК ВидОперации
+ПОМЕСТИТЬ втОперации
+ИЗ
+	Документ.уатОперацияСГрузом_уэ КАК уатОперацияСГрузом_уэ
+ГДЕ
+	уатОперацияСГрузом_уэ.Проведен = ИСТИНА
+	И (уатОперацияСГрузом_уэ.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ИЛИ уатОперацияСГрузом_уэ.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Разукомплектация))
+	И уатОперацияСГрузом_уэ.Ссылка В
+			(ВЫБРАТЬ
+				СвязанныеДокументы.Ссылка
+			ИЗ
+				КритерийОтбора.СвязанныеДокументы(&amp;Заказ) КАК СвязанныеДокументы)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	уатОперацияСГрузом_уэГрузыДоОперации.Заказ КАК Заказ,
+	уатОперацияСГрузом_уэГрузыДоОперации.ГрузовоеМесто КАК ГрузовоеМесто,
+	уатОперацияСГрузом_уэГрузыДоОперации.ГрузовоеМесто.Код КАК ГрузовоеМестоКод,
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА ЗНАЧЕНИЕ(Справочник.уатСтатусы_уэ.Скомплектован)
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.уатСтатусы_уэ.Разукомплектован)
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА НЕОПРЕДЕЛЕНО
+		ИНАЧЕ втОперации.ОперацияСГрузом
+	КОНЕЦ КАК ПолеДляГруппировки1,
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА втОперации.ОперацияСГрузом
+		ИНАЧЕ ЗНАЧЕНИЕ(Документ.уатОперацияСГрузом_уэ.ПустаяСсылка)
+	КОНЕЦ КАК ПолеДляГруппировки2,
+	втОперации.ОперацияСГрузом КАК ОперацияСГрузом,
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА НЕОПРЕДЕЛЕНО
+		ИНАЧЕ втОперации.ВидОперации
+	КОНЕЦ КАК ВидОперации,
+	уатОперацияСГрузом_уэГрузыДоОперации.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	уатОперацияСГрузом_уэГрузыДоОперации.КоличествоМест КАК КоличествоМест,
+	уатОперацияСГрузом_уэГрузыДоОперации.ВесБрутто КАК ВесБрутто,
+	уатОперацияСГрузом_уэГрузыДоОперации.Объем КАК Объем
+ПОМЕСТИТЬ втГрузовыеМеста
+ИЗ
+	втОперации КАК втОперации
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.уатОперацияСГрузом_уэ.ГрузыДоОперации КАК уатОперацияСГрузом_уэГрузыДоОперации
+		ПО втОперации.ОперацияСГрузом = уатОперацияСГрузом_уэГрузыДоОперации.Ссылка
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	уатОперацияСГрузом_уэГрузыПослеОперации.Заказ,
+	уатОперацияСГрузом_уэГрузыПослеОперации.ГрузовоеМесто,
+	уатОперацияСГрузом_уэГрузыПослеОперации.ГрузовоеМесто.Код,
+	ЗНАЧЕНИЕ(Справочник.уатСтатусы_уэ.ДоставленНаСклад),
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА втОперации.ОперацияСГрузом
+		ИНАЧЕ НЕОПРЕДЕЛЕНО
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА ЗНАЧЕНИЕ(Документ.уатОперацияСГрузом_уэ.ПустаяСсылка)
+		ИНАЧЕ втОперации.ОперацияСГрузом
+	КОНЕЦ,
+	втОперации.ОперацияСГрузом,
+	ВЫБОР
+		КОГДА втОперации.ВидОперации = ЗНАЧЕНИЕ(Перечисление.уатВидыОперацийОперацияСГрузом_уэ.Комплектация)
+			ТОГДА втОперации.ВидОперации
+		ИНАЧЕ НЕОПРЕДЕЛЕНО
+	КОНЕЦ,
+	уатОперацияСГрузом_уэГрузыПослеОперации.ВидУпаковки,
+	уатОперацияСГрузом_уэГрузыПослеОперации.КоличествоМест,
+	уатОперацияСГрузом_уэГрузыПослеОперации.ВесБрутто,
+	уатОперацияСГрузом_уэГрузыПослеОперации.Объем
+ИЗ
+	втОперации КАК втОперации
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.уатОперацияСГрузом_уэ.ГрузыПослеОперации КАК уатОперацияСГрузом_уэГрузыПослеОперации
+		ПО втОперации.ОперацияСГрузом = уатОперацияСГрузом_уэГрузыПослеОперации.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втГрузовыеМеста.Заказ КАК Заказ,
+	втГрузовыеМеста.ГрузовоеМесто КАК ГрузовоеМесто,
+	втГрузовыеМеста.ГрузовоеМестоКод КАК ГрузовоеМестоКод,
+	втГрузовыеМеста.Статус КАК Статус,
+	втГрузовыеМеста.ПолеДляГруппировки1 КАК ПолеДляГруппировки1,
+	втГрузовыеМеста.ПолеДляГруппировки2 КАК ПолеДляГруппировки2,
+	втГрузовыеМеста.ОперацияСГрузом КАК ОперацияСГрузом,
+	втГрузовыеМеста.ВидОперации КАК ВидОперации,
+	втГрузовыеМеста.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	втГрузовыеМеста.КоличествоМест КАК КоличествоМест,
+	втГрузовыеМеста.ВесБрутто КАК ВесБрутто,
+	втГрузовыеМеста.Объем КАК Объем
+ИЗ
+	втГрузовыеМеста КАК втГрузовыеМеста
+ГДЕ
+	втГрузовыеМеста.ПолеДляГруппировки2 В(&amp;ПоляДляГруппировки)</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных1</destinationDataSet>
+		<sourceExpression>ПолеДляГруппировки1</sourceExpression>
+		<destinationExpression>ПолеДляГруппировки2</destinationExpression>
+		<parameter>ПоляДляГруппировки</parameter>
+		<parameterListAllowed>true</parameterListAllowed>
+		<startExpression>Значение(Документ.уатОперацияСГрузом_уэ.ПустаяСсылка)</startExpression>
+	</dataSetLink>
+	<parameter>
+		<name>Заказ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Заказ</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Order</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПоляДляГруппировки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Поля для группировки</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Fields for grouping</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.уатОперацияСГрузом_уэ</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Cargo operation history</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>История операций с грузом</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГрузовоеМесто</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГрузовоеМестоКод</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Code</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидОперации</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Transaction</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмерения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоМест</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Quantity</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВесБрутто</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вес</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Weight</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Объем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОперацияСГрузом</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регистратор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Recorder</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПолеДляГруппировки1</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регистратор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Recorder</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заказ</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>c218f3b7-2956-437a-806b-986c7b7a118e</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПоляДляГруппировки</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

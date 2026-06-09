@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Настройка сервера лицензирования</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Setting up a licensing server</v8:content>
+		</v8:item>
+	</Title>
+	<Width>50</Width>
+	<WindowOpeningMode>LockWholeInterface</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаКомандаНазад" id="5">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<SkipOnInput>true</SkipOnInput>
+				<CommandName>Form.Command.КомандаНазад</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаНазадРасширеннаяПодсказка" id="22"/>
+			</Button>
+			<Button name="ФормаКомандаВперед" id="6">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаВперед</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MoveRight</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаВпередРасширеннаяПодсказка" id="23"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСтраницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<Page name="СтраницаВыборРежима" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выбор режима</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page selection mode</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаВыборРежимаРасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<RadioButtonField name="РежимСтарта" id="3">
+							<DataPath>Объект.РежимСтарта</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройка расположения сервера лицензирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Configuring the Licensing Server Location</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Подключиться к локальному серверу лицензирования</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Connect to the local license server.
+(When using of a client-server variant database license server must be installed on the same computer as the server 1C.
+If you use multiple servers in a cluster - on each server in the cluster.)</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Указать адрес сервера лицензирования вручную</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Specify the address of the license server manually</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Автоматический поиск сервера лицензирования при старте
+</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Automatic search for a license server at startup
+(used only if the network license servers are configured).
+In this mode impossible activate the software key.</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="РежимСтартаКонтекстноеМеню" id="4"/>
+							<ExtendedTooltip name="РежимСтартаРасширеннаяПодсказка" id="26"/>
+							<Events>
+								<Event name="OnChange">РежимСтартаПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<LabelDecoration name="ДекорацияРежимСтарта" id="20">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="ДекорацияРежимСтартаКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ДекорацияРежимСтартаРасширеннаяПодсказка" id="27"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаУказатьАдрес" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница указать адрес</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page specify address</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаУказатьАдресРасширеннаяПодсказка" id="28"/>
+					<ChildItems>
+						<InputField name="АдресСервера" id="10">
+							<DataPath>Объект.АдресСервера</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Укажите адрес сервера лицензирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Specify the address of the license server</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<ChoiceButton>false</ChoiceButton>
+							<ContextMenu name="АдресСервераКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="АдресСервераРасширеннаяПодсказка" id="29"/>
+							<Events>
+								<Event name="StartChoice">АдресСервераНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<Button name="КомандаНайтиСервера" id="9">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<CommandName>Form.Command.КомандаНайтиСервера</CommandName>
+							<ExtendedTooltip name="КомандаНайтиСервераРасширеннаяПодсказка" id="30"/>
+						</Button>
+						<LabelDecoration name="ДекорацияАдресСервера" id="16">
+							<SkipOnInput>true</SkipOnInput>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сетевое имя или адрес компьютера, на котором установлен сервер лицензирования.
+Если на сервере лицензирования задан нестандартный сетевой порт, то его нужно указать через двоеточие.</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>The network name or address of the computer where the licensing server is installed.
+If the licensing server uses a non-standard network port, it must be specified separated by a colon.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияАдресСервераКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ДекорацияАдресСервераРасширеннаяПодсказка" id="31"/>
+						</LabelDecoration>
+						<InputField name="КодДоступаКлючаЗащиты" id="14">
+							<DataPath>Объект.КодДоступаКлючаЗащиты</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Passcode protection key</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<ContextMenu name="КодДоступаКлючаЗащитыКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="КодДоступаКлючаЗащитыРасширеннаяПодсказка" id="32"/>
+						</InputField>
+						<LabelDecoration name="ДекорацияКодДоступа" id="18">
+							<SkipOnInput>true</SkipOnInput>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данный код позволяет однозначно указать, какой ключ защиты будет использовать решение. 
+Код для самого ключа задается через интерфейс сервера лицензирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>This code allows you to clearly specify which security key the solution will use.
+The code for the key itself is set through the licensing server interface.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияКодДоступаКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ДекорацияКодДоступаРасширеннаяПодсказка" id="33"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПредупреждение" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница предупреждение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page Warning</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаПредупреждениеРасширеннаяПодсказка" id="34"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияИзменениеСервера" id="12">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Будет выполнено подключение к указанному серверу лицензирования</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>It will connect to the specified server licensing</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияИзменениеСервераКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ДекорацияИзменениеСервераРасширеннаяПодсказка" id="35"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаДнейДоОкончанияДействияКлюча" id="39">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дней до окончания действия ключа</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Days left until the key expires</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДнейДоОкончанияДействияКлючаРасширеннаяПодсказка" id="40"/>
+							<ChildItems>
+								<InputField name="ДнейДоОкончанияДействияКлюча" id="36">
+									<DataPath>Объект.ДнейДоОкончанияДействияКлюча</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предупреждать об окончании действия ключа защиты за указанное количество дней</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Warn about security key expiration this many days in advance</v8:content>
+										</v8:item>
+									</Title>
+									<TitleHeight>1</TitleHeight>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Будет выдано предупреждать об окончании действия ключа защиты за указанное количество дней</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>You will be notified of the security key expiration the specified number of days in advance.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ChoiceButton>true</ChoiceButton>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧН='Не введено'</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>ЧН='Not entered'</v8:content>
+										</v8:item>
+									</EditFormat>
+									<EditTextUpdate>OnValueChange</EditTextUpdate>
+									<ChoiceListHeight>1</ChoiceListHeight>
+									<DropListWidth>9</DropListWidth>
+									<ContextMenu name="ДнейДоОкончанияДействияКлючаКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="ДнейДоОкончанияДействияКлючаРасширеннаяПодсказка" id="38"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.УправлениеЛицензированием</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ОписаниеОшибки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание ошибки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Error details</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЛокальнаяСистемаЛицензированияДоступна" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локальная система лицензирования доступна</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Local licensing system is available</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоWindows" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это windows</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This is Windows.</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаВперед" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда вперед</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Forward command</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВперед</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаНазад" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Back</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда назад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Command back</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНазад</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаНайтиСервера" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти сервера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find servers</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда найти сервера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find servers command</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНайтиСервера</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

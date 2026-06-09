@@ -1,0 +1,918 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Активация лицензий</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>License activation</v8:content>
+		</v8:item>
+	</Title>
+	<Width>50</Width>
+	<Height>20</Height>
+	<WindowOpeningMode>LockWholeInterface</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаКомандаНазад" id="44">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.КомандаНазад</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаНазадРасширеннаяПодсказка" id="69"/>
+			</Button>
+			<Button name="ФормаКомандаВперед" id="45">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаВперед</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MoveRight</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаВпередРасширеннаяПодсказка" id="70"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСтраницы" id="1">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="71"/>
+			<ChildItems>
+				<Page name="СтраницаВыборРешения" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выбор решения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Solution selection page</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаВыборРешенияРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<RadioButtonField name="ВыбранноеРешение" id="52">
+							<DataPath>ВыбранноеРешение</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ContextMenu name="ВыбранноеРешениеКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ВыбранноеРешениеРасширеннаяПодсказка" id="73"/>
+						</RadioButtonField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВыборСпособаАктивации" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбор способа активации</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Selecting an activation method</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="СтраницаВыборСпособаАктивацииРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<RadioButtonField name="ВариантАктивации" id="7">
+							<DataPath>Объект.СпособАктивации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Способ активации</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Activation method</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Автоматический через интернет</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Automatic via Internet</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Активация через файловый запрос</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Activation by a file request</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВариантАктивацииКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ВариантАктивацииРасширеннаяПодсказка" id="75"/>
+							<Events>
+								<Event name="OnChange">ВариантАктивацииПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<LabelDecoration name="ДекорацияВариантАктивации" id="54">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>true</VerticalStretch>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="ДекорацияВариантАктивацииКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="ДекорацияВариантАктивацииРасширеннаяПодсказка" id="76"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАнкетныеДанные" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анкетные данные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Personal data</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаАнкетныеДанныеРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<InputField name="РегистрационныйНомер" id="9">
+							<DataPath>Объект.РегистрационныйНомерПакетаЛицензий</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="РегистрационныйНомерКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="РегистрационныйНомерРасширеннаяПодсказка" id="78"/>
+							<Events>
+								<Event name="OnChange">РегистрационныйНомерПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияРегНомер" id="67">
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Укажите регистрационный номер пакета лицензий</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Please provide the registration number of the license package.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияРегНомерКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ДекорацияРегНомерРасширеннаяПодсказка" id="79"/>
+						</LabelDecoration>
+						<InputField name="ПарольПакетаЛицензий" id="11">
+							<DataPath>Объект.ПарольПакетаЛицензий</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Password of the license package</v8:content>
+								</v8:item>
+							</Title>
+							<Width>30</Width>
+							<ContextMenu name="ПарольПакетаЛицензийКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="ПарольПакетаЛицензийРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<InputField name="ДатаАктивацииДополнительнойЛицензии" id="122">
+							<DataPath>Объект.ДатаАктивацииДополнительнойЛицензии</DataPath>
+							<Visible>false</Visible>
+							<ContextMenu name="ДатаАктивацииДополнительнойЛицензииКонтекстноеМеню" id="123"/>
+							<ExtendedTooltip name="ДатаАктивацииДополнительнойЛицензииРасширеннаяПодсказка" id="124"/>
+						</InputField>
+						<InputField name="Организация" id="13">
+							<DataPath>Объект.Организация</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="81"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ИНН" id="116">
+							<DataPath>Объект.ИНН</DataPath>
+							<ContextMenu name="ИННКонтекстноеМеню" id="117"/>
+							<ExtendedTooltip name="ИННРасширеннаяПодсказка" id="118"/>
+						</InputField>
+						<InputField name="Ответственный" id="15">
+							<DataPath>Объект.Ответственный</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="82"/>
+						</InputField>
+						<InputField name="Телефон" id="17">
+							<DataPath>Объект.Телефон</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="ТелефонКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="83"/>
+						</InputField>
+						<InputField name="ЭлектроннаяПочта" id="19">
+							<DataPath>Объект.ЭлектроннаяПочта</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="ЭлектроннаяПочтаКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ЭлектроннаяПочтаРасширеннаяПодсказка" id="84"/>
+						</InputField>
+						<InputField name="Сайт" id="21">
+							<DataPath>Объект.Сайт</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Адрес веб-сайта</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Website address</v8:content>
+								</v8:item>
+							</Title>
+							<Width>30</Width>
+							<ContextMenu name="СайтКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="СайтРасширеннаяПодсказка" id="85"/>
+						</InputField>
+						<InputField name="Установщик" id="23">
+							<DataPath>Объект.Установщик</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="УстановщикКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="УстановщикРасширеннаяПодсказка" id="86"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАктивацияВебСервис" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация через веб сервис</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Activation via web service</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаАктивацияВебСервисРасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<LabelField name="РегистрационныйНомерВебСервис" id="27">
+							<DataPath>Объект.РегистрационныйНомерПакетаЛицензий</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="РегистрационныйНомерВебСервисКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="РегистрационныйНомерВебСервисРасширеннаяПодсказка" id="88"/>
+						</LabelField>
+						<LabelField name="ПарольПакетаЛицензийВебСервис" id="29">
+							<DataPath>Объект.ПарольПакетаЛицензий</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Password of the license package</v8:content>
+								</v8:item>
+							</Title>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ПарольПакетаЛицензийВебСервисКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ПарольПакетаЛицензийВебСервисРасширеннаяПодсказка" id="89"/>
+						</LabelField>
+						<LabelField name="ДатаАктивацииДополнительнойЛицензииВебСервис" id="125">
+							<DataPath>Объект.ДатаАктивацииДополнительнойЛицензии</DataPath>
+							<Visible>false</Visible>
+							<ContextMenu name="ДатаАктивацииДополнительнойЛицензииВебСервисКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="ДатаАктивацииДополнительнойЛицензииВебСервисРасширеннаяПодсказка" id="127"/>
+						</LabelField>
+						<LabelField name="ОрганизацияВебСервис" id="31">
+							<DataPath>Объект.Организация</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ОрганизацияВебСервисКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ОрганизацияВебСервисРасширеннаяПодсказка" id="90"/>
+						</LabelField>
+						<LabelField name="ИННВебСервис" id="119">
+							<DataPath>Объект.ИНН</DataPath>
+							<ContextMenu name="ИННВебСервисКонтекстноеМеню" id="120"/>
+							<ExtendedTooltip name="ИННВебСервисРасширеннаяПодсказка" id="121"/>
+						</LabelField>
+						<LabelField name="ОтветственныйВебСервис" id="33">
+							<DataPath>Объект.Ответственный</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ОтветственныйВебСервисКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="ОтветственныйВебСервисРасширеннаяПодсказка" id="91"/>
+						</LabelField>
+						<LabelField name="ТелефонВебСервис" id="35">
+							<DataPath>Объект.Телефон</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ТелефонВебСервисКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ТелефонВебСервисРасширеннаяПодсказка" id="92"/>
+						</LabelField>
+						<LabelField name="ЭлектроннаяПочтаВебСервис" id="37">
+							<DataPath>Объект.ЭлектроннаяПочта</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ЭлектроннаяПочтаВебСервисКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="ЭлектроннаяПочтаВебСервисРасширеннаяПодсказка" id="93"/>
+						</LabelField>
+						<LabelField name="СайтВебСервис" id="39">
+							<DataPath>Объект.Сайт</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Адрес веб-сайта</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Website address</v8:content>
+								</v8:item>
+							</Title>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="СайтВебСервисКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="СайтВебСервисРасширеннаяПодсказка" id="94"/>
+						</LabelField>
+						<LabelField name="УстановщикВебСервис" id="41">
+							<DataPath>Объект.Установщик</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="УстановщикВебСервисКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="УстановщикВебСервисРасширеннаяПодсказка" id="95"/>
+						</LabelField>
+						<UsualGroup name="ГруппаКомандыАктивации" id="49">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды активации</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Activation commands</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКомандыАктивацииРасширеннаяПодсказка" id="96"/>
+							<ChildItems>
+								<Button name="КомандаАктивироватьВебСервис" id="43">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаАктивироватьВебСервис</CommandName>
+									<ExtendedTooltip name="КомандаАктивироватьВебСервисРасширеннаяПодсказка" id="97"/>
+								</Button>
+								<Button name="КомандаСохранитьФайлЗапроса" id="48">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.КомандаСохранитьФайлЗапроса</CommandName>
+									<ExtendedTooltip name="КомандаСохранитьФайлЗапросаРасширеннаяПодсказка" id="98"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАктивацияФайлИнструкция" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница активация файл инструкция</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Activation page file instructions</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаАктивацияФайлИнструкцияРасширеннаяПодсказка" id="99"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияАктивацияФайлИнструкция" id="57">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запрос активации пакета лицензий сохранен в файл:</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>License package activation request is saved to a file:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияАктивацияФайлИнструкцияКонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="ДекорацияАктивацияФайлИнструкцияРасширеннаяПодсказка" id="100"/>
+						</LabelDecoration>
+						<LabelDecoration name="ДекорацияИмяФайла" id="63">
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация имя файла</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Decoration file name</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияИмяФайлаКонтекстноеМеню" id="64"/>
+							<ExtendedTooltip name="ДекорацияИмяФайлаРасширеннаяПодсказка" id="101"/>
+						</LabelDecoration>
+						<LabelDecoration name="ДекорацияАктивацияФайлИнструкция1" id="59">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправьте этот файл по электронной почте на адрес</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Send this file via e-mail to</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияАктивацияФайлИнструкция1КонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ДекорацияАктивацияФайлИнструкция1РасширеннаяПодсказка" id="102"/>
+						</LabelDecoration>
+						<LabelDecoration name="ДекорацияАдресЭлектроннойПочты" id="65">
+							<HorizontalStretch>true</HorizontalStretch>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация адрес электронной почты</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Decoration email address</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияАдресЭлектроннойПочтыКонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="ДекорацияАдресЭлектроннойПочтыРасширеннаяПодсказка" id="103"/>
+						</LabelDecoration>
+						<LabelDecoration name="ДекорацияАктивацияФайлИнструкция2" id="61">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Получите ответ и загрузите его на странице загрузки ответа активации пакета лицензий
+</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Get an answer and load it on the activation license package upload page
+</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияАктивацияФайлИнструкция2КонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ДекорацияАктивацияФайлИнструкция2РасширеннаяПодсказка" id="104"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЗапросОтвет" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запрос ответ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Запрос ответ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаЗапросОтветРасширеннаяПодсказка" id="105"/>
+					<ChildItems>
+						<RadioButtonField name="ЗапросОтвет" id="25">
+							<DataPath>Объект.ЗапросОтвет</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выберите действие</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Select an action</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создание запроса активации лицензии</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Createing an activation request</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Загрузка ответа активации лицензии</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Loading response activation</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ЗапросОтветКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="ЗапросОтветРасширеннаяПодсказка" id="106"/>
+						</RadioButtonField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОтветАктивации" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация файлом</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Activation by file</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаОтветАктивацииРасширеннаяПодсказка" id="107"/>
+					<ChildItems>
+						<InputField name="ОтветИнтернетАктивации" id="46">
+							<DataPath>Объект.ОтветИнтернетАктивации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Activation response
+</v8:content>
+								</v8:item>
+							</Title>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ОтветИнтернетАктивацииКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ОтветИнтернетАктивацииРасширеннаяПодсказка" id="108"/>
+							<Events>
+								<Event name="StartChoice">ОтветИнтернетАктивацииНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<Button name="КомандаАктивироватьВручную" id="50">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаАктивироватьВручную</CommandName>
+							<ExtendedTooltip name="КомандаАктивироватьВручнуюРасширеннаяПодсказка" id="109"/>
+						</Button>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.УправлениеЛицензированием</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.РегистрационныйНомерПакетаЛицензий</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОписаниеОшибки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание ошибки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Error details</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыбранноеРешение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранное решение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selected product</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоРешений" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество решений</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of solutions</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КодОшибки" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код ошибки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Error code</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяФайла" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя файла</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>File name</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьИНН" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть ИНН</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>There is a Taxpayer Identification Number (TIN)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОрганизацииИнн" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организации инн</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Organizations INN</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Организация" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Organization</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИНН" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>TIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>12</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЭтоДополнительнаяЛицензия" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это дополнительная лицензия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This is an additional license.</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаАктивироватьВебСервис" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать лицензию через интернет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Activate</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать ключ через интернет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Activate the key via the Internet</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАктивироватьВебСервис</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаАктивироватьВручную" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать пакет лицензий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Activate</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда активировать вручную</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Manual activation command</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАктивироватьВручную</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаВперед" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда вперед</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Forward command</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВперед</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаНазад" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Back</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда назад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Command back</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНазад</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаСохранитьФайлЗапроса" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить файл запроса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save the file</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда сохранить файл запроса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Command to save the query file</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСохранитьФайлЗапроса</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ReportFormType>Main</ReportFormType>
+	<AutoShowState>Auto</AutoShowState>
+	<ReportResultViewMode>Auto</ReportResultViewMode>
+	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСформироватьОтчет" id="41">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СформироватьОтчет</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСформироватьОтчетExtendedTooltip" id="47"/>
+			</Button>
+			<Button name="ФормаИзменитьФорму" id="118">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<ExtendedTooltip name="ФормаИзменитьФормуРасширеннаяПодсказка" id="119"/>
+			</Button>
+			<Button name="ФормаПечать" id="120">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Print</CommandName>
+				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаПечатьРасширеннаяПодсказка" id="121"/>
+			</Button>
+			<Button name="ФормаСправка" id="116">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="117"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПериод" id="15">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодРасширеннаяПодсказка" id="54"/>
+			<ChildItems>
+				<InputField name="ДатаНач" id="110">
+					<DataPath>ДатаНач</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период с</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Period from</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаНачКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ДатаНачРасширеннаяПодсказка" id="112"/>
+					<Events>
+						<Event name="OnChange">ДатаНачПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДатаКон" id="113">
+					<DataPath>ДатаКон</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>By</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаКонКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="ДатаКонРасширеннаяПодсказка" id="115"/>
+					<Events>
+						<Event name="OnChange">ДатаКонПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="Группа1" id="122">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="123"/>
+					<ChildItems>
+						<Button name="НастройкаПериода" id="108">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.НастройкаПериода</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>...</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>...</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="НастройкаПериодаExtendedTooltip" id="109"/>
+						</Button>
+						<RadioButtonField name="Периодичность" id="105">
+							<DataPath>Периодичность</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По дням</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Week</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.День</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По месяцам</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>By months</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.Периодичность.EnumValue.Месяц</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПериодичностьКонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="107"/>
+							<Events>
+								<Event name="OnChange">ПериодичностьПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройки" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group basic</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group basic</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЛевая" id="140">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа левая</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Left group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа левая</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Left group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛеваяРасширеннаяПодсказка" id="141"/>
+					<ChildItems>
+						<InputField name="Организация" id="21">
+							<DataPath>Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="58"/>
+						</InputField>
+						<InputField name="Контрагент" id="23">
+							<DataPath>Контрагент</DataPath>
+							<ClearButton>true</ClearButton>
+							<ContextMenu name="КонтрагентКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="59"/>
+						</InputField>
+						<InputField name="Сделка" id="74">
+							<DataPath>Сделка</DataPath>
+							<ClearButton>true</ClearButton>
+							<ContextMenu name="СделкаКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="СделкаРасширеннаяПодсказка" id="76"/>
+						</InputField>
+						<InputField name="ЗаказНаТС" id="134">
+							<DataPath>ЗаказНаТС</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ЗаказНаТСКонтекстноеМеню" id="135"/>
+							<ExtendedTooltip name="ЗаказНаТСРасширеннаяПодсказка" id="136"/>
+						</InputField>
+						<InputField name="РемонтныйЛист" id="150">
+							<DataPath>РемонтныйЛист</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="РемонтныйЛистКонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="РемонтныйЛистРасширеннаяПодсказка" id="152"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПравая" id="142">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа правая</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Right group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа правая</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Right group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПраваяРасширеннаяПодсказка" id="143"/>
+					<ChildItems>
+						<InputField name="Валюта" id="102">
+							<DataPath>Валюта</DataPath>
+							<Width>5</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВалютаКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="104"/>
+						</InputField>
+						<RadioButtonField name="ВидЗадоженности" id="99">
+							<DataPath>ВидЗадолженности</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Задолженность</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Debt</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дебиторская - контрагентами перед нашей организацией, кредиторская - наша перед контрагентами</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Accounts receivable are owed by our counterparties to our organization, accounts payable are owed by us to our counterparties.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Дебиторская</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Accounts receivable</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Кредиторская</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Accounts payable</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВидЗадоженностиКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="ВидЗадоженностиРасширеннаяПодсказка" id="101"/>
+							<Events>
+								<Event name="OnChange">ВидЗадоженностиПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<RadioButtonField name="Представление" id="137">
+							<DataPath>Представление</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Представление</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Performance</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Номер сделки</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Sales opportunity number</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Номер заказа</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Order number</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПредставлениеКонтекстноеМеню" id="138"/>
+							<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="139"/>
+						</RadioButtonField>
+						<RadioButtonField name="ПредметДоговора" id="147">
+							<DataPath>ПредметДоговора</DataPath>
+							<RadioButtonType>Tumbler</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Перевозка</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Shipping</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.уатПредметыДоговоровКонтрагентов.EnumValue.Перевозка</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Прочие услуги</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Other services</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.уатПредметыДоговоровКонтрагентов.EnumValue.ПрочиеУслуги</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Все</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>All</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xr:DesignTimeRef">Enum.уатПредметыДоговоровКонтрагентов.EmptyRef</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПредметДоговораКонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ПредметДоговораРасширеннаяПодсказка" id="149"/>
+						</RadioButtonField>
+						<UsualGroup name="Группа2" id="130">
+							<VerticalStretch>false</VerticalStretch>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="131"/>
+							<ChildItems>
+								<CheckBoxField name="ОтображатьПредварительные" id="124">
+									<DataPath>ОтображатьПредварительные</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Предварительные</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Preliminary</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отображать предварительные платежи</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Display advance payments</v8:content>
+										</v8:item>
+									</ToolTip>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ОтображатьПредварительныеКонтекстноеМеню" id="125"/>
+									<ExtendedTooltip name="ОтображатьПредварительныеРасширеннаяПодсказка" id="126"/>
+								</CheckBoxField>
+								<CheckBoxField name="ОтображатьЗакрытые" id="127">
+									<DataPath>ОтображатьЗакрытые</DataPath>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отображать закрытые платежи</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Show closed payments</v8:content>
+										</v8:item>
+									</ToolTip>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ОтображатьЗакрытыеКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="ОтображатьЗакрытыеРасширеннаяПодсказка" id="129"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПрав" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прав</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group rights</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прав</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group rights</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ThroughAlign>Use</ThroughAlign>
+					<ExtendedTooltip name="ГруппаПравExtendedTooltip" id="61"/>
+				</UsualGroup>
+				<UsualGroup name="Группа3" id="132">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ThroughAlign>Use</ThroughAlign>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="133"/>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЛев" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лев</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group left</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лев</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group left</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ThroughAlign>Use</ThroughAlign>
+					<ExtendedTooltip name="ГруппаЛевExtendedTooltip" id="53"/>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<SpreadSheetDocumentField name="ТабДок" id="11">
+			<DataPath>ТабДок</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<VerticalScrollBar>true</VerticalScrollBar>
+			<HorizontalScrollBar>true</HorizontalScrollBar>
+			<ContextMenu name="ТабДокКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ТабДокРасширеннаяПодсказка" id="70"/>
+			<Events>
+				<Event name="DetailProcessing">ТабДокОбработкаРасшифровки</Event>
+			</Events>
+		</SpreadSheetDocumentField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Отчет" id="1">
+			<Type>
+				<v8:Type>cfg:ReportObject.уатПлатежныйКалендарь</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ТабДок" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Табличный документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Spreadsheet document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Gas station</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Company</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Сделка" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сделка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deal</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатРеализацияУслуг</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатСчетНаОплатуПокупателю</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатСчетНаОплатуПоставщика</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатРемонтныйЛист</v8:Type>
+				<v8:Type>cfg:DocumentRef.уатПоступлениеТоваровУслуг</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Колонки" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Колонки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Columns</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидЗадолженности" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид задолженности</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Debt kind</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>ВидЗадолженности</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Валюта" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Currency</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+			<Save>
+				<Field>Валюта</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВалютаУпрУчета" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта упр учета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Currency of manag accounting</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Периодичность" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Периодичность</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Periodicity</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Периодичность</v8:Type>
+			</Type>
+			<Save>
+				<Field>Периодичность</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ДатаНач" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Beginning of period</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаКон" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конец периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>End of period</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтображатьЗакрытые" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрытые</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Closed</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтображатьЗакрытые</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОтображатьПредварительные" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать предварительные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show previews</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ОтображатьПредварительные</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ЗаказНаТС" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на ТС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Order for trucking</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатЗаказГрузоотправителя</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Представление" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Performance</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>Представление</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПредметДоговора" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предмет договора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subject of the agreement</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.уатПредметыДоговоровКонтрагентов</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПредметДоговора</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="РемонтныйЛист" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ремонтный лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Repair sheet</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.уатРемонтныйЛист</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьОтчет" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать отчет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generate</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьОтчет</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НастройкаПериода" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Set period</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SetDateInterval</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НастройкаПериода</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

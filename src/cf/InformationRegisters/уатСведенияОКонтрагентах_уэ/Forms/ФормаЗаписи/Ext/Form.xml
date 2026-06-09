@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Контрагент" id="1">
+			<DataPath>Запись.Контрагент</DataPath>
+			<ContextMenu name="КонтрагентКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаПеревозчикРейтинг" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перевозчик рейтинг</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group carrier rating</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перевозчик рейтинг</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group carrier rating</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>None</ToolTipRepresentation>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПеревозчикРейтингРасширеннаяПодсказка" id="14"/>
+			<ChildItems>
+				<CheckBoxField name="Перевозчик" id="4">
+					<DataPath>Запись.Перевозчик</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПеревозчикКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ПеревозчикРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ПеревозчикПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="Рейтинг" id="7">
+					<DataPath>Запись.Рейтинг</DataPath>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="РейтингКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РейтингРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Услуга" id="10">
+			<DataPath>Запись.Услуга</DataPath>
+			<ContextMenu name="УслугаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="УслугаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="КодАТИ" id="15">
+			<DataPath>Запись.КодАТИ</DataPath>
+			<ContextMenu name="КодАТИКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="КодАТИРасширеннаяПодсказка" id="17"/>
+		</InputField>
+		<UsualGroup name="ГруппаДоступВнешнегоПользователя" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работа перевозчика в режиме внешнего доступа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The carrier's work in external access mode</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаДоступВнешнегоПользователяРасширеннаяПодсказка" id="25"/>
+			<ChildItems>
+				<RadioButtonField name="РедактированиеРасходов" id="18">
+					<DataPath>Запись.РедактированиеРасходов</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Запрещено</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Prohibited</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеЗапрещено</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только строки ручного ввода</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Manual input lines only</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеСтрокРучногоВводаРазрешено</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Разрешено</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Allowed</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеУслугРазрешено</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РедактированиеРасходовКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="РедактированиеРасходовРасширеннаяПодсказка" id="20"/>
+				</RadioButtonField>
+				<CheckBoxField name="СозданиеПроизвольныхПоступленийУслуг" id="29">
+					<DataPath>Запись.СозданиеПроизвольныхПоступленийУслуг</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>БЛ='Only based on registers'; БИ='No restrictions'</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='Только на основании реестров'; БИ='Без ограничений'</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="СозданиеПроизвольныхПоступленийУслугКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СозданиеПроизвольныхПоступленийУслугРасширеннаяПодсказка" id="31"/>
+					<Events>
+						<Event name="OnChange">СозданиеПроизвольныхПоступленийУслугПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<RadioButtonField name="РедактированиеПоступленийУслуг" id="21">
+					<DataPath>Запись.РедактированиеПоступленийУслуг</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только номер документа</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Document number only</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеЗапрещено</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Разрешено</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Allowed</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеУслугРазрешено</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РедактированиеПоступленийУслугКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="РедактированиеПоступленийУслугРасширеннаяПодсказка" id="23"/>
+				</RadioButtonField>
+				<RadioButtonField name="РедактированиеСчетовНаОплату" id="26">
+					<DataPath>Запись.РедактированиеСчетовНаОплату</DataPath>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только номер документа</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Document number only</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеЗапрещено</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Разрешено</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Allowed</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.уатУровеньДоступаКУслугам.EnumValue.РедактированиеУслугРазрешено</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РедактированиеСчетовНаОплатуКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="РедактированиеСчетовНаОплатуРасширеннаяПодсказка" id="28"/>
+				</RadioButtonField>
+				<UsualGroup name="ГруппаСогласованиеРекламаций" id="38">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Согласование рекламаций</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Coordination of complaints</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСогласованиеРекламацийРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<CheckBoxField name="СогласованиеРекламацийСПеревозчиком" id="32">
+							<DataPath>Запись.СогласованиеРекламацийСПеревозчиком</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СогласованиеРекламацийСПеревозчикомКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="СогласованиеРекламацийСПеревозчикомРасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="OnChange">СогласованиеРекламацийСПеревозчикомПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ИсполнительДляСогласования" id="35">
+							<DataPath>Запись.ИсполнительДляСогласования</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.ОбъектАвторизации</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Запись.Контрагент</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ИсполнительДляСогласованияКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ИсполнительДляСогласованияРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.уатСведенияОКонтрагентах_уэ</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИспользоватьСогласования" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать согласования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use approvals</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВариантПоставкиКОРП" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант поставки КОРП</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delivery option CORP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Yandex map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="<!-- %ScriptAddress% -->" type="text/javascript">
+    </script>
+    <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+		
+		.ballon_body {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%) 
+		}
+		.hide {
+			display: none; 
+		}
+		.hide + label ~ div{
+			display: none;
+		}
+		/* оформляем текст label */
+		.hide + label {
+			border-bottom: 1px dotted #0097D9;
+			padding: 0;
+			cursor: pointer;
+			display: inline-block; 
+		}
+		/* вид текста label при активном переключателе */
+		.hide:checked + label {
+			border-bottom: 0;
+		}
+		/* когда чекбокс активен показываем блоки с содержанием  */
+		.hide:checked + label + div {
+			display: block; 
+			padding: 10px; 
+		}
+		.hidecontainer {
+			position: absolute;
+			top: 0; bottom: 0; left: 0; right: 0;
+			overflow: auto;
+		}
+		.tablecontainer {
+			border: none;
+			font-size: 12px;
+		}
+    </style>
+    <script type="text/javascript">
+		var map;
+		var addedLayers;
+		var clusterer;
+		
+		var consoleMessage = "";
+		let dblClick = false;
+		
+		ymaps.ready(init);
+      
+        function init(){ 
+            reporting('scriptLoad', '0', 'Script is load', '');
+        }
+
+		function Initialize(Lat, Lon, Zoom) {
+		try {
+    			map = new ymaps.Map("map", {
+                center: [Lat, Lon],
+                zoom: Zoom
+            });
+			map.events.add('dblclick', onMapDblclick);
+			map.events.add('click', onMapClick);
+			
+			 // Создаем собственный макет с информацией о выбранном геообъекте.
+			var customItemContentLayout = ymaps.templateLayoutFactory.createClass(
+			// Флаг "raw" означает, что данные вставляют "как есть" без экранирования html.
+            '<div>{{ properties.balloonContentBody|raw }}</div>' +
+            '<div>{{ properties.balloonContentFooter|raw }}</div>'
+			);
+			clusterer = new ymaps.Clusterer({
+				preset: 'islands#invertedDarkBlueClusterIcons',
+				clusterHideIconOnBalloonOpen: false,
+				geoObjectHideIconOnBalloonOpen: false,
+				clusterBalloonContentLayout: 'cluster#balloonCarousel',
+				// Устанавливаем собственный макет.
+				clusterBalloonItemContentLayout: customItemContentLayout,
+				// Устанавливаем режим открытия балуна. 
+				clusterBalloonPanelMaxMapArea: 0,
+				// Устанавливаем размеры макета контента балуна (в пикселях).
+				clusterBalloonContentLayoutWidth: 200,
+				clusterBalloonContentLayoutHeight: 120,
+				clusterBalloonPagerSize: 5
+			});
+			
+			/**
+			* Кластеризатор расширяет коллекцию, что позволяет использовать один обработчик
+			* для обработки событий всех геообъектов.
+			* Будем менять цвет иконок и кластеров при наведении.
+			*/
+			clusterer.events.add(['mouseenter', 'mouseleave'], function (e) {
+				var target = e.get('target'),
+                type = e.get('type');
+				if (typeof target.getGeoObjects != 'undefined') {
+                // Событие произошло на кластере.
+                if (type == 'mouseenter') {
+                    target.options.set('preset', 'islands#invertedBlueClusterIcons');
+                } else {
+                    target.options.set('preset', 'islands#invertedDarkBlueClusterIcons');
+                }
+				} else {
+                // Событие произошло на геообъекте.
+				}
+			});
+		
+			addedLayers = {};
+		} catch (err) {
+		    	
+		}
+
+		}
+		function onMapDblclick(e) {
+			dblClick = true;
+			var coords = e.get('coords');
+			reporting('mapDblClick', '0', 'Click on map', '<lat>'+coords[0]+'</lat><lng>'+coords[1]+'</lng>');
+		}
+
+		function onMapClick(e) {
+			if(dblClick){
+				dblClick = false;
+				return;
+			}
+			setTimeout(function()
+			{
+            var coords = e.get('coords');
+			reporting('mapClick', '0', 'Click on map', '<lat>'+coords[0]+'</lat><lng>'+coords[1]+'</lng>');
+			}, 300);
+		}
+		
+		function reporting(command, code, description, data) {
+			consoleMessage = '<leafletResponse><command>'+command+'</command><code>'+code+'</code><description>'+description+'</description><data>'+data+'</data></leafletResponse>';
+			
+			document.getElementById("messageButton").value = consoleMessage;
+			console.log(consoleMessage);
+			messageButton.click();
+		}
+
+		function traceRoute(traceConfigs, id, fact, plan, ParseString = "") {
+		try {
+			addedLayers[id] = [];
+
+			if (ParseString === "") {
+			for(var tc in traceConfigs) {
+				var waypoints = [];
+				var firstAdded = false;
+
+				var polylineColor = "#82cdff";
+				var polylineWeight = 6;
+				
+				var arrayOfArrayOfCoords = traceConfigs[tc][0];
+				var color = traceConfigs[tc][1];
+				var weight = traceConfigs[tc][2];
+				
+				setColor = color || false;
+				if (setColor) {
+					polylineColor = color;
+				}
+				
+				setWeight = weight || false;
+				if (setWeight) {
+					polylineWeight = weight;
+				}
+				
+				for(var i in arrayOfArrayOfCoords) {
+					if (firstAdded && i == 0) {
+						continue;
+					}
+					
+					firstAdded = true;
+					waypoints.push(arrayOfArrayOfCoords[i]);
+				}
+			
+				var multiRoute = new ymaps.multiRouter.MultiRoute({
+					referencePoints: waypoints,
+					params: {
+						results: 1
+					}
+				}, {
+					wayPointVisible: false,
+					routeActiveStrokeWidth: polylineWeight,
+					routeActiveStrokeColor: polylineColor
+				});
+				map.geoObjects.add(multiRoute);
+				multiRoute.model.events.add("requestsuccess", function(){
+				var routes = multiRoute.model.getRoutes();
+				var route  = routes[0];
+
+				totalTime = route.properties.get("duration").value;
+				totalDistance = route.properties.get("distance").value;
+				if (plan) {
+					reporting("traceRoute", "0", "Trace complete", "<totalTime>" + totalTime + "</totalTime><totalDistance>" + totalDistance + "</totalDistance><plan>true</plan><waypoints></waypoints>");
+				} else if (fact) {
+					reporting("traceRoute", "0", "Trace complete", "<totalTime>" + totalTime + "</totalTime><totalDistance>" + totalDistance + "</totalDistance><fact>true</fact><waypoints></waypoints>");
+				} 
+				else {
+					reporting("traceRoute", "0", "Trace complete", "<totalTime>" + totalTime + "</totalTime><totalDistance>" + totalDistance + "</totalDistance>");
+				}
+				});
+				addedLayers[id] = [];
+				addedLayers[id].push(multiRoute);
+			}}
+			else {
+			
+				var waypoints = [];
+				var color = traceConfigs[0][1];
+				var weight = traceConfigs[0][2];
+				
+				var polylineColor = "#82cdff";
+				var polylineWeight = 6;
+				
+				setColor = color || false;
+				if (setColor) {
+					polylineColor = color;
+				}
+				
+				setWeight = weight || false;
+				if (setWeight) {
+					polylineWeight = weight;
+				}
+				
+				response  = JSON.parse(ParseString);
+			
+				totalTime = response.routes[0].duration;
+				totalDistance = response.routes[0].distance;
+				geometry = response.routes[0].geometry;
+                decodeString(waypoints, geometry, 5);
+				showPolyline(waypoints, polylineColor, polylineWeight, id);
+				
+				if (plan) {
+					reporting("traceRoute", "0", "Trace complete", "<totalTime>" + totalTime + "</totalTime><totalDistance>" + totalDistance + "</totalDistance><plan>true</plan><waypoints></waypoints>");
+				} else if (fact) {
+					reporting("traceRoute", "0", "Trace complete", "<totalTime>" + totalTime + "</totalTime><totalDistance>" + totalDistance + "</totalDistance><fact>true</fact><waypoints></waypoints>");
+				} 
+				else {
+					reporting("traceRoute", "0", "Trace complete", "<totalTime>" + totalTime + "</totalTime><totalDistance>" + totalDistance + "</totalDistance>");
+				}
+			}
+			} catch (err) {
+		    	 
+			}
+		}
+		
+		// Декодирование координат
+       function  decodeString(waypoints, e, o) {
+            let r = e.length, t = 0, n = 0, i = 0;
+            for (o = Math.pow(10, -o); t < r;) {
+                for (var l, c = 0, d = 0; d |= (31 & (l = e.charCodeAt(t++) - 63)) << c, c += 5, 32 <= l;) ;
+                for (n += 1 & d ? ~(d >> 1) : d >> 1, d = c = 0; d |= (31 & (l = e.charCodeAt(t++) - 63)) << c, c += 5, 32 <= l;) ;
+                i += 1 & d ? ~(d >> 1) : d >> 1, waypoints.push([n * o, i * o])
+            }
+        }
+		
+		function deleteObject(id){
+		try {
+			if ( !(id in addedLayers) ) return; 
+			curArray = addedLayers[id];
+			
+			for(var i in curArray) {
+				if (Array.isArray(curArray[i])) {
+					for(var j in curArray[i]) {
+						clusterer.remove(curArray[i][j]);
+						map.geoObjects.remove(curArray[i][j]);
+						
+						curArray[i] = [];
+					}
+				} else {
+					clusterer.remove(curArray[i]);
+					map.geoObjects.remove(curArray[i]);
+				}
+			}
+			delete addedLayers[id];
+		} catch (err) { 	 
+		}
+		}
+		
+		function deleteAllObject(){
+		try {
+			map.geoObjects.removeAll();
+		} catch (err) {
+		    	 
+		}			
+		}
+		
+		function addPointIcon(lat, lon, description = false, markerNum, clustered, imgString, id) {
+			imgString = imgString || '';
+			if (description) {	
+				Title = description;
+			} else {
+				Title =  id;
+			}
+			try {
+			if (!(imgString == '')) {
+				var pointMarker = new ymaps.Placemark([lat, lon], {
+					balloonContent: Title,
+					balloonContentBody: Title
+				}, {
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: imgString,
+					iconImageSize: [32, 32],
+					iconImageOffset: [-16, -16],
+					hideIconOnBalloonOpen: false,
+					balloonMaxWidth: 500,
+					balloonMaxHeight: 500
+				});
+			} else if (markerNum == 1) {
+				var pointMarker = new ymaps.Placemark([lat, lon], {
+					balloonContent: Title,
+					balloonContentBody: Title
+				}, {
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: "<!-- %VehicleIconOnLineFree% -->",
+					iconImageSize: [32, 32],
+					iconImageOffset: [-16, -16],
+					hideIconOnBalloonOpen: false,
+					balloonMaxWidth: 500,
+					balloonMaxHeight: 500
+				});
+			} else if (markerNum == 2) {
+				var pointMarker = new ymaps.Placemark([lat, lon], {
+					balloonContent: Title,
+					balloonContentBody: Title
+				}, {
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: "<!-- %VehicleIconOnLineBusy% -->",
+					iconImageSize: [32, 32],
+					iconImageOffset: [-16, -16],
+					hideIconOnBalloonOpen: false,
+					balloonMaxWidth: 500,
+					balloonMaxHeight: 500
+				});
+			} else if (markerNum == 3) {
+				var pointMarker = new ymaps.Placemark([lat, lon], {
+					balloonContent: Title,
+					balloonContentBody: Title
+				}, {
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: "<!-- %VehicleIconOffLine% -->",
+					iconImageSize: [32, 32],
+					iconImageOffset: [-16, -16],
+					hideIconOnBalloonOpen: false,
+					balloonMaxWidth: 500,
+					balloonMaxHeight: 500
+				});
+			}  else if (markerNum == 9) {
+				var pointMarker = new ymaps.Placemark([lat, lon], {
+					balloonContent: Title,
+					balloonContentBody: Title
+				}, {
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: "<!-- %VehicleIconPlayRoute% -->",
+					iconImageSize: [32, 32],
+					iconImageOffset: [-16, -16],
+					hideIconOnBalloonOpen: false,
+					balloonMaxWidth: 500,
+					balloonMaxHeight: 500
+				});
+			} else {
+				var pointMarker = new ymaps.Placemark([lat, lon], {
+					balloonContent: Title,
+					balloonContentBody: Title
+				}, {
+					preset: "islands#yellowStretchyIcon",
+					hideIconOnBalloonOpen: false,
+					balloonMaxWidth: 500,
+					balloonMaxHeight: 500
+				});
+
+			}
+			if (description == false) {		
+				pointMarker.options.set('hasBalloon', false);
+				pointMarker.events.add('click', (e) => {
+					var placemark = e.get('target'); 
+					reporting('pointClick', '0', 'Point click', '<guid>'+ placemark.properties.get('balloonContent')+'</guid>');
+				})
+			}
+			
+			if (clustered) {
+				clusterer.add(pointMarker);
+			} else {
+				clusterer.removeAll();
+				map.geoObjects.add(pointMarker);
+			}
+			addedLayers[id] = [];
+			addedLayers[id].push(pointMarker);
+
+			} catch (err) {
+		    	 
+			}
+			
+		}
+		// Функция открывает всплывающее окно
+        function openPopupIcon(guid, description) {
+            try {
+				if ( !(guid in addedLayers) ) return; 
+				curArray = addedLayers[guid];
+			
+				for(var i in curArray) {
+					if (Array.isArray(curArray[i])) {
+						for(var j in curArray[i]) {
+							placemark = curArray[i][j];
+							placemark.properties.set('balloonContent', description);
+							placemark.properties.set('balloonContentBody', description);
+							placemark.options.set('hasBalloon', true);
+							placemark.balloon.open();
+						}
+					} else {
+						placemark = curArray[i];
+						placemark.properties.set('balloonContent', description);
+						placemark.properties.set('balloonContentBody', description);
+						placemark.options.set('hasBalloon', true);
+						placemark.balloon.open();
+					}
+				}
+			} catch (err) { 	 
+			}
+        }
+		
+		function showPolygon(arrayOfArrayOfCoords, color, editMode, id) {
+			var cnt = 0;
+			var polygonColor = "";
+			
+			try {
+    			setColor = color || false;
+				if (setColor) {
+					polygonColor = color;
+				} else {
+					polygonColor = "#03f";
+				}
+			
+				editingMode = editMode || false;
+			
+				for(var i in arrayOfArrayOfCoords) {
+					if (!arrayOfArrayOfCoords.hasOwnProperty(i)) continue;
+				
+					cnt = cnt + 1;
+				}
+			
+			if (cnt >= 3) {
+				var zonePolygon = new ymaps.Polygon([arrayOfArrayOfCoords], {}, {
+					editorMaxPoints: 5,
+					fillColor: polygonColor,
+					interactivityModel: 'default#transparent',
+					fillOpacity: 0.8
+				});
+				map.geoObjects.add(zonePolygon);
+				addedLayers[id] = [];
+				addedLayers[id].push(zonePolygon);				
+				// zonePolygon.editor.startDrawing();
+			}
+			} catch (err) {
+		    	 
+			}
+			
+		}
+		
+		function showPolyline(arrayOfArrayOfCoords, color, weight, id, style = 'solid') {
+			var polylineColor = 'blue';
+			var polylineWeight = 5;
+			
+			try {
+			setColor = color || false;
+			if (setColor) {
+				polylineColor = color;
+			}
+
+			setWeight = weight || false;
+			if (setWeight) {
+				polylineWeight = weight;
+			}
+			
+			var polyline = new ymaps.Polyline(arrayOfArrayOfCoords, {}, {
+				strokeColor: polylineColor,
+				strokeWidth: polylineWeight,
+				strokeStyle: style,
+				editorMaxPoints: 6,
+				 editorMenuManager: function (items) {
+					items.push({
+					title: "Удалить линию",
+					onClick: function () {
+						map.geoObjects.remove(polyline);
+					}
+				});
+				return items;
+				}
+			});
+			map.geoObjects.add(polyline);
+			addedLayers[id] = [];
+			addedLayers[id].push(polyline);
+			} catch (err) {
+		    	 
+			}
+		}
+		
+		function setBoundsToWay(arrayCoords) {
+			var maxLat = -10000;
+			var maxLon = -10000;
+			var minLat = 10000;
+			var minLon = 10000;
+			
+			if (arrayCoords.length == 0) {return}
+			
+			for(var i in arrayCoords) {
+				if (!arrayCoords.hasOwnProperty(i)) continue;
+				
+				if (arrayCoords[i][0] > maxLat) {maxLat = arrayCoords[i][0]}
+				if (arrayCoords[i][1] > maxLon) {maxLon = arrayCoords[i][1]}
+				if (arrayCoords[i][0] < minLat) {minLat = arrayCoords[i][0]}
+				if (arrayCoords[i][1] < minLon) {minLon = arrayCoords[i][1]}
+			}
+			
+			map.setBounds([[minLat, minLon],[maxLat, maxLon]]);
+		}
+		
+		function setFocusWOZoom(lat, lon) {
+			map.panTo([lat, lon]);
+		}
+		
+		function playRoute(points, speed = 2000, icon = 0) { 
+		
+        }
+		
+		function setWaypointsFactToPlay(arrayOfArrayOfCoords, id) {
+			// Заглушка.
+		}
+		
+		function showDrawingPanel(geozoneEdit) {
+			// Заглушка.
+		}
+		
+		function hideDrawingPanel() {
+			// Заглушка.
+		}
+		
+		function evalJSFunc(funcStr) {
+			eval(funcStr);
+		}
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+	<button id="messageButton" style="display: none" value="">messageButton</button>
+	<input id="script_version_to_1c" name="script_version_to_1c"  type="hidden" value=0 />
+</body>
+<script type="text/javascript">
+ymaps.ready(init);
+function init(){
+   // call stack
+   map.geoObjects.add(clusterer);
+}		
+</script>
+</html>

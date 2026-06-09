@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Настройка поиска</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОК" id="69">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="70"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="64">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="65"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="ПоискПоВыборочнымПолям" id="77">
+			<DataPath>ПоискПоВыборочнымПолям</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<Shortcut>Ctrl+S</Shortcut>
+			<RadioButtonType>RadioButtons</RadioButtonType>
+			<ColumnsCount>1</ColumnsCount>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По всем полям</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По выбранным полям:</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ПоискПоВыборочнымПолямКонтекстноеМеню" id="78"/>
+			<ExtendedTooltip name="ПоискПоВыборочнымПолямРасширеннаяПодсказка" id="79"/>
+			<Events>
+				<Event name="OnChange">ПоискПоВыборочнымПолямПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<UsualGroup name="ГруппаПоля" id="105">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа поля</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПоляРасширеннаяПодсказка" id="106"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияОтступ" id="107">
+					<Width>1</Width>
+					<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="ДекорацияОтступРасширеннаяПодсказка" id="109"/>
+				</LabelDecoration>
+				<Table name="ПоляПоиска" id="41">
+					<Representation>List</Representation>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Header>false</Header>
+					<DataPath>ПоляПоиска</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПоляПоискаКонтекстноеМеню" id="43"/>
+					<AutoCommandBar name="ПоляПоискаКоманднаяПанель" id="42">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПоляПоискаРасширеннаяПодсказка" id="44"/>
+					<SearchStringAddition name="ПоляПоискаСтрокаПоиска" id="45">
+						<AdditionSource>
+							<Item>ПоляПоиска</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПоляПоискаСтрокаПоискаКонтекстноеМеню" id="46"/>
+						<ExtendedTooltip name="ПоляПоискаСтрокаПоискаРасширеннаяПодсказка" id="47"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПоляПоискаСостояниеПросмотра" id="51">
+						<AdditionSource>
+							<Item>ПоляПоиска</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПоляПоискаСостояниеПросмотраКонтекстноеМеню" id="52"/>
+						<ExtendedTooltip name="ПоляПоискаСостояниеПросмотраРасширеннаяПодсказка" id="53"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПоляПоискаУправлениеПоиском" id="48">
+						<AdditionSource>
+							<Item>ПоляПоиска</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПоляПоискаУправлениеПоискомКонтекстноеМеню" id="49"/>
+						<ExtendedTooltip name="ПоляПоискаУправлениеПоискомРасширеннаяПодсказка" id="50"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ПоляПоискаВыбор</Event>
+					</Events>
+					<ChildItems>
+						<CheckBoxField name="ПоляПоискаПометка" id="85">
+							<DataPath>ПоляПоиска.Пометка</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПоляПоискаПометкаКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="ПоляПоискаПометкаРасширеннаяПодсказка" id="87"/>
+						</CheckBoxField>
+						<InputField name="ПоляПоискаПредставление" id="91">
+							<DataPath>ПоляПоиска.Представление</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ПоляПоискаПредставлениеКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ПоляПоискаПредставлениеРасширеннаяПодсказка" id="93"/>
+						</InputField>
+						<InputField name="ПоляПоискаКнопка" id="94">
+							<DataPath>ПоляПоиска.Кнопка</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<CellHyperlink>true</CellHyperlink>
+							<Width>1</Width>
+							<TextColor>style:ГиперссылкаЦвет</TextColor>
+							<ContextMenu name="ПоляПоискаКнопкаКонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="ПоляПоискаКнопкаРасширеннаяПодсказка" id="96"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПоляПоиска" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поля поиска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пометка" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Значение" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>250</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>250</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Кнопка" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кнопка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПоискПоВыборочнымПолям" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск по</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПоляПоискаПредставление</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПоляПоискаПометка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПоляПоиска.Кнопка</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string"/>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПоляПоискаКнопка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПоляПоиска.Кнопка</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string"/>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ОК</Action>
+		</Command>
+	</Commands>
+</Form>
