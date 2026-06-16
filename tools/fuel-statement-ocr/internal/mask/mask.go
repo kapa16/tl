@@ -11,16 +11,22 @@ var embeddedFS embed.FS
 
 // Template describes normalized cell layout for one statement type.
 type Template struct {
-	ID                   string  `json:"id"`
-	Type                 string  `json:"type"`
-	EnumName             string  `json:"enumName"`
-	ReferenceSize        Size    `json:"referenceSize"`
-	CanonicalOrientation string  `json:"canonicalOrientation"`
-	Anchors              Anchors `json:"anchors"`
-	DigitReference       DigitRef `json:"digitReference"`
+	ID                   string              `json:"id"`
+	Type                 string              `json:"type"`
+	EnumName             string              `json:"enumName"`
+	ReferenceSize        Size                `json:"referenceSize"`
+	CanonicalOrientation string              `json:"canonicalOrientation"`
+	DocumentTitle        *DocumentTitle      `json:"documentTitle,omitempty"`
+	Anchors              Anchors             `json:"anchors"`
+	DigitReference       DigitRef            `json:"digitReference"`
 	Header               map[string]FieldDef `json:"header"`
 	Footer               map[string]FieldDef `json:"footer"`
-	Table                TableDef `json:"table"`
+	Table                TableDef            `json:"table"`
+}
+
+type DocumentTitle struct {
+	Keywords     []string `json:"keywords"`
+	SearchRegion Rect     `json:"searchRegion"`
 }
 
 type Size struct {
@@ -41,7 +47,7 @@ type Rect struct {
 }
 
 type DigitRef struct {
-	CellCount int        `json:"cellCount"`
+	CellCount int         `json:"cellCount"`
 	Cells     []DigitCell `json:"cells"`
 }
 
@@ -51,6 +57,10 @@ type DigitCell struct {
 	Y     float64 `json:"y"`
 	W     float64 `json:"w"`
 	H     float64 `json:"h"`
+}
+
+func (c DigitCell) PixelRect(width, height int) (x0, y0, x1, y1 int) {
+	return Rect{X: c.X, Y: c.Y, W: c.W, H: c.H}.PixelRect(width, height)
 }
 
 type FieldDef struct {
@@ -65,20 +75,31 @@ type FieldDef struct {
 }
 
 type TableDef struct {
-	FirstRowY float64            `json:"firstRowY"`
-	RowHeight float64            `json:"rowHeight"`
-	RowCount  int                `json:"rowCount"`
-	Columns   []TableColumnDef   `json:"columns"`
+	FirstRowY  float64          `json:"firstRowY"`
+	RowHeight  float64          `json:"rowHeight"`
+	RowCount   int              `json:"rowCount"`
+	HeaderBand *HeaderBand      `json:"headerBand,omitempty"`
+	Columns    []TableColumnDef `json:"columns"`
+}
+
+type HeaderBand struct {
+	Y0 float64 `json:"y0"`
+	Y1 float64 `json:"y1"`
 }
 
 type TableColumnDef struct {
-	ID            string  `json:"id"`
-	X             float64 `json:"x"`
-	Cells         int     `json:"cells"`
-	CellW         float64 `json:"cellW"`
-	CellH         float64 `json:"cellH"`
-	Gap           float64 `json:"gap"`
-	DecimalPlaces int     `json:"decimalPlaces"`
+	ID                    string   `json:"id"`
+	X                     float64  `json:"x"`
+	Cells                 int      `json:"cells"`
+	CellW                 float64  `json:"cellW"`
+	CellH                 float64  `json:"cellH"`
+	Gap                   float64  `json:"gap"`
+	DecimalPlaces         int      `json:"decimalPlaces"`
+	HeaderKeywords        []string `json:"headerKeywords,omitempty"`
+	HeaderKeywordsExclude []string `json:"headerKeywordsExclude,omitempty"`
+	FallbackX0            float64  `json:"fallbackX0,omitempty"`
+	FallbackX1            float64  `json:"fallbackX1,omitempty"`
+	Recognize             *bool    `json:"recognize,omitempty"`
 }
 
 func LoadByType(templateType string) (*Template, error) {
@@ -99,6 +120,30 @@ func LoadByType(templateType string) (*Template, error) {
 		return nil, err
 	}
 	return &t, nil
+}
+
+func (c TableColumnDef) ShouldRecognize() bool {
+	if c.Recognize != nil {
+		return *c.Recognize
+	}
+	return c.Cells > 0
+}
+
+// ColumnXRange returns normalized horizontal band for ink search.
+func (c TableColumnDef) ColumnXRange() (x0, x1 float64) {
+	if c.FallbackX0 > 0 && c.FallbackX1 > c.FallbackX0 {
+		return c.FallbackX0, c.FallbackX1
+	}
+	x0 = c.X - c.CellW*0.5
+	end := c.X
+	for i := 0; i < c.Cells; i++ {
+		end += c.CellW
+		if i < c.Cells-1 {
+			end += c.Gap
+		}
+	}
+	x1 = end + c.CellW*0.5
+	return x0, x1
 }
 
 func (t *Template) CellRects(field FieldDef) []Rect {

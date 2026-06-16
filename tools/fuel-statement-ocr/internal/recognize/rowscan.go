@@ -2,109 +2,119 @@ package recognize
 
 import (
 	"image"
-	"sort"
 
+	"tl/fuel-statement-ocr/internal/layout"
 	"tl/fuel-statement-ocr/internal/mask"
 	"tl/fuel-statement-ocr/internal/types"
 )
 
-// ColumnRange defines horizontal search band for a table column.
-type ColumnRange struct {
-	ID            string
-	X0            float64
-	X1            float64
-	MaxCells      int
-	DecimalPlaces int
-}
-
-var columnRanges = map[string][]ColumnRange{
-	"perelivnaya": {
-		{ID: "quantity_liters", X0: 0.54, X1: 0.78, MaxCells: 5, DecimalPlaces: 0},
-		{ID: "quantity_kg", X0: 0.82, X1: 0.92, MaxCells: 5, DecimalPlaces: 0},
-	},
-	"prihodnaya": {
-		{ID: "balance_before", X0: 0.10, X1: 0.28, MaxCells: 5, DecimalPlaces: 0},
-		{ID: "quantity_liters", X0: 0.48, X1: 0.72, MaxCells: 5, DecimalPlaces: 0},
-		{ID: "quantity_kg", X0: 0.68, X1: 0.92, MaxCells: 5, DecimalPlaces: 0},
-	},
-	"zapravka": {
-		{ID: "garage_number", X0: 0.15, X1: 0.30, MaxCells: 5, DecimalPlaces: 0},
-		{ID: "quantity_liters", X0: 0.62, X1: 0.82, MaxCells: 5, DecimalPlaces: 0},
-	},
-}
-
-var headerRanges = map[string][]ColumnRange{
-	"perelivnaya": {
-		{ID: "date_day", X0: 0.47, X1: 0.52, MaxCells: 2, DecimalPlaces: 0},
-		{ID: "date_month", X0: 0.53, X1: 0.60, MaxCells: 2, DecimalPlaces: 0},
-	},
-	"prihodnaya": {
-		{ID: "date_day", X0: 0.14, X1: 0.20, MaxCells: 2, DecimalPlaces: 0},
-		{ID: "date_month", X0: 0.20, X1: 0.28, MaxCells: 2, DecimalPlaces: 0},
-	},
-	"zapravka": {
-		{ID: "date_day", X0: 0.47, X1: 0.52, MaxCells: 2, DecimalPlaces: 0},
-		{ID: "date_month", X0: 0.53, X1: 0.60, MaxCells: 2, DecimalPlaces: 0},
-	},
-}
-
-func RecognizeByRanges(ink *image.Gray, gray *image.Gray, tmpl *mask.Template, templateType string) (map[string]types.Field, []types.Row, float64) {
+// RecognizeByLayout runs digit recognition using template cell geometry.
+func RecognizeByLayout(ink *image.Gray, gray *image.Gray, tmpl *mask.Template, table layout.TableLayout) (map[string]types.Field, []types.Row, float64, DigitTemplates) {
 	templates, refConf := BuildTemplates(ink, gray, tmpl)
-	header := map[string]types.Field{}
-	for _, col := range headerRanges[templateType] {
-		y0 := int(float64(ink.Bounds().Dy()) * 0.095)
-		y1 := int(float64(ink.Bounds().Dy()) * 0.135)
-		header[col.ID] = recognizeBand(ink, templates, col, y0, y1)
+	header := recognizeHeader(ink, gray, templates, tmpl)
+
+	colByID := map[string]mask.TableColumnDef{}
+	for _, c := range tmpl.Table.Columns {
+		if c.ShouldRecognize() {
+			colByID[c.ID] = c
+		}
 	}
-	var rows = make([]types.Row, 0)
-	w, h := ink.Bounds().Dx(), ink.Bounds().Dy()
-	firstY := tmpl.Table.FirstRowY
-	rowH := tmpl.Table.RowHeight
-	cols := columnRanges[templateType]
-	for row := 1; row <= tmpl.Table.RowCount; row++ {
-		y0 := int(float64(h) * (firstY + float64(row-1)*rowH))
-		y1 := int(float64(h) * (firstY + float64(row)*rowH))
+
+	rows := make([]types.Row, 0)
+	for _, band := range table.RowBands {
 		rowFields := map[string]types.Field{}
-		hasData := false
-		for _, col := range cols {
-			f := recognizeBand(ink, templates, col, y0, y1)
-			rowFields[col.ID] = f
-			if f.Status == "ok" || f.Status == "partial" {
-				hasData = true
-			}
+		for _, colDef := range colByID {
+			f := recognizeRowField(ink, gray, templates, colDef, band)
+			rowFields[colDef.ID] = f
 		}
-		if hasData {
-			rows = append(rows, types.Row{RowIndex: row, Fields: rowFields})
+		if !rowHasQuantityData(rowFields) {
+			continue
 		}
+		rows = append(rows, types.Row{RowIndex: band.RowIndex, Fields: rowFields})
 	}
-	_ = w
-	return header, rows, refConf
+	return header, rows, refConf, templates
 }
 
-func recognizeBand(ink *image.Gray, templates DigitTemplates, col ColumnRange, y0, y1 int) types.Field {
-	w := ink.Bounds().Dx()
-	x0 := int(col.X0 * float64(w))
-	x1 := int(col.X1 * float64(w))
-	clusters := findClusters(ink, x0, y0, x1, y1)
-	if len(clusters) == 0 {
-		return types.Field{ID: col.ID, Status: "empty", Confidence: 0}
+func rowHasQuantityData(fields map[string]types.Field) bool {
+	lit, okL := fields["quantity_liters"]
+	kg, okK := fields["quantity_kg"]
+	litLen := len(lit.ValueString)
+	kgLen := len(kg.ValueString)
+	if litLen >= 2 && lit.Confidence >= 0.12 {
+		return true
 	}
-	var digits []int
-	var confs []float64
+	if kgLen >= 2 && kg.Confidence >= 0.12 {
+		return true
+	}
+	if okL && okK && litLen >= 1 && kgLen >= 1 {
+		return lit.Confidence+kg.Confidence > 0.22
+	}
+	if okK && kgLen >= 1 && kg.Confidence >= 0.15 {
+		return true
+	}
+	if okL && litLen >= 1 && lit.Confidence >= 0.15 {
+		return true
+	}
+	return false
+}
+
+func recognizeRowField(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) types.Field {
+	f := recognizeRowFieldFixedGrid(ink, gray, templates, col, band)
+	if acceptSegmentedField(f, col) {
+		return f
+	}
+	f = recognizeRowFieldSegmented(ink, gray, templates, col, band)
+	if acceptSegmentedField(f, col) {
+		return f
+	}
+	return recognizeRowFieldByInkRuns(ink, gray, templates, col, band)
+}
+
+func acceptInkRunsField(f types.Field, col mask.TableColumnDef) bool {
+	if f.Status != "ok" && f.Status != "partial" {
+		return false
+	}
+	n := len(f.ValueString)
+	if n == 0 {
+		return false
+	}
+	if n > col.Cells {
+		return false
+	}
+	if f.Confidence < 0.16 {
+		return false
+	}
+	if f.Status == "partial" && (n < 2 || f.Confidence < 0.14) {
+		return false
+	}
+	return true
+}
+
+func acceptSegmentedField(f types.Field, col mask.TableColumnDef) bool {
+	if f.Status != "ok" && f.Status != "partial" {
+		return false
+	}
+	n := len(f.ValueString)
+	if n == 0 {
+		return false
+	}
+	if n > col.Cells+1 {
+		return false
+	}
+	if f.Confidence < 0.12 {
+		return false
+	}
+	return true
+}
+
+func recognizeRowFieldFixedGrid(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) types.Field {
+	rects := rowFieldRectsInBand(col, band)
 	var cells []types.Cell
-	for i, c := range clusters {
-		if i >= col.MaxCells {
-			break
-		}
-		rect := mask.Rect{X: float64(c.x0) / float64(w), Y: float64(c.y0) / float64(ink.Bounds().Dy()),
-			W: float64(c.x1-c.x0) / float64(w), H: float64(c.y1-c.y0) / float64(ink.Bounds().Dy())}
-		d, conf, st := RecognizeCell(ink, templates, rect)
+	for i, rect := range rects {
+		d, conf, st := RecognizeCellHandwritten(ink, gray, templates, rect)
 		cells = append(cells, types.Cell{Index: i, Digit: d, Confidence: conf, Status: st})
-		if d != nil && (st == "ok" || st == "partial") {
-			digits = append(digits, *d)
-			confs = append(confs, conf)
-		}
 	}
+	digits, confs := extractDigitRun(cells, 0.08)
 	if len(digits) == 0 {
 		return types.Field{ID: col.ID, Status: "empty", Cells: cells, Confidence: 0}
 	}
@@ -115,50 +125,110 @@ func recognizeBand(ink *image.Gray, templates DigitTemplates, col ColumnRange, y
 	val := parseNumber(vs, col.DecimalPlaces)
 	conf := average(confs)
 	st := "ok"
-	if len(digits) < len(clusters) {
+	if len(digits) < len(rects) {
 		st = "partial"
 	}
 	return types.Field{ID: col.ID, Status: st, Confidence: conf, Value: &val, ValueString: vs, Cells: cells}
 }
 
-type cluster struct {
-	x0, y0, x1, y1 int
+func rowFieldRectsInBand(col mask.TableColumnDef, band layout.RowBand) []mask.Rect {
+	x0, x1 := col.ColumnXRange()
+	cols := col.Cells
+	gap := col.Gap
+	if gap <= 0 {
+		gap = 0.003
+	}
+	cellW := (x1 - x0 - gap*float64(cols-1)) / float64(cols)
+	if cellW <= 0 {
+		return rowFieldRectsAtY(col, band.Y0)
+	}
+	rowH := band.Y1 - band.Y0
+	cellH := col.CellH
+	if rowH > 0 {
+		cellH = rowH * 0.48
+	}
+	y0 := band.Y0 + rowH*0.40
+	rects := make([]mask.Rect, cols)
+	x := x0
+	for i := 0; i < cols; i++ {
+		rects[i] = mask.Rect{X: x, Y: y0, W: cellW, H: cellH}
+		x += cellW + gap
+	}
+	return rects
 }
 
-func findClusters(ink *image.Gray, x0, y0, x1, y1 int) []cluster {
-	var xs []int
-	for y := y0; y < y1; y++ {
-		for x := x0; x < x1; x++ {
-			if x < 0 || y < 0 || x >= ink.Bounds().Dx() || y >= ink.Bounds().Dy() {
-				continue
-			}
-			if ink.GrayAt(x, y).Y > 128 {
-				xs = append(xs, x)
+func rowFieldRectsAtY(col mask.TableColumnDef, y0 float64) []mask.Rect {
+	rects := make([]mask.Rect, col.Cells)
+	x := col.X
+	for i := 0; i < col.Cells; i++ {
+		rects[i] = mask.Rect{X: x, Y: y0, W: col.CellW, H: col.CellH}
+		x += col.CellW + col.Gap
+	}
+	return rects
+}
+
+func recognizeHeader(ink *image.Gray, gray *image.Gray, templates DigitTemplates, tmpl *mask.Template) map[string]types.Field {
+	header := map[string]types.Field{}
+	for id, field := range tmpl.Header {
+		var digits []int
+		var confs []float64
+		var cells []types.Cell
+		for i, rect := range tmpl.CellRects(field) {
+			d, conf, st := RecognizeCell(ink, gray, templates, rect)
+			cells = append(cells, types.Cell{Index: i, Digit: d, Confidence: conf, Status: st})
+			if d != nil && (st == "ok" || st == "partial") {
+				digits = append(digits, *d)
+				confs = append(confs, conf)
 			}
 		}
-	}
-	if len(xs) == 0 {
-		return nil
-	}
-	sort.Ints(xs)
-	gap := 25
-	var groups [][]int
-	cur := []int{xs[0]}
-	for _, x := range xs[1:] {
-		if x-cur[len(cur)-1] > gap {
-			groups = append(groups, cur)
-			cur = []int{x}
-		} else {
-			cur = append(cur, x)
-		}
-	}
-	groups = append(groups, cur)
-	var out []cluster
-	for _, g := range groups {
-		if len(g) < 8 {
+		if len(digits) == 0 {
+			header[id] = types.Field{ID: id, Status: "empty", Cells: cells}
 			continue
 		}
-		out = append(out, cluster{x0: g[0] - 2, x1: g[len(g)-1] + 2, y0: y0, y1: y1})
+		vs := ""
+		for _, d := range digits {
+			vs += string(rune('0' + d))
+		}
+		val := parseNumber(vs, field.DecimalPlaces)
+		conf := average(confs)
+		st := "ok"
+		if len(digits) < field.Cells {
+			st = "partial"
+		}
+		header[id] = types.Field{ID: id, Status: st, Confidence: conf, Value: &val, ValueString: vs, Cells: cells}
 	}
-	return out
+	return header
+}
+
+// extractDigitRun keeps digits from the first to the last recognized cell (trim empty edges).
+func extractDigitRun(cells []types.Cell, minConf float64) ([]int, []float64) {
+	first, last := -1, -1
+	for i, c := range cells {
+		if cellRecognized(c, minConf) {
+			if first < 0 {
+				first = i
+			}
+			last = i
+		}
+	}
+	if first < 0 {
+		return nil, nil
+	}
+	var digits []int
+	var confs []float64
+	for i := first; i <= last; i++ {
+		c := cells[i]
+		if cellRecognized(c, minConf) {
+			digits = append(digits, *c.Digit)
+			confs = append(confs, c.Confidence)
+		}
+	}
+	if len(digits) == 0 {
+		return nil, nil
+	}
+	return digits, confs
+}
+
+func cellRecognized(c types.Cell, minConf float64) bool {
+	return c.Digit != nil && (c.Status == "ok" || (c.Status == "partial" && c.Confidence >= minConf))
 }

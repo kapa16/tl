@@ -43,24 +43,80 @@ func Rotate90(img image.Image, times int) image.Image {
 	return out
 }
 
-// InkMask extracts blue handwritten ink as binary mask (255 = ink).
+// InkMask extracts handwritten ink as binary mask (255 = ink).
+// Supports blue and black/gray pen in various shades via chroma + local contrast.
 func InkMask(img image.Image) *image.Gray {
 	b := img.Bounds()
 	out := image.NewGray(b)
 	for y := b.Min.Y; y < b.Max.Y; y++ {
 		for x := b.Min.X; x < b.Max.X; x++ {
-			r, g, bl, _ := img.At(x, y).RGBA()
-			r8 := uint8(r >> 8)
-			g8 := uint8(g >> 8)
-			b8 := uint8(bl >> 8)
-			if b8 > 80 && int(b8) > int(r8)+30 && int(b8) > int(g8)+20 && r8 < 200 {
-				out.SetGray(x, y, color.Gray{Y: 255})
-			} else {
-				out.SetGray(x, y, color.Gray{Y: 0})
+			v := uint8(0)
+			if IsInkPixel(img, x, y) {
+				v = 255
 			}
+			out.SetGray(x, y, color.Gray{Y: v})
 		}
 	}
 	return out
+}
+
+// InkMaskFull combines color-based ink detection with adaptive gray fallback in table data rows.
+func InkMaskFull(img image.Image, gray *image.Gray) *image.Gray {
+	ink := InkMask(img)
+	if gray == nil {
+		return ink
+	}
+	h := gray.Bounds().Dy()
+	dataY := int(float64(h) * 0.28)
+	adaptive := AdaptiveInkOnGray(gray, dataY)
+	return UnionInkMask(ink, adaptive)
+}
+
+// isHorizontalGridStroke detects printed table lines (long horizontal runs).
+func isHorizontalGridStroke(img image.Image, cx, cy int) bool {
+	b := img.Bounds()
+	hRun := 0
+	for x := cx - 12; x <= cx+12; x++ {
+		if x < b.Min.X || x >= b.Max.X {
+			continue
+		}
+		r, g, bl, _ := img.At(x, cy).RGBA()
+		gray := uint8((299*r + 587*g + 114*bl) / 1000 >> 8)
+		if gray < 120 {
+			hRun++
+		}
+	}
+	vRun := 0
+	for y := cy - 8; y <= cy+8; y++ {
+		if y < b.Min.Y || y >= b.Max.Y {
+			continue
+		}
+		r, g, bl, _ := img.At(cx, y).RGBA()
+		gray := uint8((299*r + 587*g + 114*bl) / 1000 >> 8)
+		if gray < 120 {
+			vRun++
+		}
+	}
+	return hRun >= 18 && hRun > vRun*3
+}
+
+func localMeanGray(img image.Image, cx, cy, radius int) int {
+	b := img.Bounds()
+	var sum, n int
+	for y := cy - radius; y <= cy+radius; y++ {
+		for x := cx - radius; x <= cx+radius; x++ {
+			if x < b.Min.X || x >= b.Max.X || y < b.Min.Y || y >= b.Max.Y {
+				continue
+			}
+			r, g, bl, _ := img.At(x, y).RGBA()
+			sum += int((299*r + 587*g + 114*bl) / 1000 >> 8)
+			n++
+		}
+	}
+	if n == 0 {
+		return 0
+	}
+	return sum / n
 }
 
 // ScoreOrientation estimates how well digit reference strip region has structure.
@@ -97,7 +153,6 @@ func ScoreOrientation(img image.Image, stripX, stripY, stripW, stripH float64) f
 		return 0
 	}
 	ratio := float64(dark) / float64(total)
-	// printed reference digits ~ moderate ink density
 	if ratio < 0.02 || ratio > 0.45 {
 		return ratio * 0.3
 	}

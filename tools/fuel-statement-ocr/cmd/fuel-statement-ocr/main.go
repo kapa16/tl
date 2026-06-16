@@ -12,9 +12,11 @@ import (
 func main() {
 	typeName := flag.String("type", "", "template type: zapravka|prihodnaya|perelivnaya")
 	dumpCrops := flag.String("dump-crops", "", "directory to dump cell crops for debugging")
+	dumpLayout := flag.String("dump-layout", "", "directory to save layout overlay PNG")
+	dumpRef := flag.String("dump-ref", "", "directory to dump digit reference templates")
 	flag.Parse()
 	if flag.NArg() < 1 {
-		fmt.Fprintln(os.Stderr, "usage: FuelStatementOCR <image-path> --type <zapravka|prihodnaya|perelivnaya> [--dump-crops dir]")
+		fmt.Fprintln(os.Stderr, "usage: FuelStatementOCR <image-path> --type <zapravka|prihodnaya|perelivnaya> [--dump-crops dir] [--dump-layout dir] [--dump-ref dir]")
 		os.Exit(2)
 	}
 	if *typeName == "" {
@@ -22,9 +24,11 @@ func main() {
 		os.Exit(2)
 	}
 	res, err := engine.Run(engine.Options{
-		ImagePath: flag.Arg(0),
-		Type:      *typeName,
-		DumpCrops: *dumpCrops,
+		ImagePath:  flag.Arg(0),
+		Type:       *typeName,
+		DumpCrops:  *dumpCrops,
+		DumpLayout: *dumpLayout,
+		DumpRef:    *dumpRef,
 	})
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
