@@ -1,7 +1,10 @@
 package engine
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
+	"path/filepath"
 	"time"
 
 	"tl/fuel-statement-ocr/internal/align"
@@ -48,7 +51,7 @@ func Run(opts Options) (*types.Result, error) {
 	align.SyncTemplateAnchors(tmpl, gray, ink)
 
 	tableLayout := layout.Detect(gray, tmpl)
-	headerFields, rowFields, refConf, templates := recognize.RecognizeByLayout(ink, gray, tmpl, tableLayout)
+	headerFields, rowFields, refConf, templates, recogDebug := recognize.RecognizeByLayout(ink, gray, tmpl, tableLayout)
 
 	if opts.DumpRef != "" {
 		_ = recognize.DumpRefTemplates(opts.DumpRef, templates)
@@ -61,6 +64,7 @@ func Run(opts Options) (*types.Result, error) {
 	layoutInfo.OrientationApplied = orientRes.AppliedRotation
 	layoutInfo.ExifOrientation = exifOrient
 	layoutInfo.HomographyConfidence = alignRes.Confidence
+	layoutInfo.RecognitionDebug = recogDebug
 
 	warnings := []types.Warning{}
 	if orientRes.Score > 0 && orientRes.SecondBestScore > 0 {
@@ -95,6 +99,7 @@ func Run(opts Options) (*types.Result, error) {
 
 	if opts.DumpCrops != "" {
 		_ = layout.DumpCrops(ink, tableLayout, opts.DumpCrops)
+		_ = dumpRecognitionDebug(opts.DumpCrops, layoutInfo)
 	}
 	if opts.DumpLayout != "" {
 		_ = layout.DumpOverlay(img, tableLayout, opts.DumpLayout)
@@ -118,4 +123,18 @@ func Run(opts Options) (*types.Result, error) {
 	res.ReferenceDigits.Confidence = refConf
 	res.ProcessingMs = time.Since(start).Milliseconds()
 	return res, nil
+}
+
+func dumpRecognitionDebug(dir string, info *types.LayoutInfo) error {
+	if dir == "" || info == nil {
+		return nil
+	}
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return err
+	}
+	data, err := json.MarshalIndent(info, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(filepath.Join(dir, "recognition_debug.json"), data, 0o644)
 }

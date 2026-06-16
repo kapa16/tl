@@ -49,7 +49,7 @@ func CalibrateTableFromInk(ink *image.Gray, tmpl *mask.Template) {
 		}
 	}
 	if bestScore > 50 {
-		tmpl.Table.FirstRowY = baseY + bestShift + rowH
+		tmpl.Table.FirstRowY = baseY + bestShift
 	}
 	if tmpl.Table.HeaderBand != nil {
 		minY := tmpl.Table.HeaderBand.Y1 + rowH*0.8

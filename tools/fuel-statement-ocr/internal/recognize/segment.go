@@ -12,7 +12,7 @@ type inkBlob struct {
 	x0, y0, x1, y1 int
 }
 
-func recognizeRowFieldByInkRuns(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) types.Field {
+func recognizeRowFieldByInkRuns(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) (types.Field, []mask.Rect) {
 	w, h := ink.Bounds().Dx(), ink.Bounds().Dy()
 	cx0, cx1 := col.ColumnXRange()
 	y0, y1 := bandHandwritingY(band, h)
@@ -20,7 +20,7 @@ func recognizeRowFieldByInkRuns(ink, gray *image.Gray, templates DigitTemplates,
 	x1 := int(cx1 * float64(w))
 	rects := inkRunRects(ink, gray, x0, y0, x1, y1, col.Cells)
 	if len(rects) == 0 {
-		return types.Field{ID: col.ID, Status: "empty"}
+		return types.Field{ID: col.ID, Status: "empty"}, nil
 	}
 	var cells []types.Cell
 	var digits []int
@@ -34,7 +34,7 @@ func recognizeRowFieldByInkRuns(ink, gray *image.Gray, templates DigitTemplates,
 		}
 	}
 	if len(digits) == 0 {
-		return types.Field{ID: col.ID, Status: "empty", Cells: cells}
+		return types.Field{ID: col.ID, Status: "empty", Cells: cells}, rects
 	}
 	vs := ""
 	for _, d := range digits {
@@ -46,7 +46,7 @@ func recognizeRowFieldByInkRuns(ink, gray *image.Gray, templates DigitTemplates,
 	if len(digits) < len(rects) {
 		st = "partial"
 	}
-	return types.Field{ID: col.ID, Status: st, Confidence: conf, Value: &val, ValueString: vs, Cells: cells}
+	return types.Field{ID: col.ID, Status: st, Confidence: conf, Value: &val, ValueString: vs, Cells: cells}, rects
 }
 
 func inkRunRects(ink, gray *image.Gray, x0, y0, x1, y1, maxDigits int) []mask.Rect {
@@ -179,7 +179,7 @@ func inkVerticalBounds(ink, gray *image.Gray, x0, y0, x1, y1 int) (int, int) {
 	return minY, maxY + 1
 }
 
-func recognizeRowFieldSegmented(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) types.Field {
+func recognizeRowFieldSegmented(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) (types.Field, []mask.Rect) {
 	w, h := ink.Bounds().Dx(), ink.Bounds().Dy()
 	cx0, cx1 := col.ColumnXRange()
 	y0, y1 := bandHandwritingY(band, h)
@@ -187,11 +187,12 @@ func recognizeRowFieldSegmented(ink, gray *image.Gray, templates DigitTemplates,
 	x1 := int(cx1 * float64(w))
 	blobs := findInkBlobs(ink, x0, y0, x1, y1, 25, col.Cells+1)
 	if len(blobs) == 0 {
-		return types.Field{ID: col.ID, Status: "empty"}
+		return types.Field{ID: col.ID, Status: "empty"}, nil
 	}
 	var cells []types.Cell
 	var digits []int
 	var confs []float64
+	rects := make([]mask.Rect, 0, len(blobs))
 	nw, nh := float64(w), float64(h)
 	for i, b := range blobs {
 		r := mask.Rect{
@@ -200,6 +201,7 @@ func recognizeRowFieldSegmented(ink, gray *image.Gray, templates DigitTemplates,
 			W: float64(b.x1-b.x0) / nw,
 			H: float64(b.y1-b.y0) / nh,
 		}
+		rects = append(rects, r)
 		d, conf, st := RecognizeCellHandwritten(ink, gray, templates, r)
 		cells = append(cells, types.Cell{Index: i, Digit: d, Confidence: conf, Status: st})
 		if cellRecognized(types.Cell{Digit: d, Confidence: conf, Status: st}, 0.08) {
@@ -208,7 +210,7 @@ func recognizeRowFieldSegmented(ink, gray *image.Gray, templates DigitTemplates,
 		}
 	}
 	if len(digits) == 0 {
-		return types.Field{ID: col.ID, Status: "empty", Cells: cells, Confidence: 0}
+		return types.Field{ID: col.ID, Status: "empty", Cells: cells, Confidence: 0}, rects
 	}
 	vs := ""
 	for _, d := range digits {
@@ -220,7 +222,7 @@ func recognizeRowFieldSegmented(ink, gray *image.Gray, templates DigitTemplates,
 	if len(digits) < len(blobs) {
 		st = "partial"
 	}
-	return types.Field{ID: col.ID, Status: st, Confidence: conf, Value: &val, ValueString: vs, Cells: cells}
+	return types.Field{ID: col.ID, Status: st, Confidence: conf, Value: &val, ValueString: vs, Cells: cells}, rects
 }
 
 func findInkBlobs(ink *image.Gray, x0, y0, x1, y1, minPixels, maxBlobs int) []inkBlob {

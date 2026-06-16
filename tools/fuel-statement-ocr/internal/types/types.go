@@ -31,6 +31,7 @@ type LayoutInfo struct {
 	TableFound           bool            `json:"tableFound"`
 	Columns              []LayoutColumn  `json:"columns,omitempty"`
 	RowBands             []LayoutRowBand `json:"rowBands,omitempty"`
+	RecognitionDebug     []FieldDebug    `json:"recognitionDebug,omitempty"`
 }
 
 type LayoutColumn struct {
@@ -72,4 +73,28 @@ type Warning struct {
 	Code    string `json:"code"`
 	Field   string `json:"field,omitempty"`
 	Message string `json:"message"`
+}
+
+type FieldDebug struct {
+	RowIndex int            `json:"rowIndex"`
+	FieldID  string         `json:"fieldId"`
+	Selected string         `json:"selected"`
+	Attempts []FieldAttempt `json:"attempts"`
+}
+
+type FieldAttempt struct {
+	Method     string  `json:"method"`
+	Value      string  `json:"value,omitempty"`
+	Confidence float64 `json:"confidence"`
+	Status     string  `json:"status"`
+	Accepted   bool    `json:"accepted"`
+	Reason     string  `json:"reason,omitempty"`
+	Rect       *DebugRect `json:"rect,omitempty"`
+}
+
+type DebugRect struct {
+	X0 float64 `json:"x0"`
+	Y0 float64 `json:"y0"`
+	X1 float64 `json:"x1"`
+	Y1 float64 `json:"y1"`
 }

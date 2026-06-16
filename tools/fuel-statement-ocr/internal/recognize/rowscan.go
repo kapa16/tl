@@ -9,7 +9,7 @@ import (
 )
 
 // RecognizeByLayout runs digit recognition using template cell geometry.
-func RecognizeByLayout(ink *image.Gray, gray *image.Gray, tmpl *mask.Template, table layout.TableLayout) (map[string]types.Field, []types.Row, float64, DigitTemplates) {
+func RecognizeByLayout(ink *image.Gray, gray *image.Gray, tmpl *mask.Template, table layout.TableLayout) (map[string]types.Field, []types.Row, float64, DigitTemplates, []types.FieldDebug) {
 	templates, refConf := BuildTemplates(ink, gray, tmpl)
 	header := recognizeHeader(ink, gray, templates, tmpl)
 
@@ -21,18 +21,20 @@ func RecognizeByLayout(ink *image.Gray, gray *image.Gray, tmpl *mask.Template, t
 	}
 
 	rows := make([]types.Row, 0)
+	debug := make([]types.FieldDebug, 0)
 	for _, band := range table.RowBands {
 		rowFields := map[string]types.Field{}
 		for _, colDef := range colByID {
-			f := recognizeRowField(ink, gray, templates, colDef, band)
+			f, dbg := recognizeRowField(ink, gray, templates, colDef, band)
 			rowFields[colDef.ID] = f
+			debug = append(debug, dbg)
 		}
 		if !rowHasQuantityData(rowFields) {
 			continue
 		}
 		rows = append(rows, types.Row{RowIndex: band.RowIndex, Fields: rowFields})
 	}
-	return header, rows, refConf, templates
+	return header, rows, refConf, templates, debug
 }
 
 func rowHasQuantityData(fields map[string]types.Field) bool {
@@ -58,16 +60,38 @@ func rowHasQuantityData(fields map[string]types.Field) bool {
 	return false
 }
 
-func recognizeRowField(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) types.Field {
-	f := recognizeRowFieldFixedGrid(ink, gray, templates, col, band)
-	if acceptSegmentedField(f, col) {
-		return f
+func recognizeRowField(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) (types.Field, types.FieldDebug) {
+	dbg := types.FieldDebug{
+		RowIndex: band.RowIndex,
+		FieldID:  col.ID,
+		Attempts: make([]types.FieldAttempt, 0, 3),
 	}
-	f = recognizeRowFieldSegmented(ink, gray, templates, col, band)
-	if acceptSegmentedField(f, col) {
-		return f
+	f, rects := recognizeRowFieldSegmented(ink, gray, templates, col, band)
+	acc := acceptSegmentedField(f, col)
+	false7 := looksLikeFalseSevenRun(f, col)
+	dbg.Attempts = append(dbg.Attempts, toAttempt("segmented", f, rects, acc && !false7, rejectReason(acc, false7)))
+	if acc && !false7 {
+		dbg.Selected = "segmented"
+		return f, dbg
 	}
-	return recognizeRowFieldByInkRuns(ink, gray, templates, col, band)
+	f, rects = recognizeRowFieldByInkRuns(ink, gray, templates, col, band)
+	acc = acceptInkRunsField(f, col)
+	false7 = looksLikeFalseSevenRun(f, col)
+	dbg.Attempts = append(dbg.Attempts, toAttempt("ink-runs", f, rects, acc && !false7, rejectReason(acc, false7)))
+	if acc && !false7 {
+		dbg.Selected = "ink-runs"
+		return f, dbg
+	}
+	f = recognizeRowFieldFixedGrid(ink, gray, templates, col, band)
+	acc = acceptSegmentedField(f, col)
+	false7 = looksLikeFalseSevenRun(f, col)
+	dbg.Attempts = append(dbg.Attempts, toAttempt("fixed-grid", f, rowFieldRectsInBand(col, band), acc && !false7, rejectReason(acc, false7)))
+	if acc && !false7 {
+		dbg.Selected = "fixed-grid"
+		return f, dbg
+	}
+	dbg.Selected = "none"
+	return types.Field{ID: col.ID, Status: "empty"}, dbg
 }
 
 func acceptInkRunsField(f types.Field, col mask.TableColumnDef) bool {
@@ -105,6 +129,74 @@ func acceptSegmentedField(f types.Field, col mask.TableColumnDef) bool {
 		return false
 	}
 	return true
+}
+
+func looksLikeFalseSevenRun(f types.Field, col mask.TableColumnDef) bool {
+	if f.Status != "ok" && f.Status != "partial" {
+		return false
+	}
+	if f.Confidence >= 0.26 {
+		return false
+	}
+	vs := f.ValueString
+	if len(vs) < 3 || len(vs) > col.Cells {
+		return false
+	}
+	sevens := 0
+	for _, ch := range vs {
+		if ch == '7' {
+			sevens++
+		}
+	}
+	return sevens*100/len(vs) >= 60
+}
+
+func rejectReason(accepted bool, false7 bool) string {
+	if accepted && !false7 {
+		return ""
+	}
+	if false7 {
+		return "false-seven-run"
+	}
+	return "quality-gate"
+}
+
+func toAttempt(method string, f types.Field, rects []mask.Rect, accepted bool, reason string) types.FieldAttempt {
+	return types.FieldAttempt{
+		Method:     method,
+		Value:      f.ValueString,
+		Confidence: f.Confidence,
+		Status:     f.Status,
+		Accepted:   accepted,
+		Reason:     reason,
+		Rect:       rectSpan(rects),
+	}
+}
+
+func rectSpan(rects []mask.Rect) *types.DebugRect {
+	if len(rects) == 0 {
+		return nil
+	}
+	x0, y0 := rects[0].X, rects[0].Y
+	x1, y1 := rects[0].X+rects[0].W, rects[0].Y+rects[0].H
+	for i := 1; i < len(rects); i++ {
+		r := rects[i]
+		rx1 := r.X + r.W
+		ry1 := r.Y + r.H
+		if r.X < x0 {
+			x0 = r.X
+		}
+		if r.Y < y0 {
+			y0 = r.Y
+		}
+		if rx1 > x1 {
+			x1 = rx1
+		}
+		if ry1 > y1 {
+			y1 = ry1
+		}
+	}
+	return &types.DebugRect{X0: x0, Y0: y0, X1: x1, Y1: y1}
 }
 
 func recognizeRowFieldFixedGrid(ink, gray *image.Gray, templates DigitTemplates, col mask.TableColumnDef, band layout.RowBand) types.Field {
