@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнить" id="1">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Заполнить</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="2"/>
+			</Button>
+			<Button name="ФормаОбработать" id="3">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Обработать</CommandName>
+				<ExtendedTooltip name="ФормаОбработатьРасширеннаяПодсказка" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ПредупреждениеКомпонента" id="5">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПредупреждениеКомпонента</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПредупреждениеКомпонентаКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ПредупреждениеКомпонентаРасширеннаяПодсказка" id="7"/>
+		</LabelDecoration>
+		<LabelDecoration name="ПредупреждениеКомпонентаOCR" id="220">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПредупреждениеКомпонентаOCR</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПредупреждениеКомпонентаOCRКонтекстноеМеню" id="221"/>
+			<ExtendedTooltip name="ПредупреждениеКомпонентаOCRРасширеннаяПодсказка" id="222"/>
+		</LabelDecoration>
+		<LabelDecoration name="ПредупреждениеСписокПисем" id="8">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При заполнении загружаются все неудалённые входящие письма. При необходимости снимите флажок «Обработать» у лишних строк.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПредупреждениеСписокПисемКонтекстноеМеню" id="9"/>
+			<ExtendedTooltip name="ПредупреждениеСписокПисемРасширеннаяПодсказка" id="200"/>
+		</LabelDecoration>
+		<Table name="Письма" id="10">
+			<Representation>List</Representation>
+			<DataPath>Письма</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящие письма</v8:content>
+				</v8:item>
+			</Title>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПисьмаКонтекстноеМеню" id="11"/>
+			<AutoCommandBar name="ПисьмаКоманднаяПанель" id="12">
+				<ChildItems>
+					<Button name="ПисьмаУстановитьФлажки" id="210">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<ExtendedTooltip name="ПисьмаУстановитьФлажкиРасширеннаяПодсказка" id="211"/>
+					</Button>
+					<Button name="ПисьмаСнятьФлажки" id="212">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<ExtendedTooltip name="ПисьмаСнятьФлажкиРасширеннаяПодсказка" id="213"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПисьмаРасширеннаяПодсказка" id="13"/>
+			<SearchStringAddition name="ПисьмаСтрокаПоиска" id="14">
+				<AdditionSource>
+					<Item>Письма</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПисьмаСтрокаПоискаКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ПисьмаСтрокаПоискаРасширеннаяПодсказка" id="16"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПисьмаСостояниеПросмотра" id="17">
+				<AdditionSource>
+					<Item>Письма</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПисьмаСостояниеПросмотраКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="ПисьмаСостояниеПросмотраРасширеннаяПодсказка" id="19"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПисьмаУправлениеПоиском" id="20">
+				<AdditionSource>
+					<Item>Письма</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПисьмаУправлениеПоискомКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ПисьмаУправлениеПоискомРасширеннаяПодсказка" id="22"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<CheckBoxField name="ПисьмаОбработать" id="23">
+					<DataPath>Письма.Обработать</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработать</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПисьмаОбработатьКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ПисьмаОбработатьРасширеннаяПодсказка" id="25"/>
+				</CheckBoxField>
+				<InputField name="ПисьмаПисьмо" id="26">
+					<DataPath>Письма.Письмо</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПисьмаПисьмоКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ПисьмаПисьмоРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ПисьмаТема" id="29">
+					<DataPath>Письма.Тема</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПисьмаТемаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ПисьмаТемаРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="ПисьмаДата" id="32">
+					<DataPath>Письма.Дата</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПисьмаДатаКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ПисьмаДатаРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<InputField name="ПисьмаОтправитель" id="35">
+					<DataPath>Письма.Отправитель</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПисьмаОтправительКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ПисьмаОтправительРасширеннаяПодсказка" id="37"/>
+				</InputField>
+				<InputField name="ПисьмаСтатус" id="38">
+					<DataPath>Письма.Статус</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПисьмаСтатусКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ПисьмаСтатусРасширеннаяПодсказка" id="40"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="Результат" id="50">
+			<Representation>List</Representation>
+			<DataPath>Результат</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат обработки</v8:content>
+				</v8:item>
+			</Title>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="РезультатКонтекстноеМеню" id="51"/>
+			<AutoCommandBar name="РезультатКоманднаяПанель" id="52"/>
+			<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="53"/>
+			<SearchStringAddition name="РезультатСтрокаПоиска" id="54">
+				<AdditionSource>
+					<Item>Результат</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатСтрокаПоискаКонтекстноеМеню" id="55"/>
+				<ExtendedTooltip name="РезультатСтрокаПоискаРасширеннаяПодсказка" id="56"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РезультатСостояниеПросмотра" id="57">
+				<AdditionSource>
+					<Item>Результат</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатСостояниеПросмотраКонтекстноеМеню" id="58"/>
+				<ExtendedTooltip name="РезультатСостояниеПросмотраРасширеннаяПодсказка" id="59"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РезультатУправлениеПоиском" id="60">
+				<AdditionSource>
+					<Item>Результат</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатУправлениеПоискомКонтекстноеМеню" id="61"/>
+				<ExtendedTooltip name="РезультатУправлениеПоискомРасширеннаяПодсказка" id="62"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<CheckBoxField name="РезультатУспех" id="63">
+					<DataPath>Результат.Успех</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РезультатУспехКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="РезультатУспехРасширеннаяПодсказка" id="65"/>
+				</CheckBoxField>
+				<InputField name="РезультатПисьмо" id="66">
+					<DataPath>Результат.Письмо</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="РезультатПисьмоКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="РезультатПисьмоРасширеннаяПодсказка" id="68"/>
+				</InputField>
+				<InputField name="РезультатВложение" id="69">
+					<DataPath>Результат.Вложение</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="РезультатВложениеКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="РезультатВложениеРасширеннаяПодсказка" id="71"/>
+				</InputField>
+				<InputField name="РезультатВедомость" id="72">
+					<DataPath>Результат.Ведомость</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="РезультатВедомостьКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="РезультатВедомостьРасширеннаяПодсказка" id="74"/>
+				</InputField>
+				<InputField name="РезультатЛогOCR" id="78">
+					<DataPath>Результат.ЛогOCR</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Лог OCR</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РезультатЛогOCRКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="РезультатЛогOCRРасширеннаяПодсказка" id="80"/>
+				</InputField>
+				<InputField name="РезультатТекстОшибки" id="75">
+					<DataPath>Результат.ТекстОшибки</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="РезультатТекстОшибкиКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="РезультатТекстОшибкиРасширеннаяПодсказка" id="77"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="100">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.GDS_ЗагрузкаЗаправочныхВедомостей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Письма" id="101">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Письма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Обработать" id="102">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработать</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Письмо" id="103">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Письмо</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ЭлектронноеПисьмоВходящее</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Тема" id="104">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тема</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>250</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Дата" id="105">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Отправитель" id="106">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отправитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>250</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Статус" id="107">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Результат" id="108">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Успех" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Успех</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Письмо" id="110">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Письмо</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ЭлектронноеПисьмоВходящее</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Вложение" id="111">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вложение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>250</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ведомость" id="112">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ведомость</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.GDS_ЗаправочнаяВедомость</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЛогOCR" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Лог OCR</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТекстОшибки" id="113">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="200">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Заполнить</Action>
+		</Command>
+		<Command name="Обработать" id="201">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обработать</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Обработать</Action>
+		</Command>
+		<Command name="УстановитьФлажки" id="202">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все строки для обработки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьФлажки</Action>
+		</Command>
+		<Command name="СнятьФлажки" id="203">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки со всех строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СнятьФлажки</Action>
+		</Command>
+	</Commands>
+</Form>

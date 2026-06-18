@@ -4,7 +4,7 @@
 		<ChildItems>
 			<Button name="ФормаОбработкаGDS_ПечатьЗапровочныхВедомостейПечатьБланковЗапровочныхВедомостей" id="49">
 				<Type>CommandBarButton</Type>
-				<CommandName>DataProcessor.GDS_ПечатьЗапровочныхВедомостей.Command.БланкиЗапровочныхВедомостей</CommandName>
+				<CommandName>DataProcessor.GDS_ПечатьЗапровочныхВедомостей.Command.ПакетнаяВыпискаЗаправочныхВедомостей</CommandName>
 				<ExtendedTooltip name="ФормаОбработкаGDS_ПечатьЗапровочныхВедомостейПечатьБланковЗапровочныхВедомостейРасширеннаяПодсказка" id="50"/>
 			</Button>
 		</ChildItems>
@@ -78,6 +78,26 @@
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<PictureField name="ЕстьФайлы" id="63">
+					<DataPath>Список.ЕстьФайлы</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Файлы</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.Attach</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<ValuesPicture>
+						<xr:Ref>StdPicture.Attach</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="ЕстьФайлыКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="ЕстьФайлыРасширеннаяПодсказка" id="65"/>
+				</PictureField>
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
@@ -94,6 +114,14 @@
 					<ContextMenu name="НомерВходящийКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="НомерВходящийРасширеннаяПодсказка" id="33"/>
 				</LabelField>
+				<LabelField name="НомерПорядковый" id="54">
+					<DataPath>Список.НомерПорядковый</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="НомерПорядковыйКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="НомерПорядковыйРасширеннаяПодсказка" id="56"/>
+				</LabelField>
 				<LabelField name="ТипВедомости" id="51">
 					<DataPath>Список.ТипВедомости</DataPath>
 					<ContextMenu name="ТипВедомостиКонтекстноеМеню" id="52"/>
@@ -104,15 +132,20 @@
 					<ContextMenu name="АЗСКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="АЗСРасширеннаяПодсказка" id="24"/>
 				</LabelField>
+				<LabelField name="Контрагент" id="60">
+					<DataPath>Список.Контрагент</DataPath>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="62"/>
+				</LabelField>
 				<LabelField name="ГСМ" id="25">
 					<DataPath>Список.ГСМ</DataPath>
 					<ContextMenu name="ГСМКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="ГСМРасширеннаяПодсказка" id="27"/>
 				</LabelField>
-				<LabelField name="Локация" id="34">
-					<DataPath>Список.Локация</DataPath>
-					<ContextMenu name="ЛокацияКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="ЛокацияРасширеннаяПодсказка" id="36"/>
+				<LabelField name="ПУ" id="34">
+					<DataPath>Список.ПУ</DataPath>
+					<ContextMenu name="ПУКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ПУРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="КоличествоВсего" id="28">
 					<DataPath>Список.КоличествоВсего</DataPath>
@@ -134,12 +167,14 @@
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="47"/>
 					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="48"/>
 				</LabelField>
-				<InputField name="Ссылка" id="40">
-					<DataPath>Список.Ссылка</DataPath>
-					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-					<ContextMenu name="СсылкаКонтекстноеМеню" id="41"/>
-					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="42"/>
-				</InputField>
+				<LabelField name="Организация" id="57">
+					<DataPath>Список.Организация</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="59"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -149,6 +184,9 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>false</DynamicDataRead>
@@ -163,7 +201,7 @@
 	Документ_ЗаправочнаяВедомость.Комментарий КАК Комментарий,
 	Документ_ЗаправочнаяВедомость.НомерВходящий КАК НомерВходящий,
 	Документ_ЗаправочнаяВедомость.КоличествоВсего КАК КоличествоВсего,
-	Документ_ЗаправочнаяВедомость.Локация КАК Локация,
+	Документ_ЗаправочнаяВедомость.ПУ КАК ПУ,
 	Документ_ЗаправочнаяВедомость.МОЛ КАК МОЛ,
 	Документ_ЗаправочнаяВедомость.Заправки.(
 		Ссылка КАК Ссылка,
@@ -179,7 +217,11 @@
 	) КАК Заправки,
 	Документ_ЗаправочнаяВедомость.МоментВремени КАК МоментВремени,
 	ВложенныйЗапрос.КоличествоПЛ КАК КоличествоПЛ,
-	Документ_ЗаправочнаяВедомость.ТипВедомости КАК ТипВедомости
+	Документ_ЗаправочнаяВедомость.ТипВедомости КАК ТипВедомости,
+	Документ_ЗаправочнаяВедомость.НомерПорядковый КАК НомерПорядковый,
+	Документ_ЗаправочнаяВедомость.Контрагент КАК Контрагент,
+	Документ_ЗаправочнаяВедомость.Организация КАК Организация,
+	ЕСТЬNULL(НаличиеФайлов.ЕстьФайлы, ЛОЖЬ) КАК ЕстьФайлы
 ИЗ
 	Документ.GDS_ЗаправочнаяВедомость КАК Документ_ЗаправочнаяВедомость
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
@@ -190,14 +232,16 @@
 		
 		СГРУППИРОВАТЬ ПО
 			_ЗаправочнаяВедомостьЗаправки.Ссылка) КАК ВложенныйЗапрос
-		ПО Документ_ЗаправочнаяВедомость.Ссылка = ВложенныйЗапрос.Ссылка</QueryText>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>ТипВедомости</dcssch:dataPath>
-					<dcssch:field>ТипВедомости</dcssch:field>
-				</Field>
+		ПО Документ_ЗаправочнаяВедомость.Ссылка = ВложенныйЗапрос.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеФайлов КАК НаличиеФайлов
+		ПО Документ_ЗаправочнаяВедомость.Ссылка = НаличиеФайлов.ОбъектСФайлами</QueryText>
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>Ссылка</dcssch:dataPath>
 					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Основание</dcssch:dataPath>
+					<dcssch:field>Основание</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>Комментарий</dcssch:dataPath>
@@ -236,6 +280,10 @@
 					<dcssch:field>Заправки.ПЛ</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПУ</dcssch:dataPath>
+					<dcssch:field>ПУ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>НомерВходящий</dcssch:dataPath>
 					<dcssch:field>НомерВходящий</dcssch:field>
 				</Field>
@@ -246,10 +294,6 @@
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>КоличествоВсего</dcssch:dataPath>
 					<dcssch:field>КоличествоВсего</dcssch:field>
-				</Field>
-				<Field xsi:type="dcssch:DataSetFieldField">
-					<dcssch:dataPath>Локация</dcssch:dataPath>
-					<dcssch:field>Локация</dcssch:field>
 				</Field>
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>МОЛ</dcssch:dataPath>
@@ -294,6 +338,40 @@
 				<Field xsi:type="dcssch:DataSetFieldField">
 					<dcssch:dataPath>КоличествоПЛ</dcssch:dataPath>
 					<dcssch:field>КоличествоПЛ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТипВедомости</dcssch:dataPath>
+					<dcssch:field>ТипВедомости</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Контрагент</dcssch:dataPath>
+					<dcssch:field>Контрагент</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>НомерПорядковый</dcssch:dataPath>
+					<dcssch:field>НомерПорядковый</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проверена</dcssch:dataPath>
+					<dcssch:field>Проверена</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ответственный</dcssch:dataPath>
+					<dcssch:field>Ответственный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьФайлы</dcssch:dataPath>
+					<dcssch:field>ЕстьФайлы</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть файлы</v8:content>
+						</v8:item>
+					</dcssch:title>
 				</Field>
 				<MainTable>Document.GDS_ЗаправочнаяВедомость</MainTable>
 				<ListSettings>

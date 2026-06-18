@@ -7,7 +7,7 @@
 		<ChildItems>
 			<Button name="ФормаОбработкаGDS_ПечатьЗапровочныхВедомостейПечатьБланковЗапровочныхВедомостей" id="94">
 				<Type>CommandBarButton</Type>
-				<CommandName>DataProcessor.GDS_ПечатьЗапровочныхВедомостей.Command.БланкиЗапровочныхВедомостей</CommandName>
+				<CommandName>DataProcessor.GDS_ПечатьЗапровочныхВедомостей.Command.ПакетнаяВыпискаЗаправочныхВедомостей</CommandName>
 				<ExtendedTooltip name="ФормаОбработкаGDS_ПечатьЗапровочныхВедомостейПечатьБланковЗапровочныхВедомостейРасширеннаяПодсказка" id="95"/>
 			</Button>
 			<Button name="ПерезаполнитьКоличествоПоПЛ" id="52">
@@ -50,6 +50,8 @@
 				<InputField name="Номер" id="1">
 					<DataPath>Объект.Number</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<Width>15</Width>
+					<HorizontalStretch>false</HorizontalStretch>
 					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
 				</InputField>
@@ -95,6 +97,9 @@
 			</ChoiceList>
 			<ContextMenu name="ТипВедомостиКонтекстноеМеню" id="100"/>
 			<ExtendedTooltip name="ТипВедомостиРасширеннаяПодсказка" id="101"/>
+			<Events>
+				<Event name="OnChange">ТипВедомостиПриИзменении</Event>
+			</Events>
 		</RadioButtonField>
 		<UsualGroup name="Группа2" id="65">
 			<Behavior>Usual</Behavior>
@@ -117,10 +122,16 @@
 								<Event name="OnChange">АЗСПриИзменении</Event>
 							</Events>
 						</InputField>
-						<InputField name="Локация" id="67">
-							<DataPath>Объект.Локация</DataPath>
-							<ContextMenu name="ЛокацияКонтекстноеМеню" id="68"/>
-							<ExtendedTooltip name="ЛокацияРасширеннаяПодсказка" id="69"/>
+						<InputField name="Контрагент" id="108">
+							<DataPath>Объект.Контрагент</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="КонтрагентКонтекстноеМеню" id="109"/>
+							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="110"/>
+						</InputField>
+						<InputField name="ПУ" id="67">
+							<DataPath>Объект.ПУ</DataPath>
+							<ContextMenu name="ПУКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ПУРасширеннаяПодсказка" id="69"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -130,6 +141,12 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="107"/>
 					<ChildItems>
+						<InputField name="Организация" id="117">
+							<DataPath>Объект.Организация</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="118"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="119"/>
+						</InputField>
 						<InputField name="МОЛ" id="80">
 							<DataPath>Объект.МОЛ</DataPath>
 							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
@@ -236,13 +253,13 @@
 					<ExtendedTooltip name="ЗаправкиТСРасширеннаяПодсказка" id="31"/>
 				</InputField>
 				<LabelField name="ЗаправкиТСГосударственныйНомер" id="54">
-					<DataPath>Объект.Заправки.ТС.ГосударственныйНомер</DataPath>
+					<DataPath>1/0:99abc48e-bc02-4f89-bf29-8b6700b98b47/0:eed2ee7e-a9ed-4b53-ad94-5e82fa0eb14f/0:2f41c053-dbc5-4121-8b5b-df176da34066</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ЗаправкиТСГосударственныйНомерКонтекстноеМеню" id="55"/>
 					<ExtendedTooltip name="ЗаправкиТСГосударственныйНомерРасширеннаяПодсказка" id="56"/>
 				</LabelField>
 				<InputField name="ЗаправкиСклад" id="96">
-					<DataPath>Объект.Заправки.Склад</DataPath>
+					<DataPath>1/0:99abc48e-bc02-4f89-bf29-8b6700b98b47/0:2369479d-2e29-4923-ade6-6c22b900bdff</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
 					<ContextMenu name="ЗаправкиСкладКонтекстноеМеню" id="97"/>
@@ -348,6 +365,21 @@
 					<ContextMenu name="ИтогПоКгКонтекстноеМеню" id="78"/>
 					<ExtendedTooltip name="ИтогПоКгРасширеннаяПодсказка" id="79"/>
 				</LabelField>
+				<InputField name="Ответственный" id="111">
+					<DataPath>Объект.Ответственный</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="113"/>
+				</InputField>
+				<CheckBoxField name="Проверена" id="114">
+					<DataPath>Объект.Проверена</DataPath>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="ПроверенаКонтекстноеМеню" id="115"/>
+					<ExtendedTooltip name="ПроверенаРасширеннаяПодсказка" id="116"/>
+					<Events>
+						<Event name="OnChange">ПроверенаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>

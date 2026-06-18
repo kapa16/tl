@@ -131,16 +131,26 @@
 			</SearchControlAddition>
 			<ChildItems>
 				<LabelField name="Дата" id="16">
-					<DataPath>Список.Date</DataPath>
+					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
 				</LabelField>
 				<LabelField name="Номер" id="19">
-					<DataPath>Список.Number</DataPath>
+					<DataPath>Список.Номер</DataPath>
 					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
 				</LabelField>
+				<PictureField name="ЕстьПроблема" id="132">
+					<DataPath>Список.ЕстьПроблема</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.GDS_ПиктограммаПроверки</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="ЕстьПроблемаКонтекстноеМеню" id="133"/>
+					<ExtendedTooltip name="ЕстьПроблемаРасширеннаяПодсказка" id="134"/>
+				</PictureField>
 				<LabelField name="ДатаОсмотра" id="31">
 					<DataPath>Список.ДатаОсмотра</DataPath>
 					<ContextMenu name="ДатаОсмотраКонтекстноеМеню" id="32"/>
@@ -208,7 +218,7 @@
 					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="113"/>
 				</LabelField>
 				<LabelField name="Ссылка" id="105">
-					<DataPath>Список.Ref</DataPath>
+					<DataPath>Список.Ссылка</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -225,11 +235,180 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<UseAlways>
-				<Field>Список.Ref</Field>
+				<Field>Список.Ссылка</Field>
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументGDS_АктПриемаПередачиТС.Дата КАК Дата,
+	ДокументGDS_АктПриемаПередачиТС.Номер КАК Номер,
+	ДокументGDS_АктПриемаПередачиТС.ДатаОсмотра КАК ДатаОсмотра,
+	ДокументGDS_АктПриемаПередачиТС.Организация КАК Организация,
+	ДокументGDS_АктПриемаПередачиТС.ТС КАК ТС,
+	ДокументGDS_АктПриемаПередачиТС.Одометр КАК Одометр,
+	ДокументGDS_АктПриемаПередачиТС.ОстатокТоплива КАК ОстатокТоплива,
+	ДокументGDS_АктПриемаПередачиТС.Замечания КАК Замечания,
+	ДокументGDS_АктПриемаПередачиТС.ПримечаниеКСостояниюПрицепа КАК ПримечаниеКСостояниюПрицепа,
+	ДокументGDS_АктПриемаПередачиТС.СтрокаПринял КАК СтрокаПринял,
+	ДокументGDS_АктПриемаПередачиТС.СтрокаПрицеп КАК СтрокаПрицеп,
+	ДокументGDS_АктПриемаПередачиТС.ПУ КАК ПУ,
+	ДокументGDS_АктПриемаПередачиТС.Подразделение КАК Подразделение,
+	ДокументGDS_АктПриемаПередачиТС.Комментарий КАК Комментарий,
+	ДокументGDS_АктПриемаПередачиТС.Ответственный КАК Ответственный,
+	ВЫБОР
+		КОГДА ДокументGDS_АктПриемаПередачиТС.ИсправностьТС
+			ТОГДА 1
+		ИНАЧЕ 2
+	КОНЕЦ КАК ЕстьПроблема
+ИЗ
+	Документ.GDS_АктПриемаПередачиТС КАК ДокументGDS_АктПриемаПередачиТС</QueryText>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ссылка</dcssch:dataPath>
+					<dcssch:field>Ссылка</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Номер</dcssch:dataPath>
+					<dcssch:field>Номер</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Подразделение</dcssch:dataPath>
+					<dcssch:field>Подразделение</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПробегПрицеп</dcssch:dataPath>
+					<dcssch:field>ПробегПрицеп</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Проведен</dcssch:dataPath>
+					<dcssch:field>Проведен</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПометкаУдаления</dcssch:dataPath>
+					<dcssch:field>ПометкаУдаления</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Дата</dcssch:dataPath>
+					<dcssch:field>Дата</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Организация</dcssch:dataPath>
+					<dcssch:field>Организация</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ДатаОсмотра</dcssch:dataPath>
+					<dcssch:field>ДатаОсмотра</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Платон</dcssch:dataPath>
+					<dcssch:field>Платон</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ТС</dcssch:dataPath>
+					<dcssch:field>ТС</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Прицеп</dcssch:dataPath>
+					<dcssch:field>Прицеп</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Сдал</dcssch:dataPath>
+					<dcssch:field>Сдал</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПУ</dcssch:dataPath>
+					<dcssch:field>ПУ</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Принял</dcssch:dataPath>
+					<dcssch:field>Принял</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОсмотрПровел</dcssch:dataPath>
+					<dcssch:field>ОсмотрПровел</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Ответственный</dcssch:dataPath>
+					<dcssch:field>Ответственный</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Комментарий</dcssch:dataPath>
+					<dcssch:field>Комментарий</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОстатокТоплива</dcssch:dataPath>
+					<dcssch:field>ОстатокТоплива</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Одометр</dcssch:dataPath>
+					<dcssch:field>Одометр</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Замечания</dcssch:dataPath>
+					<dcssch:field>Замечания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ОтветственныеЛица</dcssch:dataPath>
+					<dcssch:field>ОтветственныеЛица</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ПримечаниеКСостояниюПрицепа</dcssch:dataPath>
+					<dcssch:field>ПримечаниеКСостояниюПрицепа</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>Пробег</dcssch:dataPath>
+					<dcssch:field>Пробег</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОдометрТО</dcssch:dataPath>
+					<dcssch:field>ОдометрТО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОстатокТопливаПрицеп</dcssch:dataPath>
+					<dcssch:field>ОстатокТопливаПрицеп</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОдометрПрицеп</dcssch:dataPath>
+					<dcssch:field>ОдометрПрицеп</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ОдометрПрицепТО</dcssch:dataPath>
+					<dcssch:field>ОдометрПрицепТО</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ФорматированноеОписание</dcssch:dataPath>
+					<dcssch:field>ФорматированноеОписание</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтрокаПринял</dcssch:dataPath>
+					<dcssch:field>СтрокаПринял</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>СтрокаПрицеп</dcssch:dataPath>
+					<dcssch:field>СтрокаПрицеп</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьЗамечания</dcssch:dataPath>
+					<dcssch:field>ЕстьЗамечания</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldNestedDataSet">
+					<dcssch:dataPath>ЭлементыПроверки</dcssch:dataPath>
+					<dcssch:field>ЭлементыПроверки</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>МоментВремени</dcssch:dataPath>
+					<dcssch:field>МоментВремени</dcssch:field>
+				</Field>
+				<Field xsi:type="dcssch:DataSetFieldField">
+					<dcssch:dataPath>ЕстьПроблема</dcssch:dataPath>
+					<dcssch:field>ЕстьПроблема</dcssch:field>
+					<dcssch:title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Есть проблема</v8:content>
+						</v8:item>
+					</dcssch:title>
+				</Field>
 				<MainTable>Document.GDS_АктПриемаПередачиТС</MainTable>
 				<ListSettings>
 					<dcsset:filter>

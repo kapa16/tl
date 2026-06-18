@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаПечать" id="10">
@@ -14,28 +15,261 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
-		<InputField name="ТипВедомости" id="1">
-			<DataPath>Объект.ТипВедомости</DataPath>
-			<EditMode>EnterOnInput</EditMode>
+		<InputField name="Организация" id="76">
+			<DataPath>Объект.Организация</DataPath>
 			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-			<ContextMenu name="ТипВедомостиКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="ТипВедомостиРасширеннаяПодсказка" id="3"/>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="77"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="78"/>
 		</InputField>
-		<InputField name="АЗС" id="4">
-			<DataPath>Объект.АЗС</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-			<ContextMenu name="АЗСКонтекстноеМеню" id="5"/>
-			<ExtendedTooltip name="АЗСРасширеннаяПодсказка" id="6"/>
-		</InputField>
-		<InputField name="Контрагент" id="7">
-			<DataPath>Объект.Контрагент</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
-			<ContextMenu name="КонтрагентКонтекстноеМеню" id="8"/>
-			<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="9"/>
-		</InputField>
+		<UsualGroup name="Группа3" id="71">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="72"/>
+			<ChildItems>
+				<InputField name="АЗС" id="4">
+					<DataPath>Объект.АЗС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="АЗСКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="АЗСРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">АЗСПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДатаВедомостей" id="73">
+					<DataPath>Объект.ДатаВедомостей</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ДатаВедомостейКонтекстноеМеню" id="74"/>
+					<ExtendedTooltip name="ДатаВедомостейРасширеннаяПодсказка" id="75"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПриходные" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приходные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа приходные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаПриходныеРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="64">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="65"/>
+					<ChildItems>
+						<CheckBoxField name="СоздатьПриходнуюВедомость" id="14">
+							<DataPath>Объект.СоздатьПриходнуюВедомость</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Создать</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="СоздатьПриходнуюВедомостьКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="СоздатьПриходнуюВедомостьРасширеннаяПодсказка" id="16"/>
+						</CheckBoxField>
+						<InputField name="КоличествоПриходныхВедомостей" id="17">
+							<DataPath>Объект.КоличествоПриходныхВедомостей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Количество</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="КоличествоПриходныхВедомостейКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="КоличествоПриходныхВедомостейРасширеннаяПодсказка" id="19"/>
+						</InputField>
+						<InputField name="ПоследнийНомерПриходнойВедомостей" id="20">
+							<DataPath>Объект.ПоследнийНомерПриходнойВедомостей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Последний номер</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПоследнийНомерПриходнойВедомостейКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ПоследнийНомерПриходнойВедомостейРасширеннаяПодсказка" id="22"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПереливные" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переливные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа переливные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПереливныеРасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<UsualGroup name="Группа2" id="66">
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="67"/>
+					<ChildItems>
+						<CheckBoxField name="СоздатьПереливнуюВедомость" id="25">
+							<DataPath>Объект.СоздатьПереливнуюВедомость</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Создать</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="СоздатьПереливнуюВедомостьКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="СоздатьПереливнуюВедомостьРасширеннаяПодсказка" id="27"/>
+						</CheckBoxField>
+						<InputField name="КоличествоПереливныхВедомостей" id="28">
+							<DataPath>Объект.КоличествоПереливныхВедомостей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Количество</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="КоличествоПереливныхВедомостейКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="КоличествоПереливныхВедомостейРасширеннаяПодсказка" id="30"/>
+						</InputField>
+						<InputField name="ПоследнийНомерПереливнойВедомостей" id="31">
+							<DataPath>Объект.ПоследнийНомерПереливнойВедомостей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Последний номер</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПоследнийНомерПереливнойВедомостейКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ПоследнийНомерПереливнойВедомостейРасширеннаяПодсказка" id="33"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЗаправочные" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заправочные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа заправочные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаЗаправочныеРасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<CheckBoxField name="СоздатьЗаправочнуюВедомость" id="36">
+					<DataPath>Объект.СоздатьЗаправочнуюВедомость</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Создать</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="СоздатьЗаправочнуюВедомостьКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="СоздатьЗаправочнуюВедомостьРасширеннаяПодсказка" id="38"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ЗаправочныеВедомости" id="39">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ЗаправочныеВедомости</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗаправочныеВедомостиКонтекстноеМеню" id="40"/>
+			<AutoCommandBar name="ЗаправочныеВедомостиКоманднаяПанель" id="41"/>
+			<ExtendedTooltip name="ЗаправочныеВедомостиРасширеннаяПодсказка" id="42"/>
+			<SearchStringAddition name="ЗаправочныеВедомостиСтрокаПоиска" id="43">
+				<AdditionSource>
+					<Item>ЗаправочныеВедомости</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаправочныеВедомостиСтрокаПоискаКонтекстноеМеню" id="44"/>
+				<ExtendedTooltip name="ЗаправочныеВедомостиСтрокаПоискаРасширеннаяПодсказка" id="45"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаправочныеВедомостиСостояниеПросмотра" id="46">
+				<AdditionSource>
+					<Item>ЗаправочныеВедомости</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаправочныеВедомостиСостояниеПросмотраКонтекстноеМеню" id="47"/>
+				<ExtendedTooltip name="ЗаправочныеВедомостиСостояниеПросмотраРасширеннаяПодсказка" id="48"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаправочныеВедомостиУправлениеПоиском" id="49">
+				<AdditionSource>
+					<Item>ЗаправочныеВедомости</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаправочныеВедомостиУправлениеПоискомКонтекстноеМеню" id="50"/>
+				<ExtendedTooltip name="ЗаправочныеВедомостиУправлениеПоискомРасширеннаяПодсказка" id="51"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗаправочныеВедомостиНомерСтроки" id="52">
+					<DataPath>Объект.ЗаправочныеВедомости.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаправочныеВедомостиНомерСтрокиКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ЗаправочныеВедомостиНомерСтрокиРасширеннаяПодсказка" id="54"/>
+				</LabelField>
+				<InputField name="ЗаправочныеВедомостиКонтрагент" id="55">
+					<DataPath>Объект.ЗаправочныеВедомости.Контрагент</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаправочныеВедомостиКонтрагентКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ЗаправочныеВедомостиКонтрагентРасширеннаяПодсказка" id="57"/>
+					<Events>
+						<Event name="OnChange">ЗаправочныеВедомостиКонтрагентПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ЗаправочныеВедомостиКоличество" id="58">
+					<DataPath>Объект.ЗаправочныеВедомости.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаправочныеВедомостиКоличествоКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ЗаправочныеВедомостиКоличествоРасширеннаяПодсказка" id="60"/>
+				</InputField>
+				<InputField name="ЗаправочныеВедомостиПоследнийНомер" id="61">
+					<DataPath>Объект.ЗаправочныеВедомости.ПоследнийНомер</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаправочныеВедомостиПоследнийНомерКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ЗаправочныеВедомостиПоследнийНомерРасширеннаяПодсказка" id="63"/>
+				</InputField>
+			</ChildItems>
+		</Table>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -43,6 +277,22 @@
 				<v8:Type>cfg:DataProcessorObject.GDS_ПечатьЗапровочныхВедомостей</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>1/0:32eb073a-297d-4cb3-bf83-8fb7b35bde2c</Field>
+				<Field>1/0:a231df3b-f851-4870-9a35-fd5fcf2164f3</Field>
+				<Field>Объект.Организация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ЗакрытьФорму" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть форму</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>

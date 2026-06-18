@@ -308,6 +308,7 @@
 			<Subsystem>GDS_Дополнительно</Subsystem>
 			<Subsystem>GDS_ИнтеграцияС1СДокументооборотом</Subsystem>
 			<Subsystem>GDS_ОбменДанными</Subsystem>
+			<Subsystem>GDS_РаспознаваниеВходящихПисем</Subsystem>
 			<Subsystem>ItobСпутниковыйМониторинг</Subsystem>
 			<Subsystem>ItobЦентрСпутниковогоМониторинга</Subsystem>
 			<Subsystem>Администрирование</Subsystem>
@@ -2149,6 +2150,7 @@
 			<CommonPicture>ЯндексДиск</CommonPicture>
 			<CommonPicture>ЯндексКарты</CommonPicture>
 			<CommonPicture>GDS_ОбменДанными</CommonPicture>
+			<CommonPicture>GDS_ПиктограммаПроверки</CommonPicture>
 			<SessionParameter>ItobАдресCsmSvc</SessionParameter>
 			<SessionParameter>АвторизованныйПользователь</SessionParameter>
 			<SessionParameter>АдресСервераЛицензирования</SessionParameter>
@@ -2239,10 +2241,14 @@
 			<SessionParameter>уатПодсистемаУАТинициализирована</SessionParameter>
 			<SessionParameter>УстановленныеРасширения</SessionParameter>
 			<Role>GDS_Бухгалтерия</Role>
+			<Role>GDS_ДобавлениеИзменениеДоставкаГСМ_РаспределениеДоходовПоТС</Role>
+			<Role>GDS_ДобавлениеИзменениеЗаправочныхВедомостей</Role>
 			<Role>GDS_ИзменениеПараметровТС</Role>
 			<Role>GDS_ИнтерфейсДляМехаников</Role>
 			<Role>GDS_МониторингАвтограф</Role>
+			<Role>GDS_ПросмотрОтчетаСличительнаяВедомостьГСМ</Role>
 			<Role>GDS_ПросмотрОтчетаСписокТСнаРемонте</Role>
+			<Role>GDS_РасширениеРолиДиспетчер_Ситэк</Role>
 			<Role>GDS_РасширениеРолиДиспечер</Role>
 			<Role>GDS_РегистрациИзмененийВПланыОбменаНеТиповые</Role>
 			<Role>GDS_РедактированиеЗакрытыхРЛ</Role>
@@ -2582,7 +2588,6 @@
 			<Role>ЧтениеШаблоновСообщений</Role>
 			<Role>ЧтениеЭлектронныхДокументов</Role>
 			<Role>ШифрованиеИРасшифровкаДанных</Role>
-			<Role>GDS_ДобавлениеИзменениеЗаправочныхВедомостей</Role>
 			<CommonTemplate>ItobCsmHandler</CommonTemplate>
 			<CommonTemplate>ItobWebЦвета</CommonTemplate>
 			<CommonTemplate>ItobКарта</CommonTemplate>
@@ -2698,14 +2703,19 @@
 			<CommonTemplate>уатХранилищеЗащищеннойОбработки</CommonTemplate>
 			<CommonTemplate>уатХранилищеЗащищеннойОбработкиКОРП_уэ</CommonTemplate>
 			<CommonTemplate>ШтампЭлектроннойПодписиOfficeOpen</CommonTemplate>
+			<CommonTemplate>GDS_МаршрутныйЛист</CommonTemplate>
 			<FilterCriterion>ДокументыПоДоговоруКонтрагента</FilterCriterion>
 			<FilterCriterion>СвязанныеДокументы</FilterCriterion>
 			<FilterCriterion>уатВагоныВДиспозицииИНатурныхЛистах</FilterCriterion>
 			<FilterCriterion>GDS_ДокументыПоАктамПриемаПередачиТС</FilterCriterion>
 			<FilterCriterion>уатТСВЗаправкеГСМ</FilterCriterion>
 			<CommonModule>GDS_HTTPКоннектор</CommonModule>
+			<CommonModule>GDS_VLMНормализацияДанных</CommonModule>
+			<CommonModule>GDS_VLMПромптыРаспознаванияВедомостей</CommonModule>
+			<CommonModule>GDS_VLMРазборJSON</CommonModule>
 			<CommonModule>GDS_АПП</CommonModule>
 			<CommonModule>GDS_ДополнительныеФункции</CommonModule>
+			<CommonModule>GDS_ЗаполнениеВедомостиПоРаспознаванию</CommonModule>
 			<CommonModule>GDS_ЗапретНаВходВПрограммуУволеннымРаботникам</CommonModule>
 			<CommonModule>GDS_ИнтеграцияС1СДокументооборот3</CommonModule>
 			<CommonModule>GDS_КоннекторАПП</CommonModule>
@@ -2715,6 +2725,7 @@
 			<CommonModule>GDS_РаботаСПодпискамиНаСобытие</CommonModule>
 			<CommonModule>GDS_РаботаСФормами</CommonModule>
 			<CommonModule>GDS_РаботаСФормитированнымОписаниемСервер</CommonModule>
+			<CommonModule>GDS_РаспознаваниеВходящихПисем</CommonModule>
 			<CommonModule>GDS_РемонтныеЛисты</CommonModule>
 			<CommonModule>GDS_УправлениеПечатью</CommonModule>
 			<CommonModule>GDS_УправлениеСвойствами</CommonModule>
@@ -4023,6 +4034,7 @@
 			<CommonAttribute>ОтредактированныеПредопределенныеРеквизиты</CommonAttribute>
 			<ExchangePlan>GDS_ОбменСБухгалтерией</ExchangePlan>
 			<ExchangePlan>GDS_ОбменСЗарплатой</ExchangePlan>
+			<ExchangePlan>GDS_ОбменСТранспортнойЛогистикой</ExchangePlan>
 			<ExchangePlan>GDS_ОбменСУАТ</ExchangePlan>
 			<ExchangePlan>ItobЗаполнениеПоДаннымТрекеров</ExchangePlan>
 			<ExchangePlan>ИнтеграцияС1СДокументооборотомПереопределяемый</ExchangePlan>
@@ -4030,7 +4042,6 @@
 			<ExchangePlan>ОбновлениеИнформационнойБазы</ExchangePlan>
 			<ExchangePlan>СинхронизацияДанныхЧерезУниверсальныйФормат</ExchangePlan>
 			<ExchangePlan>уатПолный</ExchangePlan>
-			<ExchangePlan>GDS_ОбменСТранспортнойЛогистикой</ExchangePlan>
 			<XDTOPackage>ApdexExport</XDTOPackage>
 			<XDTOPackage>ApdexExport_1_0_0_2</XDTOPackage>
 			<XDTOPackage>ApdexExport_1_0_0_3</XDTOPackage>
@@ -4335,14 +4346,16 @@
 			<EventSubscription>УстановитьСтатусИзмененияПометкиУдаленияОбъекта</EventSubscription>
 			<EventSubscription>УстановитьСтатусИзмененияПометкиУдаленияПользователя</EventSubscription>
 			<EventSubscription>GDS_ЗаписьуатРемонтныйЛист</EventSubscription>
-			<ScheduledJob>GDS_ОбменСТранспортнойЛогистикой</ScheduledJob>
 			<ScheduledJob>GDS_ЗагрузкаДанныхИзСервисаАПП</ScheduledJob>
 			<ScheduledJob>GDS_ЗаполнитьДанныеАвтографПоТС</ScheduledJob>
 			<ScheduledJob>GDS_ЗаполнитьЕжеденевныеДанныеПоТСИзАвтограф</ScheduledJob>
 			<ScheduledJob>GDS_ЗапретНаВходВПрограммуУволеннымРаботникам</ScheduledJob>
 			<ScheduledJob>GDS_ОбменСБухгалтерией</ScheduledJob>
+			<ScheduledJob>GDS_ОбменСТранспортнойЛогистикой</ScheduledJob>
 			<ScheduledJob>GDS_ОбменСУАТ</ScheduledJob>
 			<ScheduledJob>GDS_ОбновлениеОбработокИзДокументооборота</ScheduledJob>
+			<ScheduledJob>GDS_ОбработатьВходящиеПисьмаРаспознать</ScheduledJob>
+			<ScheduledJob>GDS_ОбработатьОчередьРаспознавания</ScheduledJob>
 			<ScheduledJob>GDS_СозданиеАктовПриемаПередачи</ScheduledJob>
 			<ScheduledJob>ItobВыполнениеНазначеннойКоманды</ScheduledJob>
 			<ScheduledJob>ItobЗаполнениеЗаправочныхВедомостей</ScheduledJob>
@@ -5687,11 +5700,13 @@
 			<CommonForm>ФормаСообщениеБРД</CommonForm>
 			<CommonForm>ФормаЦеныИВалюта</CommonForm>
 			<CommonForm>ЭлектроннаяПодпись</CommonForm>
+			<Catalog>GDS_ВидУслуг</Catalog>
 			<Catalog>GDS_ВидыРабот</Catalog>
 			<Catalog>GDS_ЗаправочнаяВедомостьПрисоединенныеФайлы</Catalog>
 			<Catalog>GDS_Кусты</Catalog>
 			<Catalog>GDS_Месторождения</Catalog>
 			<Catalog>GDS_ОперацииПоЗавозуВывозуТехводы</Catalog>
+			<Catalog>GDS_ПУ_Расширенный</Catalog>
 			<Catalog>GDS_ПунктыПроверкиТС</Catalog>
 			<Catalog>GDS_РезультатыВыполненияТочкиМаршрутаОбработкиДО</Catalog>
 			<Catalog>GDS_Скважины</Catalog>
@@ -6005,6 +6020,7 @@
 			<Document>GDS_АктПриемаПередачиТС</Document>
 			<Document>GDS_ВыгрузкаГСМиТЖ</Document>
 			<Document>GDS_ДанныеИзАвтограф</Document>
+			<Document>GDS_ДоставкаГСМ_РаспределениеДоходовПоТС</Document>
 			<Document>GDS_ЗаправочнаяВедомость</Document>
 			<Document>GDS_МаршрутныйЛист</Document>
 			<Document>GDS_МестонахождениеТехники</Document>
@@ -6623,6 +6639,15 @@
 			<Enum>ЦветаСвойств</Enum>
 			<Enum>ЦветностиИзображения</Enum>
 			<Enum>ЮридическоеФизическоеЛицо</Enum>
+			<Enum>GDS_СостояниеТСПоАПП</Enum>
+			<Report>GDS_ИсторияОсмотровТС</Report>
+			<Report>GDS_ИтоговыйОтчетПоГСМ</Report>
+			<Report>GDS_КонтрольАктовПриемаПередачиТС</Report>
+			<Report>GDS_РемонтныеЛистыНаСогласовании</Report>
+			<Report>GDS_СличительнаяВедомостьГСМ</Report>
+			<Report>GDS_СогласованныеРемЛисты</Report>
+			<Report>GDS_СписокТСнаРемонте</Report>
+			<Report>GDS_СравнениеЗаправокИОтчетовПоставщика</Report>
 			<Report>ItobАнализПосещенияГеографическихЗон</Report>
 			<Report>ItobАнализРасходаТоплива</Report>
 			<Report>ItobВизуализацияКалибровочногоГрафика</Report>
@@ -6872,7 +6897,6 @@
 			<Report>уатТекущиеОпоздания</Report>
 			<Report>уатТекущийПробегРасходПоМониторингу</Report>
 			<Report>уатТендеры_уэ</Report>
-			<Report>GDS_СогласованныеРемЛисты</Report>
 			<Report>уатУстановленныеНаТСАгрегаты</Report>
 			<Report>уатУстановленныеНаТСКузовныеЭлементы</Report>
 			<Report>уатУстановленныеНаТСЭлементыКомплектации_уэ</Report>
@@ -6882,15 +6906,11 @@
 			<Report>УниверсальныйОтчет</Report>
 			<Report>УчастникиГруппДоступа</Report>
 			<Report>УчастникиГруппПользователей</Report>
-			<Report>GDS_РемонтныеЛистыНаСогласовании</Report>
-			<Report>GDS_КонтрольАктовПриемаПередачиТС</Report>
-			<Report>GDS_СписокТСнаРемонте</Report>
-			<Report>GDS_ИсторияОсмотровТС</Report>
-			<Report>GDS_ИтоговыйОтчетПоГСМ</Report>
-			<Report>GDS_СравнениеЗаправокИОтчетовПоставщика</Report>
+			<DataProcessor>GDS_ЗагрузкаЗаправочныхВедомостей</DataProcessor>
 			<DataProcessor>GDS_ПанельНастроек</DataProcessor>
 			<DataProcessor>GDS_ПечатьЗапровочныхВедомостей</DataProcessor>
 			<DataProcessor>GDS_ПолучениеДанныхАПП</DataProcessor>
+			<DataProcessor>GDS_РаспознаваниеИИ</DataProcessor>
 			<DataProcessor>ItobГрупповоеИзменениеНастроекОтображенияОбъектов</DataProcessor>
 			<DataProcessor>ItobИмпортНаселенныхПунктов</DataProcessor>
 			<DataProcessor>ItobОчисткаКешаГеокодера</DataProcessor>
@@ -7112,10 +7132,14 @@
 			<InformationRegister>GDS_НастройкиПодключенияАПП</InformationRegister>
 			<InformationRegister>GDS_НеисправныеДУТ</InformationRegister>
 			<InformationRegister>GDS_ОбработкаВДокументообороте</InformationRegister>
+			<InformationRegister>GDS_ОчередьРаспознавания</InformationRegister>
 			<InformationRegister>GDS_ОчередьСообщенийАПП</InformationRegister>
 			<InformationRegister>GDS_ПараметрыЗапретаДоступаУволеннымСотрудникамИсключаемыеФизическиеЛица</InformationRegister>
 			<InformationRegister>GDS_ПринятыеОригиналыДокументов</InformationRegister>
+			<InformationRegister>GDS_СоответсвиеДокументовПисьмам</InformationRegister>
+			<InformationRegister>GDS_СоответствиеТСиПУПодразделению</InformationRegister>
 			<InformationRegister>GDS_СоответствияОбъектовИнформационныхБаз</InformationRegister>
+			<InformationRegister>GDS_СостояниеТСПоАПП</InformationRegister>
 			<InformationRegister>GDS_ТСИОборудование</InformationRegister>
 			<InformationRegister>GDS_ФайлыАПП</InformationRegister>
 			<InformationRegister>GDS_ЭлементыПроверки</InformationRegister>
@@ -7620,7 +7644,6 @@
 			<InformationRegister>ЭлектронныеПодписиМЧД</InformationRegister>
 			<InformationRegister>ЭлектронныеПодписиПоМЧД</InformationRegister>
 			<InformationRegister>ЭлектронныеПодписиТЭДО</InformationRegister>
-			<InformationRegister>GDS_СоответствиеТСиПУПодразделению</InformationRegister>
 			<AccumulationRegister>GDS_ДанныеЗаправочнойВедомостиИЗаправок</AccumulationRegister>
 			<AccumulationRegister>ItobВыдачиТоплива</AccumulationRegister>
 			<AccumulationRegister>ItobВыработка</AccumulationRegister>
